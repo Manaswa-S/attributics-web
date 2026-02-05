@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Container from '../../components/layout/Container';
 import { siteContent } from '../../constants/content';
 import mainCard01 from '../../assets/logo/main_01.png';
@@ -27,57 +28,91 @@ const caseStudies = [
 
 const Metrics = () => {
     const { metrics } = siteContent;
+    const [expandedCard, setExpandedCard] = useState(0);
 
     return (
-        <section id="about" className="py-16 lg:py-24">
-            <Container>
+        <section id="about" className="py-16 lg:py-24 bg-white">
+            <Container className="px-4">
                 {/* Headline */}
-                <div className="text-center mb-10 lg:mb-16">
-                    <h2 className="mx-auto max-w-full lg:max-w-[552px] font-noto text-2xl lg:text-[30px] font-medium leading-[140%] tracking-normal text-center text-[#131212]">
+                <div className="text-center mb-12 lg:mb-16">
+                    <h2 className="mx-auto max-w-2xl text-2xl lg:text-[32px] font-bold leading-snug lg:leading-tight text-center text-[#131212]">
                         {metrics.headline}{' '}
-                        <span className="text-blue-600">{metrics.highlightedText}</span>
+                        <span className="text-[#F5614D]">{metrics.highlightedText}</span>
                     </h2>
                 </div>
 
-                {/* Case Study Cards */}
-                <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-[20px]">
-                    {caseStudies.map((study, index) => (
-                        <div
-                            key={index}
-                            className="relative w-full max-w-[400px] h-[223px] rounded-[16px] overflow-hidden group cursor-pointer"
-                        >
-                            {/* Background Image */}
-                            <img
-                                src={study.image}
-                                alt={study.title}
-                                className="absolute inset-0 w-full h-full object-cover blur-[1px] transition-transform duration-500 group-hover:scale-110"
-                            />
+                {/* Case Study Cards - Responsive Layout */}
+                <div className="flex flex-col lg:flex-row justify-center items-stretch gap-5 lg:gap-5 max-w-7xl mx-auto">
+                    {caseStudies.map((study, index) => {
+                        const isExpanded = expandedCard === index;
+                        return (
+                            <div
+                                key={index}
+                                onMouseEnter={() => setExpandedCard(index)}
+                                onMouseLeave={() => setExpandedCard(0)}
+                                className={`relative rounded-[6px] border transition-all duration-500 ease-out cursor-pointer bg-white flex-shrink-0 overflow-hidden ${isExpanded
+                                    ? 'w-full lg:w-[492px] h-auto lg:h-[220px] border-[#747474] p-2 flex flex-col lg:flex-row gap-5 lg:gap-5'
+                                    : 'w-full lg:w-[235px] h-[220px] border-[#747474] hover:border-[#999] p-2'
+                                    }`}
+                            >
+                                {isExpanded ? (
+                                    <>
+                                        {/* Expanded State: Image on left, content on right */}
+                                        <div className="relative rounded-[4px] overflow-hidden transition-all duration-500 flex-shrink-0 w-full lg:w-[144px] h-[140px] lg:h-[204px]">
+                                            <img
+                                                src={study.image}
+                                                alt={study.title}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
 
-                            {/* Content Overlay */}
-                            <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                                {/* Top Content */}
-                                <div>
-                                    <h3 className="font-mono text-white text-lg tracking-wider">
-                                        {study.stat}
-                                    </h3>
-                                    <h3 className="font-mono text-white text-lg tracking-wider">
-                                        {study.title}
-                                    </h3>
-                                    <p className="text-white/80 text-sm mt-4 max-w-[280px]">
-                                        {study.description}
-                                    </p>
-                                </div>
+                                        <div className="flex-1 flex flex-col justify-between transition-all duration-500">
+                                            {/* Stats and Title */}
+                                            <div className="flex-1 flex flex-col justify-start">
+                                                <h3 className="text-[#131212] text-2xl font-normal uppercase leading-[100%]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
+                                                    {study.stat} {study.title}
+                                                </h3>
 
-                                {/* Read More Link */}
-                                <a
-                                    href="#"
-                                    className="text-white text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all"
-                                >
-                                    Read more <span>→</span>
-                                </a>
+                                                {/* Description */}
+                                                <p className="text-[#131212] text-base font-normal leading-[140%] mt-3" style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
+                                                    {study.description}
+                                                </p>
+                                            </div>
+
+                                            {/* Read More Link */}
+                                            <a
+                                                href="#"
+                                                className="text-[#131212] text-sm font-semibold flex items-center gap-1.5 hover:gap-2 transition-all duration-300 w-fit mt-3"
+                                            >
+                                                Read more <span>→</span>
+                                            </a>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        {/* Collapsed State: Image with blurred text overlay */}
+                                        <div className="relative w-full h-full rounded-[4px] overflow-hidden">
+                                            <img
+                                                src={study.image}
+                                                alt={study.title}
+                                                className="w-full h-full object-cover"
+                                            />
+
+                                            {/* Blurred text overlay - positioned in top right */}
+                                            <div className="absolute top-0 right-0 bottom-0 left-1/2 bg-white/80 backdrop-blur-md p-3 flex flex-col justify-start">
+                                                <h3 className="text-[#131212] text-sm font-normal uppercase leading-[100%] blur-[0.5px]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
+                                                    {study.stat}
+                                                </h3>
+                                                <h3 className="text-[#131212] text-sm font-normal uppercase leading-[100%] mt-1 blur-[0.5px]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
+                                                    {study.title}
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </Container>
         </section>

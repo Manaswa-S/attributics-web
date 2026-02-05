@@ -1,31 +1,26 @@
-import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
 import { Header, Footer } from './components';
-import GlobalLoader from './components/ui/Loader/GlobalLoader';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 
-// Lazy load sections with explicit paths
-const Hero = lazy(() => import('./sections/Hero/Hero'));
-const Metrics = lazy(() => import('./sections/Metrics/Metrics'));
-const Features = lazy(() => import('./sections/Features/Features'));
-const AgenticAI = lazy(() => import('./sections/AgenticAI/AgenticAI'));
 const RevenueAutomation = lazy(() => import('./sections/RevenueAutomation/RevenueAutomation'));
-const Newsletter = lazy(() => import('./sections/Newsletter/Newsletter'));
+const WhoAreWe = lazy(() => import('./sections/WhoAreWe/WhoAreWe'));
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <Suspense fallback={<GlobalLoader />}>
-          <Hero />
-          <Metrics />
-          <Features />
-          <AgenticAI />
-          <RevenueAutomation />
-          <Newsletter />
-        </Suspense>
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 

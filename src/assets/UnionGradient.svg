@@ -1,0 +1,16 @@
+<svg width="1376" height="539" viewBox="0 0 1376 539" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="dotGradient" x1="688" y1="0" x2="688" y2="539" gradientUnits="userSpaceOnUse">
+<stop offset="0" stop-color="#F2F2F2" stop-opacity="0.3"/>
+<stop offset="0.5" stop-color="#FFB5AC"/>
+<stop offset="1" stop-color="#FF6758"/>
+</linearGradient>
+<pattern id="dotPattern" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+<rect x="0" y="0" width="8" height="8" fill="currentColor"/>
+</pattern>
+<mask id="dotMask">
+<rect width="1376" height="539" fill="url(#dotPattern)"/>
+</mask>
+</defs>
+<rect width="1376" height="539" fill="url(#dotGradient)" mask="url(#dotMask)"/>
+</svg>

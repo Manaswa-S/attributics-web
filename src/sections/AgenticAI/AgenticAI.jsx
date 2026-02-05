@@ -1,93 +1,123 @@
 import Container from '../../components/layout/Container';
-import backgroundImage from '../../assets/images/background_image.jpg';
-import excludeIcon from '../../assets/logo/Exclude.svg';
+import { useState, useEffect } from 'react';
+import discoveryBg from '../../assets/discovery_background.svg';
+import discoveryVectorBg from '../../assets/discovery_background_vector.svg';
 
-// Data-driven flow cards - easily add/modify content here
-const flowCards = [
-    {
-        label: 'THINKING',
-        headline: 'Know what your customers will do next.',
-        description: 'Our AI reads behavioral signals in real-time to predict churn risk, identify upsell opportunities, and trigger the right action before the moment passes.',
-    },
-    {
-        label: 'ANALYSIS',
-        headline: 'AI that builds your strategy, then executes it.',
-        description: 'From business goal to live campaign in minutes—our AI generates multi-channel plans, recommends the next best action for every customer, and optimizes in real-time as results come in.',
-    },
-    {
-        label: 'ACTION',
-        headline: "Set your Goals. We'll handle the rest.",
-        description: 'Our AI autonomously launches personalized campaigns, optimizes them in real-time for maximum ROI, and gets smarter with every interaction—all through your existing marketing stack.',
-    },
-
+// Auto-scrolling questions/content
+const scrollingQuestions = [
+    "How do I drive discovery conversations for the new offerings with my users / customers?",
+    "How can I reduce churn and increase customer lifetime value?",
+    "How do I personalize experiences at scale without increasing costs?",
+    "How can I identify upsell opportunities before customers leave?",
+    "How do I automate campaigns while maintaining personalization?",
+    "How can I turn data into actionable insights in real-time?",
 ];
 
 const AgenticAI = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % scrollingQuestions.length);
+        }, 4000); // Change every 4 seconds
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleDotClick = (index) => {
+        setCurrentIndex(index);
+    };
+
     return (
-        <section id="products" className="relative py-24 lg:py-32 overflow-hidden min-h-[900px]">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src={backgroundImage}
-                    alt="Background"
-                    className="w-full h-full object-cover blur-[2px]"
-                />
-                {/* Dark overlay for better text readability */}
-                <div className="absolute inset-0 bg-black/30"></div>
-            </div>
-
-            {/* Large Background Text */}
-            <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-                <h2 className="text-[120px] lg:text-[180px] font-bold text-white/5 whitespace-nowrap select-none">
-                    Agentic AI at work
-                </h2>
-            </div>
-
-            <Container className="relative z-10">
-                {/* Header */}
-                <div className="text-center mb-10 lg:mb-16">
-                    <span className="font-mono text-xs lg:text-[14px] font-normal uppercase tracking-wider text-white/80 mb-3 lg:mb-4 block">
-                        MEET YOUR AUTONOMOUS RETENTION ENGINE
-                    </span>
-                    <p className="mx-auto max-w-full lg:max-w-[520px] text-sm lg:text-[16px] leading-relaxed text-white/90">
-                        Attonomous works with your existing MarTech stack to automate workflows, deliver real-time insights, and enable hyper-personalized campaigns at scale.
-                    </p>
-                </div>
-
-                {/* Icon at top of flow */}
-                <div className="flex justify-center mb-6 lg:mb-8">
-                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white rounded-xl flex items-center justify-center shadow-lg">
-                        <img src={excludeIcon} alt="Icon" className="w-6 h-6 lg:w-7 lg:h-7" />
-                    </div>
-                </div>
-
-                {/* Vertical Flow Timeline */}
-                <div className="w-full max-w-[531px] mx-auto min-h-[auto] lg:min-h-[1021px]">
-                    <div className="relative">
-                        {/* Flow Cards */}
-                        <div className="space-y-6 lg:space-y-8">
-                            {flowCards.map((card, index) => (
-                                <div key={index} className="relative">
-                                    {/* Connection Line (except for last item) */}
-                                    {index !== flowCards.length - 1 && (
-                                        <div className="absolute left-1/2 -top-4 -bottom-6 lg:-bottom-8 w-[2px] bg-white/30 -translate-x-1/2 -z-10"></div>
-                                    )}
-
-                                    {/* Card */}
-                                    <div className="w-full min-h-[auto] lg:min-h-[229px] rounded-[14px] border border-[#C5C5C5] p-6 lg:p-8 backdrop-blur-[15px] bg-white/80 transition-transform hover:scale-[1.02] duration-300">
-                                        <span className="font-mono text-[10px] lg:text-[11px] font-normal uppercase tracking-wider text-[#131212]/60 mb-2 lg:mb-4 block">
-                                            {card.label}
-                                        </span>
-                                        <h3 className="text-lg lg:text-[20px] font-semibold text-[#131212] mb-2 lg:mb-4 leading-tight">
-                                            {card.headline}
-                                        </h3>
-                                        <p className="text-sm lg:text-[14px] leading-relaxed text-[#131212]/80">
-                                            {card.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+        <section id="products" className="py-16 lg:py-24 bg-white">
+            <Container>
+                <div className="max-w-[989px] mx-auto">
+                    {/* Top Section - Headline with CTA */}
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+                        <div className="flex-1">
+                            <h2 className="w-[630px] h-[70px] text-[50px] font-normal leading-[140%] text-[#131212] mb-3 font-sans">
+                                Facing the same problems?
+                            </h2>
+                            <p className="w-[778px] h-[56px] text-[20px] font-normal leading-[140%] text-[#666] font-sans">
+                                It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.
+                            </p>
                         </div>
+                        <div className="flex-shrink-0">
+                            <a
+                                href="#contact"
+                                className="inline-flex items-center gap-[10px] px-[12px] py-[8px] w-[151px] h-[50px] bg-[#131212] text-white text-sm font-medium rounded-[4px] hover:bg-[#333] transition-colors justify-center whitespace-nowrap"
+                            >
+                                <span className="text-blue-400">✦</span>
+                                <span>Book a call</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Carousel Container */}
+                    <div className="relative w-[989px] overflow-hidden rounded-[4px]">
+                        {/* Carousel Banner */}
+                        <div 
+                            className="relative w-[989px] h-[204px] overflow-hidden bg-gradient-to-br from-[#F2F2F2] to-[#FFA791]"
+                        >
+                            {/* Main background using SVG as image element */}
+                            <img
+                                src={discoveryBg}
+                                alt="Background"
+                                className="absolute inset-0 w-full h-full object-fill z-0"
+                                style={{ 
+                                    width: '100%', 
+                                    height: '100%',
+                                    display: 'block'
+                                }}
+                            />
+
+                            {/* Vector lines background using SVG as image element - ON TOP */}
+                            <img
+                                src={discoveryVectorBg}
+                                alt="Background pattern"
+                                className="absolute inset-0 w-full h-full object-fill z-[1] opacity-100"
+                                style={{ 
+                                    width: '100%', 
+                                    height: '100%',
+                                    display: 'block'
+                                }}
+                            />
+
+                            {/* Carousel slides */}
+                            <div className="absolute inset-0 w-full h-full z-[20] flex items-center">
+                                {scrollingQuestions.map((question, index) => (
+                                    <div
+                                        key={index}
+                                        className={`absolute inset-0 transition-opacity duration-700 ease-in-out flex items-center justify-center px-8 ${
+                                            index === currentIndex ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                    >
+                                        <div className="text-center max-w-[800px]">
+                                            <p className="text-base lg:text-xl text-[#131212] leading-relaxed font-medium">
+                                                {question}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Pagination Dots */}
+                    <div className="flex justify-center items-center gap-2 mt-6">
+                        {scrollingQuestions.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => handleDotClick(index)}
+                                className={`rounded-full transition-all duration-300 cursor-pointer ${
+                                    index === currentIndex
+                                        ? 'w-8 h-1.5 bg-[#131212]'
+                                        : 'w-2 h-2 bg-[#CCCCCC] hover:bg-[#999]'
+                                }`}
+                                type="button"
+                                aria-label={`Go to slide ${index + 1}`}
+                            ></button>
+                        ))}
                     </div>
                 </div>
             </Container>

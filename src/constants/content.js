@@ -1,4 +1,3 @@
-// Site content - centralized for easy updates
 export const siteContent = {
     brand: {
         name: 'Attributics',
@@ -7,13 +6,15 @@ export const siteContent = {
 
     nav: {
         links: [
-            { label: 'Products', href: '#products' },
-            { label: 'Solutions', href: '#solutions' },
-            { label: 'About', href: '#about' },
+            { label: 'Home', href: '/' },
+            { label: 'About', href: '/about' },
+            { label: 'Resources', href: '/resources' },
+            { label: 'Careers', href: '/careers' },
         ],
         cta: {
             login: 'Login',
             demo: 'Book a meeting',
+            contact: 'Contact us',
         },
     },
 
@@ -118,6 +119,60 @@ export const siteContent = {
         placeholder: 'Enter your email',
         cta: 'Subscribe',
         disclaimer: 'No spam. Unsubscribe anytime.',
+    },
+
+    about: {
+        whoAreWe: {
+            headline: 'Strong one liner here',
+            description: "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
+        },
+        statement: 'Strong / catchy statement here of 2-3 lines catchchy statement here of 2-3 linescatchy statement',
+        missionVision: [
+            "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
+            "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
+        ],
+    },
+
+    team: {
+        headline: 'Meet our team',
+        members: [
+            {
+                name: 'Team member 1',
+                role: 'Founder',
+                bio: 'With over 10 years of experience in AI and marketing technology, leading innovation.',
+            },
+            {
+                name: 'Team member 2',
+                role: 'CTO',
+                bio: 'Expert in machine learning and data science, driving technical excellence.',
+            },
+            {
+                name: 'Team member 3',
+                role: 'Founder',
+                bio: 'Marketing strategist with a passion for customer success and growth.',
+            },
+            {
+                name: 'Team member 4',
+                role: 'Founder',
+                bio: 'Business development leader focused on strategic partnerships.',
+            },
+            {
+                name: 'Team member 5',
+                role: 'Founder',
+                bio: 'Product visionary dedicated to solving complex marketing challenges.',
+            },
+            {
+                name: 'Team member 6',
+                role: 'Founder',
+                bio: 'Operations expert ensuring seamless execution and growth.',
+            },
+        ],
+    },
+
+    cta: {
+        badge: 'READY TO GET STARTED',
+        headline: 'Get a free audit for an intelligent layer for your martech stack.',
+        buttonText: 'Book an audit',
     },
 
     footer: {

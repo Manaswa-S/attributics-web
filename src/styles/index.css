@@ -141,19 +141,6 @@ body {
     padding: var(--section-padding) 0;
 }
 
-.container {
-    width: 100%;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .container {
-        padding: 0 2rem;
-    }
-}
-
 /* ===== Hide Scrollbar Globally ===== */
 html,
 body {

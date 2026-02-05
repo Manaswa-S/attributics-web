@@ -15,28 +15,38 @@ const Newsletter = () => {
     };
 
     return (
-        <section className="py-16 lg:py-24 bg-gray-50">
+        <section className="py-16 lg:py-24 bg-[#1a1a1a]">
             <Container size="sm">
                 <div className="text-center">
-                    <h2 className="text-headline text-gray-900 mb-8">
+                    {/* LinkedIn Icon */}
+                    <div className="flex justify-center mb-6">
+                        <div className="w-8 h-8 bg-white rounded flex items-center justify-center text-[#1a1a1a] font-bold">
+                            in
+                        </div>
+                    </div>
+
+                    <h2 className="text-[32px] lg:text-[40px] font-normal leading-[140%] text-white mb-8">
                         {newsletter.headline}
                     </h2>
 
-                    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder={newsletter.placeholder}
-                            className="flex-1 px-5 py-3 bg-white border border-gray-200 rounded-full text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
+                            className="flex-1 px-5 py-3 bg-[#2a2a2a] border border-[#444] rounded-[6px] text-white placeholder:text-[#999] focus:outline-none focus:ring-2 focus:ring-[#FF6758] transition-all"
                             required
                         />
-                        <Button type="submit" variant="primary">
+                        <button 
+                            type="submit"
+                            className="px-6 py-3 h-[48px] bg-[#FF6758] text-white text-[14px] font-medium rounded-[6px] hover:bg-[#ff5644] transition-colors whitespace-nowrap"
+                        >
                             {newsletter.cta}
-                        </Button>
+                        </button>
                     </form>
 
-                    <p className="mt-4 text-sm text-gray-500">
+                    <p className="text-[12px] text-[#999]">
                         {newsletter.disclaimer}
                     </p>
                 </div>

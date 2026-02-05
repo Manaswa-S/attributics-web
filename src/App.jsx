@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route, Suspense } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { Header, Footer } from './components';
-import GlobalLoader from './components/ui/Loader/GlobalLoader';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+
+const RevenueAutomation = lazy(() => import('./sections/RevenueAutomation/RevenueAutomation'));
 
 const App = () => {
   return (
@@ -11,12 +12,10 @@ const App = () => {
       <div className="min-h-screen bg-white flex flex-col">
         <Header />
         <main className="flex-grow">
-          <Suspense fallback={<GlobalLoader />}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+          </Routes>
         </main>
         <Footer />
       </div>

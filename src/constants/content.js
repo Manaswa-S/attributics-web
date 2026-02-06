@@ -40,11 +40,14 @@ export const siteContent = {
         },
     },
 
+
     logoCloud: {
         title: 'Trusted by leading enterprises',
+        clients: [],
+        patterns: [],
         rows: [
-            ['Jockey', 'Jockey', 'Jockey', 'Jockey', 'Jockey', 'Jockey'],
-            ['Jockey', 'Jockey', 'Jockey', 'Jockey', 'Jockey', 'Jockey']
+            ['tableau', 'jockey', 'akasaair', 'aws', 'americana', 'apparelgroup', 'azure', 'casetify', 'kfc', 'levis'],
+            ['clevertap', 'powerbi', 'hbomax', 'clubmahindra', 'databricks', 'gynoveda', 'phiture', 'pizzahut', 'unicef'],
         ],
     },
 

@@ -1,10 +1,13 @@
 import { siteContent } from '../../constants/content';
+import { mediaMap } from './constants';
 
 const About = () => {
     const { about } = siteContent;
+    const Team1 = mediaMap['team1'];
+    const Team2 = mediaMap['team2'];
 
     return (
-        <section id="about" className="py-16 lg:py-24 bg-white">
+        <section id="about" className="py-16 lg:py-24 bg-white mt-10">
             <div className="relative w-full max-w-[1440px] mx-auto px-[163px]">
                 {/* Who Are We Section - Group 99: 1113px × 468px */}
                 <div className="relative w-full max-w-[1113px] h-[468px] mb-24">
@@ -30,10 +33,13 @@ const About = () => {
                         {/* Right Image - 473px × 468px */}
                         <div className="w-[473px] h-[468px]">
                             <div className="w-full h-full bg-[#D9D9D9] rounded-[10px] flex items-center justify-center">
-                                <span className="text-[20px] font-normal leading-[140%] text-[#131313]"
+                                {/* <span className="text-[20px] font-normal leading-[140%] text-[#131313]"
                                     style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
                                     Team image
-                                </span>
+                                </span> */}
+                                {/* <div className="flex items-center gap-2 mx-6 lg:mx-10 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-default"> */}
+                                    <Team1 className="w-full max-h-full" />
+                                {/* </div> */}
                             </div>
                         </div>
                     </div>
@@ -53,10 +59,11 @@ const About = () => {
                         {/* Left Image - 470px × 468px */}
                         <div className="w-full max-w-[470px] h-[468px]">
                             <div className="w-full h-full bg-[#D9D9D9] rounded-[10px] flex items-center justify-center">
-                                <span className="text-[20px] font-normal leading-[140%] text-[#131313]"
+                                {/* <span className="text-[20px] font-normal leading-[140%] text-[#131313]"
                                     style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
                                     Team Image
-                                </span>
+                                </span> */}
+                                <Team2 className="w-full max-h-full" />
                             </div>
                         </div>
 

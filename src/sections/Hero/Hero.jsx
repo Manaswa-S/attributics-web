@@ -1,5 +1,6 @@
 import { siteContent } from '../../constants/content';
 import unionPattern from '../../assets/Union.svg';
+import { logoMap } from "./constants";
 import { useState, useEffect } from 'react';
 
 // Feature carousel slides
@@ -18,6 +19,27 @@ const featureSlides = [
     }
 ];
 
+const renderLogoRow = (row) => row.map((logo, index) => {
+    const Logo = logoMap[logo];
+    return (
+        <div key={`r1-${index}`} className="flex items-center gap-2 mx-6 lg:mx-10 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-default">
+            <Logo className="w-auto h-10 text-gray-500" />
+        </div>
+    );
+});
+  
+const LogoMarqueeRow = (row) => {
+    return (
+        <div className="flex overflow-hidden">
+            <div className="flex w-max animate-marquee items-center shrink-0">
+            {renderLogoRow(row)}
+            {renderLogoRow(row)}
+            </div>
+        </div>
+    );
+};
+  
+
 const Hero = () => {
     const { hero, logoCloud } = siteContent;
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,10 +57,9 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative pt-24 pb-12 lg:pb-24 overflow-hidden bg-white">
+        <section className="relative pt-24 pb-12 lg:pb-24 overflow-hidden bg-white mt-10">
             <div className="relative z-10 w-full px-[32px]">
                 <div className="mx-auto text-center flex flex-col items-center">
-
 
                     {/* Hero Image Section */}
                     <div className="relative w-full max-w-[1376px] min-h-[600px] lg:h-[539px] overflow-hidden mb-8 lg:mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -124,38 +145,16 @@ const Hero = () => {
                             {logoCloud.title}
                         </p>
 
-
-
                         <div className="w-full overflow-hidden relative py-4 flex flex-col gap-6 lg:gap-8">
                             {/* Left Fade Overlay */}
                             <div className="absolute left-0 top-0 bottom-0 w-[50px] lg:w-[200px] z-20 pointer-events-none bg-gradient-to-r from-[#ffff] via-[#F4F4F4]/20 to-transparent"></div>
                             {/* Right Fade Overlay */}
                             <div className="absolute right-0 top-0 bottom-0 w-[50px] lg:w-[200px] z-20 pointer-events-none bg-gradient-to-l from-[#ffff] via-[#F4F4F4]/20 to-transparent"></div>
-
+                            
                             {/* Row 1 - Scroll Left */}
-                            <div className="flex animate-scroll" style={{ width: 'max-content' }}>
-                                <div className="flex items-center shrink-0">
-                                    {[...logoCloud.rows[0], ...logoCloud.rows[0], ...logoCloud.rows[0]].map((logo, index) => (
-                                        <div key={`r1-1-${index}`} className="flex items-center gap-2 mx-6 lg:mx-10 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-default">
-                                            {/* Logic to show logo image if available - currently using text + icon placeholder */}
-                                            {/* Ideally we map names to imported images */}
-                                            <span className="text-xl lg:text-2xl font-bold font-noto tracking-tight text-gray-500">{logo}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Row 2 - Scroll Right (or Offset) - Implementing reverse scroll would need a new keyframe or just offset */}
-                            {/* For now, let's keep it scrolling left but with different content/speed or just offset start */}
-                            <div className="flex animate-scroll" style={{ width: 'max-content', animationDuration: '30s', animationDirection: 'reverse' }}>
-                                <div className="flex items-center shrink-0">
-                                    {[...logoCloud.rows[1], ...logoCloud.rows[1], ...logoCloud.rows[1]].map((logo, index) => (
-                                        <div key={`r2-1-${index}`} className="flex items-center gap-2 mx-6 lg:mx-10 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-default">
-                                            <span className="text-xl lg:text-2xl font-bold font-noto tracking-tight text-gray-500">{logo}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
+                            {LogoMarqueeRow(logoCloud.rows[0])}
+                            {/* Row 2 - Scroll Right */}
+                            {LogoMarqueeRow(logoCloud.rows[1])}
                         </div>
                     </div>
                 </div>

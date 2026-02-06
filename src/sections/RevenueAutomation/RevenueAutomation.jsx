@@ -24,6 +24,12 @@ const caseStudies = [
         title: "BOOSTING DATA CONVERSIONS",
         description: "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue.",
         gradient: "linear-gradient(135deg, #6B7280 0%, #3B82F6 100%)"
+    },
+    {
+        id: 5,
+        title: "BOOSTING DATA CONVERSIONS",
+        description: "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue.",
+        gradient: "linear-gradient(135deg, #6B7280 0%, #3B82F6 100%)"
     }
 ];
 
@@ -56,8 +62,8 @@ const RevenueAutomation = () => {
             </Container>
 
             {/* Case Study Cards - Full Width Carousel */}
-            <div className="w-full overflow-x-auto scrollbar-hide">
-                <div className="flex gap-[38px] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8" style={{ width: 'max-content' }}>
+            <div className=" overflow-x-auto scrollbar-hide" style={{ marginLeft: '202px' }}>
+                <div className="flex gap-[38px] w-max" style={{ width: 'max-content' }}>
                     {caseStudies.map((study) => (
                         <div
                             key={study.id}

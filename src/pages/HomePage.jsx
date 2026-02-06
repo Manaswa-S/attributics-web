@@ -8,7 +8,6 @@ const Features = lazy(() => import('../sections/Features/Features'));
 const AgenticAI = lazy(() => import('../sections/AgenticAI/AgenticAI'));
 const CTA = lazy(() => import('../sections/CTA/CTA'));
 const RevenueAutomation = lazy(() => import('../sections/RevenueAutomation/RevenueAutomation'));
-const Newsletter = lazy(() => import('../sections/Newsletter/Newsletter'));
 
 const HomePage = () => {
   return (
@@ -20,7 +19,7 @@ const HomePage = () => {
         <AgenticAI />
         <CTA />
         <RevenueAutomation />
-        <Newsletter />
+        
       </Suspense>
     </main>
   );

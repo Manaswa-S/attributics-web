@@ -7,7 +7,7 @@ const Team = lazy(() => import('../sections/Team/Team'));
 
 const AboutPage = () => {
   return (
-    <main>
+    <main style={{overflow: 'hidden'}}>
       <Suspense fallback={<GlobalLoader />}>
         <About />
         <Team />

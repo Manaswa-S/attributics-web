@@ -71,6 +71,7 @@ const Hero = () => {
                                 src={unionPattern}
                                 alt="Dotted Gradient Pattern"
                                 className="w-full h-full object-cover"
+                                loading='lazy'
                             />
                             {/* Gradient overlay to create the coral fade effect */}
                             <div
@@ -146,12 +147,7 @@ const Hero = () => {
                             {logoCloud.title}
                         </p>
 
-                        <div className="w-full overflow-hidden relative py-4 flex flex-col gap-6 lg:gap-8">
-                            {/* Left Fade Overlay */}
-                            <div className="absolute left-0 top-0 bottom-0 w-[50px] lg:w-[200px] z-20 pointer-events-none bg-gradient-to-r from-[#ffff] via-[#F4F4F4]/20 to-transparent"></div>
-                            {/* Right Fade Overlay */}
-                            <div className="absolute right-0 top-0 bottom-0 w-[50px] lg:w-[200px] z-20 pointer-events-none bg-gradient-to-l from-[#ffff] via-[#F4F4F4]/20 to-transparent"></div>
-                            
+                        <div className="w-full overflow-hidden relative py-4 flex flex-col gap-6 lg:gap-8 mask-fade-x" style={{ '--fade': '15px' }}>
                             {/* Row 1 - Scroll Left */}
                             {LogoMarqueeRow(logoCloud.rows[0])}
                             {/* Row 2 - Scroll Right */}

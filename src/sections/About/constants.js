@@ -1,7 +1,16 @@
-import TeamPhoto1 from '../../assets/images/team1.svg?react'
-import TeamPhoto2 from '../../assets/images/team2.svg?react'
+import Placeholder from '../../assets/team/group/placeholder.webp';
 
-export const mediaMap = {
-    team1: TeamPhoto1,
-    team2: TeamPhoto2,
-};
+const images = import.meta.glob('../../assets/team/group/*.webp', {
+    eager: true,
+    import: 'default',
+});
+  
+const groupPhotos = Object.fromEntries(
+    Object.entries(images).map(([path, src]) => {
+      const key = path.split('/').pop().replace('.webp', '');
+      return [key.toLowerCase(), src];
+    })
+);
+
+export const getGroupPhotos = (imgKey) =>
+    groupPhotos[imgKey] || Placeholder;

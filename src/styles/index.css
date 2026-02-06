@@ -217,3 +217,21 @@ body::-webkit-scrollbar {
         padding-right: calc((100vw - 80rem) / 2 + 2rem);
     }
 }
+
+/* Cards Scroll Fade */
+.mask-fade-x {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--fade),
+      black calc(100% - var(--fade)),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black var(--fade),
+      black calc(100% - var(--fade)),
+      transparent
+    );
+}

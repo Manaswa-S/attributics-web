@@ -20,7 +20,6 @@ const HomePage = () => {
         <AgenticAI />
         <CTA />
         <RevenueAutomation />
-        <Newsletter />
       </Suspense>
     </main>
   );

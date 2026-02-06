@@ -159,3 +159,40 @@ body::-webkit-scrollbar {
     height: 0 !important;
     background: transparent !important;
 }
+
+/* Utility: hide scrollbar on any element */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Utility: align content padding with Container (max-w-7xl / px-4 sm:px-6 lg:px-8) */
+.container-aligned-padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container-aligned-padding {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-aligned-padding {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container-aligned-padding {
+        padding-left: calc((100vw - 80rem) / 2 + 2rem);
+        padding-right: calc((100vw - 80rem) / 2 + 2rem);
+    }
+}

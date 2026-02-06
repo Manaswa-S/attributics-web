@@ -24,6 +24,12 @@ const caseStudies = [
         title: "BOOSTING DATA CONVERSIONS",
         description: "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue.",
         gradient: "linear-gradient(135deg, #6B7280 0%, #3B82F6 100%)"
+    },
+    {
+        id: 5,
+        title: "ACCELERATING CUSTOMER ENGAGEMENT",
+        description: "A Fortune 500 company implemented intelligent automation to deliver personalized experiences at scale, increasing customer lifetime value by 40%.",
+        gradient: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)"
     }
 ];
 
@@ -53,50 +59,75 @@ const RevenueAutomation = () => {
                         From Manual Campaigns to Intelligent Revenue Automation
                     </h2>
                 </div>
-            </Container>
 
-            {/* Case Study Cards - Full Width Carousel */}
-            <div className="w-full overflow-x-auto scrollbar-hide">
-                <div className="flex gap-[38px] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8" style={{ width: 'max-content' }}>
-                    {caseStudies.map((study) => (
-                        <div
-                            key={study.id}
-                            className="flex-shrink-0 w-[341px] rounded-[10px] p-[30px] flex flex-col justify-between"
-                            style={{
-                                background: study.gradient,
-                                minHeight: '367px'
-                            }}
-                        >
-                            <div className="flex flex-col gap-[30px]">
-                                {/* Card Title */}
-                                <h3
-                                    className="text-white uppercase text-[24px] leading-[100%]"
-                                    style={{ fontFamily: "'IBM Plex Mono', monospace", fontWeight: 400 }}
-                                >
-                                    {study.title}
-                                </h3>
+                {/* Case Study Cards - scrollable within Container boundary */}
+                <div className="overflow-x-auto scrollbar-hide revenue-cards-scroll">
+                    <div 
+                        className="flex gap-[39px]" 
+                        style={{ width: 'max-content', marginLeft: '4px' }}
+                    >
+                        {caseStudies.map((study) => (
+                            <div
+                                key={study.id}
+                                className="flex-shrink-0 w-[341px] rounded-[10px] p-[30px] flex flex-col justify-between"
+                                style={{
+                                    background: study.gradient,
+                                    minHeight: '367px'
+                                }}
+                            >
+                                <div className="flex flex-col gap-[30px]">
+                                    {/* Card Title */}
+                                    <h3
+                                        className="text-white uppercase text-[24px] leading-[100%]"
+                                        style={{ fontFamily: "'IBM Plex Mono', monospace", fontWeight: 400 }}
+                                    >
+                                        {study.title}
+                                    </h3>
 
-                                {/* Card Description */}
-                                <p
-                                    className="text-white text-[16px] leading-[140%]"
+                                    {/* Card Description */}
+                                    <p
+                                        className="text-white text-[16px] leading-[140%]"
+                                        style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
+                                    >
+                                        {study.description}
+                                    </p>
+                                </div>
+
+                                {/* Read More Link */}
+                                <a
+                                    href="#"
+                                    className="text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-[30px]"
                                     style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
                                 >
-                                    {study.description}
-                                </p>
+                                    Read more →
+                                </a>
                             </div>
-
-                            {/* Read More Link */}
-                            <a
-                                href="#"
-                                className="text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-[30px]"
-                                style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
-                            >
-                                Read more →
-                            </a>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </Container>
+
+            <style>{`
+                /* White fade blur on both left and right edges of scrollable cards */
+                .revenue-cards-scroll {
+                    position: relative;
+                    mask-image: linear-gradient(
+                        to right,
+                        transparent 0%,
+                        white 1%,
+                        white 92%,
+                        transparent 100%
+                    );
+                    -webkit-mask-image: linear-gradient(
+                        to right,
+                        transparent 0%,
+                        white 1%,
+                        white 92%,
+                        transparent 100%
+                    );
+                }
+            `}</style>
+
         </section>
     );
 };

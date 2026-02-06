@@ -4,7 +4,6 @@ import { Header, Footer } from './components';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 
-const RevenueAutomation = lazy(() => import('./sections/RevenueAutomation/RevenueAutomation'));
 
 const App = () => {
   return (

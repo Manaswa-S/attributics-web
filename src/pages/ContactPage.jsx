@@ -8,15 +8,46 @@ const ContactPage = () => {
         phone: '',
         website: '',
     });
+    const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleChange = (e) => {
         setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log('Form submitted:', formData);
+        setIsSubmitting(true);
+        setSubmitStatus({ type: '', message: '' });
+
+        try {
+            // Using FormSpree (replace with your FormSpree endpoint)
+            const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSubmitStatus({
+                    type: 'success',
+                    message: 'Thank you! We will contact you soon.',
+                });
+                // Reset form
+                setFormData({ fullName: '', email: '', phone: '', website: '' });
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            setSubmitStatus({
+                type: 'error',
+                message: 'Something went wrong. Please try again later.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -54,7 +85,7 @@ const ContactPage = () => {
                                 placeholder="Full Name"
                                 value={formData.fullName}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-[6px] text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
+                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-md text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
                                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                                 required
                             />
@@ -64,7 +95,7 @@ const ContactPage = () => {
                                 placeholder="email@company.com"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-[6px] text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
+                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-md text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
                                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                                 required
                             />
@@ -74,7 +105,7 @@ const ContactPage = () => {
                                 placeholder="Phone Number"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-[6px] text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
+                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-md text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
                                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                             />
                             <input
@@ -83,16 +114,29 @@ const ContactPage = () => {
                                 placeholder="Website"
                                 value={formData.website}
                                 onChange={handleChange}
-                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-[6px] text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
+                                className="w-full px-4 py-3 border border-[#D1D5DB] rounded-md text-sm text-[#131212] placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
                                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                             />
                             <button
                                 type="submit"
-                                className="w-full mt-2 px-6 py-3 bg-[#F5614D] hover:bg-[#E8503C] text-white text-sm font-medium rounded-[6px] transition-colors flex items-center justify-center gap-2"
+                                disabled={isSubmitting}
+                                className="w-full mt-2 px-6 py-3 bg-[#F5614D] hover:bg-[#E8503C] text-white text-sm font-medium rounded-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                                 style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                             >
-                                Request a consultant <span>→</span>
+                                {isSubmitting ? 'Sending...' : 'Request a consultant'} <span>→</span>
                             </button>
+
+                            {/* Status Message */}
+                            {submitStatus.message && (
+                                <div
+                                    className={`mt-4 p-3 rounded-md text-sm ${submitStatus.type === 'success'
+                                            ? 'bg-green-50 text-green-800 border border-green-200'
+                                            : 'bg-red-50 text-red-800 border border-red-200'
+                                        }`}
+                                >
+                                    {submitStatus.message}
+                                </div>
+                            )}
                         </form>
                     </div>
                 </div>

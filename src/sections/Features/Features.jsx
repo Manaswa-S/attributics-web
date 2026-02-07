@@ -8,7 +8,7 @@ const Features = () => {
                     {/* Top Row - Two columns */}
                     <div className="flex flex-col lg:flex-row">
                         {/* Left - Title Area */}
-                        <div className="lg:w-1/2 bg-[#FAFAFA] border border-[#E5E5E5] rounded-tl-[12px] lg:rounded-bl-[12px] lg:rounded-tr-none rounded-tr-[12px] p-10 lg:p-16 min-h-[320px] flex flex-col justify-center">
+                        <div className="lg:w-1/2 bg-[#FAFAFA] border border-[#E5E5E5] rounded-tl-xl lg:rounded-bl-xl lg:rounded-tr-none rounded-tr-xl p-10 lg:p-16 min-h-80 flex flex-col justify-center">
                             <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#888] mb-6">
                                 AGENTIC AI AT WORK
                             </span>
@@ -18,7 +18,7 @@ const Features = () => {
                         </div>
 
                         {/* Right - DATA/ACTIONS Diagram */}
-                        <div className="lg:w-1/2 bg-white border border-[#E5E5E5] border-l-0 rounded-tr-[12px] lg:rounded-tl-none rounded-bl-[12px] lg:rounded-bl-none p-10 lg:p-16 min-h-[320px] flex items-center justify-center relative">
+                        <div className="lg:w-1/2 bg-white border border-[#E5E5E5] border-l-0 rounded-tr-xl lg:rounded-tl-none rounded-bl-xl lg:rounded-bl-none p-10 lg:p-16 min-h-80 flex items-center justify-center relative">
                             {/* SVG for dotted lines and arrows */}
                             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 320" fill="none" preserveAspectRatio="xMidYMid meet">
                                 {/* Horizontal line coming from left with arrow */}
@@ -66,7 +66,7 @@ const Features = () => {
                     </div>
 
                     {/* Bottom Row - Full width light blue section */}
-                    <div className="bg-[#E8F4FC] border border-[#E5E5E5] border-t-0 rounded-b-[12px] p-10 lg:py-12 lg:px-16 relative min-h-[200px]">
+                    <div className="bg-[#E8F4FC] border border-[#E5E5E5] border-t-0 rounded-b-xl p-10 lg:py-12 lg:px-16 relative min-h-50">
                         {/* SVG for horizontal flow lines */}
                         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 200" fill="none" preserveAspectRatio="none">
                             {/* Left incoming arrow line */}
@@ -89,7 +89,7 @@ const Features = () => {
                             <div className="hidden lg:block w-16"></div>
 
                             {/* OUTCOME Card */}
-                            <div className="bg-white rounded-xl p-5 shadow-sm border border-[#E5E5E5] min-w-[280px]">
+                            <div className="bg-white rounded-xl p-5 shadow-sm border border-[#E5E5E5] min-w-70">
                                 <span className="text-[11px] text-[#888] uppercase tracking-[0.15em] font-medium block mb-3">OUTCOME</span>
                                 <div className="bg-[#131212] text-white rounded-lg px-5 py-4">
                                     <h3 className="font-mono text-sm font-bold tracking-wider uppercase">15% REVENUE GROWTH</h3>

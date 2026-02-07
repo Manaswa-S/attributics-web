@@ -1,11 +1,13 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Header, Footer } from './components';
+import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import CareersPage from './pages/CareersPage';
 import ResourcesPage from './pages/ResourcesPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -18,20 +20,24 @@ const ScrollToTop = () => {
 const App = () => {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <div className="min-h-screen bg-white flex flex-col">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/careers" element={<CareersPage />} />
-            <Route path="/resources" element={<ResourcesPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <ErrorBoundary>
+        <ScrollToTop />
+        <div className="min-h-screen bg-white flex flex-col">
+          <Header />
+          <main className="grow">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/resources" element={<ResourcesPage />} />
+              {/* 404 Catch-all route */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 };

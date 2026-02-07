@@ -28,18 +28,18 @@ const renderLogoRow = (row) => row.map((logo, index) => {
         </div>
     );
 });
-  
-const LogoMarqueeRow = (row) => {
+
+const LogoMarqueeRow = (row, reverse = false) => {
     return (
         <div className="flex overflow-hidden">
-            <div className="flex w-max animate-marquee items-center shrink-0">
-            {renderLogoRow(row)}
-            {renderLogoRow(row)}
+            <div className={`flex w-max items-center shrink-0 ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'}`}>
+                {renderLogoRow(row)}
+                {renderLogoRow(row)}
             </div>
         </div>
     );
 };
-  
+
 
 const Hero = () => {
     const { hero, logoCloud } = siteContent;
@@ -59,11 +59,11 @@ const Hero = () => {
 
     return (
         <section className="relative pt-24 pb-12 lg:pb-24 overflow-hidden bg-white mt-10">
-            <div className="relative z-10 w-full px-[32px]">
+            <div className="relative z-10 w-full px-8">
                 <div className="mx-auto text-center flex flex-col items-center">
 
                     {/* Hero Image Section */}
-                    <div className="relative w-full max-w-[1376px] min-h-[600px] lg:h-[539px] overflow-hidden mb-8 lg:mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    <div className="relative w-full max-w-344 min-h-150 lg:h-134.75 overflow-hidden mb-8 lg:mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                         {/* Dot Pattern Background with Gradient */}
                         <div className="absolute inset-0">
                             {/* Base dot pattern using SVG */}
@@ -83,10 +83,26 @@ const Hero = () => {
                         </div>
 
                         {/* White Card Overlay */}
-                        <div className="absolute top-[80px] left-[16px] right-[16px] lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 lg:w-[843px] bg-white rounded-[20px] p-6 lg:p-10 shadow-lg flex flex-col items-center gap-10 lg:gap-6">
+                        <div
+                            className="absolute top-20 left-4 right-4 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 rounded-[20px] flex flex-col items-center"
+                            style={{
+                                width: '843px',
+                                height: '350px',
+                                maxWidth: '95%',
+                                background: '#FFFFFFCC',
+                                border: '1px solid #C9C9C9',
+                                backdropFilter: 'blur(8px)',
+                                WebkitBackdropFilter: 'blur(8px)',
+                                paddingTop: '40px',
+                                paddingRight: '80px',
+                                paddingBottom: '40px',
+                                paddingLeft: '80px',
+                                gap: '55px'
+                            }}
+                        >
                             {/* Icon and Title - Width 384px, Height 26px */}
-                            <div className="flex items-center justify-center gap-2 w-[384px] h-[26px]">
-                                <div className="w-6 h-6 bg-[#FF6758] rounded flex items-center justify-center flex-shrink-0">
+                            <div className="flex items-center justify-center gap-2 w-[384px] h-6.5">
+                                <div className="w-6 h-6 bg-[#FF6758] rounded flex items-center justify-center shrink-0">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                                         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                                         <polyline points="17 6 23 6 23 12"></polyline>
@@ -98,7 +114,7 @@ const Hero = () => {
                             </div>
 
                             {/* Description Carousel - Width 683px, Height 84px */}
-                            <div className="relative w-full max-w-[683px] h-[84px] overflow-hidden">
+                            <div className="relative w-full max-w-170.75 h-21 overflow-hidden">
                                 {featureSlides.map((slide, index) => (
                                     <p
                                         key={slide.id}
@@ -111,15 +127,16 @@ const Hero = () => {
                             </div>
 
                             {/* Pagination Dots */}
-                            <div className="flex justify-center items-center gap-1.5">
+                            <div className="flex justify-center items-center" style={{ width: '70px', height: '6px', gap: '4px' }}>
                                 {featureSlides.map((_, index) => (
                                     <button
                                         key={index}
                                         onClick={() => handleDotClick(index)}
-                                        className={`rounded-full transition-all duration-300 cursor-pointer ${index === currentSlide
-                                            ? 'w-[50px] h-[3px] bg-[#FF6758]'
-                                            : 'w-[6px] h-[6px] bg-[#FF6758] opacity-50 hover:opacity-80'
-                                            }`}
+                                        className={`rounded-full transition-all duration-300 cursor-pointer ${
+                                            index === currentSlide
+                                                ? 'w-12.5 h-0.75 bg-[#FF6758]'
+                                                : 'w-1.5 h-1.5 bg-[#FF6758] opacity-50 hover:opacity-80'
+                                        }`}
                                         type="button"
                                         aria-label={`Go to slide ${index + 1}`}
                                     ></button>
@@ -128,7 +145,7 @@ const Hero = () => {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                                <button className="flex flex-row justify-center items-center gap-[10px] w-[194px] h-[50px] bg-[#000000] text-white text-[16px] font-normal leading-[140%] rounded-[4px] hover:bg-[#1a1a1a] transition-colors cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif', padding: '8px 12px' }}>
+                                <button className="flex flex-row justify-center items-center gap-2.5 w-48.5 h-12.5 bg-[#000000] text-white text-[16px] font-normal leading-[140%] rounded-sm hover:bg-[#1a1a1a] transition-colors cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif', padding: '8px 12px' }}>
                                     <span className="text-[#6B9FFF]">✦</span>
                                     <span>See how it works</span>
                                     <span>→</span>
@@ -142,7 +159,7 @@ const Hero = () => {
                     </div>
 
                     {/* Logo Cloud Section - Marquee */}
-                    <div className="w-full max-w-[1376px] h-[263px] mx-auto mt-4 lg:mt-6 flex flex-col items-center justify-center rounded-[20px] overflow-hidden">
+                    <div className="w-full max-w-344 h-65.75 mx-auto mt-4 lg:mt-6 flex flex-col items-center justify-center rounded-[20px] overflow-hidden">
                         <p className="font-mono text-[12px] uppercase tracking-wider text-[#131212] mb-8">
                             {logoCloud.title}
                         </p>
@@ -151,7 +168,7 @@ const Hero = () => {
                             {/* Row 1 - Scroll Left */}
                             {LogoMarqueeRow(logoCloud.rows[0])}
                             {/* Row 2 - Scroll Right */}
-                            {LogoMarqueeRow(logoCloud.rows[1])}
+                            {LogoMarqueeRow(logoCloud.rows[1], true)}
                         </div>
                     </div>
                 </div>

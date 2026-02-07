@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { siteContent } from '../../../constants/content';
 import logo from '../../../assets/logo/Exclude.svg';
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation();
     const { brand, nav } = siteContent;
 
     const handleNavClick = (e, href) => {
@@ -22,8 +23,8 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-[47px] left-[62px] right-[62px] z-50 flex justify-center">
-            <div className="bg-white/70 backdrop-blur-xl border border-[#858E9B] rounded-[8px] transition-all duration-300 p-[10px] flex items-center w-full max-w-[1315px] justify-between ring-1 ring-black/5 h-[60px]">
+        <header className="fixed top-11.75 left-15.5 right-15.5 z-50 flex justify-center">
+            <div className="bg-white/70 backdrop-blur-xl border border-[#858E9B] rounded-lg transition-all duration-300 p-2.5 flex items-center w-full max-w-328.75 justify-between ring-1 ring-black/5 h-15">
 
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center gap-2 lg:gap-2.5 ml-2 lg:ml-0">
@@ -38,12 +39,16 @@ const Header = () => {
                     {nav.links.map((link) => {
                         // Check if it's a route or anchor link
                         const isRoute = link.href === '/' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
-                        
+                        const isActive = location.pathname === link.href;
+
                         return isRoute ? (
                             <Link
                                 key={link.label}
                                 to={link.href}
-                                className="font-mono text-[16px] font-normal text-[#131212] hover:text-gray-900 uppercase leading-[100%] tracking-[0%] transition-colors cursor-pointer"
+                                className={`font-mono text-[16px] font-normal uppercase leading-[100%] tracking-[0%] transition-all cursor-pointer ${isActive
+                                        ? 'text-[#F5614D] font-semibold'
+                                        : 'text-[#131212] hover:text-gray-900'
+                                    }`}
                             >
                                 {link.label}
                             </Link>
@@ -112,12 +117,17 @@ const Header = () => {
                     <nav className="flex flex-col gap-4">
                         {nav.links.map((link) => {
                             const isRoute = link.href === '/' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
+                            const isActive = location.pathname === link.href;
+
                             return isRoute ? (
                                 <Link
                                     key={link.label}
                                     to={link.href}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="font-mono text-[14px] font-normal text-[#131212] hover:text-gray-900 uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors"
+                                    className={`font-mono text-[14px] font-normal uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors ${isActive
+                                        ? 'text-[#F5614D] font-semibold'
+                                        : 'text-[#131212] hover:text-gray-900'
+                                        }`}
                                 >
                                     {link.label}
                                 </Link>

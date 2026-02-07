@@ -59,10 +59,10 @@ const AgenticAI = () => {
                                 It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.
                             </p>
                         </div>
-                        <div className="flex-shrink-0 w-full sm:w-auto">
+                        <div className="shrink-0 w-full sm:w-auto">
                             <a
                                 href="#contact"
-                                className="inline-flex items-center justify-center sm:justify-start gap-2 px-4 py-2.5 sm:px-3 sm:py-2 w-full sm:w-auto bg-[#131212] text-white text-sm font-medium rounded-[4px] hover:bg-[#333] transition-colors whitespace-nowrap"
+                                className="inline-flex items-center justify-center sm:justify-start gap-2 px-4 py-2.5 sm:px-3 sm:py-2 w-full sm:w-auto bg-[#131212] text-white text-sm font-medium rounded-sm hover:bg-[#333] transition-colors whitespace-nowrap"
                             >
                                 <span className="text-blue-400">✦</span>
                                 <span>Book a call</span>
@@ -72,10 +72,10 @@ const AgenticAI = () => {
                     </div>
 
                     {/* Carousel Container */}
-                    <div className="relative w-full overflow-hidden rounded-[4px]">
+                    <div className="relative w-full overflow-hidden rounded-sm">
                         {/* Carousel Banner */}
-                        <div 
-                            className="relative w-full h-40 sm:h-44 lg:h-48 overflow-hidden bg-gradient-to-br from-[#F2F2F2] to-[#FFA791]"
+                        <div
+                            className="relative w-full h-40 sm:h-44 lg:h-48 overflow-hidden bg-linear-to-br from-[#F2F2F2] to-[#FFA791]"
                         >
                             {/* Main background using SVG as image element */}
                             <img
@@ -88,12 +88,12 @@ const AgenticAI = () => {
                             <img
                                 src={discoveryVectorBg}
                                 alt="Background pattern"
-                                className="absolute inset-0 w-full h-full object-cover z-[1] opacity-100"
+                                className="absolute inset-0 w-full h-full object-cover z-1 opacity-100"
                             />
 
                             {/* Carousel slides - single slide, no overlap */}
-                            <div className="absolute inset-0 w-full h-full z-[20] flex items-center justify-center px-4 sm:px-6 lg:px-8">
-                                <div 
+                            <div className="absolute inset-0 w-full h-full z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+                                <div
                                     className="text-center w-full max-w-2xl transition-opacity duration-500 ease-in-out"
                                     style={{ opacity: isAnimating ? 0 : 1 }}
                                 >
@@ -112,11 +112,10 @@ const AgenticAI = () => {
                                 <button
                                     key={index}
                                     onClick={() => handleDotClick(index)}
-                                    className={`h-[6px] rounded-full transition-all duration-300 cursor-pointer ${
-                                        index === currentIndex
-                                            ? 'w-[30px] bg-[#131212]'
-                                            : 'w-[6px] bg-[#CCCCCC] hover:bg-[#999]'
-                                    }`}
+                                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
+                                            ? 'w-7.5 bg-[#131212]'
+                                            : 'w-1.5 bg-[#CCCCCC] hover:bg-[#999]'
+                                        }`}
                                     type="button"
                                     aria-label={`Go to slide ${index + 1}`}
                                 ></button>

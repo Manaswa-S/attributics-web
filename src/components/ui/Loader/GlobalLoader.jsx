@@ -3,7 +3,7 @@ import logo from '../../../assets/logo/attributics_logo.png';
 
 const GlobalLoader = () => {
     return (
-        <div className="fixed inset-0 z-[50] flex items-center justify-center bg-white">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
             <style>
                 {`
                     @keyframes pulse-loader {

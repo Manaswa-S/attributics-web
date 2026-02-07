@@ -7,18 +7,18 @@ const Team = () => {
 
     return (
         <Container>
-            <section className="bg-white mx-auto relative h-[319px] w-[1539px]">
+            <section className="bg-white mx-auto relative h-79.75 w-384.75">
                 <div className="">
                     <p className="text-[12px] font-mono uppercase tracking-wider text-[#999] mb-4">
                         TEAM
                     </p>
                 </div>
-               
+
                 {/* Team Members Grid */}
-                <div className="flex gap-8 w-full h-[276px] overflow-auto scrollbar-hide mask-fade-x pr-[100px] pl-[5px]" style={{ '--fade': '15px' }}>
+                <div className="flex gap-8 w-full h-69 overflow-auto scrollbar-hide mask-fade-x pr-25 pl-1.25" style={{ '--fade': '15px' }}>
                     {team.members.map((member, index) => (
                         <div key={index} className="group cursor-pointer relative">
-                            <div className="w-[197px] h-[276px] overflow-hidden rounded-[12px] mb-4 aspect-square bg-gradient-to-b from-[#2A3D5A] to-[#1a2433]">
+                            <div className="w-49.25 h-69 overflow-hidden rounded-xl mb-4 aspect-square bg-linear-to-b from-[#2A3D5A] to-[#1a2433]">
                                 {/* Placeholder for member image */}
                                 <img
                                     src={getTeamPhoto(member.imgKey)}
@@ -30,8 +30,8 @@ const Team = () => {
                                 {/* Intro box */}
                                 <div
                                     className=" absolute left-1/2 -translate-x-1/2
-                                        bottom-3 w-[173px] h-[62px]
-                                        text-center rounded-lg px-4 py-2" style={{backgroundColor: '#ffffff'}}>
+                                        bottom-3 w-43.25 h-15.5
+                                        text-center rounded-lg px-4 py-2" style={{ backgroundColor: '#ffffff' }}>
                                     <div className="text-center">
                                         <div className="font-ibm-sans text-[16px] font-normal leading-[140%] text-black">
                                             {member.name}

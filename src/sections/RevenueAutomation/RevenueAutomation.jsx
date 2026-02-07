@@ -63,19 +63,19 @@ const RevenueAutomation = () => {
                 {/* Case Study Cards - scrollable within Container boundary */}
                 <div className="overflow-x-auto scrollbar-hide revenue-cards-scroll">
                     <div 
-                        className="flex gap-[39px]" 
+                        className="flex gap-9.75" 
                         style={{ width: 'max-content', marginLeft: '4px' }}
                     >
                         {caseStudies.map((study) => (
                             <div
                                 key={study.id}
-                                className="flex-shrink-0 w-[341px] rounded-[10px] p-[30px] flex flex-col justify-between"
+                                className="shrink-0 w-85.25 rounded-[10px] p-7.5 flex flex-col justify-between"
                                 style={{
                                     background: study.gradient,
                                     minHeight: '367px'
                                 }}
                             >
-                                <div className="flex flex-col gap-[30px]">
+                                <div className="flex flex-col gap-7.5">
                                     {/* Card Title */}
                                     <h3
                                         className="text-white uppercase text-[24px] leading-[100%]"
@@ -96,7 +96,7 @@ const RevenueAutomation = () => {
                                 {/* Read More Link */}
                                 <a
                                     href="#"
-                                    className="text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-[30px]"
+                                    className="text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-7.5"
                                     style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
                                 >
                                     Read more →

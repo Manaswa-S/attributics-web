@@ -161,34 +161,51 @@ body::-webkit-scrollbar {
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;     /* IE / Edge */
-    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;
+    /* IE / Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
-  
+
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;                /* Chrome / Safari */
+    display: none;
+    /* Chrome / Safari */
 }
-  
+
 @keyframes marquee {
     from {
-      transform: translateX(0);
+        transform: translateX(0);
     }
+
     to {
-      transform: translateX(-50%);
+        transform: translateX(-50%);
     }
-  }
-  
+}
+
 .animate-marquee {
     animation: marquee 20s linear infinite;
 }
-  
+
 .animate-marquee:hover {
     animation-play-state: paused;
 }
-  
+
 @keyframes marquee-reverse {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.animate-marquee-reverse {
+    animation: marquee-reverse 20s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+    animation-play-state: paused;
 }
 
 /* Utility: align content padding with Container (max-w-7xl / px-4 sm:px-6 lg:px-8) */
@@ -220,18 +237,14 @@ body::-webkit-scrollbar {
 
 /* Cards Scroll Fade */
 .mask-fade-x {
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black var(--fade),
-      black calc(100% - var(--fade)),
-      transparent
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black var(--fade),
-      black calc(100% - var(--fade)),
-      transparent
-    );
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black var(--fade),
+            black calc(100% - var(--fade)),
+            transparent);
+    mask-image: linear-gradient(to right,
+            transparent,
+            black var(--fade),
+            black calc(100% - var(--fade)),
+            transparent);
 }

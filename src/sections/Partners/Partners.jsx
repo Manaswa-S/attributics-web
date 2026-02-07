@@ -9,7 +9,7 @@ import powerbi from '../../assets/brands/powerbi.svg';
 import azure from '../../assets/brands/azure.svg';
 import databricks from '../../assets/brands/databricks.svg';
 
-// Row 1 (4 logos)
+// Row 1
 const row1 = [
     { name: 'AWS', logo: aws },
     { name: 'CleverTap', logo: clevertap },
@@ -17,7 +17,7 @@ const row1 = [
     { name: 'Tableau', logo: tableau },
 ];
 
-// Row 2 (4 logos)
+// Row 2
 const row2 = [
     { name: 'Power BI', logo: powerbi },
     { name: 'Microsoft Azure', logo: azure },
@@ -25,122 +25,133 @@ const row2 = [
     { name: 'Databricks', logo: databricks },
 ];
 
-// Bottom row flanking logos
 const bottomLeft = { name: 'CleverTap', logo: clevertap };
 const bottomRight = { name: 'Americana', logo: americana };
 
 const Partners = () => {
     return (
-        <section className="py-12 sm:py-16 lg:py-24 bg-white overflow-hidden relative">
-            {/* Layer 1: Union.svg Background */}
-            <div className="absolute inset-0 pointer-events-none z-0">
-                <img
-                    src={unionBg}
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full h-full object-cover"
-                    style={{
-                        opacity: 1,
-                    }}
-                />
-            </div>
+        <section className="relative pt-2 pb-32 sm:pt-4 sm:pb-40 lg:pt-6 lg:pb-48 overflow-hidden bg-white">
+            <div className="relative w-full">
+                <Container>
 
-            <Container>
-                {/* Wrapper: positions logos and card on top of SVG */}
-                <div className="relative z-10 flex items-center justify-center">
+                    <div className="relative w-full min-h-125 lg:h-150 flex items-end justify-center">
 
-                    {/* Row 1: 4 logos at top */}
-                    <div className="grid grid-cols-4 gap-x-16 gap-y-8 mb-10 w-full max-w-4xl">
-                        {row1.map((partner, i) => (
-                            <div key={i} className="flex items-center justify-center">
-                                <img
-                                    src={partner.logo}
-                                    alt={partner.name}
-                                    className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                                />
-                            </div>
-                        ))}
-                    </div>
+                        {/* Dotted Mask Background */}
+                        <div className="absolute inset-0 pointer-events-none">
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    WebkitMaskImage: `url(${unionBg})`,
+                                    maskImage: `url(${unionBg})`,
+                                    WebkitMaskSize: 'cover',
+                                    maskSize: 'cover',
+                                    background:
+                                        'linear-gradient(180deg, #FFFFFF 0%, #FFB5AC 50%, #FF6758 100%)',
+                                }}
+                            />
 
-                    {/* Row 2: 2 logos + center card + 2 logos */}
-                    <div className="flex items-center justify-between w-full max-w-4xl mb-10 gap-8">
-                        {/* Left column: 2 logos */}
-                        <div className="flex flex-col gap-8 flex-shrink-0">
-                            <div className="flex items-center justify-center">
-                                <img
-                                    src={row2[0].logo}
-                                    alt={row2[0].name}
-                                    className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                                />
-                            </div>
-                            <div className="flex items-center justify-center">
-                                <img
-                                    src={bottomLeft.logo}
-                                    alt={bottomLeft.name}
-                                    className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                                />
-                            </div>
+                            {/* Top Fade */}
+                            <div
+                                className="absolute inset-0"
+                                style={{
+                                    background:
+                                        'linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0) 50%)',
+                                }}
+                            />
                         </div>
 
-                        {/* Center: Glassmorphism card with Attributics logo */}
+                        {/* Outer Glass Card - positioned at bottom */}
                         <div
-                            className="flex items-center justify-center rounded-[16px] border border-white/50 flex-shrink-0"
+                            className="absolute z-10 rounded-t-[10px] border-t border-r border-l flex flex-col items-center"
                             style={{
-                                width: '593px',
-                                height: '134px',
-                                background: 'rgba(255, 255, 255, 0.3)',
-                                backdropFilter: 'blur(18px)',
-                                WebkitBackdropFilter: 'blur(18px)',
-                                boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.4)',
+                                width: '989px',
+                                height: '351px',
+                                bottom: '9px',
+                                left: '50%',
+                                transform: 'translateX(-50%)',
+                                maxWidth: '95%',
+                                background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 105.18%)',
+                                backdropFilter: 'blur(4px)',
+                                WebkitBackdropFilter: 'blur(4px)',
+                                borderColor: '#C1C1C1',
+                                borderStyle: 'solid',
+                                borderWidth: '1px 1px 0px 1px',
                             }}
                         >
-                            <img
-                                src={attributicsLogo}
-                                alt="Attributics"
-                                className="h-10 w-auto object-contain"
-                            />
-                        </div>
+                            <div className="w-full px-8 sm:px-12 lg:px-16 pt-8 lg:pt-10 pb-0">
 
-                        {/* Right column: 2 logos */}
-                        <div className="flex flex-col gap-8 flex-shrink-0">
-                            <div className="flex items-center justify-center">
-                                <img
-                                    src={row2[1].logo}
-                                    alt={row2[1].name}
-                                    className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                                />
-                            </div>
-                            <div className="flex items-center justify-center">
-                                <img
-                                    src={bottomRight.logo}
-                                    alt={bottomRight.name}
-                                    className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                                />
+                                {/* Row 1 */}
+                                <div className="grid grid-cols-4 gap-y-4 mb-6">
+                                    {row1.map((p, i) => (
+                                        <div key={i} className="flex justify-center py-4">
+                                            <img
+                                                src={p.logo}
+                                                alt={p.name}
+                                                className="h-6 w-auto max-w-27.5 object-contain filter grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Row 2 */}
+                                <div className="grid grid-cols-4 gap-y-4 mb-9">
+                                    {row2.map((p, i) => (
+                                        <div key={i} className="flex justify-center py-4">
+                                            <img
+                                                src={p.logo}
+                                                alt={p.name}
+                                                className="h-6 w-auto max-w-27.5 object-contain filter grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Bottom Center Row */}
+                                <div className="w-full flex items-center justify-between pb-0 pt-1">
+                                    <div className="w-25 flex justify-center">
+                                        <img
+                                            src={bottomLeft.logo}
+                                            alt={bottomLeft.name}
+                                            className="h-5 max-w-22.5 object-contain filter grayscale opacity-40"
+                                        />
+                                    </div>
+
+                                    <div
+                                        className="flex-1 mx-4 flex items-center justify-center rounded-t-[10px] border-t border-r border-l"
+                                        style={{
+                                            width: '593px',
+                                            maxWidth: '593px',
+                                            height: '134px',
+                                            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 95.81%)',
+                                            backdropFilter: 'blur(4px)',
+                                            WebkitBackdropFilter: 'blur(4px)',
+                                            borderColor: '#C1C1C1',
+                                            borderStyle: 'solid',
+                                            borderWidth: '1px 1px 0px 1px',
+                                        }}
+                                    >
+                                        <img
+                                            src={attributicsLogo}
+                                            alt="Attributics"
+                                            className="h-10 w-auto object-contain"
+                                        />
+                                    </div>
+
+                                    <div className="w-25 flex justify-center">
+                                        <img
+                                            src={bottomRight.logo}
+                                            alt={bottomRight.name}
+                                            className="h-5 max-w-22.5 object-contain filter grayscale opacity-40"
+                                        />
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    {/* Row 3: 4 logos at bottom (middle 2 from row 2) */}
-                    <div className="grid grid-cols-4 gap-x-16 gap-y-0 w-full max-w-4xl">
-                        <div />
-                        <div className="flex items-center justify-center">
-                            <img
-                                src={row2[2].logo}
-                                alt={row2[2].name}
-                                className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                            />
-                        </div>
-                        <div className="flex items-center justify-center">
-                            <img
-                                src={row2[3].logo}
-                                alt={row2[3].name}
-                                className="h-5 w-auto max-w-[90px] object-contain filter grayscale opacity-50"
-                            />
-                        </div>
-                        <div />
-                    </div>
-                </div>
-            </Container>
+                </Container>
+            </div>
         </section>
     );
 };

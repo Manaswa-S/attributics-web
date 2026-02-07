@@ -24,6 +24,12 @@ const caseStudies = [
         title: 'GROWTH',
         description: 'Turning every lead into an opportunity with Data & CRM',
     },
+    {
+        image: mainCard01,
+        stat: '25% FASTER',
+        title: 'TIME TO MARKET',
+        description: 'Accelerating product launches with AI-powered automation',
+    },
 ];
 
 const Metrics = () => {
@@ -50,14 +56,14 @@ const Metrics = () => {
                                 key={index}
                                 onMouseEnter={() => setExpandedCard(index)}
                                 onMouseLeave={() => setExpandedCard(0)}
-                                className="relative rounded-[6px] border border-[#747474] cursor-pointer bg-white flex-shrink-0 overflow-hidden p-2 flex flex-row transition-[width] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] h-[220px]"
+                                className="relative rounded-md border border-[#747474] cursor-pointer bg-white shrink-0 overflow-hidden p-2 flex flex-row transition-[width] duration-700 ease-in-out h-55"
                                 style={{
-                                    width: isExpanded ? '492px' : '235px',
+                                    width: isExpanded ? '450px' : '220px',
                                 }}
                             >
                                 {/* Image - always present, animates width */}
                                 <div
-                                    className="relative rounded-[4px] overflow-hidden flex-shrink-0 transition-[width] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] h-[204px]"
+                                    className="relative rounded-sm overflow-hidden shrink-0 transition-[width] duration-700 ease-in-out h-51"
                                     style={{
                                         width: isExpanded ? '144px' : '100%',
                                     }}
@@ -87,7 +93,7 @@ const Metrics = () => {
 
                                 {/* Expanded content - always in DOM, transitions opacity & transform */}
                                 <div
-                                    className="flex-1 flex flex-col justify-between pl-5 overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                                    className="flex-1 flex flex-col justify-between pl-5 overflow-hidden transition-all duration-700 ease-in-out"
                                     style={{
                                         opacity: isExpanded ? 1 : 0,
                                         transform: isExpanded ? 'translateX(0)' : 'translateX(20px)',

@@ -77,10 +77,10 @@ const ResourcesPage = () => {
                 <section className="pb-12 lg:pb-16 bg-white">
                     <Container>
                         <a href="#" className="block group">
-                            <div className="relative rounded-[12px] overflow-hidden bg-[#F5F5F5]">
+                            <div className="relative rounded-xl overflow-hidden bg-[#F5F5F5]">
                                 <div className="flex flex-col lg:flex-row">
                                     {/* Image */}
-                                    <div className="lg:w-1/2 h-[240px] lg:h-[360px] overflow-hidden">
+                                    <div className="lg:w-1/2 h-60 lg:h-90 overflow-hidden">
                                         <img
                                             src={featuredItem.image}
                                             alt={featuredItem.title}
@@ -91,13 +91,13 @@ const ResourcesPage = () => {
                                     <div className="lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                                         <div className="flex items-center gap-3 mb-4">
                                             <span
-                                                className="inline-block px-3 py-1 text-[10px] uppercase tracking-[0.1em] font-medium rounded-full bg-[#131212] text-white"
+                                                className="inline-block px-3 py-1 text-[10px] uppercase tracking-widest font-medium rounded-full bg-[#131212] text-white"
                                                 style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                                             >
                                                 {featuredItem.type === 'blog' ? 'Blog' : 'Case Study'}
                                             </span>
                                             <span
-                                                className="inline-block px-3 py-1 text-[10px] uppercase tracking-[0.1em] font-medium rounded-full border border-[#D1D5DB] text-[#666]"
+                                                className="inline-block px-3 py-1 text-[10px] uppercase tracking-widest font-medium rounded-full border border-[#D1D5DB] text-[#666]"
                                                 style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                                             >
                                                 {featuredItem.category}
@@ -144,7 +144,7 @@ const ResourcesPage = () => {
                                 <button
                                     key={filter}
                                     onClick={() => setActiveFilter(filter)}
-                                    className={`px-4 py-2 text-xs uppercase tracking-[0.1em] font-medium rounded-full transition-all duration-200 cursor-pointer ${
+                                    className={`px-4 py-2 text-xs uppercase tracking-widest font-medium rounded-full transition-all duration-200 cursor-pointer ${
                                         activeFilter === filter
                                             ? 'bg-[#131212] text-white'
                                             : 'bg-[#F5F5F5] text-[#666] hover:bg-[#E8E8E8]'
@@ -157,7 +157,7 @@ const ResourcesPage = () => {
                         </div>
 
                         {/* Search */}
-                        <div className="relative w-full sm:w-[280px]">
+                        <div className="relative w-full sm:w-70">
                             <svg
                                 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#999]"
                                 fill="none"
@@ -188,7 +188,7 @@ const ResourcesPage = () => {
                                 <a key={item.id} href="#" className="group block">
                                     <article className="h-full flex flex-col rounded-[10px] border border-[#E8E8E8] overflow-hidden hover:border-[#C0C0C0] hover:shadow-lg transition-all duration-300">
                                         {/* Card Image */}
-                                        <div className="relative h-[200px] overflow-hidden">
+                                        <div className="relative h-50 overflow-hidden">
                                             <img
                                                 src={item.image}
                                                 alt={item.title}
@@ -196,7 +196,7 @@ const ResourcesPage = () => {
                                             />
                                             {/* Type Badge */}
                                             <span
-                                                className="absolute top-3 left-3 px-2.5 py-1 text-[9px] uppercase tracking-[0.1em] font-medium rounded-full bg-white/90 backdrop-blur-sm text-[#131212]"
+                                                className="absolute top-3 left-3 px-2.5 py-1 text-[9px] uppercase tracking-widest font-medium rounded-full bg-white/90 backdrop-blur-sm text-[#131212]"
                                                 style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                                             >
                                                 {item.type === 'blog' ? 'Blog' : 'Case Study'}
@@ -216,7 +216,7 @@ const ResourcesPage = () => {
                                         <div className="flex-1 flex flex-col p-5">
                                             {/* Category */}
                                             <span
-                                                className="text-[10px] uppercase tracking-[0.1em] text-[#999] font-medium mb-2"
+                                                className="text-[10px] uppercase tracking-widest text-[#999] font-medium mb-2"
                                                 style={{ fontFamily: "'IBM Plex Mono', monospace" }}
                                             >
                                                 {item.category}

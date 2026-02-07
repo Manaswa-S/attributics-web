@@ -8,11 +8,11 @@ const Footer = () => {
 
     return (
         <footer className="bg-[#000000] text-white">
-            <Container className="max-w-[1438px]">
-                <div className="pt-[130px] pb-12">
+            <Container className="max-w-359.5">
+                <div className="pt-32.5 pb-12">
                     {/* Newsletter Section - Centered */}
-                    <div className="flex justify-center mb-[141px]">
-                        <div className="flex flex-col gap-[30px] max-w-[530px] w-full">
+                    <div className="flex justify-center mb-35.25">
+                        <div className="flex flex-col gap-7.5 max-w-132.5 w-full">
                             {/* LinkedIn Icon */}
                             <div className="flex items-center gap-2">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white" className="w-5 h-5">
@@ -31,9 +31,9 @@ const Footer = () => {
                                 <input
                                     type="email"
                                     placeholder={newsletter.placeholder}
-                                    className="flex-1 px-4 py-3 bg-transparent border border-white/30 rounded-[4px] text-white placeholder:text-white/50 focus:outline-none focus:border-white/60 transition-colors"
+                                    className="flex-1 px-4 py-3 bg-transparent border border-white/30 rounded-sm text-white placeholder:text-white/50 focus:outline-none focus:border-white/60 transition-colors"
                                 />
-                                <button className="px-6 py-3 bg-[#F5614D] hover:bg-[#E8503C] text-white rounded-[4px] font-medium transition-colors whitespace-nowrap">
+                                <button className="px-6 py-3 bg-[#F5614D] hover:bg-[#E8503C] text-white rounded-sm font-medium transition-colors whitespace-nowrap">
                                     {newsletter.cta}
                                 </button>
                             </div>
@@ -41,13 +41,13 @@ const Footer = () => {
                     </div>
 
                     {/* Divider */}
-                    <div className="flex justify-center mb-[48px]">
-                        <div className="border-t border-[#5A5A5A] w-full max-w-[1250px]"></div>
+                    <div className="flex justify-center mb-12">
+                        <div className="border-t border-[#5A5A5A] w-full max-w-312.5"></div>
                     </div>
 
                     {/* Footer Bottom Section */}
                     <div className="flex justify-center pb-8">
-                        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 w-full max-w-[1250px]">
+                        <div className="flex flex-col lg:flex-row items-center justify-between gap-6 w-full max-w-312.5">
                             {/* Logo and Copyright */}
                             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
                                 <a href="/" className="flex items-center gap-2">

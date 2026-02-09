@@ -23,7 +23,7 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed top-11.75 left-15.5 right-15.5 z-50 flex justify-center">
+        <header className="fixed top-8 left-4 right-4 z-50 flex justify-center">
             <div className="bg-white/70 backdrop-blur-xl border border-[#858E9B] rounded-lg transition-all duration-300 p-2.5 flex items-center w-full max-w-328.75 justify-between ring-1 ring-black/5 h-15">
 
                 {/* Logo Section */}

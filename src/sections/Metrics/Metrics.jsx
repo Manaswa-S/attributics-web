@@ -123,13 +123,13 @@ const Metrics = () => {
         { 
             align: 'start',
             loop: false,
-            dragFree: false,
+            dragFree: true,
         },
         [Autoplay({ delay: 3500, stopOnInteraction: true })]
     );
       
     return (
-        <section id="about" className="py-16 lg:py-24 bg-white">
+        <section id="about" className="py-16 lg:py-24 bg-white w-full">
             <Container className="px-4">
                 {/* Headline */}
                 <div className="text-center mb-12 lg:mb-16">

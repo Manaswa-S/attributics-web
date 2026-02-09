@@ -61,10 +61,10 @@ const Hero = () => {
 
     return (
         <section className=" overflow-hidden bg-white">
-            <div className="mx-auto text-center flex flex-col items-center relative z-10 w-full px-8 pt-40 pb-12 lg:pb-24">
+            <div className="mx-auto text-center flex flex-col items-center relative z-10 w-full px-[16px] pt-40 pb-12 lg:pb-24">
 
                 {/* Hero Image Section */}
-                <div className="mx-auto px-11 relative w-full max-w-344 h-115 lg:h-134.75 overflow-hidden mb-8 lg:mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                <div className="mx-auto px-4 relative w-full max-w-344 h-115 lg:h-134.75 overflow-hidden mb-4 lg:mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 {/* Dot Pattern Background with Gradient */}
                     <div className="absolute inset-0">
                         {/* Base dot pattern using SVG */}
@@ -72,7 +72,7 @@ const Hero = () => {
                             src={unionPattern}
                             alt="Dotted Gradient Pattern"
                             className="w-full h-full object-cover"
-                            loading='lazy'
+                            loading='eager'
                         />
                         {/* Gradient overlay to create the coral fade effect */}
                         <div

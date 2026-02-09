@@ -1,5 +1,8 @@
+import Container from '../../components/layout/Container';
+
 const AuditCTA = () => {
     return (
+        <Container>
       <section className="w-full px-4">
         <div
           className="
@@ -64,6 +67,7 @@ const AuditCTA = () => {
           </div>
         </div>
       </section>
+      </Container>
     );
   };
   

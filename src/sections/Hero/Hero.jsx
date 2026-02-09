@@ -3,6 +3,8 @@ import unionPattern from '../../assets/Union.svg';
 import { logoMap } from "./constants";
 import { useState, useEffect } from 'react';
 
+import { Container } from '../../components';
+
 // Feature carousel slides
 const featureSlides = [
     {
@@ -58,120 +60,156 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative pt-24 pb-12 lg:pb-24 overflow-hidden bg-white mt-10">
-            <div className="relative z-10 w-full px-8">
-                <div className="mx-auto text-center flex flex-col items-center">
+        <section className=" overflow-hidden bg-white">
+            <div className="mx-auto text-center flex flex-col items-center relative z-10 w-full px-8 pt-40 pb-12 lg:pb-24">
 
-                    {/* Hero Image Section */}
-                    <div className="relative w-full max-w-344 min-h-150 lg:h-134.75 overflow-hidden mb-8 lg:mb-12 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        {/* Dot Pattern Background with Gradient */}
-                        <div className="absolute inset-0">
-                            {/* Base dot pattern using SVG */}
-                            <img
-                                src={unionPattern}
-                                alt="Dotted Gradient Pattern"
-                                className="w-full h-full object-cover"
-                                loading='lazy'
-                            />
-                            {/* Gradient overlay to create the coral fade effect */}
-                            <div
-                                className="absolute inset-0 pointer-events-none"
-                                style={{
-                                    background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0) 60%)',
-                                }}
-                            />
-                        </div>
-
-                        {/* White Card Overlay */}
+                {/* Hero Image Section */}
+                <div className="mx-auto px-11 relative w-full max-w-344 h-115 lg:h-134.75 overflow-hidden mb-8 lg:mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                {/* Dot Pattern Background with Gradient */}
+                    <div className="absolute inset-0">
+                        {/* Base dot pattern using SVG */}
+                        <img
+                            src={unionPattern}
+                            alt="Dotted Gradient Pattern"
+                            className="w-full h-full object-cover"
+                            loading='lazy'
+                        />
+                        {/* Gradient overlay to create the coral fade effect */}
                         <div
-                            className="absolute top-20 left-4 right-4 lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 rounded-[20px] flex flex-col items-center"
+                            className="absolute inset-0 pointer-events-none"
                             style={{
-                                width: '843px',
-                                height: '350px',
-                                maxWidth: '95%',
-                                background: '#FFFFFFCC',
-                                border: '1px solid #C9C9C9',
-                                backdropFilter: 'blur(8px)',
-                                WebkitBackdropFilter: 'blur(8px)',
-                                paddingTop: '40px',
-                                paddingRight: '80px',
-                                paddingBottom: '40px',
-                                paddingLeft: '80px',
-                                gap: '55px'
+                                background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0) 60%)',
                             }}
-                        >
-                            {/* Icon and Title - Width 384px, Height 26px */}
-                            <div className="flex items-center justify-center gap-2 w-[384px] h-6.5">
-                                <div className="w-6 h-6 bg-[#FF6758] rounded flex items-center justify-center shrink-0">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                                        <polyline points="17 6 23 6 23 12"></polyline>
-                                    </svg>
-                                </div>
-                                <span className="font-mono text-[20px] font-normal uppercase text-[#131212] leading-[100%] tracking-[0%] whitespace-nowrap">
-                                    {hero.overlay.title}
-                                </span>
-                            </div>
-
-                            {/* Description Carousel - Width 683px, Height 84px */}
-                            <div className="relative w-full max-w-170.75 h-21 overflow-hidden">
-                                {featureSlides.map((slide, index) => (
-                                    <p
-                                        key={slide.id}
-                                        className={`absolute inset-0 text-[#131212] font-ibm-sans text-[20px] font-normal leading-[140%] text-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-                                            }`}
-                                    >
-                                        {slide.description}
-                                    </p>
-                                ))}
-                            </div>
-
-                            {/* Pagination Dots */}
-                            <div className="flex justify-center items-center" style={{ width: '70px', height: '6px', gap: '4px' }}>
-                                {featureSlides.map((_, index) => (
-                                    <button
-                                        key={index}
-                                        onClick={() => handleDotClick(index)}
-                                        className={`rounded-full transition-all duration-300 cursor-pointer ${
-                                            index === currentSlide
-                                                ? 'w-12.5 h-0.75 bg-[#FF6758]'
-                                                : 'w-1.5 h-1.5 bg-[#FF6758] opacity-50 hover:opacity-80'
-                                        }`}
-                                        type="button"
-                                        aria-label={`Go to slide ${index + 1}`}
-                                    ></button>
-                                ))}
-                            </div>
-
-                            {/* CTA Buttons */}
-                            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-                                <button className="flex flex-row justify-center items-center gap-2.5 w-48.5 h-12.5 bg-[#000000] text-white text-[16px] font-normal leading-[140%] rounded-sm hover:bg-[#1a1a1a] transition-colors cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif', padding: '8px 12px' }}>
-                                    <span className="text-[#6B9FFF]">✦</span>
-                                    <span>See how it works</span>
-                                    <span>→</span>
-                                </button>
-                                <button className="flex flex-row justify-center items-center gap-2 w-auto bg-white text-[#131212] text-[16px] font-normal leading-[140%] hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
-                                    <span>Calculate your ROI</span>
-                                    <span>→</span>
-                                </button>
-                            </div>
-                        </div>
+                        />
                     </div>
 
-                    {/* Logo Cloud Section - Marquee */}
-                    <div className="w-full max-w-344 h-65.75 mx-auto mt-4 lg:mt-6 flex flex-col items-center justify-center rounded-[20px] overflow-hidden">
-                        <p className="font-mono text-[12px] uppercase tracking-wider text-[#131212] mb-8">
-                            {logoCloud.title}
-                        </p>
+                    {/* White Card Overlay */}
+                    <div
+                        className="
+                            absolute
+                            top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 
-                        <div className="w-full overflow-hidden relative py-4 flex flex-col gap-6 lg:gap-8 mask-fade-x" style={{ '--fade': '15px' }}>
-                            {/* Row 1 - Scroll Left */}
-                            {LogoMarqueeRow(logoCloud.rows[0])}
-                            {/* Row 2 - Scroll Right */}
-                            {LogoMarqueeRow(logoCloud.rows[1], true)}
+                            rounded-[20px]
+                            flex
+                            flex-col
+                            items-center
+
+                            h-auto
+                            gap-[30px]
+                            px-5
+                            py-8
+
+                            lg:px-20
+                            lg:py-10
+                            lg:gap-[40px]
+                        "
+                        style={{
+                            width: '843px',
+                            height: '400px',
+                            maxWidth: '95%',
+                            background: '#FFFFFFCC',
+                            border: '1px solid #C9C9C9',
+                            backdropFilter: 'blur(8px)',
+                            WebkitBackdropFilter: 'blur(8px)',
+                        }}
+                    >
+                        {/* Icon and Title - Width 384px, Height 26px */}
+                        <div className="flex items-center justify-center gap-2 w-full max-w-[384px]"> <div className="w-6 h-6 bg-[#FF6758] rounded flex items-center justify-center shrink-0">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <span className="font-mono text-[20px] font-normal uppercase text-[#131212] leading-[100%] tracking-[0%]">
+                                {hero.overlay.title}
+                            </span>
+                        </div>
+
+                        {/* Description Carousel - Width 683px, Height 84px */}
+                        <div className="relative w-full max-w-170.75 min-h-[84px] overflow-hidden px-2">{featureSlides.map((slide, index) => (
+                                <p
+                                    key={slide.id}
+                                    className={`absolute inset-0 text-[#131212] font-ibm-sans text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-[140%] text-center transition-opacity duration-700 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                        }`}
+                                >
+                                    {slide.description}
+                                </p>
+                            ))}
+                        </div>
+
+                        {/* Pagination Dots */}
+                        <div className="flex justify-center items-center" style={{ width: '70px', height: '6px', gap: '4px' }}>
+                            {featureSlides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => handleDotClick(index)}
+                                    className={`rounded-full transition-all duration-300 cursor-pointer ${
+                                        index === currentSlide
+                                            ? 'w-12.5 h-0.75 bg-[#FF6758]'
+                                            : 'w-1.5 h-1.5 bg-[#FF6758] opacity-50 hover:opacity-80'
+                                    }`}
+                                    type="button"
+                                    aria-label={`Go to slide ${index + 1}`}
+                                ></button>
+                            ))}
+                        </div>
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center items-center"> <button className="flex flex-row justify-center items-center gap-2.5 w-full sm:w-48.5 h-12.5 bg-[#000000] text-white text-[16px] font-normal leading-[140%] rounded-sm hover:bg-[#1a1a1a] transition-colors cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif', padding: '8px 12px' }}>
+                                <span className="text-[#6B9FFF]">✦</span>
+                                <span>See how it works</span>
+                                <span>→</span>
+                            </button>
+                            <button className="flex flex-row justify-center items-center gap-2 w-auto bg-white text-[#131212] text-[16px] font-normal leading-[140%] hover:opacity-80 transition-opacity cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif' }}>
+                                <span>Calculate your ROI</span>
+                                <span>→</span>
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                {/* Logo Cloud Section - Marquee */}
+                <div
+                className="
+                    w-full
+                    max-w-344
+                    min-h-[220px] sm:min-h-[260px]
+                    mx-auto
+                    mt-6 sm:mt-8 lg:mt-6
+                    px-4 sm:px-6
+                    flex
+                    flex-col
+                    items-center
+                    justify-center
+                    rounded-[20px]
+                    overflow-hidden
+                "
+                >
+                    <p className="font-mono text-[12px] uppercase tracking-wider text-[#131212] mb-6 sm:mb-8 text-center">
+                        {logoCloud.title}
+                    </p>
+
+                    <div
+                    className="
+                        w-full
+                        overflow-hidden
+                        relative
+                        py-3 sm:py-4
+                        flex
+                        flex-col
+                        gap-5 sm:gap-6 lg:gap-8
+                        mask-fade-x
+                    "
+                    style={{ '--fade': '15px' }}
+                    >
+                        {/* Row 1 - Scroll Left */}
+                        {LogoMarqueeRow(logoCloud.rows[0])}
+
+                        {/* Row 2 - Scroll Right */}
+                        {LogoMarqueeRow(logoCloud.rows[1], true)}
+                    </div>
+                </div>
+
             </div>
         </section>
     );

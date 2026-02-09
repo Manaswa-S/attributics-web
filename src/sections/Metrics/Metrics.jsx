@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Container from '../../components/layout/Container';
 import { siteContent } from '../../constants/content';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import mainCard01 from '../../assets/logo/main_01.png';
 import mainCard02 from '../../assets/logo/main_02png.png';
 import mainCard03 from '../../assets/logo/main_03png.png';
@@ -32,10 +34,100 @@ const caseStudies = [
     },
 ];
 
+
+const MetricCard = ({
+        study,
+        index,
+        expandedCard,
+        setExpandedCard,
+        isMobile = false,
+    }) => {
+        const isExpanded = isMobile || expandedCard === index;
+  
+    return (
+      <div
+        onMouseEnter={!isMobile ? () => setExpandedCard(index) : undefined}
+        onMouseLeave={!isMobile ? () => setExpandedCard(0) : undefined}
+        className="relative rounded-md border border-[#747474] bg-white shrink-0 overflow-hidden p-2 flex flex-row transition-[width] duration-700 ease-in-out h-55 lg:h-55"
+        style={{
+          width: isMobile ? '100%' : isExpanded ? '450px' : '220px',
+        }}
+      >
+        {/* Image */}
+        <div
+          className="relative rounded-sm overflow-hidden shrink-0 transition-[width] duration-700 ease-in-out"
+          style={{
+            width: isMobile ? '144px' : isExpanded ? '144px' : '100%',
+          }}
+        >
+          <img
+            src={study.image}
+            alt={study.title}
+            className="w-full h-full object-cover"
+          />
+  
+          {/* Overlay (desktop collapsed only) */}
+          {!isMobile && (
+            <div
+              className="absolute top-0 right-0 bottom-0 left-1/2 bg-white/80 backdrop-blur-md p-3 flex flex-col transition-opacity duration-500"
+              style={{ opacity: isExpanded ? 0 : 1 }}
+            >
+              <h3 className="text-sm uppercase">{study.stat}</h3>
+              <h3 className="text-sm uppercase mt-1">{study.title}</h3>
+            </div>
+          )}
+        </div>
+  
+        {/* Content */}
+        <div
+            className="flex-1 flex flex-col justify-between pl-5 transition-all duration-700"
+            style={{
+                opacity: isExpanded ? 1 : 0,
+                transform: isExpanded ? 'translateX(0)' : 'translateX(20px)',
+            }}
+        >
+          <div>
+            <h3 className="
+                uppercase
+                text-lg
+                sm:text-xl
+                lg:text-2xl
+            ">
+                {study.stat} {study.title}
+            </h3>
+            <p className="
+                mt-2
+                text-sm
+                sm:text-base
+                leading-snug
+                lg:leading-[140%]
+            ">
+                {study.description}
+            </p>
+          </div>
+  
+          <a className="mt-3 text-sm font-semibold flex items-center gap-1.5">
+            Read more →
+          </a>
+        </div>
+      </div>
+    );
+};
+  
 const Metrics = () => {
     const { metrics } = siteContent;
     const [expandedCard, setExpandedCard] = useState(0);
 
+
+    const [emblaRef] = useEmblaCarousel(
+        { 
+            align: 'start',
+            loop: false,
+            dragFree: false,
+        },
+        [Autoplay({ delay: 3500, stopOnInteraction: true })]
+    );
+      
     return (
         <section id="about" className="py-16 lg:py-24 bg-white">
             <Container className="px-4">
@@ -47,95 +139,30 @@ const Metrics = () => {
                     </h2>
                 </div>
 
-                {/* Case Study Cards - Responsive Layout */}
-                <div className="flex flex-col lg:flex-row justify-center items-stretch gap-5 lg:gap-5 max-w-7xl mx-auto">
-                    {caseStudies.map((study, index) => {
-                        const isExpanded = expandedCard === index;
-                        return (
-                            <div
-                                key={index}
-                                onMouseEnter={() => setExpandedCard(index)}
-                                onMouseLeave={() => setExpandedCard(0)}
-                                className="relative rounded-md border border-[#747474] cursor-pointer bg-white shrink-0 overflow-hidden p-2 flex flex-row transition-[width] duration-700 ease-in-out h-55"
-                                style={{
-                                    width: isExpanded ? '450px' : '220px',
-                                }}
-                            >
-                                {/* Image - always present, animates width */}
-                                <div
-                                    className="relative rounded-sm overflow-hidden shrink-0 transition-[width] duration-700 ease-in-out h-51"
-                                    style={{
-                                        width: isExpanded ? '144px' : '100%',
-                                    }}
-                                >
-                                    <img
-                                        src={study.image}
-                                        alt={study.title}
-                                        className="w-full h-full object-cover"
-                                    />
-
-                                    {/* Blurred text overlay - fades out when expanded */}
-                                    <div
-                                        className="absolute top-0 right-0 bottom-0 left-1/2 bg-white/80 backdrop-blur-md p-3 flex flex-col justify-start transition-opacity duration-500 ease-out"
-                                        style={{
-                                            opacity: isExpanded ? 0 : 1,
-                                            pointerEvents: isExpanded ? 'none' : 'auto',
-                                        }}
-                                    >
-                                        <h3 className="text-[#131212] text-sm font-normal uppercase leading-[100%] blur-[0.5px]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
-                                            {study.stat}
-                                        </h3>
-                                        <h3 className="text-[#131212] text-sm font-normal uppercase leading-[100%] mt-1 blur-[0.5px]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
-                                            {study.title}
-                                        </h3>
-                                    </div>
-                                </div>
-
-                                {/* Expanded content - always in DOM, transitions opacity & transform */}
-                                <div
-                                    className="flex-1 flex flex-col justify-between pl-5 overflow-hidden transition-all duration-700 ease-in-out"
-                                    style={{
-                                        opacity: isExpanded ? 1 : 0,
-                                        transform: isExpanded ? 'translateX(0)' : 'translateX(20px)',
-                                        transitionDelay: isExpanded ? '0.25s' : '0s',
-                                    }}
-                                >
-                                    {/* Stats and Title */}
-                                    <div className="flex-1 flex flex-col justify-start">
-                                        <h3 className="text-[#131212] text-2xl font-normal uppercase leading-[100%]" style={{ fontFamily: 'IBM Plex Mono, monospace' }}>
-                                            {study.stat} {study.title}
-                                        </h3>
-
-                                        {/* Description */}
-                                        <p
-                                            className="text-[#131212] text-base font-normal leading-[140%] mt-3 transition-all duration-700 ease-out"
-                                            style={{
-                                                fontFamily: 'IBM Plex Sans, sans-serif',
-                                                opacity: isExpanded ? 1 : 0,
-                                                transform: isExpanded ? 'translateY(0)' : 'translateY(10px)',
-                                                transitionDelay: isExpanded ? '0.4s' : '0s',
-                                            }}
-                                        >
-                                            {study.description}
-                                        </p>
-                                    </div>
-
-                                    {/* Read More Link */}
-                                    <a
-                                        href="#"
-                                        className="text-[#131212] text-sm font-semibold flex items-center gap-1.5 hover:gap-2 transition-all duration-500 ease-out w-fit mt-3"
-                                        style={{
-                                            opacity: isExpanded ? 1 : 0,
-                                            transform: isExpanded ? 'translateY(0)' : 'translateY(10px)',
-                                            transitionDelay: isExpanded ? '0.55s' : '0s',
-                                        }}
-                                    >
-                                        Read more <span>→</span>
-                                    </a>
-                                </div>
+                <div className="relative max-w-7xl mx-auto mask-fade-x flex-[0_0_90%] px-1" style={{ '--fade': '15px' }}>
+                    {/* Mobile carousel */}
+                    <div ref={emblaRef} className="overflow-hidden lg:hidden">
+                        <div className="flex gap-4">
+                            {caseStudies.map((study, index) => (
+                            <div key={index} className="flex-[0_0_90%]">
+                                <MetricCard study={study} isMobile />
                             </div>
-                        );
-                    })}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Desktop layout (unchanged) */}
+                    <div className="hidden lg:flex justify-center gap-5">
+                        {caseStudies.map((study, index) => (
+                            <MetricCard
+                            key={index}
+                            study={study}
+                            index={index}
+                            expandedCard={expandedCard}
+                            setExpandedCard={setExpandedCard}
+                            />
+                        ))}
+                    </div>
                 </div>
             </Container>
         </section>

@@ -2,6 +2,8 @@ import Container from '../../components/layout/Container';
 import { useState, useEffect, useCallback } from 'react';
 import discoveryBg from '../../assets/discovery_background.svg';
 import discoveryVectorBg from '../../assets/discovery_background_vector.svg';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 // Auto-scrolling questions/content with bold segments
 const scrollingQuestions = [
@@ -14,36 +16,34 @@ const scrollingQuestions = [
 ];
 
 const AgenticAI = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [displayIndex, setDisplayIndex] = useState(0);
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { 
+            align: 'start',
+            loop: true,
+            dragFree: true,
+        },
+        [Autoplay({ delay: 3500, stopOnInteraction: true })]
+    );  
 
-    const goToSlide = useCallback((nextIndex) => {
-        if (isAnimating) return;
-        setIsAnimating(true);
-        // Phase 1: fade out current text
-        setTimeout(() => {
-            setDisplayIndex(nextIndex);
-            setCurrentIndex(nextIndex);
-            // Phase 2: fade in new text (after display updates)
-            setTimeout(() => {
-                setIsAnimating(false);
-            }, 50);
-        }, 500); // wait for fade-out to finish
-    }, [isAnimating]);
+    const [selectedIndex, setSelectedIndex] = useState(0)
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const nextIndex = (currentIndex + 1) % scrollingQuestions.length;
-            goToSlide(nextIndex);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, [currentIndex, goToSlide]);
+        if (!emblaApi) return
+      
+        const onSelect = () => {
+            setSelectedIndex(emblaApi.selectedScrollSnap())
+            // emblaApi.autoplay.reset()
+        }
+      
+        emblaApi.on('select', onSelect)
+        onSelect()
 
+        return () => emblaApi.off('select', onSelect)
+    }, [emblaApi])
+      
     const handleDotClick = (index) => {
-        if (index === currentIndex) return;
-        goToSlide(index);
-    };
+        emblaApi?.scrollTo(index)
+    }
 
     return (
         <section id="products" className="py-12 sm:py-16 lg:py-24 bg-white">
@@ -94,12 +94,21 @@ const AgenticAI = () => {
                             {/* Carousel slides - single slide, no overlap */}
                             <div className="absolute inset-0 w-full h-full z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8">
                                 <div
-                                    className="text-center w-full max-w-2xl transition-opacity duration-500 ease-in-out"
-                                    style={{ opacity: isAnimating ? 0 : 1 }}
+                                    ref={emblaRef}
+                                    className="relative w-full h-full"
                                 >
-                                    <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-[#131212] leading-relaxed font-normal [&>strong]:font-bold">
-                                        {scrollingQuestions[displayIndex]}
-                                    </p>
+                                    <div className="embla__container flex h-full">
+                                        {scrollingQuestions.map((q, index) => (
+                                            <div
+                                                key={index}
+                                                className="embla__slide flex-shrink-0 w-full flex items-center justify-center px-4"
+                                            >
+                                                <p className="text-center text-sm sm:text-base lg:text-lg xl:text-xl text-[#131212] leading-relaxed font-normal [&>strong]:font-bold">
+                                                    {q}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +121,7 @@ const AgenticAI = () => {
                                 <button
                                     key={index}
                                     onClick={() => handleDotClick(index)}
-                                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
+                                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${index === selectedIndex
                                             ? 'w-7.5 bg-[#131212]'
                                             : 'w-1.5 bg-[#CCCCCC] hover:bg-[#999]'
                                         }`}

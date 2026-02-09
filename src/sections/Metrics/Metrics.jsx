@@ -123,7 +123,7 @@ const Metrics = () => {
         { 
             align: 'start',
             loop: false,
-            dragFree: true,
+            dragFree: false,
         },
         [Autoplay({ delay: 3500, stopOnInteraction: true })]
     );

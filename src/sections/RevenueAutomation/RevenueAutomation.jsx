@@ -1,5 +1,6 @@
 import Container from '../../components/layout/Container';
 import useEmblaCarousel from 'embla-carousel-react';
+// import Autoplay from 'embla-carousel-autoplay';
 
 const caseStudies = [
     {
@@ -41,7 +42,9 @@ const RevenueAutomation = () => {
             loop: false,
             dragFree: true,
         },
+        // [Autoplay({ delay: 3500, stopOnInteraction: true })]
     );
+    const isMobile = window.innerWidth < 1024;
 
     return (
         <section id="solutions" className="py-12 lg:py-24 bg-white overflow-hidden">
@@ -70,7 +73,7 @@ const RevenueAutomation = () => {
                 </div>
 
                 {/* Case Study Cards - scrollable within Container boundary */}
-                <div ref={emblaRef} className="">
+                <div ref={emblaRef} className={isMobile ? '' : 'mask-fade-x'} style={{ '--fade': '10px' }}>
                     <div 
                         className="flex gap-9.75 embla__container" 
                         style={{  marginLeft: '4px' }}

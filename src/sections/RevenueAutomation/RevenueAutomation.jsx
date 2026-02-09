@@ -1,4 +1,5 @@
 import Container from '../../components/layout/Container';
+import useEmblaCarousel from 'embla-carousel-react';
 
 const caseStudies = [
     {
@@ -34,6 +35,14 @@ const caseStudies = [
 ];
 
 const RevenueAutomation = () => {
+    const [emblaRef] = useEmblaCarousel(
+        { 
+            align: 'start',
+            loop: false,
+            dragFree: true,
+        },
+    );
+
     return (
         <section id="solutions" className="py-12 lg:py-24 bg-white overflow-hidden">
             {/* Section Header - Inside Container */}
@@ -61,15 +70,15 @@ const RevenueAutomation = () => {
                 </div>
 
                 {/* Case Study Cards - scrollable within Container boundary */}
-                <div className="overflow-x-auto scrollbar-hide revenue-cards-scroll">
+                <div ref={emblaRef} className="">
                     <div 
-                        className="flex gap-9.75" 
-                        style={{ width: 'max-content', marginLeft: '4px' }}
+                        className="flex gap-9.75 embla__container" 
+                        style={{  marginLeft: '4px' }}
                     >
                         {caseStudies.map((study) => (
                             <div
                                 key={study.id}
-                                className="shrink-0 w-85.25 rounded-[10px] p-7.5 flex flex-col justify-between"
+                                className="shrink-0 w-85.25 embla__slide rounded-[10px] p-7.5 flex flex-col justify-between"
                                 style={{
                                     background: study.gradient,
                                     minHeight: '367px'
@@ -106,28 +115,6 @@ const RevenueAutomation = () => {
                     </div>
                 </div>
             </Container>
-
-            <style>{`
-                /* White fade blur on both left and right edges of scrollable cards */
-                .revenue-cards-scroll {
-                    position: relative;
-                    mask-image: linear-gradient(
-                        to right,
-                        transparent 0%,
-                        white 1%,
-                        white 92%,
-                        transparent 100%
-                    );
-                    -webkit-mask-image: linear-gradient(
-                        to right,
-                        transparent 0%,
-                        white 1%,
-                        white 92%,
-                        transparent 100%
-                    );
-                }
-            `}</style>
-
         </section>
     );
 };

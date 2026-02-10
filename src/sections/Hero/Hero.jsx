@@ -94,9 +94,10 @@ const Hero = () => {
                             flex-col
                             items-center
 
-                            h-[55%]
+                            h-[70%]
                             w-[90%]
                             lg:w-[50%]
+                            lg:h-[55%]
                             py-8
 
                             lg:px-20
@@ -146,7 +147,7 @@ const Hero = () => {
                         </div>
 
                         {/* Pagination Dots */}
-                        <div className="h-[5%] flex justify-center items-center" style={{ width: '70px', height: '6px', gap: '4px' }}>
+                        <div className="h-[5%] flex justify-center items-center" style={{gap: '4px' }}>
                             {featureSlides.map((_, index) => (
                                 <button
                                     key={index}
@@ -163,7 +164,7 @@ const Hero = () => {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="h-[25%] flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center items-center"> 
+                        <div className="h-[25%] flex flex-col sm:flex-row gap-6 sm:gap-8 justify-end items-center"> 
                             <button className="flex flex-row justify-center items-center gap-2.5 w-full sm:w-48.5 h-12.5 bg-[#000000] text-white text-[16px] font-normal leading-[140%] rounded-sm hover:bg-[#1a1a1a] transition-colors cursor-pointer whitespace-nowrap" style={{ fontFamily: 'IBM Plex Sans, sans-serif', padding: '8px 12px' }}>
                                 <span className="text-[#6B9FFF]">✦</span>
                                 <span>See how it works</span>

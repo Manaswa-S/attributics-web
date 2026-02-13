@@ -25,12 +25,12 @@ const BetterL: React.FC = () => {
   return (
     <div className="w-full flex flex-wrap items-center justify-center gap-6">
 
-      <div className="relative w-full max-w-[1215px] aspect-[1200/600] group">
+      <div className="relative w-full max-w-[1215px] aspect-[1200/750] group">
         {/* The L-Shaped Background with clip-path */}
         <div 
             className="absolute inset-0 overflow-hidden"
             style={{
-                clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 50% 0%, 50% 50%, 0% 50%)',
+                clipPath: 'polygon(0% 100%, 100% 100%, 100% 0%, 65% 0%, 65% 50%, 0% 50%)',
                 backdropFilter: 'blur(4px)',
                 WebkitBackdropFilter: 'blur(8px)',
                 border: '1px solid #C1C1C1',
@@ -47,18 +47,28 @@ const BetterL: React.FC = () => {
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1215 886" preserveAspectRatio="none" style={{borderRadius: '20px'}}>
             {/* The main outline of the clipped area */}
             <path 
-                d="M 1,885 L 1214,885 L 1214,1 L 607.5,1 L 607.5,443 L 1,443 Z" 
-                fill="none" 
-                stroke="#8F8F8F" 
-                strokeWidth="1.5" 
-                opacity="0.3"
+              d="
+                M 0% 100%
+                L 0% 50%
+                L 65% 50%
+                L 65% 0%
+                L 100% 0%
+                L 100% 100%
+                Z
+              "
+              fill="none" 
+              stroke="#8F8F8F" 
+              strokeWidth="1.5" 
+              opacity="0.3"
             />
+
+
             {/* Connection Flow Lines */}
             {/* Vertical Trunk Line */}
             <line
-              x1="911"
+              x1="1003"
               y1="90"
-              x2="911"
+              x2="1003"
               y2="800"
               stroke="rgba(0,0,0,0.12)"
               strokeWidth="2.5"
@@ -69,7 +79,7 @@ const BetterL: React.FC = () => {
             <line
               x1="60"
               y1="664.5"
-              x2="908"
+              x2="1000"
               y2="664.5"
               stroke="rgba(0,0,0,0.12)"
               strokeWidth="4"
@@ -78,7 +88,7 @@ const BetterL: React.FC = () => {
         </svg>
 
         {/* Vertical Column (Right Leg) */}
-        <div className="absolute left-[50%] right-0 top-0 bottom-0 flex flex-col items-center py-10 gap-5 z-10">
+        <div className="absolute left-[65%] right-0 top-0 bottom-0 flex flex-col items-center py-10 gap-5 z-10">
             {/* Analytics Header Block */}
             <Block 
               label="Plan next campaigns" 

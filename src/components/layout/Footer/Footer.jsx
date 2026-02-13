@@ -8,7 +8,7 @@ const Footer = () => {
     const { brand, footer, newsletter } = siteContent;
 
     return (
-        <Block height='30vh'>
+        <Block height='30vh' xpad='0'>
         <footer className="bg-[#000000] text-white px-8">
             {/* Newsletter Section - Centered */}
             <div className="h-[60%] flex justify-center pt-8">

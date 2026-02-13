@@ -1,41 +1,98 @@
-import Container from '../../components/layout/Container';
 import Block from '../../components/layout/Block/Block';
 import useEmblaCarousel from 'embla-carousel-react';
-// import Autoplay from 'embla-carousel-autoplay';
 import WheelGestures from 'embla-carousel-wheel-gestures'
+
+// Assets
+import cardBg01 from '../../assets/revAuto/1.webp';
+import cardBg02 from '../../assets/revAuto/2.webp';
+import cardBg03 from '../../assets/revAuto/3.webp';
 
 const caseStudies = [
     {
         id: 1,
+        image: cardBg01,
         title: "DRIVING DIGITAL TRANSFORMATION WITH MARTECH",
         description: "A leading automobile manufacturer in India partnered with us to establish a Customer 360 view, streamline marketing touchpoints, and enhance digital sales performance.",
-        gradient: "linear-gradient(135deg, #4A5568 0%, #8B5CF6 100%)"
     },
     {
         id: 2,
+        image: cardBg02,
         title: "TRANSITION TO A COMPOSABLE CDP",
         description: "A major automobile manufacturer in Indonesia transitioned to a cloud-based CDP, improving scalability, reducing costs, and enabling developer-level personalization.",
-        gradient: "linear-gradient(135deg, #94A3B8 0%, #C4B5FD 100%)"
     },
     {
         id: 3,
+        image: cardBg03,
         title: "BOOSTING LEAD CONVERSIONS WITH DATA & CRM",
         description: "A large life insurance provider used AI-powered lead scoring and CRM workflows to reduce duplication, improve conversions, and unlock new revenue streams.",
-        gradient: "linear-gradient(135deg, #64748B 0%, #10B981 100%)"
     },
     {
         id: 4,
+        image: cardBg01,
         title: "BOOSTING DATA CONVERSIONS",
         description: "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue.",
-        gradient: "linear-gradient(135deg, #6B7280 0%, #3B82F6 100%)"
     },
     {
         id: 5,
+        image: cardBg02,
         title: "ACCELERATING CUSTOMER ENGAGEMENT",
         description: "A Fortune 500 company implemented intelligent automation to deliver personalized experiences at scale, increasing customer lifetime value by 40%.",
-        gradient: "linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)"
     }
 ];
+
+// CaseStudyCard Component
+const CaseStudyCard = ({ study }) => {
+    return (
+        
+        <div
+            key={study.id}
+            className="
+                embla__slide shrink-0
+                w-85
+                rounded-[10px]
+                p-7.5
+                flex flex-col justify-between
+                relative overflow-hidden
+            "
+        >
+            {/* Background Image */}
+            <img
+                src={study.image}
+                alt={study.title}
+                className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-gray-900/35" />
+
+            {/* Content */}
+            <div className="relative z-10 flex flex-col gap-7.5">
+                <h3
+                    className="text-white uppercase text-[24px] leading-[100%]"
+                    style={{ fontFamily: "'IBM Plex Mono', monospace", fontWeight: 400 }}
+                >
+                    {study.title}
+                </h3>
+
+                <p
+                    className="text-white text-[16px] leading-[140%]"
+                    style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
+                >
+                    {study.description}
+                </p>
+            </div>
+
+            <a
+                href="#"
+                className="relative z-10 text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-7.5"
+                style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
+            >
+                Read more →
+            </a>
+        </div>
+
+    );
+};
 
 const RevenueAutomation = () => {
     const [emblaRef] = useEmblaCarousel(
@@ -47,7 +104,6 @@ const RevenueAutomation = () => {
         [
             WheelGestures({ forceWheelAxis: 'x', wheelSpeed: 0.6 }),
         ]
-        // [Autoplay({ delay: 3500, stopOnInteraction: true })]
     );
     const isMobile = window.innerWidth < 1024;
 
@@ -80,53 +136,11 @@ const RevenueAutomation = () => {
             <div
                 ref={emblaRef}
                 className={`${isMobile ? '' : 'mask-fade-x'} flex-[6] h-full overflow-hidden`}
+                style={{ '--fade': '15px' }}
             >
-                <div className="flex gap-6.75 embla__container h-full" 
-                    style={{  marginLeft: '4px' }}
-                >
+                <div className="flex gap-6.75 embla__container h-full">
                     {caseStudies.map((study) => (
-                        <div
-                            key={study.id}
-                            className="
-                                embla__slide shrink-0
-                                w-85
-                                rounded-[10px]
-                                p-7.5
-                                flex flex-col justify-between
-                            "
-
-                            style={{
-                                background: study.gradient,
-                                minHeight: '367px'
-                            }}
-                        >
-                            <div className="flex flex-col gap-7.5">
-                                {/* Card Title */}
-                                <h3
-                                    className="text-white uppercase text-[24px] leading-[100%]"
-                                    style={{ fontFamily: "'IBM Plex Mono', monospace", fontWeight: 400 }}
-                                >
-                                    {study.title}
-                                </h3>
-
-                                {/* Card Description */}
-                                <p
-                                    className="text-white text-[16px] leading-[140%]"
-                                    style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
-                                >
-                                    {study.description}
-                                </p>
-                            </div>
-
-                            {/* Read More Link */}
-                            <a
-                                href="#"
-                                className="text-white text-[16px] leading-[140%] inline-flex items-center gap-2 hover:opacity-80 transition-opacity mt-7.5"
-                                style={{ fontFamily: "'IBM Plex Sans', sans-serif", fontWeight: 400 }}
-                            >
-                                Read more →
-                            </a>
-                        </div>
+                        <CaseStudyCard key={study.id} study={study} />
                     ))}
                 </div>
             </div>

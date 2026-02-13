@@ -4,9 +4,10 @@ import Block from '../../components/layout/Block';
 import { siteContent } from '../../constants/content';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import mainCard01 from '../../assets/logo/main_01.png';
-import mainCard02 from '../../assets/logo/main_02png.png';
-import mainCard03 from '../../assets/logo/main_03png.png';
+import mainCard01 from '../../assets/metrics/1.webp';
+import mainCard02 from '../../assets/metrics/2.webp';
+import mainCard03 from '../../assets/metrics/3.webp';
+import mainCard04 from '../../assets/metrics/4.webp';
 
 const caseStudies = [
     {
@@ -28,7 +29,7 @@ const caseStudies = [
         description: 'Turning every lead into an opportunity with Data & CRM',
     },
     {
-        image: mainCard01,
+        image: mainCard04,
         stat: '25% FASTER',
         title: 'TIME TO MARKET',
         description: 'Accelerating product launches with AI-powered automation',
@@ -131,11 +132,12 @@ const Metrics = () => {
     );
       
     return (
-        <Block height='60vh' xpad='15%'>
+        <Block height='60vh' xpad='5%'>
         <section id="about" className="h-full w-full flex flex-col">
           {/* Headline */}
-          <div className="flex-[4] text-center flex justify-center items-center">
-              <h2 className="mx-auto max-w-2xl text-2xl lg:text-[32px] font-bold leading-snug lg:leading-tight text-center text-[#131212]">
+          <div className="flex-[4] text-center flex justify-center items-center"> 
+              <h2 className="mx-auto max-w-2xl text-2xl lg:text-[32px] font-bold leading-snug lg:leading-tight text-center text-[#131212]"
+                style={{font: 'noto sans', fontWeight: 500, fontStyle: 'medium', lineHeight: '140%', letterSpacing: '0%'}}>
                   {metrics.headline}{' '}
                   <span className="text-[#F5614D]">{metrics.highlightedText}</span>
               </h2>

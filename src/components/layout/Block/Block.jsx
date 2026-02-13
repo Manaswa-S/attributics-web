@@ -2,7 +2,7 @@ const Block = ({
     children,
     minHeight = '',
     background,
-    xpad = '',
+    xpad = '1.2%',
   }) => {
 
     const isMobile = window.innerWidth < 1024;

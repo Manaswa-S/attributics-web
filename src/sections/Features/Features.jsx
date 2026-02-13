@@ -2,6 +2,9 @@ import Block from '../../components/layout/Block/Block';
 import graphImage from '../../assets/features/Group137.png';
 import unionPattern from '../../assets/Union.svg';
 
+// experimental
+import BetterL from './BetterL';
+
 const Features = () => {
     return (
         <Block minHeight="60vh">
@@ -25,14 +28,12 @@ const Features = () => {
                 </div>
 
                 <div className="relative w-full">
-                    <img
-                        src={graphImage}
-                        alt="Graph"
-                        className="w-full max-h-[75vh] object-contain px-[13.8%]"
-                    />
+                    <div className='w-full'>
+                        <BetterL />
+                    </div>
 
                     {/* Overlap Layer */}
-                    <div className="absolute top-0 left-[43%] -translate-x-full flex items-start justify-start py-20 pointer-events-none">
+                    <div className="absolute top-0 left-[35%] -translate-x-full flex items-start justify-start py-20 pointer-events-none">
                         <div className="text-left">
                             <p
                                 style={{
@@ -68,6 +69,7 @@ const Features = () => {
                             </p> */}
                         </div>
                     </div>
+
                 </div>
             </section>
         </Block>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { siteContent } from '../../../constants/content';
-import logo from '../../../assets/logo/Exclude.svg';
+import logo from '../../../assets/logo/Attributics-Wordmark.png';
 import Block from '../Block/Block';
 
 const Header = () => {
@@ -29,11 +29,8 @@ const Header = () => {
         <div className="bg-white/70 backdrop-blur-xl border border-[#858E9B] rounded-lg transition-all duration-300 p-2.5 flex items-center w-full justify-between ring-1 ring-black/5 h-15">
 
                 {/* Logo Section */}
-                <Link to="/" className="flex items-center gap-2 lg:gap-2.5 ml-2 lg:ml-0">
-                    <img src={logo} alt="Attributics Logo" className="w-5 h-5 lg:w-6 lg:h-6" />
-                    <span className="text-base lg:text-lg font-normal text-gray-700 tracking-tight lowercase">
-                        {brand.name}
-                    </span>
+                <Link to="/" className="flex items-center">
+                    <img src={logo} alt="Attributics Logo" className="w-50 h-auto" />
                 </Link>
 
                 {/* Desktop Navigation */}

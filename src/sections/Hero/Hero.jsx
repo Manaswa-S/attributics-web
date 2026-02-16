@@ -66,7 +66,7 @@ const Hero = () => {
                 // style={{ height: '100vh', width: '100%' }}
             >
                 {/* Hero Image Section */}
-                <div className="h-[75%] relative w-full animate-fade-in-up" style={{ animationDelay: '0.2s'}}>
+                <div className="h-[85%] relative w-full animate-fade-in-up" style={{ animationDelay: '0.2s'}}>
                 {/* Dot Pattern Background with Gradient */}
                     <div className="absolute inset-0">
                         {/* Base dot pattern using SVG */}
@@ -183,8 +183,8 @@ const Hero = () => {
                 {/* Logo Cloud Section - Marquee */}
                 <div
                 className="
-                relative 
-                    h-[25%]
+                    relative 
+                    h-[15%]
                     w-full
                     flex
                     flex-col
@@ -194,33 +194,31 @@ const Hero = () => {
                     overflow-hidden
 
                     pt-8
-                    pb-6
-                    lg:pt-12
-                    lg:pb-6
+                    pb-0
                 " 
                 >
-                    <p className="relative h-[30%] font-mono text-[12px] uppercase tracking-wider text-[#131212] text-center">
+                    <p className="relative font-mono text-[16px] uppercase tracking-wider text-[#131212] text-center">
                         {logoCloud.title}
                     </p>
 
                     <div
-                    className="
-                        h-[70%]
-                        w-full
-                        overflow-hidden
-                        relative
-                        flex
-                        flex-col
-                        gap-6 lg:gap-6
-                        mask-fade-x
-                    "
-                    style={{ '--fade': '15px' }}
+                        className="
+                            w-full
+                            overflow-hidden
+                            relative
+                            flex
+                            flex-col
+                            gap-6 lg:gap-6
+                            mask-fade-x
+                            pt-4
+                        "
+                        style={{ '--fade': '15px' }}
                     >
                         {/* Row 1 - Scroll Left */}
                         {LogoMarqueeRow(logoCloud.rows[0])}
 
                         {/* Row 2 - Scroll Right */}
-                        {LogoMarqueeRow(logoCloud.rows[1], true)}
+                        {/* {LogoMarqueeRow(logoCloud.rows[1], true)} */}
                     </div>
                 </div>
             </div>

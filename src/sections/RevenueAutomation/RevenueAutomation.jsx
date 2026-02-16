@@ -143,7 +143,7 @@ const RevenueAutomation = () => {
             <div
                 ref={emblaRef}
                 className={`${isMobile ? '' : 'mask-fade-x'} flex-[6] h-full overflow-hidden`}
-                style={{ '--fade': '15px' }}
+                style={{ '--fade': '10px' }}
             >
                 <div className="flex gap-6.75 embla__container h-full">
                     {caseStudies.map((study) => (

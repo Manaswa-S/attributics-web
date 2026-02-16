@@ -10,27 +10,29 @@ const AgenticAI = lazy(() => import('../sections/AgenticAI/AgenticAI'));
 const Partners = lazy(() => import('../sections/Partners/Partners'));
 const RevenueAutomation = lazy(() => import('../sections/RevenueAutomation/RevenueAutomation'));
 
+
+
 const HomePage = () => {
   return (
     <main>
       <Suspense fallback={<GlobalLoader />}>
         <Hero />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
         
         <Metrics />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
 
         <Features />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
 
         <AgenticAI />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
         
         <Partners />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
 
         <RevenueAutomation />
-        <WhiteSpace height='10vh'/>
+        <WhiteSpace height='20vh'/>
 
         {/* <WhiteSpace height='10vh' background='red'/> */}
 

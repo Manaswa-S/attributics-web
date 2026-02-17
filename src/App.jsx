@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Header, Footer } from './components';
+// import { HeaderTwo } from './components/layout/HeaderTwo';
 import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -24,6 +25,7 @@ const App = () => {
         <ScrollToTop />
         <div className="min-h-screen bg-white flex flex-col">
           <Header />
+          {/* <HeaderTwo /> */}
           <main className="grow">
             <Routes>
               <Route path="/" element={<HomePage />} />

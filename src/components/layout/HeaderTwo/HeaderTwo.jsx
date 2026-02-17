@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { nav } from '../../../constants/content';
 import logo from '../../../assets/logo/Attributics-Wordmark.png';
 import Block from '../Block/Block';
 
-const Header = () => {
+const HeaderTwo = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
 
@@ -22,19 +22,43 @@ const Header = () => {
         setIsMobileMenuOpen(false);
     };
 
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+    const handleScroll = () => {
+        setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     return (
-        <header className="fixed top-4 left-0 right-0 z-50 flex justify-center">
+        <header className={`fixed left-0 right-0 z-50 flex justify-center ${isScrolled ? "top-4" : "top-4"}`} >
         <Block xpad='5%' height='auto'>
-            <div className="bg-white/70 backdrop-blur-xl border border-[#858E9B] rounded-lg transition-all duration-300 p-2.5 flex items-center w-full justify-between ring-1 ring-black/5 h-15 relative flex items-center w-full h-15">
-                {/* Logo Section */}
+            <div
+                className={`
+                    transition-all duration-300
+                    rounded-lg p-2.5 flex items-center w-full justify-between h-15
+                    ${
+                    isScrolled
+                        ? "bg-white/50 backdrop-blur-xl border border-[#858E9B] shadow-lg"
+                        : "bg-transparent border border-transparent"
+                    }
+                `}
+            >
                 <div className="flex-1 flex justify-start">
                     <Link to="/">
                         <img src={logo} alt="Attributics Logo" className="w-50 h-auto" />
                     </Link>
                 </div>
 
+
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
+
                     {nav.links.map((link) => {
                         // Check if it's a route or anchor link
                         const isRoute = link.href === '/' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
@@ -61,7 +85,8 @@ const Header = () => {
                 </nav>
 
                 {/* CTA Section */}
-                <div className="flex items-center gap-2 lg:gap-3">
+                <div className="flex-1 flex justify-end items-center gap-3">
+
                     <div className="hidden lg:block">
                         <Link to="/contact">
                             <Button
@@ -152,4 +177,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default HeaderTwo;

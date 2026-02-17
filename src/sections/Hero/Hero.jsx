@@ -1,8 +1,8 @@
 import { hero, logoCloud } from '../../constants/content';
 import { logoMap } from "./constants";
-import { useState, useEffect } from 'react';
 import { Block } from '../../components/layout/Block';
 import unionBg from '../../assets/Union.svg';
+import { useState, useEffect, useRef } from 'react';
 
 // Feature carousel slides
 const featureSlides = [
@@ -48,25 +48,58 @@ const LogoMarqueeRow = (row) => (
 );
 
 const Hero = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % featureSlides.length);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, []);
-
-    const handleDotClick = (index) => {
-        setCurrentSlide(index);
+    const [index, setIndex] = useState(0);
+    const [isChanging, setIsChanging] = useState(false);
+    
+    const intervalRef = useRef(null);
+    
+    const triggerChange = (nextIndexFn) => {
+        setIsChanging(true);
+        
+        setTimeout(() => {
+            setIndex(nextIndexFn);
+            setIsChanging(false);
+        }, 350);
     };
+    
+    const startAutoplay = () => {
+        stopAutoplay(); // prevent stacked intervals
+        
+        intervalRef.current = setInterval(() => {
+            triggerChange((prev) => (prev + 1) % featureSlides.length);
+        }, 3500);
+    };
+    
+    const stopAutoplay = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    };
+    
+    useEffect(() => {
+        startAutoplay();
+        return () => stopAutoplay();
+    }, []);
+    
+    const handleDotClick = (i) => {
+        if (i === index) return;
+        
+        stopAutoplay();
+        triggerChange(() => i);
+        startAutoplay();
+    };
+    
+    const longestSlide = featureSlides.reduce((a, b) =>
+        a.description.length > b.description.length ? a : b
+    );
 
     return (
         <Block>
             <section className="relative min-h-screen flex flex-col">
 
                 {/* ===== Hero Area ===== */}
-                <div className="relative flex-1 flex items-center justify-center ">
+                <div className="relative flex-1 flex items-center justify-center">
 
                     {/* Background Mask */}
                     <div className="absolute inset-0 pointer-events-none">
@@ -99,12 +132,13 @@ const Hero = () => {
                     <div
                         className="
                             relative z-10
-                            w-[90%]
+                            w-[100%]
                             max-w-3xl
                             flex flex-col
                             gap-10
                             p-8 lg:p-12
                             rounded-xl
+                            mx-1
                         "
                         style={{
                             background:
@@ -130,36 +164,42 @@ const Hero = () => {
                         </div>
 
                         {/* Carousel */}
-                        <div className="relative w-full min-h-[80px] flex items-center justify-center">
-                            {featureSlides.map((slide, index) => (
-                                <p
-                                    key={slide.id}
-                                    className={`
-                                        absolute inset-0
-                                        transition-opacity duration-500
-                                        hero-description
-                                        ${index === currentSlide ? 'opacity-100' : 'opacity-0'}
-                                    `}
+                        <div className="relative w-full flex justify-center">
+                            {/* Invisible height allocator */}
+                            <p className="hero-description text-center opacity-0 pointer-events-none">
+                                {longestSlide.description}
+                            </p>
+
+                            {/* Animated text */}
+                            <p
+                                className={`
+                                    absolute inset-0 hero-description text-center
+                                    transition-all duration-500 ease-in-out
+                                    ${isChanging
+                                    ? "opacity-0 blur-[1px] scale-[0.99]"
+                                    : "opacity-100 blur-0 scale-100"}
+                                `}
                                 >
-                                    {slide.description}
-                                </p>
-                            ))}
+                                {featureSlides[index].description}
+                            </p>
                         </div>
 
+
                         {/* Pagination */}
-                        <div className="flex justify-center gap-2">
-                            {featureSlides.map((_, index) => (
+                        <div className="flex justify-center gap-2 items-center">
+                            {featureSlides.map((_, i) => (
                                 <button
-                                    key={index}
-                                    onClick={() => handleDotClick(index)}
-                                    className={`rounded-full transition-all duration-300 ${
-                                        index === currentSlide
-                                            ? 'w-8 h-1 bg-[#FF6758]'
-                                            : 'w-2 h-2 bg-[#FF6758] opacity-40'
-                                    }`}
+                                key={i}
+                                onClick={() => handleDotClick(i)}
+                                className={`rounded-full cursor-pointer transition-all duration-300 ${
+                                    i === index
+                                    ? 'w-8 h-1 bg-[#FF6758]'
+                                    : 'w-2 h-2 bg-[#FF6758] opacity-50'
+                                }`}
                                 />
                             ))}
                         </div>
+
 
                         {/* CTA Section */}
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">

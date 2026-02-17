@@ -22,7 +22,7 @@ const logos = [
 const Partners = () => {
     return (
         <Block xpad='15%'>
-            <section className="flex w-full overflow-hidden justify-between">
+            <section className="flex w-full overflow-hidden justify-between lg:flex-row flex-col">
 
                 {/* Left side block, contains Title */}
                 <div className='flex items-center' style={{flexBasis: '50%'}}>
@@ -60,7 +60,7 @@ const Partners = () => {
 
                     {/* Glass Card */}
                     <div
-                        className="relative z-10 w-full mx-10 my-7 flex flex-col items-center justify-center"
+                        className="relative z-10 w-full lg:mx-10 mx-2 my-7 flex flex-col items-center justify-center"
                         style={{
                             background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 105%)',
                             backdropFilter: 'blur(30px)',
@@ -69,33 +69,16 @@ const Partners = () => {
                         }}
                     >
                         {/* Logo Grid - 2 columns */}
-                        <div className="w-full flex justify-between px-20 py-22">
-                            {/* Left column */}
-                            <div className="flex flex-col items-center space-y-16">
-                                {logos.filter((_, i) => i % 2 === 0).map((logo, i) => (
+                        <div className="w-full grid grid-cols-2 lg:px-20 px-3 py-22 gap-y-16 place-items-center">
+                            {logos.map((logo, i) => (
                                 <img
-                                    key={i}
-                                    src={logo}
-                                    alt={`Logo ${i}`}
-                                    className="h-9 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                                key={i}
+                                src={logo}
+                                alt={`Logo ${i}`}
+                                className="h-9 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
                                 />
-                                ))}
-                            </div>
-
-                            {/* Right column */}
-                            <div className="flex flex-col items-center space-y-16">
-                                {logos.filter((_, i) => i % 2 !== 0).map((logo, i) => (
-                                <img
-                                    key={i}
-                                    src={logo}
-                                    alt={`Logo ${i}`}
-                                    className="h-9 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
-                                />
-                                ))}
-                            </div>
+                            ))}
                         </div>
-
-
                     </div>
                 </div>
             </section>

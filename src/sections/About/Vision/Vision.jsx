@@ -7,7 +7,7 @@ const Vision = () => {
         <Block xpad='15%' topMargin='7%'>
         <section id="about">
             {/* WHO ARE WE */}
-            <div className="mb-22">
+            <div className="mb-30">
                 <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-22 items-center hyphens-auto">
                     <div className="flex flex-col">
                         <p className="section-eyebrow ">
@@ -37,11 +37,8 @@ const Vision = () => {
             </div>
 
             {/* STATEMENT */}
-            <div className="text-center mb-22 px-4">
-                <h3 className="vision-title"  style={{fontWeight: '400', fontSize: '25px'}}>
-                    {vision.statement[0]}
-                </h3>
-                <h3 className="vision-title" style={{fontSize: '31px'}}>
+            <div className="text-center mb-30 lg:px-[15%]">
+                <h3 className="vision-title" style={{fontSize: '31px', fontStyle: 'italic'}}>
                     {vision.statement[1]}
                 </h3>
             </div>

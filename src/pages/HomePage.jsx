@@ -10,6 +10,7 @@ const AgenticAI = lazy(() => import('../sections/AgenticAI/AgenticAI'));
 const Partners = lazy(() => import('../sections/Partners/Partners'));
 const RevenueAutomation = lazy(() => import('../sections/RevenueAutomation/RevenueAutomation'));
 
+const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';
 
 const HomePage = () => {
@@ -17,7 +18,7 @@ const HomePage = () => {
     <main>
       <Suspense fallback={<GlobalLoader />}>
         <Hero />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={reducedWhiteSpaceHeight} />
         
         <Metrics />
         <WhiteSpace height={whiteSpaceHeight} />

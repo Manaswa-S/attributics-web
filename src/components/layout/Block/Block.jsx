@@ -15,9 +15,8 @@ const Block = ({
         style={{
             width: '100%',
             minHeight,
-            backgroundColor: background,
         }}
-        className={`relative ${paddingMap[xpad]}`}
+        className={`relative ${paddingMap[xpad]} ${background}`}
       >
         {children}
       </div>

@@ -2,6 +2,9 @@ import { useState, useMemo } from 'react';
 import Container from '../components/layout/Container';
 import { resourcesData } from '../constants/resources';
 
+import ReactMarkdown from "react-markdown";
+
+
 const ResourcesPage = () => {
     const { hero, filters, blogs, caseStudies } = resourcesData;
     const [activeFilter, setActiveFilter] = useState('All');

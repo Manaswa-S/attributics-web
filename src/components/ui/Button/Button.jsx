@@ -1,5 +1,5 @@
 const variants = {
-    primary: 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/25',
+    primary: 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg',
     secondary: 'bg-white text-gray-900 hover:bg-gray-50 shadow-lg shadow-gray-200/50 border border-gray-200',
     outline: 'border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white',
     ghost: 'text-gray-600 hover:text-gray-900 hover:bg-gray-100',

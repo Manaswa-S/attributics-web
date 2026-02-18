@@ -1,6 +1,5 @@
-import Block from '../../components/layout/Block/Block';
-import graphImage from '../../assets/features/Group137.png';
-import unionPattern from '../../assets/Union.svg';
+import Block from '../../../components/layout/Block/Block';
+import unionPattern from '../../../assets/Union.svg';
 
 // experimental
 import BetterL from './BetterL';

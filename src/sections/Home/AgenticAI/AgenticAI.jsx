@@ -1,7 +1,7 @@
-import Block from '../../components/layout/Block/Block';
+import Block from '../../../components/layout/Block/Block';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import discoveryBg from '../../assets/discovery_background.svg';
-import discoveryVectorBg from '../../assets/discovery_background_vector.svg';
+import discoveryBg from '../../../assets/discovery_background.svg';
+import discoveryVectorBg from '../../../assets/discovery_background_vector.svg';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import WheelGestures from 'embla-carousel-wheel-gestures'

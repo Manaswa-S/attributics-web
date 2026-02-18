@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Block from '../../components/layout/Block';
-import { metrics } from '../../constants/content';
+import Block from '../../../components/layout/Block';
+import { metrics } from '../../../constants/content';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import mainCard01 from '../../assets/metrics/1.webp';
-import mainCard02 from '../../assets/metrics/2.webp';
-import mainCard03 from '../../assets/metrics/3.webp';
-import mainCard04 from '../../assets/metrics/4.webp';
+import mainCard01 from '../../../assets/metrics/1.webp';
+import mainCard02 from '../../../assets/metrics/2.webp';
+import mainCard03 from '../../../assets/metrics/3.webp';
+import mainCard04 from '../../../assets/metrics/4.webp';
 
 const caseStudies = [
   {

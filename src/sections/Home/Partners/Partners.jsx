@@ -1,12 +1,10 @@
-import unionBg from '../../assets/Union.svg';
-import aws from '../../assets/brands/aws.svg';
-import clevertap from '../../assets/brands/clevertap.svg';
-import americana from '../../assets/brands/americana.svg';
-import tableau from '../../assets/brands/tableau.svg';
-import powerbi from '../../assets/brands/powerbi.svg';
-import azure from '../../assets/brands/azure.svg';
-import databricks from '../../assets/brands/databricks.svg';
-import Block from '../../components/layout/Block';
+import unionBg from '../../../assets/Union.svg';
+import aws from '../../../assets/brands/aws.svg';
+import clevertap from '../../../assets/brands/clevertap.svg';
+import americana from '../../../assets/brands/americana.svg';
+import tableau from '../../../assets/brands/tableau.svg';
+import azure from '../../../assets/brands/azure.svg';
+import Block from '../../../components/layout/Block';
 
 const logos = [
     aws,
@@ -71,13 +69,18 @@ const Partners = () => {
                         {/* Logo Grid - 2 columns */}
                         <div className="w-full grid grid-cols-2 lg:px-20 px-3 py-22 gap-y-16 place-items-center">
                             {logos.map((logo, i) => (
-                                <img
-                                key={i}
-                                src={logo}
-                                alt={`Logo ${i}`}
-                                className="h-9 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
-                                />
+                                <div
+                                    key={i}
+                                    className={`w-full flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+                                >
+                                    <img
+                                        src={logo}
+                                        alt={`Logo ${i}`}
+                                        className="h-9 w-auto object-contain"
+                                    />
+                                </div>
                             ))}
+
                         </div>
                     </div>
                 </div>

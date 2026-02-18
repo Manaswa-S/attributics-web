@@ -1,7 +1,7 @@
-import { hero, logoCloud } from '../../constants/content';
+import { hero, logoCloud } from '../../../constants/content';
 import { logoMap } from "./constants";
-import { Block } from '../../components/layout/Block';
-import unionBg from '../../assets/Union.svg';
+import { Block } from '../../../components/layout/Block';
+import unionBg from '../../../assets/Union.svg';
 import { useState, useEffect, useRef } from 'react';
 
 // Feature carousel slides

@@ -1,11 +1,11 @@
-import Block from '../../components/layout/Block/Block';
+import Block from '../../../components/layout/Block/Block';
 import useEmblaCarousel from 'embla-carousel-react';
 import WheelGestures from 'embla-carousel-wheel-gestures'
 
 // Assets
-import cardBg01 from '../../assets/revAuto/1.webp';
-import cardBg02 from '../../assets/revAuto/2.webp';
-import cardBg03 from '../../assets/revAuto/3.webp';
+import cardBg01 from '../../../assets/revAuto/1.webp';
+import cardBg02 from '../../../assets/revAuto/2.webp';
+import cardBg03 from '../../../assets/revAuto/3.webp';
 
 const caseStudies = [
     {

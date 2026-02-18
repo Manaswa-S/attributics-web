@@ -1,12 +1,11 @@
-import Container from '../../components/layout/Container';
-import { team } from '../../constants/content';
+import { team } from '../../../constants/content';
 import { getTeamPhoto } from './constants';
+import Block from '../../../components/layout/Block';
 
 const Team = () => {
-
     return (
-        <Container>
-            <section className="bg-white mx-auto relative h-79.75 w-384.75">
+        <Block xpad='15%'>
+            <section className="bg-white mx-auto relative">
                 <div className="">
                     <p className="text-[12px] font-mono uppercase tracking-wider text-[#999] mb-4">
                         TEAM
@@ -14,7 +13,7 @@ const Team = () => {
                 </div>
 
                 {/* Team Members Grid */}
-                <div className="flex gap-8 w-full h-69 overflow-auto scrollbar-hide mask-fade-x pr-25 pl-1.25" style={{ '--fade': '15px' }}>
+                <div className="flex gap-8 w-full h-69 overflow-hidden scrollbar-hide mask-fade-x" style={{ '--fade': '10px' }}>
                     {team.members.map((member, index) => (
                         <div key={index} className="group cursor-pointer relative">
                             <div className="w-49.25 h-69 overflow-hidden rounded-xl mb-4 aspect-square bg-linear-to-b from-[#2A3D5A] to-[#1a2433]">
@@ -51,7 +50,7 @@ const Team = () => {
                     ))}
                 </div>
             </section>
-        </Container>
+        </Block>
     );
 };
 

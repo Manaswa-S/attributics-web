@@ -1,6 +1,6 @@
-import Placeholder from '../../assets/team/group/placeholder.webp';
+import Placeholder from '../../../assets/team/group/placeholder.webp';
 
-const images = import.meta.glob('../../assets/team/group/*.webp', {
+const images = import.meta.glob('../../../assets/team/group/*.webp', {
     eager: true,
     import: 'default',
 });

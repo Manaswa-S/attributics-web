@@ -13,7 +13,7 @@ const Team = () => {
                 </div>
 
                 {/* Team Members Grid */}
-                <div className="flex gap-8 w-full h-69 overflow-hidden scrollbar-hide mask-fade-x" style={{ '--fade': '10px' }}>
+                <div className="flex gap-8 w-full h-69 overflow-auto scrollbar-hide mask-fade-x" style={{ '--fade': '10px' }}>
                     {team.members.map((member, index) => (
                         <div key={index} className="group cursor-pointer relative">
                             <div className="w-49.25 h-69 overflow-hidden rounded-xl mb-4 aspect-square bg-linear-to-b from-[#2A3D5A] to-[#1a2433]">

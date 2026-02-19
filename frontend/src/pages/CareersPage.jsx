@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import Container from '../components/layout/Container';
 import { team } from '../constants/content';
+import Block from '../components/layout/Block';
 
 const CareersPage = () => {
     const scrollRef = useRef(null);
@@ -16,10 +16,10 @@ const CareersPage = () => {
     };
 
     return (
-        <>
+        <>  
+            <Block xpad='15%' topMargin='7%'>
             {/* Hero + Team Section */}
-            <section className="pt-40 lg:pt-48 pb-16 lg:pb-24 bg-white overflow-hidden">
-                <Container>
+            <section className="overflow-hidden mb-20">
                     {/* Eyebrow + Heading */}
                     <div className="mb-10 lg:mb-14">
                         <p
@@ -92,12 +92,12 @@ const CareersPage = () => {
                             ))}
                         </div>
                     </div>
-                </Container>
             </section>
+            </Block>
 
             {/* Work For The Future CTA */}
+            <Block xpad='15%'>
             <section className="pb-16 lg:pb-24 bg-white">
-                <Container>
                     <div className="flex justify-center">
                         <div className="border border-[#E0E0E0] rounded-xl px-8 py-10 sm:px-12 sm:py-12 text-center max-w-xl w-full">
                             <h2
@@ -121,9 +121,9 @@ const CareersPage = () => {
                             </a>
                         </div>
                     </div>
-                </Container>
             </section>
-
+            </Block>
+            
             <style>{`
                 /* White fade blur on both left and right edges of scrollable team cards */
                 .careers-team-scroll {

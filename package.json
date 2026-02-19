@@ -1,43 +1,8 @@
 {
-  "name": "attributics_website",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@splidejs/splide": "^4.1.4",
-    "@tailwindcss/vite": "^4.1.18",
-    "embla-carousel-autoplay": "^8.6.0",
-    "embla-carousel-react": "^8.6.0",
-    "embla-carousel-wheel-gestures": "^8.1.0",
-    "react": "^19.2.0",
-    "react-countup": "^6.5.3",
-    "react-dom": "^19.2.0",
-    "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.13.0",
-    "tailwindcss": "^4.1.18"
-  },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.1.1",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "svgo": "^4.0.0",
-    "typescript": "^5.9.3",
-    "vite": "npm:rolldown-vite@7.2.5",
-    "vite-plugin-svgr": "^4.5.0"
+    "concurrently": "^9.2.1"
   },
-  "overrides": {
-    "vite": "npm:rolldown-vite@7.2.5"
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\""
   }
 }

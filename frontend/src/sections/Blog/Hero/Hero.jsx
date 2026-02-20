@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Block from "../../../components/layout/Block/Block";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 const BlogSection = ({ slug }) => {
   const [blog, setBlog] = useState(null);
@@ -9,7 +9,7 @@ const BlogSection = ({ slug }) => {
   useEffect(() => {
     async function fetchBlog() {
       try {
-        const res = await fetch(`/api/blogs/local/blog/${slug}`);
+        const res = await fetch(`${API_URL}/api/blogs/local/blog/${slug}`);
         const data = await res.json();
         setBlog(data);
       } catch (err) {

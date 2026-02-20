@@ -8,6 +8,8 @@ import {
     searchBlogs
 } from "../blogs";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Local = () => {
     const [localBlogs, setLocalBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,7 +20,7 @@ const Local = () => {
     useEffect(() => {
         async function loadLocalBlogs() {
             try {
-                const res = await fetch("/api/blogs/local");
+                const res = await fetch(`${API_URL}/api/blogs/local`);
                 const data = await res.json();
 
                 console.log(data);

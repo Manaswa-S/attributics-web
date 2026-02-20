@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { resourcesData } from '../../../constants/resources';
 import Block from '../../../components/layout/Block/Block';
+const API_URL = import.meta.env.VITE_API_URL || "localhost:5000";
 
 const Hero = () => {
     const { hero } = resourcesData;
@@ -11,7 +12,7 @@ const Hero = () => {
     useEffect(() => {
         async function loadFeaturedBlog() {
             try {
-                const res = await fetch("/api/blogs/local/featured");
+                const res = await fetch(`${API_URL}/api/blogs/local/featured`);
                 const data = await res.json();
 
                 console.log(data);

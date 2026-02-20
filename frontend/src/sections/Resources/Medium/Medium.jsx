@@ -5,6 +5,8 @@ import {
     transformBlog,
 } from "../blogs";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Hero = () => {
     const [mediumBlogs, setMediumBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -12,7 +14,7 @@ const Hero = () => {
     useEffect(() => {
         async function loadMediumBlogs() {
             try {
-                const res = await fetch("/api/blogs/medium");
+                const res = await fetch(`${API_URL}/api/blogs/medium`);
                 const data = await res.json();
 
                 console.log(data);

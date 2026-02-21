@@ -1,6 +1,5 @@
 import Block from '../../../components/layout/Block/Block';
-import unionPattern from '../../../assets/Union.svg';
-
+import Backdrop from '../../../components/Backdrop/Backdrop';
 // experimental
 import BetterL from './BetterL';
 
@@ -10,20 +9,7 @@ const Features = () => {
             <section className="relative w-full h-full overflow-hidden flex flex-col justify-center items-center py-14" style={{backgroundColor: ''}}>
                 {/* Background Section */}
                 <div className="absolute inset-0">
-                    {/* Base dot pattern using SVG */}
-                    <img
-                        src={unionPattern}
-                        alt="Dotted Gradient Pattern"
-                        className="w-full h-full object-cover"
-                        loading="eager"
-                    />
-                    {/* Gradient overlay */}
-                    <div
-                        className="absolute inset-0 pointer-events-none"
-                        style={{
-                            background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0) 60%)',
-                        }}
-                    />
+                    {/* <Backdrop /> */}
                 </div>
 
                 <div className="relative w-full">

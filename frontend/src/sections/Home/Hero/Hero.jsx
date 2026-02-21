@@ -1,8 +1,8 @@
 import { hero, logoCloud } from '../../../constants/content';
 import { logoMap } from "./constants";
 import { Block } from '../../../components/layout/Block';
-import unionBg from '../../../assets/Union.svg';
 import { useState, useEffect, useRef } from 'react';
+import Backdrop from '../../../components/Backdrop/Backdrop';
 
 // Feature carousel slides
 const featureSlides = [
@@ -99,33 +99,11 @@ const Hero = () => {
             <section className="relative min-h-screen flex flex-col">
 
                 {/* ===== Hero Area ===== */}
-                <div className="relative flex-1 flex items-center justify-center">
+                <div className="relative flex-1 flex items-center justify-center overflow-hidden rounded-xl">
 
                     {/* Background Mask */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div
-                            className="absolute inset-0"
-                            style={{
-                                WebkitMaskImage: `url(${unionBg})`,
-                                maskImage: `url(${unionBg})`,
-                                WebkitMaskSize: 'cover',
-                                maskSize: 'cover',
-                                WebkitMaskPosition: 'center',
-                                maskPosition: 'center',
-                                WebkitMaskRepeat: 'no-repeat',
-                                maskRepeat: 'no-repeat',
-                                background:
-                                    'linear-gradient(180deg, #FFFFFF 0%, #FFB5AC 50%, #FF6758 100%)',
-                            }}
-                        />
-
-                        {/* Gradient overlay to create the coral fade effect */}
-                        <div
-                            className="absolute inset-0 pointer-events-none"
-                            style={{
-                                background: 'linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.75) 50%, rgba(255,255,255,0.25) 90%',
-                            }}
-                        />
+                    <div className="absolute inset-0 pointer-events-none z-0">
+                        <Backdrop />
                     </div>
 
                     {/* ===== Glass Card ===== */}
@@ -138,14 +116,11 @@ const Hero = () => {
                             gap-10
                             p-8 lg:p-12
                             rounded-xl
-                            mx-1
                         "
                         style={{
-                            background:
-                                'linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.15) 105%)',
-                            backdropFilter: 'blur(40px)',
+                            background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 105%)', 
+                            backdropFilter: 'blur(30px)',
                             WebkitBackdropFilter: 'blur(30px)',
-                            border: '1px solid #C9C9C9',
                         }}
                     >
                         {/* Title Section */}

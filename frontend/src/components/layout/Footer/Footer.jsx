@@ -5,7 +5,7 @@ import logo from '../../../assets/logo/Exclude.svg';
 const Footer = () => {
 
     return (
-        <Block xpad='none'>
+        <Block xpad='0'>
         <footer className="bg-[#000000] text-white px-8">
             {/* Newsletter Section - Centered */}
             <div className="h-[60%] flex justify-center pt-8">

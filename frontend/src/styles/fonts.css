@@ -30,6 +30,40 @@
     color: rgb(255, 255, 255);
 }
 
+/* FOOTER FONTS */
+.footer-title {
+    font-family: Noto Sans, sans-serif;
+    font-weight: 600;
+    font-style: Regular;
+    font-size: 1.9rem;
+    line-height: 140%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+
+.footer-link-title {
+    font-family: IBM Plex Mono;
+    font-weight: 600;
+    font-style: Regular;
+    font-size: 1rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+}
+
+.footer-link-item {
+    font-family: IBM Plex Mono;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 1rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: rgb(190, 188, 188);
+}
+
 /* HERO FONTS */
 .hero-title {
     font-family: IBM Plex Mono;

@@ -63,7 +63,6 @@ const HeaderTwo = () => {
                         // Check if it's a route or anchor link
                         const splits = link.href.split('/');
                         const baseURL = '/' + splits[1];
-                        console.log(baseURL);
 
                         const isRoute = baseURL === '/' || baseURL === '/about' || baseURL === '/resources' || baseURL === '/careers';
                         const pathNameSplits = location.pathname.split('/');
@@ -97,7 +96,7 @@ const HeaderTwo = () => {
                         <Link to="/contact">
                             <Button
                                 variant="primary"
-                                className="text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
+                                className="cursor-pointer text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
                             >
                                 {nav.cta.contact}
                             </Button>

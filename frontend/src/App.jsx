@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Header, Footer } from './components';
+import { Footer } from './components/layout/Footer';
+import {FooterTwo} from './components/layout/FooterTwo';
 import { HeaderTwo } from './components/layout/HeaderTwo';
 import ErrorBoundary from './components/ErrorBoundary';
 import HomePage from './pages/HomePage';
@@ -39,7 +40,8 @@ const App = () => {
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
-          <Footer />
+          <FooterTwo />
+          {/* <Footer /> */}
         </div>
       </ErrorBoundary>
     </BrowserRouter>

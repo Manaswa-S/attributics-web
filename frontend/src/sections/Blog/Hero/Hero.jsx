@@ -22,112 +22,97 @@ const BlogSection = ({ slug }) => {
     fetchBlog();
   }, [slug]);
 
-  if (loading)
-    return <div className="py-24 text-center">Loading...</div>;
-
-  if (!blog)
-    return <div className="py-24 text-center">Blog not found</div>;
-
   return (
-    <Block xpad="large" topMargin="5%">
-      <div className="w-full mx-auto flex flex-col items-center">
+    <>
+    {loading && <BlogSkeleton />}
+    {!loading && blog && 
+      <Block xpad="large" topMargin="small">
+        <div className="w-full mx-auto flex flex-col items-center">
 
-        {/* HERO IMAGE */}
-        <img
-          src={blog.heroImage}
-          alt={blog.title}
-          className="w-full max-h-[26rem] object-cover rounded-xl mb-8"
-        />
+          {/* HERO IMAGE */}
+          <img
+            src={blog.heroImage}
+            alt={blog.title}
+            className="w-full max-h-[26rem] object-cover rounded-xl mb-8"
+          />
 
-        {/* META */}
-        <div className="flex items-center gap-3 mb-6 flex-wrap justify-center">
-          {blog.author?.avatar && (
-            <img
-              src={blog.author.avatar}
-              alt={blog.author.name}
-              className="w-7 h-7 rounded-full object-cover"
-            />
+          {/* META */}
+          <div className="flex items-center gap-3 mb-6 flex-wrap justify-center">
+            {blog.author?.avatar && (
+              <img
+                src={blog.author.avatar}
+                alt={blog.author.name}
+                className="w-7 h-7 rounded-full object-cover"
+              />
+            )}
+            <span className="section-description">{blog.author?.name}</span>
+            <span className="section-eyebrow">·</span>
+            <span className="section-eyebrow">{blog.publishedAt}</span>
+            {blog.readTime && (
+              <>
+                <span className="section-eyebrow">·</span>
+                <span className="section-eyebrow">{blog.readTime}</span>
+              </>
+            )}
+          </div>
+
+          {/* TITLE */}
+          <h1 className="section-title leading-tight mb-4" style={{color: 'black'}}>
+            {blog.title}
+          </h1>
+
+          {/* SUBTITLE */}
+          {blog.subtitle && (
+            <p className="section-description text-center mb-12">
+              {blog.subtitle}
+            </p>
           )}
-          <span className="section-description">{blog.author?.name}</span>
-          <span className="section-eyebrow">·</span>
-          <span className="section-eyebrow">{blog.publishedAt}</span>
-          {blog.readTime && (
-            <>
-              <span className="section-eyebrow">·</span>
-              <span className="section-eyebrow">{blog.readTime}</span>
-            </>
-          )}
+
+          {/* BODY */}
+          <div
+            className="blog-article"
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
         </div>
-
-        {/* TITLE */}
-        <h1 className="section-title leading-tight mb-4" style={{color: 'black'}}>
-          {blog.title}
-        </h1>
-
-        {/* SUBTITLE */}
-        {blog.subtitle && (
-          <p className="section-description text-center mb-12">
-            {blog.subtitle}
-          </p>
-        )}
-
-        {/* BODY */}
-        <div
-          className="blog-article"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        />
-      </div>
-      
-    </Block>
+        
+      </Block>
+    }
+    </>
   );
 };
 
-const renderContentBlock = (block, index) => {
-  switch (block.type) {
-    case "heading":
-      const Tag = `h${block.level || 2}`;
-      return (
-        <Tag
-          key={index}
-          className="font-semibold mt-10 mb-4 text-2xl sm:text-3xl"
-        >
-          {block.value}
-        </Tag>
-      );
+const BlogSkeleton = () => {
+  return (
+    <Block xpad="large" topMargin="small">
+      <div className="w-full mx-auto flex flex-col items-center animate-pulse">
 
-    case "paragraph":
-      return (
-        <p
-          key={index}
-          className="text-base sm:text-lg leading-relaxed text-gray-800"
-        >
-          {block.value}
-        </p>
-      );
+        {/* HERO IMAGE */}
+        <div className="w-full max-h-[26rem] h-[26rem] bg-gray-300 rounded-xl mb-8" />
 
-    case "quote":
-      return (
-        <blockquote
-          key={index}
-          className="border-l-4 border-black pl-4 italic text-gray-700 my-6"
-        >
-          {block.value}
-        </blockquote>
-      );
+        {/* META */}
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-7 h-7 rounded-full bg-gray-300" />
+          <div className="h-4 w-24 bg-gray-300 rounded" />
+          <div className="h-4 w-12 bg-gray-300 rounded" />
+        </div>
 
-    case "code":
-      return (
-        <pre
-          key={index}
-          className="bg-gray-100 rounded-lg p-4 overflow-x-auto text-sm my-6"
-        >
-          <code>{block.value}</code>
-        </pre>
-      );
+        {/* TITLE */}
+        <div className="h-10 w-3/4 bg-gray-300 rounded mb-4" />
 
-    default:
-      return null;
-  }
-};
+        {/* SUBTITLE */}
+        <div className="h-5 w-2/3 bg-gray-300 rounded mb-12" />
+
+        {/* BODY LINES */}
+        <div className="w-full space-y-4">
+          <div className="h-4 w-full bg-gray-300 rounded" />
+          <div className="h-4 w-full bg-gray-300 rounded" />
+          <div className="h-4 w-5/6 bg-gray-300 rounded" />
+          <div className="h-4 w-full bg-gray-300 rounded" />
+          <div className="h-4 w-4/6 bg-gray-300 rounded" />
+        </div>
+      </div>
+    </Block>
+  )
+}
 
 export default BlogSection;

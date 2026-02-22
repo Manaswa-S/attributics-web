@@ -1,6 +1,7 @@
 import Block from "../../../components/layout/Block";
 import { getstarted } from "../../../constants/about";
-
+import { Link } from 'react-router-dom';
+import Button from '../../../components/ui/Button';
 const GetStarted = () => {
     return (
         <Block xpad='large'>
@@ -80,29 +81,15 @@ const AuditCTA = () => {
 
                 {/* CTA Button */}
                 <div className="flex-shrink-0">
-                    <a
-                        href="/contact?type=audit"
-                        className="
-                        bg-black
-                        text-white
-                        px-6
-                        py-4
-                        rounded-[10px]
-                        text-[16px]
-                        font-medium
-                        flex
-                        items-center
-                        gap-3
-                        hover:opacity-75
-                        transition
-                        w-full
-                        lg:w-auto
-                        justify-center
-                    "
-                    >
-                        {getstarted.ctaText}
-                        <span className="text-xl">→</span>
-                    </a>
+                    <Link to="/contact">
+                        <Button
+                            variant="primary"
+                            className="text-white w-auto h-12 bg-black px-10 py-5 header-button-label rounded-lg"
+                        >
+                            {getstarted.ctaText}
+                            <span className="text-xl">→</span>
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

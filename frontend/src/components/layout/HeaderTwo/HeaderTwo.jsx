@@ -96,7 +96,7 @@ const HeaderTwo = () => {
                         <Link to="/contact">
                             <Button
                                 variant="primary"
-                                className="cursor-pointer text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
+                                className="text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
                             >
                                 {nav.cta.contact}
                             </Button>

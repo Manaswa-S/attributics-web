@@ -6,7 +6,6 @@ const Hero = () => {
         <>  
             <Block xpad='medium' topMargin='small'>
                 <section className="relative lg:min-h-screen flex flex-col">
-
                     <div className=" lg:max-h-[85vh] items-center grid grid-cols-1 lg:grid-cols-[6fr_6fr] gap-12 lg:gap-22 "> 
                         <div className="flex justify-center flex-col ">
                             <div className='flex flex-col mb-10'>

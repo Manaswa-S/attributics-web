@@ -96,7 +96,7 @@ const Hero = () => {
 
     return (
         <Block>
-            <section className="relative min-h-screen flex flex-col">
+            <section className="relative lg:min-h-screen flex flex-col lg:mt-0 mt-20">
 
                 {/* ===== Hero Area ===== */}
                 <div className="relative flex-1 flex items-center justify-center overflow-hidden rounded-xl">
@@ -109,6 +109,8 @@ const Hero = () => {
                     {/* ===== Glass Card ===== */}
                     <div
                         className="
+                            mt-30
+                            mb-15
                             relative z-10
                             w-[100%]
                             max-w-3xl

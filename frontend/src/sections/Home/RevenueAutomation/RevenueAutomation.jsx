@@ -1,54 +1,10 @@
 import Block from '../../../components/layout/Block/Block';
 import useEmblaCarousel from 'embla-carousel-react';
 import WheelGestures from 'embla-carousel-wheel-gestures'
+import { revenueAutomation } from '../../../constants/home';
 
-// Assets
-import cardBg01 from '../../../assets/revAuto/1.webp';
-import cardBg02 from '../../../assets/revAuto/2.webp';
-import cardBg03 from '../../../assets/revAuto/3.webp';
-
-const caseStudies = [
-    {
-        id: 1,
-        image: cardBg01,
-        title: "DRIVING DIGITAL TRANSFORMATION WITH MARTECH",
-        description: "A leading automobile manufacturer in India partnered with us to establish a Customer 360 view, streamline marketing touchpoints, and enhance digital sales performance.",
-        readMore: "#"
-    },
-    {
-        id: 2,
-        image: cardBg02,
-        title: "TRANSITION TO A COMPOSABLE CDP",
-        description: "A major automobile manufacturer in Indonesia transitioned to a cloud-based CDP, improving scalability, reducing costs, and enabling developer-level personalization.",
-        readMore: "#"
-    },
-    {
-        id: 3,
-        image: cardBg03,
-        title: "BOOSTING LEAD CONVERSIONS WITH DATA & CRM",
-        description: "A large life insurance provider used AI-powered lead scoring and CRM workflows to reduce duplication, improve conversions, and unlock new revenue streams.",
-        readMore: "#"
-    },
-    {
-        id: 4,
-        image: cardBg01,
-        title: "BOOSTING DATA CONVERSIONS",
-        description: "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue.",
-        readMore: "#"
-    },
-    {
-        id: 5,
-        image: cardBg02,
-        title: "ACCELERATING CUSTOMER ENGAGEMENT",
-        description: "A Fortune 500 company implemented intelligent automation to deliver personalized experiences at scale, increasing customer lifetime value by 40%.",
-        readMore: "#"
-    }
-];
-
-// CaseStudyCard Component
 const CaseStudyCard = ({ study }) => {
     return (
-        
         <div
             key={study.id}
             className="
@@ -105,11 +61,11 @@ const RevenueAutomation = () => {
         <section className="overflow-hidden w-full h-full flex flex-col">
             {/* Section Header - Inside Container */}
             <div className="flex-[4] w-full py-8 flex flex-col justify-center items-start">
-                <p className='section-eyebrow'>YOUR PLAYBOOK FOR RETENTION</p>
+                <p className='section-eyebrow'>{revenueAutomation.eyebrow}</p>
                 <h2 className='section-title'>
-                    From Manual Campaigns To
+                    {revenueAutomation.headline}
                     <br />
-                    <span className="highlight">Intelligent Revenue Automation</span>
+                    <span className="highlight">{revenueAutomation.highlighted}</span>
                 </h2>
             </div>
 
@@ -120,7 +76,7 @@ const RevenueAutomation = () => {
                 style={{ '--fade': '10px' }}
             >
                 <div className="flex gap-6.75 embla__container h-full">
-                    {caseStudies.map((study) => (
+                    {revenueAutomation.caseStudies.map((study) => (
                         <CaseStudyCard key={study.id} study={study} />
                     ))}
                 </div>

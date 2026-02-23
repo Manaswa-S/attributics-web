@@ -5,8 +5,8 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 // Lazy load sections with explicit paths
 const Hero = lazy(() => import('../sections/Home/Hero/Hero'));
 const Metrics = lazy(() => import('../sections/Home/Metrics/Metrics'));
+const Agentic = lazy(() => import('../sections/Home/Agentic/Agentic'));
 const Features = lazy(() => import('../sections/Home/Features/Features'));
-const AgenticAI = lazy(() => import('../sections/Home/AgenticAI/AgenticAI'));
 const Partners = lazy(() => import('../sections/Home/Partners/Partners'));
 const RevenueAutomation = lazy(() => import('../sections/Home/RevenueAutomation/RevenueAutomation'));
 
@@ -23,10 +23,10 @@ const HomePage = () => {
         <Metrics />
         <WhiteSpace height={whiteSpaceHeight} />
 
-        <Features />
+        <Agentic />
         <WhiteSpace height={whiteSpaceHeight} />
 
-        <AgenticAI />
+        <Features />
         <WhiteSpace height={whiteSpaceHeight} />
         
         <Partners />

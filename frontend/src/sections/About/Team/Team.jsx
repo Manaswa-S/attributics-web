@@ -17,8 +17,9 @@ const Team = () => {
                 </div>
 
                 {/* <DefaultTeamList /> */}
-                <LeadershipTeam teamMembers={team.members} />
-               
+                <div className='overflow-x-hidden' style={{ '--fade': '0px' }}>
+                    <LeadershipTeam teamMembers={team.members} />
+                </div>
             </section>
         </Block>
     );

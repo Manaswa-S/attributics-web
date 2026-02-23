@@ -1,42 +1,19 @@
-import { hero, logoCloud } from '../../../constants/content';
-import { logoMap } from "./constants";
+import { hero, logoCloud } from '../../../constants/home';
 import { Block } from '../../../components/layout/Block';
 import { useState, useEffect, useRef } from 'react';
 import Backdrop from '../../../components/Backdrop/Backdrop';
 
-// Feature carousel slides
-const featureSlides = [
-    {
-        id: 1,
-        description:
-            "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver."
-    },
-    {
-        id: 2,
-        description:
-            "Autonomous AI agents that predict customer behavior, automate personalized journeys, and maximize revenue without manual intervention."
-    },
-    {
-        id: 3,
-        description:
-            "Real-time decisioning at scale. Our agents analyze millions of signals to deliver the right message, to the right customer, at the perfect moment."
-    }
-];
-
 const renderLogoRow = (row) =>
     row.map((logo, index) => {
-        const logoUrl = logoMap[logo];
-        if (!logoUrl) return null;
-
         return (
             <div
                 key={`logo-${index}`}
                 className="flex items-center lg:mx-14 mx-8"
             >
-                <img src={logoUrl} alt={logo} className="h-10 w-auto" />
+                <img src={logo} alt='' className="h-10 w-auto" />
             </div>
         );
-    });
+});
 
 const LogoMarqueeRow = (row) => (
     <div className="flex overflow-hidden">
@@ -66,7 +43,7 @@ const Hero = () => {
         stopAutoplay(); // prevent stacked intervals
         
         intervalRef.current = setInterval(() => {
-            triggerChange((prev) => (prev + 1) % featureSlides.length);
+            triggerChange((prev) => (prev + 1) % hero.features.length);
         }, 3500);
     };
     
@@ -90,7 +67,7 @@ const Hero = () => {
         startAutoplay();
     };
     
-    const longestSlide = featureSlides.reduce((a, b) =>
+    const longestSlide = hero.features.reduce((a, b) =>
         a.description.length > b.description.length ? a : b
     );
 
@@ -157,14 +134,14 @@ const Hero = () => {
                                     : "opacity-100 blur-0 scale-100"}
                                 `}
                                 >
-                                {featureSlides[index].description}
+                                {hero.features[index].description}
                             </p>
                         </div>
 
 
                         {/* Pagination */}
                         <div className="flex justify-center gap-2 items-center">
-                            {featureSlides.map((_, i) => (
+                            {hero.features.map((_, i) => (
                                 <button
                                 key={i}
                                 onClick={() => handleDotClick(i)}
@@ -197,11 +174,11 @@ const Hero = () => {
                 {/* ===== Logo Cloud ===== */}
                 <div className="w-full py-8 flex flex-col items-center gap-6 overflow-hidden">
                     <p className="section-eyebrow">
-                        {logoCloud.title}
+                        {logoCloud.eyebrow}
                     </p>
 
                     <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '10px' }}>
-                        {LogoMarqueeRow(logoCloud.rows[0])}
+                        {LogoMarqueeRow(logoCloud.clients)}
                     </div>
                 </div>
 

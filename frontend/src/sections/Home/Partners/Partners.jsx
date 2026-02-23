@@ -1,23 +1,6 @@
 import unionBg from '../../../assets/Union.svg';
-import aws from '../../../assets/brands/aws.svg';
-import clevertap from '../../../assets/brands/clevertap.svg';
-import americana from '../../../assets/brands/americana.svg';
-import tableau from '../../../assets/brands/tableau.svg';
-import azure from '../../../assets/brands/azure.svg';
 import Block from '../../../components/layout/Block';
-
 import {partners } from '../../../constants/home';
-
-const logos = [
-    aws,
-    clevertap,
-    americana,
-    tableau,
-    azure,
-    aws,
-    americana,
-    azure,
-]
 
 const Partners = () => {
     return (
@@ -33,10 +16,7 @@ const Partners = () => {
                         <br />
                         <span className="highlight">{partners.highlighted}</span>
                     </h2>
-                    <p className="section-description">
-                        Collaborating with industry leaders to drive innovation and success.
-                        It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.
-                    </p>
+                    <p className="section-description">{partners.description}</p>
                 </div>
 
                {/* Right side block with self-contained background and glass card */}
@@ -77,7 +57,7 @@ const Partners = () => {
 const PartnersStaticList = () => {
     return (
         <div className="w-full flex flex-wrap justify-center items-center py-22 gap-y-16">  
-            {logos.map((logo, i) => (
+            {partners.logos.map((logo, i) => (
                 <div key={i} className="flex justify-center items-center w-1/2 flex-none">
                     <img
                         src={logo}

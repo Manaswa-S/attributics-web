@@ -1,5 +1,5 @@
 import Block from '../Block/Block';
-import { brand, footer, newsletter } from '../../../constants/content';
+import { brand, footer, newsletter } from '../../../constants/other';
 import logo from '../../../assets/logo/Exclude.svg';
 
 const links = [

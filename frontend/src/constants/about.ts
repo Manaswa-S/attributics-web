@@ -1,3 +1,7 @@
+// VISION & MISSION
+import WhoAreWeImg from '../assets/team/group/whoAreWe.webp';
+import VissionMissionImg from '../assets/team/group/visionMission.webp';
+
 export const vision = {
     whoAreWe: {
         eyebrow: 'who are we',
@@ -8,6 +12,7 @@ export const vision = {
             "We help organizations transform scattered customer data, fragmented journeys, and complex Martech stacks into cohesive, intelligence-led lifecycle systems , built to drive measurable business impact.",
             "Because sustainable growth isn’t built on more messages. It’s built on smarter lifecycle decisions.",
         ],
+        image: WhoAreWeImg
     },
 
     statement: {
@@ -34,10 +39,12 @@ export const vision = {
                 "Improve retention, conversion, and LTV",
                 "Drive measurable ROI from existing technology investments",
             ],
-        }
+        },
+        image: VissionMissionImg
     },
 }
 
+// METRICS CARDS
 export const metricCards = [
     { metric: 15, unit: "%", subheadline: "sub-headline" },
     { metric: 100, unit: "+", subheadline: "sub-headline" },
@@ -45,6 +52,7 @@ export const metricCards = [
     { metric: 15, unit: "%", subheadline: "sub-headline" }
 ]
 
+// TEAM MEMBERS
 import VishalA from '../assets/team/VishalA.png';
 import VakeshS from '../assets/team/VakeshS.png';
 import ShashankK from '../assets/team/ShashankK.png';
@@ -229,6 +237,7 @@ export const team = {
     ],
 }
 
+// GET STARTED CTA
 export const getstarted = {
     eyebrow: 'Ready to Transform Your Growth?',
     headline: [

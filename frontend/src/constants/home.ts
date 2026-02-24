@@ -1,22 +1,11 @@
+// HERO SECTION
 export const hero = {
-    badge: 'Turn Retention Into Revenue with Agentic AI',
-    headline: 'Automate intelligent cross-sell and upsell journeys that maximize lifetime value through AI-powered decisioning at scale.',
-    subheadline: 'Transform your marketing with autonomous AI agents that think, decide, and act in real-time.',
+    eyebrow: "",
+    headline: "LIFETIME VALUE WITH OUR AI AGENT",
+    subheadline: "",
     cta: {
         primary: 'See how it works',
         secondary: 'Calculate your ROI',
-    },
-    overlay: {
-        title: 'LIFETIME VALUE WITH OUR AI AGENT',
-        description: "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
-    },
-    chatPreview: {
-        title: 'Agentic AI conversation in action',
-        messages: [
-            { type: 'ai', text: 'Analyzing your CRM data to identify cross-sell opportunities...' },
-            { type: 'ai', text: 'Found 2,847 customers with high propensity for premium upgrade.' },
-            { type: 'user', text: 'Create a personalized campaign for these customers.' },
-        ],
     },
     features: [
         {
@@ -37,35 +26,30 @@ export const hero = {
     ],
 }
 
-// >>>>>
-import AkasaAirLogo from "../assets/brands/akasaair.svg";
-import ApparelGroupLogo from "../assets/brands/apparelgroup.svg";
-import CasetifyLogo from "../assets/brands/casetify.svg";
-import ClubMahindraLogo from "../assets/brands/clubmahindra.svg";
-import DatabricksLogo from "../assets/brands/databricks.svg";
-import GynovedaLogo from "../assets/brands/gynoveda.svg";
-import HBOMaxLogo from "../assets/brands/hbomax.svg";
-import JockeyLogo from "../assets/brands/jockey.svg";
-import KFCLogo from "../assets/brands/kfc.svg";
-import LevisLogo from "../assets/brands/levis.svg";
-import PhitureLogo from "../assets/brands/phiture.svg";
-import PizzaHutLogo from "../assets/brands/pizzahut.svg";
-import PowerBiLogo from "../assets/brands/powerbi.svg";
-import UnicefLogo from "../assets/brands/unicef.svg";
+// CLIENT LOGOS
+import AkasaAirLogo from "../assets/brands/clients/akasaair.svg";
+import AmericanaLogo from "../assets/brands/clients/americana.svg";
+import ApparelGroupLogo from "../assets/brands/clients/apparelgroup.svg";
+import CasetifyLogo from "../assets/brands/clients/casetify.svg";
+import ClubMahindraLogo from "../assets/brands/clients/clubmahindra.svg";
+import GynovedaLogo from "../assets/brands/clients/gynoveda.svg";
+import HBOMaxLogo from "../assets/brands/clients/hbomax.svg";
+import JockeyLogo from "../assets/brands/clients/jockey.svg";
+import KFCLogo from "../assets/brands/clients/kfc.svg";
+import LevisLogo from "../assets/brands/clients/levis.svg";
+import PhitureLogo from "../assets/brands/clients/phiture.svg";
+import PizzaHutLogo from "../assets/brands/clients/pizzahut.svg";
+import UnicefLogo from "../assets/brands/clients/unicef.svg";
 
 export const logoCloud = {
     eyebrow: 'Trusted by leading enterprises',
     title: '',
     clients: [
         AkasaAirLogo,
-        AWSLogo,
         AmericanaLogo,
         ApparelGroupLogo,
-        AzureLogo,
         CasetifyLogo,
-        ClevertapLogo,
         ClubMahindraLogo,
-        DatabricksLogo,
         GynovedaLogo,
         HBOMaxLogo,
         JockeyLogo,
@@ -73,13 +57,11 @@ export const logoCloud = {
         LevisLogo,
         PhitureLogo,
         PizzaHutLogo,
-        PowerBiLogo,
-        TableauLogo,
         UnicefLogo,
     ],
 }
 
-// >>>>>
+// METRIC CARDS
 import mainCard01 from '../assets/metrics/1.webp';
 import mainCard02 from '../assets/metrics/2.webp';
 import mainCard03 from '../assets/metrics/3.webp';
@@ -116,7 +98,7 @@ export const metrics = [
     },
 ];
 
-// >>>>>
+// AGENTIC AI FLOW
 export const agentic = {
     eyebrow: 'Agentic AI at work',
     headline: 'From Engagement',
@@ -124,7 +106,7 @@ export const agentic = {
     description: "",
 }
 
-// >>>>>
+// FEATURE QUESTIONS
 export const features = {
     eyebrow: '',
     headline: 'Facing the same problems?',
@@ -141,12 +123,13 @@ export const features = {
     buttonText: 'Schedule a Call',
 }
 
-// >>>>>
-import AWSLogo from '../assets/brands/aws.svg';
-import ClevertapLogo from '../assets/brands/clevertap.svg';
-import AmericanaLogo from '../assets/brands/americana.svg';
-import TableauLogo from '../assets/brands/tableau.svg';
-import AzureLogo from '../assets/brands/azure.svg';
+// PARTNERS
+import AWSLogo from '../assets/brands/partners/aws.svg';
+import AzureLogo from '../assets/brands/partners/azure.svg';
+import ClevertapLogo from '../assets/brands/partners/clevertap.svg';
+import DatabricksLogo from '../assets/brands/partners/databricks.svg';
+import PowerBi from '../assets/brands/partners/powerbi.svg';
+import TableauLogo from '../assets/brands/partners/tableau.svg';
 
 export const partners = {
     eyebrow: 'our partners',
@@ -155,17 +138,15 @@ export const partners = {
     description: "Collaborating with industry leaders to drive innovation and success. It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
     logos: [
         AWSLogo,
-        ClevertapLogo,
-        AmericanaLogo,
-        TableauLogo,
         AzureLogo,
         ClevertapLogo,
-        AWSLogo,
-        AmericanaLogo,
+        DatabricksLogo,
+        PowerBi,
+        TableauLogo,
     ]
 }
 
-// >>>>>
+// REVENUE AUTOMATION CARDS
 import cardBg01 from '../assets/revAuto/1.webp';
 import cardBg02 from '../assets/revAuto/2.webp';
 import cardBg03 from '../assets/revAuto/3.webp';

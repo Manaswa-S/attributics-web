@@ -4,7 +4,7 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 import { useSearchParams } from 'react-router-dom';
 
 // Lazy load sections with explicit paths
-const ContactForm = lazy(() => import('../sections/Contact/Form/Form'));
+const ContactForm = lazy(() => import('../sections/Contact/General/General'));
 const AuditForm = lazy(() => import('../sections/Contact/Audit/Audit'));
 const CareerForm = lazy(() => import('../sections/Contact/Career/Career'));
 

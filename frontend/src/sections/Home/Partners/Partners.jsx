@@ -58,7 +58,7 @@ const PartnersStaticList = () => {
     return (
         <div className="w-full flex flex-wrap justify-center items-center py-22 gap-y-16">  
             {partners.logos.map((logo, i) => (
-                <div key={i} className="flex justify-center items-center w-1/2 flex-none">
+                <div key={i} className="flex justify-center items-center w-2/5 flex-none">
                     <img
                         src={logo}
                         alt={`Logo ${i}`}

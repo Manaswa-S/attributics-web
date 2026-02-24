@@ -67,7 +67,7 @@ const Header = () => {
                             <Button
                                 variant="primary"
                                 size="sm"
-                                className="bg-black text-white hover:bg-gray-900 rounded-lg px-6 py-2 text-sm font-semibold transition-colors"
+                                className="bg-black text-white hover:bg-gray-900 rounded-lg text-sm font-semibold transition-colors"
                             >
                                 {nav.cta.contact}
                             </Button>
@@ -139,7 +139,7 @@ const Header = () => {
                         })}
                         <div className="pt-2 border-t border-gray-100 mt-2">
                             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="primary" size="sm" className="w-full justify-center bg-black rounded-lg text-white">
+                                <Button variant="primary" size="sm" className="justify-center bg-black rounded-lg text-white">
                                     {nav.cta.contact}
                                 </Button>
                             </Link>

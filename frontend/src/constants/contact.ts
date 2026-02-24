@@ -1,10 +1,11 @@
+// FORM LINKS
 export const formLinks = {
-    contact: 'https://formspree.io/f/YOUR_FORM_ID',
+    general: 'https://formspree.io/f/YOUR_FORM_ID',
     audit: 'https://formspree.io/f/YOUR_FORM_ID',
     career: 'https://formspree.io/f/YOUR_FORM_ID',
 }
 
-export const contact = {
+export const general = {
     eyebrow: 'schedule a call',
     headline: 'Get Started With Your',
     highlighted: 'Journey.',

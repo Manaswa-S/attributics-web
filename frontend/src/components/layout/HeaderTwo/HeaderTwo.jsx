@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
-import { nav } from '../../../constants/content';
+import { nav } from '../../../constants/other';
 import logo from '../../../assets/logo/Attributics-Wordmark.png';
 import Block from '../Block/Block';
 
@@ -94,7 +94,7 @@ const HeaderTwo = () => {
                         <Link to="/contact">
                             <Button
                                 variant="primary"
-                                className="text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
+                                className="text-white bg-black header-button-label rounded-lg"
                             >
                                 {nav.cta.contact}
                             </Button>
@@ -166,7 +166,7 @@ const HeaderTwo = () => {
                         })}
                         <div className="pt-2 border-t border-gray-100 mt-2">
                             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="primary" size="sm" className="w-full justify-center bg-black rounded-lg text-white">
+                                <Button variant="primary" size="sm" className="justify-center bg-black rounded-lg text-white">
                                     {nav.cta.contact}
                                 </Button>
                             </Link>

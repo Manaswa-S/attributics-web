@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Block from '../../../components/layout/Block/Block';
 import { MailIcon, MapPinIcon, PhoneIcon } from '../../../components/Icons/Icons';
-import {contact, formLinks } from '../../../constants/contact';
+import {general, formLinks } from '../../../constants/contact';
 
 const ContactForm = () => {
     return (
@@ -9,27 +9,27 @@ const ContactForm = () => {
             <section className="lg:min-h-screen items-center justify-center flex flex-col lg:justify-around grid grid-cols-1 lg:grid-cols-[3fr_3fr] gap-12 lg:gap-22 lg:mt-0 mt-20">
                 {/* Left Side - Text Content */}
                 <div className="flex-col flex justify-center align-center">
-                    <p className="section-eyebrow">{contact.eyebrow}</p>
+                    <p className="section-eyebrow">{general.eyebrow}</p>
                     <h1 className="section-title">
-                        {contact.headline}{' '}
-                        <span className='highlight'>{contact.highlighted}</span>
+                        {general.headline}{' '}
+                        <span className='highlight'>{general.highlighted}</span>
                     </h1>
-                    <p className="section-description">{contact.description}</p>
+                    <p className="section-description">{general.description}</p>
 
                     <div className='flex gap-2 mt-4 flex-col'>
                         <div className='items-center flex flex-row gap-2'>
                             <PhoneIcon />
-                            <p className='section-description'>{contact.details.phone}</p>
+                            <p className='section-description'>{general.details.phone}</p>
                         </div>
 
                         <div className='items-center flex flex-row gap-2'>
                             <MailIcon />
-                            <p className='section-description'>{contact.details.email}</p>
+                            <p className='section-description'>{general.details.email}</p>
                         </div>
 
                         <div className='items-center flex flex-row gap-2'>
                             <MapPinIcon />
-                            <p className='section-description'>{contact.details.location}</p>
+                            <p className='section-description'>{general.details.location}</p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const Form = () => {
 
         try {
             // Using FormSpree (replace with your FormSpree endpoint)
-            const response = await fetch(formLinks.contact, {
+            const response = await fetch(formLinks.general, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

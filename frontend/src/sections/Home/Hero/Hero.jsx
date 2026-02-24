@@ -2,6 +2,8 @@ import { hero, logoCloud } from '../../../constants/home';
 import { Block } from '../../../components/layout/Block';
 import { useState, useEffect, useRef } from 'react';
 import Backdrop from '../../../components/Backdrop/Backdrop';
+import { Link } from 'react-router-dom';
+import Button from '../../../components/ui/Button/Button';
 
 const renderLogoRow = (row) =>
     row.map((logo, index) => {
@@ -113,7 +115,7 @@ const Hero = () => {
                             </div>
 
                             <h2 className="hero-title">
-                                {hero.overlay.title}
+                                {hero.headline}
                             </h2>
                         </div>
 
@@ -157,16 +159,28 @@ const Hero = () => {
 
                         {/* CTA Section */}
                         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                            <button className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-md hover:bg-neutral-900 transition">
-                                <span className="text-[#6B9FFF]">✦</span>
-                                <p className='hero-button-label'>See how it works</p>
-                                <span>→</span>
-                            </button>
+                            <Link to="/contact">
+                                <Button
+                                    size='md'
+                                    variant="primary"
+                                    className="text-white bg-black rounded-lg"
+                                >
+                                    <span className="text-[#6B9FFF]">✦</span>
+                                    {hero.cta.primary}
+                                    <span>→</span>
+                                </Button>
+                            </Link>
 
-                            <button className="flex items-center gap-2 text-[#131212] hover:opacity-70 transition">
-                                <p className='hero-button-label' style={{color: 'black'}}>Calculate your ROI</p>
-                                <span>→</span>
-                            </button>
+                            <Link to="/contact">
+                                <Button
+                                    size='md'
+                                    variant="secondary"
+                                    className="text-black rounded-lg"
+                                >
+                                    {hero.cta.secondary}
+                                    <span>→</span>
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -177,7 +191,8 @@ const Hero = () => {
                         {logoCloud.eyebrow}
                     </p>
 
-                    <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '10px' }}>
+                    <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '10px', backgroundColor: '' }}
+                    >
                         {LogoMarqueeRow(logoCloud.clients)}
                     </div>
                 </div>

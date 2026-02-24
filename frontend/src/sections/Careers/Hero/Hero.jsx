@@ -1,50 +1,171 @@
-import { careers } from '../../../constants/careers';
-import Block from '../../../components/layout/Block/Block';
+import React from 'react';
+import Block from '../../../components/layout/Block';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/ui/Button/Button';
+import { careers } from '../../../constants/careers';
+
+import useEmblaCarousel from 'embla-carousel-react';
+import AutoScroll from 'embla-carousel-auto-scroll';
+import { useMemo, useEffect } from "react";
+
+import Backdrop from '../../../components/Backdrop/Backdrop';
 
 const Hero = () => {
-    return (
-        <>  
-            <Block xpad='medium' topMargin='small'>
-                <section className="relative lg:min-h-screen flex flex-col">
-                    <div className=" lg:max-h-[85vh] items-center grid grid-cols-1 lg:grid-cols-[6fr_6fr] gap-12 lg:gap-22 "> 
-                        <div className="flex justify-center flex-col ">
-                            <div className='flex flex-col mb-10'>
-                                <p className='section-eyebrow'>{careers.eyebrow}</p>
-                                <h1 className='section-title'>{careers.headline}</h1>
-                                <p className='section-description'>{careers.description}</p>
-                            </div>
+  return (
+    <Block xpad='none'>
+        <div
+            style={{
+                background: "linear-gradient(to top,rgba(129, 129, 129, 0.4) 0%,rgb(190, 190, 190) 35%,rgb(255, 255, 255) 100%)"
+            }}
+            className="min-h-screen flex flex-col lg:pt-25 lg:mt-0 mt-20">
+        {/* <div className="min-h-screen flex flex-col lg:pt-25 lg:mt-0 mt-20"> */}
 
-                            <div className="border border-[#E0E0E0] rounded-xl px-8 py-10 sm:px-12 sm:py-12 text-center  w-full">
-                                <h2 className="content-title mb-4" style={{color: 'black'}}>{careers.workCard.headline}</h2>
-                                <p className="content-description mb-4" style={{color: 'black'}}>{careers.workCard.description}</p>
-                                <Link to="/contact?type=career">
-                                    <Button
-                                        variant="primary"
-                                        className="text-white w-auto h-9 bg-black px-10 py-5 header-button-label rounded-lg"
-                                    >
-                                        {careers.workCard.buttonLabel}
-                                        <span>→</span>
-                                    </Button>
-                                </Link>
-                            </div>
-                        </div>
+            {/* Header Section */}
+            <div className="text-center mb-4">
+                <p className='section-eyebrow'>{careers.eyebrow}</p>
 
-                        <div className="nicescroll  flex flex-col lg:overflow-y-auto lg:pr-4 scroll-smooth lg:max-h-[85vh]">
-                            {/* Cards Grid */}
-                            <div className="space-y-8">
-                                {careers.jobs.map((job) => (
-                                    <CareerCard key={job.id} job={job} />
-                                ))}
-                            </div>
-                        </div>
+                <div className="flex justify-center items-center mb-2">
+                    <h1 className="section-title lg:max-w-[40%]" style={{fontSize: '2.5rem'}}>
+                        {careers.headline[0]}{' '}
+                        <span className='highlight'>{careers.highlighted}</span>
+                        {' '}{careers.headline[1]}
+                    </h1>
+                </div>
+                
+                <div className="flex justify-center items-center mb-2">
+                    <p className="section-description mb-4 lg:max-w-[50%]">{careers.description}</p>
+                </div>
 
-                    </div>
-                </section>
-            </Block>
-        </>
+                <Link to="/contact?type=career">
+                    <Button
+                        size='lg'
+                        variant="primary"
+                        className="text-white bg-black header-button-label rounded-lg"
+                    >
+                        {careers.buttonLabel}
+                        <span>→</span>
+                    </Button>
+                </Link>
+            </div>
+
+            {/* CONTENT */}
+            {/* <div className='px-10'>
+                <StaticImgs />
+            </div> */}
+            <div className="flex-1 flex lg:items-center rounded-t-3xl">
+                <CarouselImgs />
+            </div>
+        </div>
+    </Block>
+  );
+};
+
+const CarouselImgs = () => {
+
+    const autoScroll = AutoScroll({
+        speed: 1,
+        stopOnInteraction: false,
+        stopOnMouseEnter: false,
+    });
+
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { 
+            loop: true,
+            align: 'center',
+            dragFree: true,
+        },
+        [autoScroll]
     );
+
+    const MIN_TILT = -5;
+    const MAX_TILT = 5;
+
+    const getRandomBetween = (min, max) =>
+        Math.random() * (max - min) + min;
+
+    // Generate random tilt once
+    const imagesWithTilt = useMemo(() => {
+        return careers.carouselImgs.map((image, index) => ({
+            id: index,
+            src: image,
+            tilt: getRandomBetween(MIN_TILT, MAX_TILT)
+        }));
+    }, []);
+
+  return (
+    <div className="overflow-x-hidden h-full flex-1 flex py-20" ref={emblaRef}>
+      <div className="flex h-full">
+        {imagesWithTilt.map((image) => (
+          <div 
+            key={image.id} 
+            className="
+                flex-[0_0_90%] 
+                sm:flex-[0_0_85%]
+                md:flex-[0_0_50%]
+                lg:flex-[0_0_35%]
+                xl:flex-[0_0_35%]
+                flex items-center px-4 sm:px-6 lg:px-8
+            "
+          >
+            <div
+              className="transition duration-300"
+              style={{ transform: `rotate(${image.tilt}deg)` }}
+            >
+              <img
+                src={image.src}
+                loading='eager'
+                className="rounded-3xl w-auto h-full object-cover shadow-2xl shadow-black/15"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const StaticImgs = () => {
+    return (
+        <>
+            {/* Content Section */}
+            <div className="flex-1 flex items-end">
+            {/* Image Grid */}
+                <div className="h-full grid grid-cols-13 gap-4 flex items-end">
+                    {/* Image 3 - Large Center */}
+                    <div className="col-span-4">
+                        <ImageCard img="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&h=1000&fit=crop" />
+                    </div>
+
+                    {/* Image 1 - Small */}
+                    <div className="col-span-3">
+                        <ImageCard img="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=700&fit=crop" />
+                    </div>
+
+                    {/* Image 2 - Medium */}
+                    <div className="col-span-3">
+                        <ImageCard img="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&h=700&fit=crop" />
+                    </div>
+
+                    {/* Image 5 - Small */}
+                    <div className="col-span-3">
+                        <ImageCard img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=600&fit=crop" />
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+const ImageCard = ({img}) => {
+    return (
+        <div className="rounded-3xl overflow-hidden shadow-lg h-auto w-full">
+            <img 
+                src={img}
+                alt="Team collaboration"
+                className="w-full h-full object-cover"
+            />
+        </div>
+    )
 };
 
 const CareerCard = ({ job }) => {

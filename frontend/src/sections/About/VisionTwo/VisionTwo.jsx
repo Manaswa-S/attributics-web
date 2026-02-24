@@ -1,4 +1,3 @@
-import { getGroupPhotos } from './constants';
 import {vision} from '../../../constants/about';
 import Block from '../../../components/layout/Block';
 import { useState, useEffect, useRef } from 'react';
@@ -31,7 +30,7 @@ const VisionTwo = () => {
 
                     <div className="w-full h-72 sm:h-96 lg:h-155">
                         <img
-                            src={getGroupPhotos('1')}
+                            src={vision.whoAreWe.image}
                             alt="Group"
                             className="w-full h-full object-cover rounded-[10px]"
                             loading="eager"
@@ -57,7 +56,7 @@ const VisionTwo = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-12 lg:gap-22 items-center">
                 <div className="w-full h-72 sm:h-96 lg:h-155">
                     <img
-                        src={getGroupPhotos('2')}
+                        src={vision.vissionMission.image}
                         alt="Group"
                         className="w-full h-full object-cover rounded-[10px]"
                         loading="eager"

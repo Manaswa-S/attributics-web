@@ -3,9 +3,7 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load about sections
-const Vision = lazy(() => import('../sections/About/Vision/Vision'));
 const VisionTwo = lazy(() => import('../sections/About/VisionTwo/VisionTwo'));
-const Metrics = lazy(() => import('../sections/About/Metrics/Metrics'));
 const Team = lazy(() => import('../sections/About/Team/Team'));
 const GetStarted = lazy(() => import('../sections/About/GetStarted/GetStarted'));
 

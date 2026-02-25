@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import { Footer } from './components/layout/Footer';
 import {FooterTwo} from './components/layout/FooterTwo';
 import { HeaderTwo } from './components/layout/HeaderTwo';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -26,7 +25,6 @@ const App = () => {
       <ErrorBoundary>
         <ScrollToTop />
         <div className="min-h-screen bg-white flex flex-col">
-          {/* <Header /> */}
           <HeaderTwo />
           <main className="grow">
             <Routes>
@@ -41,7 +39,6 @@ const App = () => {
             </Routes>
           </main>
           <FooterTwo />
-          {/* <Footer /> */}
         </div>
       </ErrorBoundary>
     </BrowserRouter>

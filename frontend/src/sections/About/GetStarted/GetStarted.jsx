@@ -10,41 +10,6 @@ const GetStarted = () => {
     )
 };
 
-const withBackdrop = () => {
-    return (
-        <>
-            <Block xpad='large'>
-                <div className="relative flex-1 flex items-center justify-center overflow-hidden rounded-xl">
-                    {/* Background Mask */}
-                    <div className="absolute inset-0 pointer-events-none z-0">
-                        <Backdrop />
-                    </div>
-                    <div
-                            className="
-                                mt-30
-                                mb-15
-                                relative z-10
-                                w-[100%]
-                                max-w-5xl
-                                flex flex-col
-                                gap-10
-                                p-8 lg:p-12
-                                rounded-xl
-                            "
-                            style={{
-                                background: 'linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.1) 105%)', 
-                                backdropFilter: 'blur(30px)',
-                                WebkitBackdropFilter: 'blur(30px)',
-                            }}
-                        >
-                        <AuditCTA />
-                    </div>
-                </div>
-            </Block>
-        </>
-    )
-}
-
 const AuditCTA = () => {
     return (
         <section className="w-full">
@@ -67,14 +32,10 @@ const AuditCTA = () => {
             "
             >
                 {/* Left Content */}
-                <div className="max-w-3xl">
+                <div className="lg:max-w-[70vw]">
                     <p className="section-eyebrow mb-4">{getstarted.eyebrow}</p>
-                    <h2 className="section-title mb-4" style={{fontSize: '3rem'}}>
-                        {getstarted.headline[0]}{' '}
-                        <span className="highlight">{getstarted.highlighted}</span>{' '}
-                        {getstarted.headline[1]}
-                    </h2>
-                    <h3 className="section-description">
+                    <SwitchingHeadline />
+                    <h3 className="section-description mt-3">
                         {getstarted.description}
                     </h3>
                 </div>
@@ -94,6 +55,85 @@ const AuditCTA = () => {
             </div>
         </section>
     );
+};
+
+import { useState, useEffect, useRef } from 'react';
+
+const SwitchingHeadline = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [maxWidth, setMaxWidth] = useState(0);
+  const measureRef = useRef(null);
+  const switchTime = 2500;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % getstarted.highlighted.length);
+    }, switchTime);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (!measureRef.current) return;
+  
+    const widths = getstarted.highlighted.map(word => {
+      measureRef.current.textContent = word;
+      return measureRef.current.offsetWidth;
+    });
+  
+    setMaxWidth(Math.max(...widths));
+  }, []);
+
+
+  return (
+    <div className="flex items-center justify-center">
+        <div className="text-start">
+            <h1 className="section-title" style={{fontSize: '3rem'}}>
+                {getstarted.headline}{' '}
+                <span 
+                    className={`inline-block relative `}
+                    style={{ width: maxWidth > 0 ? `${maxWidth}px` : 'auto' }}
+                >
+                    <span
+                        key={currentIndex}
+                        ref={measureRef}
+                        className="switching-word highlight"
+                    >
+                        {getstarted.highlighted[currentIndex]}.
+                    </span>
+                </span>
+            </h1>
+        </div>
+
+      <style>{`
+        @keyframes fadeSlideIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          20% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          80% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+        }
+
+        .switching-word {
+          animation: fadeSlideIn 3s ease-in-out;
+          display: inline-block;
+          text-align: left;
+          top: 0;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default GetStarted;

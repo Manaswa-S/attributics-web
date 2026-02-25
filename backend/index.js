@@ -37,6 +37,7 @@ function getLocalBlogs() {
       heroImage: data.heroImage || "",
       featured: data.featured || false,
       category: data.category || 'General',
+      meta: data.meta || 'blog',
     };
   });
 }

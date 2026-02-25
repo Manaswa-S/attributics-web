@@ -7,7 +7,20 @@ export const nav = {
     links: [
         { label: 'Home', href: '/' },
         { label: 'About', href: '/about' },
-        { label: 'Resources', href: '/resources' },
+        {
+            label: 'Resources',
+            href: '/resources',
+            // options: [
+            //     {
+            //         label: 'Blogs',
+            //         href: '/resources?type=blogs'
+            //     },
+            //     {
+            //         label: 'Case Studies',
+            //         href: '/resources?type=case'
+            //     }
+            // ]
+        },
         { label: 'Careers', href: '/careers' },
     ],
     cta: {

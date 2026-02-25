@@ -10,7 +10,6 @@ export const vision = {
         description: [
             "Attributics is a customer lifecycle–focused growth partner for enterprise brands.",
             "We help organizations transform scattered customer data, fragmented journeys, and complex Martech stacks into cohesive, intelligence-led lifecycle systems , built to drive measurable business impact.",
-            "Because sustainable growth isn’t built on more messages. It’s built on smarter lifecycle decisions.",
         ],
         image: WhoAreWeImg
     },
@@ -46,10 +45,10 @@ export const vision = {
 
 // METRICS CARDS
 export const metricCards = [
-    { metric: 15, unit: "%", subheadline: "sub-headline" },
-    { metric: 100, unit: "+", subheadline: "sub-headline" },
-    { metric: 750, unit: "K", subheadline: "sub-headline" },
-    { metric: 15, unit: "%", subheadline: "sub-headline" }
+    { metric: 20, unit: "%", postive: true, subheadline: "Peak Revenue Growth" },
+    { metric: 25, unit: "%", postive: true, subheadline: "CRM-Driven Uplift" },
+    { metric: 15, unit: "%", postive: true, subheadline: "Customer Lifetime Value" },
+    { metric: 60, unit: "%", postive: false, subheadline: "Faster Execution" }
 ]
 
 // TEAM MEMBERS
@@ -241,10 +240,14 @@ export const team = {
 export const getstarted = {
     eyebrow: 'Ready to Transform Your Growth?',
     headline: [
-        'Get A',
-        'For An Intelligent Layer For Your Mar-Tech Stack.',
+        'Add Intelligence. Unlock',
     ],
-    highlighted: 'Free Audit',
+    highlighted: [
+        'Retention',
+        'Revenue',
+        'Engagement',
+        'Conversion'
+    ],
     description: "Book a personalized demo with our experts and see how Attributics can revolutionize your customer lifecycle marketing.",
     ctaText: 'Schedule Your Demo',
 }

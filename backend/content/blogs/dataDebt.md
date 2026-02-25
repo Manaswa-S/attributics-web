@@ -9,6 +9,7 @@ author:
 heroImage: https://images.unsplash.com/photo-1492724441997-5dc865305da7
 featured: true
 category: 'AI'
+meta: 'blog'
 ---
 
 ## The Platform Illusion

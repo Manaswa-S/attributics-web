@@ -61,8 +61,12 @@ const HeaderTwo = () => {
                         // Check if it's a route or anchor link
                         const splits = link.href.split('/');
                         const baseURL = '/' + splits[1];
+                        
+                        let isRoute = true;
+                        if (link.options) {
+                            isRoute = false;
+                        }
 
-                        const isRoute = baseURL === '/' || baseURL === '/about' || baseURL === '/resources' || baseURL === '/careers';
                         const pathNameSplits = location.pathname.split('/');
                         const basePathName = '/' + pathNameSplits[1];
                         const isActive = basePathName === baseURL;
@@ -75,14 +79,36 @@ const HeaderTwo = () => {
                                 {link.label}
                             </Link>
                         ) : (
-                            <a
-                                key={link.label}
-                                href={link.href}
-                                onClick={(e) => handleNavClick(e, link.href)}
-                                className="font-mono text-[16px] font-normal text-[#131212] hover:text-gray-900 uppercase leading-[100%] tracking-[0%] transition-colors cursor-pointer"
-                            >
-                                {link.label}
-                            </a>
+                            <div key={link.label} className="relative group">
+                                <button className="header-link flex items-center gap-1">
+                                    {link.label}
+                                    <span className="text-xs">▾</span>
+                                </button>
+
+                                <div
+                                    className="
+                                    absolute left-1/2 -translate-x-1/2
+                                    mt-3 w-56
+                                    opacity-0 invisible
+                                    group-hover:opacity-100 group-hover:visible
+                                    transition-all duration-200
+                                    bg-white/80 backdrop-blur-xl
+                                    border border-gray-200
+                                    shadow-xl rounded-2xl
+                                    py-2
+                                    "
+                                >
+                                    {link.options.map((option) => (
+                                    <Link
+                                        key={option.label}
+                                        to={option.href}
+                                        className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg mx-2"
+                                    >
+                                        {option.label}
+                                    </Link>
+                                    ))}
+                                </div>
+                                </div>
                         );
                     })}
                 </nav>

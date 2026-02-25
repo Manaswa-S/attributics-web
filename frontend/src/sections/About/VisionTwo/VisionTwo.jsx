@@ -9,12 +9,12 @@ const VisionTwo = () => {
         <section id="about">
             {/* WHO ARE WE */}
             <div className="mb-25">
-                <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-12 lg:gap-22 items-center hyphens-none">
+                <div className="grid grid-cols-1 lg:grid-cols-[4fr_6fr] gap-12 lg:gap-22 items-center hyphens-none">
                     <div className="flex flex-col">
                         <p className="section-eyebrow ">
                             {vision.whoAreWe.eyebrow}
                         </p>
-                        <h2 className="section-title mb-2 lg:!text-[4rem]">
+                        <h2 className="section-title mb-2 lg:!text-[3.5rem]">
                             {vision.whoAreWe.headline}
                             <br />
                             <span className="highlight">{vision.whoAreWe.highlightedText}</span>
@@ -40,20 +40,19 @@ const VisionTwo = () => {
             </div>
 
             {/* STATEMENT */}
-            <div className="mb-25 rounded-[20px] py-6 text-center lg:px-[10%]" style={{backgroundColor: 'rgba(208, 208, 208, 0.0)'}}>
+            <div className="mb-25 rounded-2xl rounded-[20px] py-6 text-center lg:px-[10%] hyphens-none"
+                style={{
+                    // background: "linear-gradient(to top,rgb(255, 255, 255) 0%,rgba(224, 224, 224, 0.4) 25%,rgba(192, 192, 192, 0.4) 60%,rgb(255, 255, 255) 95%,rgb(255, 255, 255) 100%)"
+                }}>
                 <h3 className="section-title" style={{fontSize: '2.3rem', fontStyle: ''}}>
                     {vision.statement.normal}{' '}
                     <span className='highlight'>{vision.statement.highlighted}</span>
                 </h3>
-                
                 <Metrics />
-            
             </div>
 
-            
-
             {/* VISSION & MISSION */}
-            <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-12 lg:gap-22 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[6fr_4fr] gap-12 lg:gap-22 items-center hyphens-none">
                 <div className="w-full h-72 sm:h-96 lg:h-155">
                     <img
                         src={vision.vissionMission.image}
@@ -106,40 +105,48 @@ const VisionTwo = () => {
 
 const Metrics = () => {
     const [animatedMetrics, setAnimatedMetrics] = useState(metricCards.map(() => 0));
-    const hasAnimatedRef = useRef(false);
     const metricsRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting && !hasAnimatedRef.current) {
-                    hasAnimatedRef.current = true;
-
-                    metricCards.forEach((card, index) => {
-                        const steps = 60;
-                        const increment = card.metric / steps;
-                        let step = 0;
-
-                        const timer = setInterval(() => {
-                            step++;
-                            setAnimatedMetrics(prev => {
-                                const copy = [...prev];
-                                copy[index] = step >= steps ? card.metric : Math.floor(step * increment);
-                                return copy;
-                            });
-
-                            if (step >= steps) clearInterval(timer);
-                        }, 2000 / steps);
-                    });
-                }
-            },
-            { threshold: 0.3 }
+          (entries) => {
+            const entry = entries[0];
+      
+            if (entry.isIntersecting) {
+              // Reset to 0 before starting
+              setAnimatedMetrics(metricCards.map(() => 0));
+      
+              metricCards.forEach((card, index) => {
+                const steps = 60;
+                const increment = card.metric / steps;
+                let step = 0;
+      
+                const timer = setInterval(() => {
+                  step++;
+      
+                  setAnimatedMetrics((prev) => {
+                    const copy = [...prev];
+                    copy[index] =
+                      step >= steps
+                        ? card.metric
+                        : Math.floor(step * increment);
+                    return copy;
+                  });
+      
+                  if (step >= steps) clearInterval(timer);
+                }, 1000 / steps);
+              });
+            }
+          },
+          { threshold: 0.3 }
         );
-
-        metricsRef.current && observer.observe(metricsRef.current);
-        return () => metricsRef.current && observer.unobserve(metricsRef.current);
-    }, []);
-
+      
+        if (metricsRef.current) {
+          observer.observe(metricsRef.current);
+        }
+      
+        return () => observer.disconnect();
+      }, []);
 
     return (
         <>
@@ -182,14 +189,33 @@ const Metrics = () => {
                         {metricCards.map((card, index) => (
                             <div
                                 key={index}
-                                className="w-full h-autoflex flex-col items-center justify-center text-center gap-2"
+                                className="rounded-2xl p-2 w-full h-auto flex flex-col items-center align-center justify-center text-center gap-2"
+                                // style={{ backgroundColor: card.postive == true ? `rgba(16, 185, 129, 0.07)` : 'rgba(244, 63, 94, 0.07)' }}
                             >
                                 {/* Headline */}
-                                <p
-                                    className="section-title" style={{fontSize: '3rem', color: 'black'}}>
-                                    {animatedMetrics[index]}
-                                    {card.unit}
-                                </p>
+                                <div className="flex items-center justify-center">
+                                    <h1
+                                        className="section-title"
+                                        style={{ fontSize: "3rem", color: "black" }}
+                                    >
+                                        <span className=''>
+                                            {animatedMetrics[index]}
+                                        </span>
+                                    </h1>
+
+                                    <span
+                                        style={{
+                                        fontSize: "2rem",
+                                        fontStyle: "italic",
+                                        lineHeight: 1,
+                                        }}
+                                    >
+                                        {card.unit}
+                                    </span>
+
+                                    <GrowthArrow direction={card.postive == true ? "up" : "down"} />
+
+                                    </div>
 
                                 {/* Subheadline */}
                                 <p
@@ -205,5 +231,35 @@ const Metrics = () => {
         </>
     )
 }
+
+const GrowthArrow = ({ direction = "up" }) => {
+    const isUp = direction === "up";
+  
+    return (
+      <span
+        className={`
+          inline-flex items-center justify-center
+          ${isUp ? "text-emerald-500 drop-shadow-[0_0_6px_rgba(16,185,129,0.4)]" 
+                 : "text-rose-500 drop-shadow-[0_0_6px_rgba(244,63,94,0.4)]"}
+          transition-transform duration-300
+          animate-pulse
+          ${isUp ? "hover:-translate-y-1" : "hover:translate-y-1"}
+        `}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-12 h-12"
+        >
+          {isUp ? (
+            <path d="M12 4l6 8h-4v8h-4v-8H6l6-8z" />
+          ) : (
+            <path d="M12 20l-6-8h4V4h4v8h4l-6 8z" />
+          )}
+        </svg>
+      </span>
+    );
+  };
 
 export default VisionTwo;

@@ -8,6 +8,7 @@ author:
   avatar: https://i.pravatar.cc/150?img=3
 heroImage: https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg
 category: 'Sample'
+meta: 'case'
 ---
 
 # Introduction

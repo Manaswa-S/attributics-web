@@ -1,14 +1,25 @@
-import { useState } from 'react';
 import Block from '../../../components/layout/Block/Block';
 import { MailIcon, MapPinIcon, PhoneIcon } from '../../../components/Icons/Icons';
-import { audit, formLinks } from '../../../constants/contact';
+import { audit } from '../../../constants/contact';
+import { useLocation } from "react-router-dom";
 
 const AuditForm = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        if (!window.location.search.includes("r=true")) {
+        window.location.replace(
+            window.location.pathname + "?r=true"
+        );
+        }
+    }, [location.pathname]);
+    
     return (
-        <Block xpad='large' topMargin='none'>
-            <section className="lg:min-h-screen items-center justify-center flex flex-col lg:justify-around grid grid-cols-1 lg:grid-cols-[3fr_3fr] gap-12 lg:gap-22 lg:mt-0 mt-20">
+        <Block xpad='medium' topMargin='small'>
+            <section className="min-h-[80vh] items-center justify-center flex flex-col lg:justify-around grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-6">
+                
                 {/* Left Side - Text Content */}
-                <div className="flex-col flex justify-center align-center">
+                <div className="flex-col flex ">
                     <p className="section-eyebrow">{audit.eyebrow}</p>
                     <h1 className="section-title">
                         {audit.headline}{' '}
@@ -32,139 +43,53 @@ const AuditForm = () => {
                             <p className='section-description'>{audit.details.location}</p>
                         </div>
                     </div>
+
+                    <div className='flex lg:flex-row w-full mt-8 gap-6 justify-between flex-wrap'>
+                        {audit.metrics.map((metric, index) => (
+                            <div id={index} className='flex flex-col items-center'>
+                                <p className='section-title' style={{fontSize: '2.5rem'}}>
+                                    <span className=''>{metric.value}{metric.unit}</span>
+                                    
+                                </p>
+                                <p className='section-description'>
+                                    {metric.tagline}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right Side - Contact Form */}
-                <Form />
+                <ZCal />
             </section>
         </Block>
     );
 };
 
-const Form = () => {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        website: '',
-        message: '',
-    });
-    const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
-    const [isSubmitting, setIsSubmitting] = useState(false);
+import { useEffect, useRef } from "react";
+const ZCal = () => {
+  const containerRef = useRef(null);
 
-    const handleChange = (e) => {
-        setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-    };
+  useEffect(() => {
+    // Prevent duplicate loading
+    if (document.querySelector('script[src="https://static.zcal.co/embed/v1/embed.js"]')) {
+      return;
+    }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitStatus({ type: '', message: '' });
+    const script = document.createElement("script");
+    script.src = "https://static.zcal.co/embed/v1/embed.js";
+    script.async = true;
 
-        try {
-            const response = await fetch(formLinks.audit, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+    document.body.appendChild(script);
 
-            if (response.ok) {
-                setSubmitStatus({
-                    type: 'success',
-                    message: 'Thank you! We will contact you soon.',
-                });
-                // Reset form
-                setFormData({ fullName: '', email: '', phone: '', website: '' });
-            } else {
-                throw new Error('Submission failed');
-            }
-        } catch (error) {
-            setSubmitStatus({
-                type: 'error',
-                message: 'Something went wrong. Please try again later.',
-            });
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
+  }, []);
 
-    return (
-        <>
-            <div className="flex-1 w-full">
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                    <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Full Name"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        className="w-full content-description px-4 py-3 border border-[#D1D5DB] rounded-md placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
-                        style={{ color: 'black' }}
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="email@company.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full content-description px-4 py-3 border border-[#D1D5DB] rounded-md placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
-                        style={{ color: 'black' }}
-                        required
-                    />
-                    <input
-                        type="tel"
-                        name="phone"
-                        placeholder="Phone Number"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full content-description px-4 py-3 border border-[#D1D5DB] rounded-md placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
-                        style={{ color: 'black' }}
-                    />
-                    <input
-                        type="url"
-                        name="website"
-                        placeholder="Website"
-                        value={formData.website}
-                        onChange={handleChange}
-                        className="w-full content-description px-4 py-3 border border-[#D1D5DB] rounded-md placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
-                        style={{ color: 'black' }}
-                    />
-                    <textarea
-                        type="text"
-                        name="message"
-                        placeholder="Message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full content-description px-4 py-3 border border-[#D1D5DB] rounded-md placeholder:text-[#999] focus:outline-none focus:border-[#131212] transition-colors"
-                        style={{ color: 'black' }}
-                        rows={8}
-                    />
-                    <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="content-description w-full mt-2 px-6 py-3 bg-[#F5614D] hover:bg-[#E8503C] rounded-md transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        {isSubmitting ? 'Sending...' : 'Request a consultant'} <span>→</span>
-                    </button>
-
-                    {/* Status Message */}
-                    {submitStatus.message && (
-                        <div
-                            className={`mt-4 p-3 rounded-md text-sm ${submitStatus.type === 'success'
-                                    ? 'bg-green-50 text-green-800 border border-green-200'
-                                    : 'bg-red-50 text-red-800 border border-red-200'
-                                }`}
-                        >
-                            {submitStatus.message}
-                        </div>
-                    )}
-                </form>
-            </div>
-        </>
-    )
-}
+  return (
+    <div ref={containerRef} className="zcal-inline-widget">
+        <a href="https://zcal.co/i/WpWYKgNI">
+        </a>
+    </div>
+  );
+};
 
 export default AuditForm;

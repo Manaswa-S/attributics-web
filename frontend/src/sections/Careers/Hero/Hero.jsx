@@ -15,7 +15,7 @@ const Hero = () => {
     <Block xpad='none'>
         <div
             style={{
-                background: "linear-gradient(to top,rgba(129, 129, 129, 0.4) 0%,rgb(190, 190, 190) 35%,rgb(255, 255, 255) 100%)"
+                background: "linear-gradient(to top,rgb(255, 255, 255) 0%,rgba(173, 173, 173, 0.4) 10%,rgba(129, 129, 129, 0.4) 13%,rgb(255, 255, 255) 35%,rgb(255, 255, 255) 100%)"
             }}
             className="min-h-screen flex flex-col lg:pt-25 lg:mt-0 mt-20">
         {/* <div className="min-h-screen flex flex-col lg:pt-25 lg:mt-0 mt-20"> */}

@@ -9,7 +9,7 @@ export const general = {
     eyebrow: 'schedule a call',
     headline: 'Get Started With Your',
     highlighted: 'Journey.',
-    description: "It's the growth that compounds. Intelligent agents continuously optimize engagement, retention, and expansion—turning every customer into a long-term value driver.",
+    description: "From retention strategy to Agentic AI execution,  we help enterprises drive measurable lifecycle growth.",
 
     details: {
         phone: '+9176-5789-9382',
@@ -19,16 +19,34 @@ export const general = {
 }
 
 export const audit = {
-    eyebrow: 'schedule an audit',
-    headline: 'Get A Free Audit For An Intelligent Layer For Your Mar-Tech Stack.',
-    highlighted: '',
-    description: "Book a personalized demo with our experts and see how Attributics can revolutionize your customer lifecycle marketing.",
+    eyebrow: 'schedule a call',
+    headline: 'Get Started With Your',
+    highlighted: 'Journey.',
+    description: "From retention strategy to Agentic AI execution,  we help enterprises drive measurable lifecycle growth.",
 
     details: {
         phone: '+9176-5789-9382',
         email: 'contact@attributics.com',
         location: 'Pune, India - 411001',
-    }
+    },
+
+    metrics: [
+        {
+            value: '100',
+            unit: 'M+',
+            tagline: 'Interactions Optimized',
+        },
+        {
+            value: '25',
+            unit: '%+',
+            tagline: 'Retention Uplift',
+        },
+        {
+            value: '10',
+            unit: '+',
+            tagline: 'Brands Transformed',
+        }
+    ]
 }
 
 export const career = {

@@ -4,14 +4,13 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 import { useSearchParams } from 'react-router-dom';
 
 // Lazy load sections with explicit paths
-const ContactForm = lazy(() => import('../sections/Contact/General/General'));
 const AuditForm = lazy(() => import('../sections/Contact/Audit/Audit'));
 const CareerForm = lazy(() => import('../sections/Contact/Career/Career'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';
 
-const HomePage = () => {
+const ContactPage = () => {
     const [searchParams] = useSearchParams();
 
     const formType = searchParams.get("type");
@@ -28,7 +27,7 @@ const HomePage = () => {
             break;
 
         default:
-            content = <ContactForm />;
+            content = <AuditForm />;
     }
 
     return (
@@ -41,4 +40,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default ContactPage;

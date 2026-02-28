@@ -25,7 +25,7 @@ const Vision = () => {
                     <img
                         src={vision.vissionMission.image}
                         alt="Group"
-                        className="w-full h-auto max-h-[80vh] object-cover rounded-[25px]"
+                        className="w-full h-auto max-h-[80vh] object-cover rounded-[55px]"
                         loading="eager"
                     />
                 </motion.div>

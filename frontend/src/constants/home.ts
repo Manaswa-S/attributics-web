@@ -123,6 +123,39 @@ export const features = {
         'How can I turn <strong>data</strong> into <strong>actionable insights</strong> in real-time?</>',
     ],
     buttonText: 'Schedule a Call',
+
+    problems: [
+        {
+            id: "missing-link",
+            problem: "The Missing Link",
+            solution:
+                "Most marketing stacks are fragmented. Data sits in one place while execution happens in another. Our AI bridges this gap — translating customer data into autonomous, personalised actions across every touchpoint.",
+            metricPrefix: "",
+            metricValue: 50,
+            metricSuffix: "%",
+            metricLabel: "Lift in Conversion Rates",
+        },
+        {
+            id: "coordination",
+            problem: "The Coordination Challenge",
+            solution:
+                "Managing complex, multi-channel campaigns requires endless manual coordination. Our autonomous agents handle the orchestration — choosing the optimal channel, timing, and message for every user.",
+            metricPrefix: "3–",
+            metricValue: 5,
+            metricSuffix: "×",
+            metricLabel: "Faster Campaign Execution",
+        },
+        {
+            id: "governance",
+            problem: "The Governance Gap",
+            solution:
+                "Giving AI control can feel risky. We built enterprise-grade governance into the core of our platform — set strict rules, budget limits, and brand guidelines the AI cannot override.",
+            metricPrefix: "",
+            metricValue: 100,
+            metricSuffix: "%",
+            metricLabel: "Automated Compliance",
+        },
+    ]
 }
 
 // PARTNERS

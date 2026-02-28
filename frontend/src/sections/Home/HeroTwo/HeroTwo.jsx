@@ -83,7 +83,7 @@ const HeroTwo = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-4"
           >
-            <h1 className="section-title lg:!text-[4.2rem]">Autonomous AI agents that</h1>
+            <h1 className="section-title lg:!text-[4.2rem]" style={{fontWeight: '600'}}>Autonomous AI agents that</h1>
             <div className="h-[5.2rem] relative overflow-hidden flex justify-center">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -94,7 +94,7 @@ const HeroTwo = () => {
                   transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                   className="absolute whitespace-wrap"
                 >
-                  <h1 className="section-title lg:!text-[4.2rem]">
+                  <h1 className="section-title lg:!text-[4.2rem]" style={{fontWeight: '600'}}>
                     <span className="highlight">{phrases[index]}</span>
                   </h1>
                 </motion.span>
@@ -154,7 +154,7 @@ const HeroTwo = () => {
                 {logoCloud.eyebrow}
             </p>
 
-            <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '10px', backgroundColor: '' }}
+            <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '20px', backgroundColor: '' }}
             >
                 {LogoMarqueeRow(logoCloud.clients)}
             </div>

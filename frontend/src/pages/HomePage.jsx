@@ -6,10 +6,10 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 const HeroTwo = lazy(() => import('../sections/Home/HeroTwo/HeroTwo'));
 const Metrics = lazy(() => import('../sections/Home/Metrics/Metrics'));
 const Agentic = lazy(() => import('../sections/Home/Agentic/Agentic'));
-const Features = lazy(() => import('../sections/Home/Features/Features'));
+const FeaturesTwo = lazy(() => import('../sections/Home/FeaturesTwo/FeaturesTwo'));
 const Partners = lazy(() => import('../sections/Home/Partners/Partners'));
 const CTA = lazy(() => import('../sections/Home/CTA/CTA'));
-const RevenueAutomation = lazy(() => import('../sections/Home/RevenueAutomation/RevenueAutomation'));
+const Playbook = lazy(() => import('../sections/Home/Playbook/Playbook'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';
@@ -20,25 +20,25 @@ const HomePage = () => {
     <main>
       <Suspense fallback={<GlobalLoader />}>
         <HeroTwo />
-        <WhiteSpace height={reducedWhiteSpaceHeight} />
+        <WhiteSpace height={whiteSpaceHeight} />
         
         <Metrics />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        <WhiteSpace height={whiteSpaceHeight} />
 
         <Agentic />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        {/* <WhiteSpace height={whiteSpaceHeight} /> */}
 
-        <Features />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        <FeaturesTwo />
+        {/* <WhiteSpace height={whiteSpaceHeight} /> */}
         
         <Partners />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        <WhiteSpace height={whiteSpaceHeight} />
 
         <CTA />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        <WhiteSpace height={whiteSpaceHeight} />
 
-        <RevenueAutomation />
-        <WhiteSpace height={biggerWhiteSpaceHeight} />
+        <Playbook />
+        <WhiteSpace height={whiteSpaceHeight} />
 
       </Suspense>
     </main>

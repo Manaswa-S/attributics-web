@@ -112,10 +112,10 @@ const Metrics = () => {
 
           {/* Headline */}
           <motion.div
-            className="flex-[4] text-center flex justify-center items-center max-w-2xl mx-auto"
+            className="flex-[4] text-center flex justify-center items-center lg:max-w-[60%] mx-auto mb-8"
             {...fadeUp(0)}
           >
-            <h2 className='section-title' style={{fontSize: '2.5rem'}}>
+            <h2 className='section-title' style={{fontSize: '3rem'}}>
               {metrics.headline}{' '}
               <span className="highlight">{metrics.highlightedText}</span>
             </h2>

@@ -1,17 +1,17 @@
 const xPaddingMap = {
-  'none': 'lg:px-0 px-0',
-  'small': 'lg:px-5 px-3',
-  'medium': 'lg:px-25 px-3',
-  'large': 'lg:px-50 px-3',
-  'larger': 'lg:px-80 px-3',
-  'largest': 'lg:px-120 px-3',
+  'none':    'px-0',
+  'small':   'px-3 sm:px-5 md:px-8 lg:px-10 xl:px-14',
+  'medium':  'px-3 sm:px-6 md:px-12 lg:px-25 xl:px-32',
+  'large':   'px-3 sm:px-8 md:px-16 lg:px-50 xl:px-60',
+  'larger':  'px-3 sm:px-10 md:px-20 lg:px-80 xl:px-96',
+  'largest': 'px-3 sm:px-12 md:px-24 lg:px-120 xl:px-140',
 };
 
 const topMarginMap = {
-  'none': 'lg:mt-0 mt-0',
-  'small': 'lg:mt-25 mt-20',
-  'large': 'lg:mt-45 mt-30',
-}
+  'none':  'mt-0',
+  'small': 'mt-14 sm:mt-16 md:mt-20 lg:mt-25',
+  'large': 'mt-20 sm:mt-24 md:mt-32 lg:mt-45',
+};
 
 const Block = ({
     children,
@@ -33,4 +33,4 @@ const Block = ({
     );
   };
   
-  export default Block;
+export default Block;

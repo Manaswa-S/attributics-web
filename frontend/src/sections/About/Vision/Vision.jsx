@@ -5,114 +5,63 @@ import {CheckCircle} from 'lucide-react';
 
 const Vision = () => {
     return (
-        <Block xpad='larger'>
+        <Block xpad='large'>
         <section id="about" className='h-full w-full'>
             {/* VISION & MISSION */}
-            <motion.div 
-                className="grid grid-cols-1 lg:grid-cols-[6fr_6fr] gap-22 lg:gap-24 items-center hyphens-none"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5 }}
-            >
-                <motion.div 
-                    className="w-full h-auto flex items-center"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                >
-                    <img
-                        src={vision.vissionMission.image}
-                        alt="Group"
-                        className="w-full h-auto max-h-[80vh] object-cover rounded-[55px]"
-                        loading="eager"
-                    />
-                </motion.div>
-
-                {/* Text cards */}
-                <motion.div 
-                    className="flex flex-col text-justify"
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <motion.p 
-                        className="section-eyebrow mb-2"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.3 }}
-                    >
-                        {vision.vissionMission.eyebrow}
-                    </motion.p>
-                    
-                    {/* Vision card */}
+                <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-14 lg:gap-16 items-center">
                     <motion.div 
-                        className="relative mb-8"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.4 }}
+                        transition={{ duration: 0.6 }}
+                        className="relative rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl h-[280px] sm:h-[380px] md:h-[480px] lg:h-[600px] order-2 lg:order-1"
                     >
-                        <h2 className="vision-title mb-4" style={{fontWeight: '600'}}>
+                        <img 
+                            src={vision.vissionMission.image}
+                            alt="Team working" 
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                        />
+                    </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="order-1 lg:order-2"
+                    >
+                        <span className="text-xs font-bold tracking-[0.3em] uppercase text-slate-400 mb-4 sm:mb-5 lg:mb-6 block">
+                            {vision.vissionMission.eyebrow}
+                        </span>
+                        
+                        <h3 className="vision-title mb-3 sm:mb-4" style={{fontWeight: '600'}}>
                             {vision.vissionMission.vision.headline}
-                        </h2>
-                        <p className="section-description">
+                        </h3>
+                        <p className="mb-6 sm:mb-8 lg:mb-10 section-description">
                             {vision.vissionMission.vision.description}
                         </p>
-                    </motion.div>
 
-                    {/* Mission card */}
-                    <motion.div 
-                        className="relative"
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.5 }}
-                    >
-                        <h2 className="vision-title mb-4" style={{fontWeight: '600'}}>
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-slate-900 mb-3 sm:mb-4">
                             {vision.vissionMission.mission.headline}
-                        </h2>
-                        <p className="section-description mb-4">
+                        </h3>
+                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                             {vision.vissionMission.mission.description[0]}
                         </p>
-                        <p className="section-description mb-4">
+                        <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                             {vision.vissionMission.mission.description[1]}
                         </p>
-                        <motion.ul 
-                            className="list-none space-y-3"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                visible: {
-                                    transition: {
-                                        staggerChildren: 0.08,
-                                        delayChildren: 0.6
-                                    }
-                                }
-                            }}
-                        >
-                            {vision.vissionMission.mission.points.map((item, idx) => (
-                                <motion.li 
-                                    key={idx} 
-                                    className="section-description relative flex-row gap-2 flex"
-                                    variants={{
-                                        hidden: { opacity: 0, y: 8 },
-                                        visible: { opacity: 1, y: 0 }
-                                    }}
-                                    transition={{ duration: 0.3 }}
-                                >
-                                    <CheckCircle className='text-brand' style={{fontWeight: '900'}} />
-                                    {item}
-                                </motion.li>
-                            ))}
-                        </motion.ul>
+                        
+                        <ul className="space-y-3 sm:space-y-4">
+                        {vision.vissionMission.mission.points.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                            <CheckCircle className='text-brand shrink-0 w-5 h-5 sm:w-6 sm:h-6 mt-0.5' style={{fontWeight: '900'}} />
+                            <span className="text-slate-700 text-base sm:text-lg">{item}</span>
+                            </li>
+                        ))}
+                        </ul>
                     </motion.div>
-                </motion.div>
-            </motion.div>
+                </div>
         </section>
         </Block>
     );

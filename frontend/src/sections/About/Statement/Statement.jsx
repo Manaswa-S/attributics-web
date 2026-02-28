@@ -15,7 +15,7 @@ const Statement = () => {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5 }}
             >
-                <div className=" mb-12 h-auto flex flex-col items-center lg:max-w-[60%]">
+                <div className=" mb-12 h-auto flex flex-col items-center lg:max-w-[80%]">
                    
                     <motion.h3
                         className="section-title text-center lg:!text-[2.2rem]"

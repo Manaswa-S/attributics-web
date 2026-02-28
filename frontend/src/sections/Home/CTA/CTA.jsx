@@ -18,7 +18,7 @@ const CTA = () => {
     const location = useLocation();
 
     return (
-        <Block xpad='medium'>
+        <Block xpad='large'>
             <section className="items-center justify-center flex flex-col lg:justify-between grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-12">
 
                 {/* Left Side - Text Content */}

@@ -89,7 +89,7 @@ const ProblemSolution = () => {
 
             {/* ── RIGHT: sliding card strip ── */}
             <div
-              className="w-full z-10 px-10 py-10"
+              className="w-full z-10 px-10 py-10 flex justify-end"
               style={{
                 height: "75vh",
                 maskImage: "linear-gradient(to bottom, transparent 0%, black 18%, black 30%, transparent 100%)",
@@ -99,14 +99,14 @@ const ProblemSolution = () => {
             >
               <div
                 ref={panelWrapRef}
-                className="flex flex-col"
-                style={{ height: `${N * 100}%` }}
+                className="flex flex-col items-end"
+                style={{ height: `${N * 100}%`, width: '100%' }}
               >
                 {problems.map((item, i) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-center"
-                    style={{ height: `${100 / N}%` }}
+                    className="flex items-center justify-end"
+                    style={{ height: `${100 / N}%`, width: '100%' }}
                   >
                     <ProblemCard
                       data={item}

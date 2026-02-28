@@ -55,7 +55,7 @@ const Partners = () => {
                         {/* ── Right: card — fades in slightly after text ── */}
                         <motion.div
                             className="relative flex justify-center isolate"
-                            style={{ flexBasis: '45%' }}
+                            style={{ flexBasis: '45%', marginLeft: 'auto' }}
                             initial={{ opacity: 0, y: 28 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}

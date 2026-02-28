@@ -7,7 +7,7 @@ import WheelGestures from 'embla-carousel-wheel-gestures';
 
 const Team = () => {
     return (
-        <Block xpad='larger'>
+        <Block xpad='large'>
             <section className="bg-white relative">
                 <motion.div
                     initial={{ opacity: 0.8, y: 2, x: 0 }}

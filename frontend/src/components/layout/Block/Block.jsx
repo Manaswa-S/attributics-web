@@ -2,7 +2,7 @@ const xPaddingMap = {
   'none':    'px-0',
   'small':   'px-3 sm:px-5 md:px-8 lg:px-10 xl:px-14',
   'medium':  'px-3 sm:px-6 md:px-12 lg:px-25 xl:px-32',
-  'large':   'px-3 sm:px-8 md:px-16 lg:px-50 xl:px-60',
+  'large':   'px-3 sm:px-8 md:px-16 lg:px-50 xl:px-50',
   'larger':  'px-3 sm:px-10 md:px-20 lg:px-80 xl:px-96',
   'largest': 'px-3 sm:px-12 md:px-24 lg:px-120 xl:px-140',
 };

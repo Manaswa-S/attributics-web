@@ -99,10 +99,7 @@ const HeaderTwo = () => {
 
                     <div className="hidden lg:block" style={{color: 'white'}}>
                         <Link to="/contact">
-                            <Button
-                                variant="primary"
-                                className="header-button-label"
-                            >
+                            <Button>
                                 {nav.cta.contact}
                             </Button>
                         </Link>
@@ -173,7 +170,7 @@ const HeaderTwo = () => {
                         })}
                         <div className="pt-2 border-t border-gray-100 mt-2">
                             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button variant="primary" size="sm">
+                                <Button>
                                     {nav.cta.contact}
                                 </Button>
                             </Link>

@@ -14,18 +14,25 @@ const fadeUp = {
     }),
 };
 
+const CHECKLIST = [
+    'Your current lifecycle and retention challenges',
+    'Where data silos are limiting performance',
+    'How to turn automation into intelligent personalization',
+    'Practical steps toward measurable growth',
+    'What meaningful progress would look like for your team',
+];
+
 const CTA = () => {
     const location = useLocation();
 
     return (
         <Block xpad='large'>
-            <section className="items-center justify-center flex flex-col lg:justify-between grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-12">
+            <section className="grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-10 sm:gap-12 lg:gap-16 items-center">
 
-                {/* Left Side - Text Content */}
-                <div className="flex-col flex">
-
+                {/* Left: Text */}
+                <div className="flex flex-col">
                     <motion.p
-                        className="section-eyebrow"
+                        className="section-eyebrow mb-3 sm:mb-4"
                         variants={fadeUp}
                         custom={0}
                         initial="hidden"
@@ -36,8 +43,8 @@ const CTA = () => {
                     </motion.p>
 
                     <motion.h1
-                        className="section-title"
-                        style={{ fontSize: '4.2rem',  fontWeight: '600' }}
+                        className="section-title mb-5 sm:mb-6"
+                        style={{ fontSize: 'clamp(1.8rem, 4vw, 4.2rem)', fontWeight: 600, lineHeight: 1.1 }}
                         variants={fadeUp}
                         custom={0.1}
                         initial="hidden"
@@ -46,20 +53,12 @@ const CTA = () => {
                     >
                         If These Questions Resonate,
                         <br />
-                        <span className='highlight'>We Should Talk.</span>
+                        <span className="highlight">We Should Talk.</span>
                     </motion.h1>
 
-                    <motion.div
-                        className='w-full mb-3 mt-6'
-                        initial={{ scaleX: 0, originX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                    />
-
                     <motion.p
-                        className="section-description flex flex-col gap-4 mb-4"
-                        style={{fontWeight: '600', fontSize: '1.6rem'}}
+                        className="section-description mb-4"
+                        style={{ fontWeight: 600, fontSize: 'clamp(1rem, 1.5vw, 1.6rem)' }}
                         variants={fadeUp}
                         custom={0.25}
                         initial="hidden"
@@ -69,35 +68,34 @@ const CTA = () => {
                         Here's what we'll cover:
                     </motion.p>
 
-                    <div className="section-description flex flex-col gap-4">
-                        {[
-                            'Your current lifecycle and retention challenges',
-                            'Where data silos are limiting performance',
-                            'How to turn automation into intelligent personalization',
-                            'Practical steps toward measurable growth',
-                            'What meaningful progress would look like for your team',
-                        ].map((item, i) => (
+                    <div
+                        className="section-description flex flex-col gap-3 sm:gap-4"
+                        style={{ fontSize: 'clamp(0.875rem, 1.2vw, 1.05rem)' }}
+                    >
+                        {CHECKLIST.map((item, i) => (
                             <motion.span
                                 key={i}
-                                className='flex flex-row gap-2'
+                                className="flex flex-row gap-2 items-start"
                                 variants={fadeUp}
                                 custom={0.3 + i * 0.07}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
                             >
-                                <CheckCircle2 />{item}
+                                <CheckCircle2 className="shrink-0 mt-0.5" />
+                                {item}
                             </motion.span>
                         ))}
                     </div>
                 </div>
 
-                {/* Right Side - Calendar */}
+                {/* Right: Calendar */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="w-full"
                 >
                     <Calendar />
                 </motion.div>

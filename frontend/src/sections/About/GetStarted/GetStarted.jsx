@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 
 const GetStarted = () => {
     return (
-        <Block xpad='largest'>
+        <Block xpad='large'>
             <AuditCTA />
         </Block>
     )
@@ -31,13 +31,15 @@ const AuditCTA = () => {
                     text-center
                     relative
                     shadow-[0_22px_52px_-12px_rgba(0,0,0,0.08)]
+                    sm:max-w-[80vw] lg:max-w-[50vw]
+                    mx-auto
                 "
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
             >
-                <div className="w-full sm:max-w-[80vw] lg:max-w-[50vw] flex relative flex-col mx-auto text-center">
+                <div className="w-full flex relative flex-col text-center">
                     <motion.p
                         className="section-eyebrow mb-3 sm:mb-4"
                         initial={{ opacity: 0 }}
@@ -78,7 +80,7 @@ const AuditCTA = () => {
                     transition={{ duration: 0.5, delay: 0.5 }}
                 >
                     <Link to="/contact">
-                        <Button variant="primary">
+                        <Button>
                             <p className="section-description text-sm sm:text-base" style={{ color: 'white' }}>
                                 {getstarted.ctaText}{' '}
                                 <span className="text-lg sm:text-xl">→</span>

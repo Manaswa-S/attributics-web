@@ -3,7 +3,6 @@ import GlobalLoader from '../components/ui/Loader/GlobalLoader';
 import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load about sections
-const Hero = lazy(() => import('../sections/Resources/Hero/Hero'));
 const HeroTwo = lazy(() => import('../sections/Resources/HeroTwo/HeroTwo'));
 const Local = lazy(() => import('../sections/Resources/Local/Local'));
 const Medium = lazy(() => import('../sections/Resources/Medium/Medium'));

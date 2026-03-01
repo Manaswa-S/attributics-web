@@ -1,87 +1,62 @@
 import React, { useState, useEffect } from 'react';
 import Block from '../../../components/layout/Block';
-const API_URL = import.meta.env.VITE_API_URL || "localhost:5000";
 import { resourcesData } from '../../../constants/resources';
 import { motion, AnimatePresence } from 'motion/react';
 
-// Skeleton Component
-const HeroSkeleton = () => {
-    return (
-        <motion.div 
-            className="relative rounded-2xl overflow-hidden bg-white"
-            initial={{ opacity: 0.9, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-        >
-            {/* Background Skeleton */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-200 via-gray-100 to-gray-200">
-                <div className="w-full h-full bg-gray-300" />
-            </div>
+const API_URL = import.meta.env.VITE_API_URL || "localhost:5000";
 
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/0 to-black/10" />
-
-            {/* Content Wrapper */}
-            <div className="relative z-10 flex flex-col justify-between">
-
-                {/* Top Block Skeleton */}
-                <div className="bg-white rounded-br-2xl p-6 w-[40%] self-start">
-                    {/* Eyebrow skeleton */}
-                    <div className="h-4 w-32 bg-gray-200 rounded mb-3" />
-                    
-                    {/* Title skeleton */}
-                    <div className="space-y-2 mb-4">
-                        <div className="h-8 bg-gray-300 rounded w-full" />
-                        <div className="h-8 bg-gray-300 rounded w-4/5" />
-                    </div>
-                    
-                    {/* Description skeleton */}
-                    <div className="space-y-2">
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-3/4" />
-                    </div>
+// ─── Skeleton ─────────────────────────────────────────────────────────────────
+const HeroSkeleton = () => (
+    <motion.div
+        className="rounded-2xl overflow-hidden animate-pulse"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+    >
+        {/* Mobile skeleton */}
+        <div className="lg:hidden flex flex-col">
+            <div className="w-full bg-gray-200" style={{ aspectRatio: '16/9' }} />
+            <div className="bg-white p-5 space-y-3">
+                <div className="h-3 w-24 bg-gray-200 rounded" />
+                <div className="h-6 bg-gray-300 rounded w-4/5" />
+                <div className="h-3 bg-gray-200 rounded w-full" />
+                <div className="h-3 bg-gray-200 rounded w-3/4" />
+                <div className="flex items-center gap-2 pt-1">
+                    <div className="w-6 h-6 rounded-full bg-gray-300 shrink-0" />
+                    <div className="h-3 w-20 bg-gray-200 rounded" />
+                    <div className="h-3 w-14 bg-gray-200 rounded" />
                 </div>
-
-                {/* Spacer Block */}
-                <div className="flex-grow lg:py-10 py-50" />
-
-                {/* Bottom Block Skeleton */}
-                <div className="bg-white rounded-tl-2xl p-6 w-[40%] self-end">
-                    {/* Title skeleton */}
-                    <div className="space-y-2 mb-4">
-                        <div className="h-7 bg-gray-300 rounded w-full" />
-                        <div className="h-7 bg-gray-300 rounded w-3/4" />
-                    </div>
-                    
-                    {/* Description skeleton */}
-                    <div className="space-y-2 mb-4">
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-full" />
-                        <div className="h-4 bg-gray-200 rounded w-2/3" />
-                    </div>
-
-                    {/* Meta skeleton */}
-                    <div className="flex items-center gap-2 mt-1 mb-1">
-                        <div className="w-7 h-7 rounded-full bg-gray-300" />
-                        <div className="h-3 w-20 bg-gray-200 rounded" />
-                        <div className="h-3 w-1 bg-gray-200 rounded" />
-                        <div className="h-3 w-16 bg-gray-200 rounded" />
-                        <div className="h-3 w-1 bg-gray-200 rounded" />
-                        <div className="h-3 w-14 bg-gray-200 rounded" />
-                    </div>
-
-                    {/* Read More skeleton */}
-                    <div className="h-4 w-24 bg-gray-200 rounded mt-2" />
-                </div>
-
+                <div className="h-3 w-20 bg-gray-200 rounded" />
             </div>
-        </motion.div>
-    );
-};
+        </div>
 
-// Main Hero Component
+        {/* Desktop skeleton */}
+        <div className="hidden lg:block relative bg-gray-200" style={{ minHeight: '560px' }}>
+            <div className="absolute top-0 left-0 bg-white rounded-br-2xl p-6 w-[40%] space-y-3">
+                <div className="h-3 w-24 bg-gray-200 rounded" />
+                <div className="h-6 bg-gray-300 rounded w-full" />
+                <div className="h-6 bg-gray-300 rounded w-4/5" />
+                <div className="h-3 bg-gray-200 rounded w-full" />
+                <div className="h-3 bg-gray-200 rounded w-3/4" />
+            </div>
+            <div className="absolute bottom-0 right-0 bg-white rounded-tl-2xl p-6 w-[40%] space-y-3">
+                <div className="h-6 bg-gray-300 rounded w-full" />
+                <div className="h-6 bg-gray-300 rounded w-3/4" />
+                <div className="h-3 bg-gray-200 rounded w-full" />
+                <div className="h-3 bg-gray-200 rounded w-2/3" />
+                <div className="flex items-center gap-2">
+                    <div className="w-6 h-6 rounded-full bg-gray-300 shrink-0" />
+                    <div className="h-3 w-20 bg-gray-200 rounded" />
+                    <div className="h-3 w-14 bg-gray-200 rounded" />
+                </div>
+                <div className="h-3 w-20 bg-gray-200 rounded" />
+            </div>
+        </div>
+    </motion.div>
+);
+
+// ─── Main ─────────────────────────────────────────────────────────────────────
 const HeroTwo = () => {
     const { hero } = resourcesData;
 
@@ -94,9 +69,6 @@ const HeroTwo = () => {
             try {
                 const res = await fetch(`${API_URL}/api/blogs/local/featured`);
                 const data = await res.json();
-
-                console.log(data);
-    
                 setFeaturedBlog(data);
             } catch (err) {
                 console.error("Failed to fetch blogs", err);
@@ -104,19 +76,14 @@ const HeroTwo = () => {
                 setLoading(false);
             }
         }
-    
         loadFeaturedBlog();
     }, []);
 
-    // Preload image
     useEffect(() => {
-        if (featuredBlog?.heroImage) {
-            const img = new Image();
-            img.src = featuredBlog.heroImage;
-            img.onload = () => {
-                setImageLoaded(true);
-            };
-        }
+        if (!featuredBlog?.heroImage) return;
+        const img = new Image();
+        img.src = featuredBlog.heroImage;
+        img.onload = () => setImageLoaded(true);
     }, [featuredBlog]);
 
     const showContent = !loading && featuredBlog && imageLoaded;
@@ -127,130 +94,138 @@ const HeroTwo = () => {
                 {!showContent ? (
                     <HeroSkeleton key="skeleton" />
                 ) : (
-                    <motion.div 
+                    <motion.div
                         key="content"
-                        className="relative rounded-2xl overflow-hidden bg-white"
+                        className="rounded-2xl overflow-hidden"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ duration: 0.1 }}
+                        transition={{ duration: 0.4 }}
                     >
+                        {/* ── Mobile & Tablet (< lg): stacked ── */}
+                        <div className="lg:hidden flex flex-col gap-5 pb-4">
+                            {/* Section header */}
+                            <motion.div
+                                className="flex flex-col gap-2"
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <p className="section-eyebrow">{hero.eyebrow}</p>
+                                <p style={{ fontSize: 'clamp(1.6rem, 6vw, 2.2rem)', fontWeight: 600, lineHeight: 1.15 }}>
+                                    {hero.headline}
+                                </p>
+                                <p className="section-description" style={{ fontSize: 'clamp(0.9rem, 3vw, 1.05rem)' }}>
+                                    {hero.description}
+                                </p>
+                            </motion.div>
 
-                        {/* Background Image */}
-                        <motion.div 
-                            className="absolute inset-0 bg-white"
-                            initial={{ opacity: 0.9, scale: 1 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.4, ease: "easeOut" }}
-                        >
+                            {/* Featured post */}
+                            <motion.div
+                                className="rounded-2xl overflow-hidden bg-white shadow-sm border border-gray-100"
+                                initial={{ opacity: 0, y: 16 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                            >
+                                <div className="w-full" style={{ aspectRatio: '16/9' }}>
+                                    <img
+                                        src={featuredBlog.heroImage}
+                                        alt={featuredBlog.title}
+                                        className="w-full h-full object-cover"
+                                        loading="eager"
+                                    />
+                                </div>
+
+                                <div className="p-5 sm:p-7 flex flex-col gap-3">
+                                    <p style={{ fontSize: 'clamp(1.2rem, 4.5vw, 1.6rem)', fontWeight: 600, lineHeight: 1.2 }}>
+                                        {featuredBlog.title}
+                                    </p>
+                                    <p className="section-description" style={{ fontSize: 'clamp(0.875rem, 3vw, 1rem)' }}>
+                                        {featuredBlog.description}
+                                    </p>
+
+                                    <div className="flex items-center gap-2 flex-wrap text-sm text-gray-500">
+                                        <img
+                                            src={featuredBlog.author.avatar}
+                                            alt={featuredBlog.author.name}
+                                            className="w-6 h-6 rounded-full object-cover shrink-0"
+                                        />
+                                        <span className="text-gray-700">{featuredBlog.author.name}</span>
+                                        <span className="text-gray-300">•</span>
+                                        <span>{featuredBlog.publishedAt}</span>
+                                        <span className="text-gray-300">•</span>
+                                        <span>{featuredBlog.readTime}</span>
+                                    </div>
+
+                                    <a
+                                        href={`/resources/${featuredBlog.slug}`}
+                                        className="text-sm font-semibold hover:underline self-start"
+                                    >
+                                        Read More →
+                                    </a>
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* ── Desktop (≥ lg): overlay ── */}
+                        <div className="hidden lg:block relative" style={{ minHeight: '560px' }}>
                             <img
                                 src={featuredBlog.heroImage}
                                 alt={featuredBlog.title}
-                                className="w-full h-full object-contain lg:object-cover"
-                                loading='eager'
+                                className="absolute inset-0 w-full h-full object-cover"
+                                loading="eager"
                             />
-                        </motion.div>
-                    
-                        {/* Overlay */}
-                        <motion.div 
-                            className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/0 to-black/50"
-                            initial={{ opacity: 1 }}
-                            animate={{ opacity: 0.05 }}
-                            transition={{ duration: 3, delay: 0.2 }}
-                        />
-                    
-                        {/* Content Wrapper */}
-                        <div className="relative z-10 flex flex-col justify-between">
-                    
-                            {/* Top Block */}
-                            <motion.div 
-                                className="bg-white rounded-br-2xl p-6 lg:max-w-[40%] self-start"
-                                initial={{ opacity: 0, x: -1000 }}
+
+                            {/* Top-left: site eyebrow + tagline */}
+                            <motion.div
+                                className="absolute top-0 left-0 bg-white rounded-br-2xl p-6 xl:p-8 w-[42%] xl:w-[38%]"
+                                initial={{ opacity: 0, x: -32 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                                transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <motion.h1 
-                                    className="section-eyebrow"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
-                                    {hero.eyebrow}
-                                </motion.h1>
-                                <motion.p 
-                                    className="section-title"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
+                                <p className="section-eyebrow mb-2">{hero.eyebrow}</p>
+                                <p className="mb-2" style={{ fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', fontWeight: 600, lineHeight: 1.2 }}>
                                     {hero.headline}
-                                </motion.p>
-                                <motion.p 
-                                    className="section-description"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
+                                </p>
+                                <p className="section-description" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1rem)' }}>
                                     {hero.description}
-                                </motion.p>
+                                </p>
                             </motion.div>
-                    
-                            {/* Spacer Block */}
-                            <div className="flex-grow lg:py-20 py-50" />
-                    
-                            {/* Bottom Block */}
-                            <motion.div 
-                                className="bg-white rounded-tl-2xl p-6 lg:max-w-[40%] self-end"
-                                initial={{ opacity: 0, x: 1000 }}
+
+                            {/* Bottom-right: blog card */}
+                            <motion.div
+                                className="absolute bottom-0 right-0 bg-white rounded-tl-2xl p-6 xl:p-8 w-[42%] xl:w-[38%]"
+                                initial={{ opacity: 0, x: 32 }}
                                 animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                                transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                             >
-                                <motion.h1 
-                                    className="section-title"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
+                                <p className="mb-2" style={{ fontSize: 'clamp(1.2rem, 1.8vw, 1.7rem)', fontWeight: 600, lineHeight: 1.2 }}>
                                     {featuredBlog.title}
-                                </motion.h1>
-                                <motion.p 
-                                    className="section-description"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
+                                </p>
+                                <p className="section-description mb-3" style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1rem)' }}>
                                     {featuredBlog.description}
-                                </motion.p>
-                    
-                                <motion.div 
-                                    className="resources-meta mt-1 mb-1"
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.7 }}
-                                >
+                                </p>
+
+                                <div className="flex items-center gap-1.5 flex-wrap mb-3" style={{ fontSize: 'clamp(0.7rem, 0.9vw, 0.8rem)' }}>
                                     <img
                                         src={featuredBlog.author.avatar}
                                         alt={featuredBlog.author.name}
-                                        className="w-7 h-7 rounded-full object-cover"
+                                        className="w-5 h-5 rounded-full object-cover shrink-0"
                                     />
-                                    <span>{featuredBlog.author.name}</span>
-                                    <span>•</span>
-                                    <span>{featuredBlog.publishedAt}</span>
-                                    <span>•</span>
-                                    <span>{featuredBlog.readTime}</span>
-                                </motion.div>
-                    
-                                <motion.a 
+                                    <span className="text-gray-700">{featuredBlog.author.name}</span>
+                                    <span className="text-gray-300">•</span>
+                                    <span className="text-gray-500">{featuredBlog.publishedAt}</span>
+                                    <span className="text-gray-300">•</span>
+                                    <span className="text-gray-500">{featuredBlog.readTime}</span>
+                                </div>
+
+                                <a
                                     href={`/resources/${featuredBlog.slug}`}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: 0.8 }}
+                                    className="font-semibold hover:underline"
+                                    style={{ fontSize: 'clamp(0.75rem, 0.9vw, 0.875rem)' }}
                                 >
-                                    <p className='section-description'>
-                                        Read More →
-                                    </p>
-                                </motion.a>
+                                    Read More →
+                                </a>
                             </motion.div>
-                    
                         </div>
                     </motion.div>
                 )}

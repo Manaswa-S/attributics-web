@@ -3,8 +3,6 @@ import { LineChart } from "lucide-react";
 import { animate, motion, useReducedMotion } from "motion/react";
 
 // ─── Counter ──────────────────────────────────────────────────────────────────
-// Re-runs every time `start` flips to true (card becomes active again).
-// Cleanup cancels any in-progress animation before restarting.
 const Counter = ({ from, to, prefix, suffix, start }) => {
   const nodeRef = useRef(null);
 
@@ -14,7 +12,6 @@ const Counter = ({ from, to, prefix, suffix, start }) => {
     const node = nodeRef.current;
     if (!node) return;
 
-    // Reset to zero so it always counts up from 0 on each activation
     node.textContent = `${prefix}${from}${suffix}`;
 
     const controls = animate(from, to, {
@@ -24,10 +21,7 @@ const Counter = ({ from, to, prefix, suffix, start }) => {
         node.textContent = `${prefix}${Math.round(value)}${suffix}`;
       },
     });
-
-    // No cleanup — let the animation always run to completion
-    // even if the card is scrolled away mid-animation
-  }, [start]); // fires every time start flips false → true
+  }, [start]);
 
   return <span ref={nodeRef}>{prefix}{from}{suffix}</span>;
 };
@@ -51,26 +45,36 @@ const ProblemCard = ({ data, isActive }) => {
   const reduceMotion = useReducedMotion();
 
   return (
-    // Card shell — fades + lifts in when it becomes active
     <motion.div
-      key={data.id} // re-triggers animation when card changes
+      key={data.id}
       initial={reduceMotion ? false : { opacity: 0, y: 40, scale: 0.97 }}
-      animate={isActive
-        ? { opacity: 1, y: 0, scale: 1 }
-        : { opacity: 0, y: -28, scale: 0.97 }
+      animate={
+        isActive
+          ? { opacity: 1, y: 0, scale: 1 }
+          : { opacity: 0, y: -28, scale: 0.97 }
       }
-      transition={isActive
-        ? { duration: 0.6, ease: [0.22, 1, 0.36, 1] }          // snappy enter
-        : { duration: 0.45, ease: [0.4, 0, 1, 1] }             // smooth exit upward
+      transition={
+        isActive
+          ? { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+          : { duration: 0.45, ease: [0.4, 0, 1, 1] }
       }
-      className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-[0_15px_40px_rgb(0,0,0,0.1)] border border-white relative overflow-hidden"
+      className="
+        w-full
+        bg-white
+        rounded-[1.5rem] sm:rounded-[2rem] lg:rounded-[2.5rem]
+        p-5 sm:p-7 lg:p-10
+        shadow-[0_15px_40px_rgb(0,0,0,0.1)]
+        border border-white
+        relative overflow-hidden
+      "
     >
       {/* Top shimmer line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       {/* Heading */}
       <motion.h3
-        className="section-title mb-6"
+        className="section-title mb-3 sm:mb-4 lg:mb-6"
+        style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)", fontWeight: 600, lineHeight: 1.25 }}
         initial="hidden"
         animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
@@ -81,7 +85,8 @@ const ProblemCard = ({ data, isActive }) => {
 
       {/* Body text */}
       <motion.p
-        className="section-description mb-12"
+        className="section-description mb-5 sm:mb-7 lg:mb-10"
+        style={{ fontSize: "clamp(0.85rem, 1.2vw, 1.05rem)", lineHeight: 1.6 }}
         initial="hidden"
         animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
@@ -92,7 +97,13 @@ const ProblemCard = ({ data, isActive }) => {
 
       {/* Metric box */}
       <motion.div
-        className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#FF5A36]/10 to-transparent p-8 border border-[#FF5A36]/20"
+        className="
+          relative overflow-hidden
+          rounded-2xl sm:rounded-3xl
+          bg-gradient-to-br from-[#FF5A36]/10 to-transparent
+          p-4 sm:p-6 lg:p-7
+          border border-[#FF5A36]/20
+        "
         initial="hidden"
         animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
@@ -100,9 +111,13 @@ const ProblemCard = ({ data, isActive }) => {
       >
         <div className="absolute inset-0 bg-[#FF5A36]/5 blur-2xl" />
 
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-6 justify-between">
-          <div>
-            <div className="text-5xl md:text-6xl font-display font-extrabold text-[#FF5A36] tracking-tighter mb-2">
+        <div className="relative z-10 flex flex-row items-center gap-4 justify-between">
+          {/* Number + label */}
+          <div className="min-w-0">
+            <div
+              className="font-display font-extrabold text-[#FF5A36] tracking-tighter mb-1 leading-none"
+              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
+            >
               <Counter
                 from={0}
                 to={data.metricValue}
@@ -112,13 +127,23 @@ const ProblemCard = ({ data, isActive }) => {
               />
             </div>
 
-            <div className="section-description uppercase !text-brand">
+            <div
+              className="section-description uppercase !text-brand"
+              style={{ fontSize: "clamp(0.7rem, 1vw, 0.9rem)" }}
+            >
               {data.metricLabel}
             </div>
           </div>
 
-          <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-sm shrink-0">
-            <LineChart className="w-8 h-8 text-[#FF5A36]" />
+          {/* Icon bubble */}
+          <div
+            className="rounded-full bg-white flex items-center justify-center shadow-sm shrink-0"
+            style={{ width: "clamp(2.5rem, 4vw, 4rem)", height: "clamp(2.5rem, 4vw, 4rem)" }}
+          >
+            <LineChart
+              className="text-[#FF5A36]"
+              style={{ width: "clamp(1.2rem, 2vw, 2rem)", height: "clamp(1.2rem, 2vw, 2rem)" }}
+            />
           </div>
         </div>
       </motion.div>

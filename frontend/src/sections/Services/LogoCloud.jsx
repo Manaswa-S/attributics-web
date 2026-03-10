@@ -1,5 +1,5 @@
-import { logoCloud } from '../../../constants/home';
-import Block from "../../../components/layout/Block/Block";
+import { logoCloud } from '../../constants/home';
+import Block from "../../components/layout/Block/Block";
 
 const renderLogoRow = (row) =>
   row.map((logo, index) => {

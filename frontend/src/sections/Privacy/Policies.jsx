@@ -1,63 +1,159 @@
-const Policies = () => {
+import Block from "../../components/layout/Block";
+
+const sections = [
+    {
+      number: "01",
+      title: "What Information We Collect",
+      content: "When you interact with us or request a project audit, we may collect the following information:",
+      list: [
+        "Name and job title",
+        "Contact information, including email address and phone number",
+        "Company name and project details (e.g., current MarTech stack, CRO goals)",
+        "Other information relevant to customer surveys, offers, or service inquiries",
+      ],
+    },
+    {
+      number: "02",
+      title: "What We Do Not Collect",
+      content:
+        "We focus on digital strategy and data solutions, not financial processing. We do not collect sensitive financial data such as credit card details or bank account passwords through our website.",
+    },
+    {
+      number: "03",
+      title: "How We Collect Information",
+      content:
+        "We collect information whenever you interact with us — when you fill out a lead form, request a MarTech audit, register for newsletters, or contact us directly. We may also receive information from third-party platforms like LinkedIn, provided you have given them permission to share your data.",
+    },
+    {
+      number: "04",
+      title: "How We Use the Information",
+      content: "We use your information to understand your business needs and deliver high-quality services:",
+      list: [
+        "Internal record keeping — managing client relationships and project scopes.",
+        "Service improvement — enhancing our analytics, Agentic AI, and CEP offerings.",
+        "Communication — sending updates on digital strategies and services relevant to your business.",
+        "Customization — tailoring our website and proposals to your specific interests.",
+      ],
+    },
+    {
+      number: "05",
+      title: "Disclosure & Confidentiality",
+      content:
+        "Attributics does not sell, lease, or distribute your personal information to third parties unless we have your explicit permission or are required by law. We may disclose information to law enforcement or courts in India where legally mandated. Our website may link to external platforms — we are not responsible for their privacy practices.",
+    },
+    {
+      number: "06",
+      title: "Security",
+      content:
+        "We have put in place physical, electronic, and managerial procedures to safeguard the information we collect. We are committed to ensuring your data is secure against unauthorized access or disclosure.",
+    },
+    {
+      number: "07",
+      title: "Cookies",
+      content:
+        "We use traffic log cookies to identify which pages are being used and to improve our website experience. Cookies do not give us access to your computer or personal information beyond what you share. You can accept or decline cookies through your browser settings at any time.",
+    },
+    {
+      number: "08",
+      title: "Grievance Redressal",
+      content:
+        "If you have any concerns about the processing of your personal data, please contact our Grievance Officer. We aim to investigate and respond within 15 working days.",
+      contact: true,
+    },
+    {
+      number: "09",
+      title: "Access & Correction",
+      content: (
+        <>
+          You have the right to request, correct, or delete the personal information we hold about you at any time. Email us at{" "}
+          <a href="mailto:hello@attributics.com" className="text-[#FF5A36] hover:underline">
+            hello@attributics.com
+          </a>
+          .
+        </>
+      ),
+    },
+  ];
+  
+  const Policies = () => {
     return (
-      <div className="bg-white min-h-screen pt-32 pb-24">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-12">
-            Privacy Policy for Attributics
-          </h1>
-          <div className="text-slate-600 leading-relaxed space-y-6">
-            <p>At Attributics (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.</p>
-            <p>This policy is governed by the laws of India, including the Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023.</p>
-            
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">1. What Information We Collect</h3>
-            <p>When you interact with us or request a project audit, we may collect the following information:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Name and job title</li>
-              <li>Contact information, including email address and phone number</li>
-              <li>Company name and project details (e.g., current MarTech stack, CRO goals)</li>
-              <li>Other information relevant to customer surveys, offers, or service inquiries</li>
-            </ul>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">2. What We Do Not Collect</h3>
-            <p>We focus on digital strategy and data solutions, not financial processing. Therefore, we do not collect sensitive financial data such as credit card details or bank account passwords through our website.</p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">3. How We Collect Information</h3>
-            <p>We may collect information about you whenever you interact with us. For example, when you fill out a lead form, request a MarTech audit, register for our insights/newsletters, or contact us directly, you specifically and knowingly provide us with your personal information. We may also receive information about you from third-party platforms (like LinkedIn), provided you have given them permission to share your data.</p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">4. How We Use the Information We Gather</h3>
-            <p>We require this information to understand your business needs and provide you with high-quality consulting and execution services. Specifically, we use it for:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Internal record keeping:</strong> Managing client relationships and project scopes.</li>
-              <li><strong>Service Improvement:</strong> Enhancing our analytics, Agentic AI, and CEP offerings based on market needs.</li>
-              <li><strong>Communication:</strong> Periodically sending promotional emails about new digital strategies, thought leadership, or services that may benefit your business.</li>
-              <li><strong>Customization:</strong> Tailoring our website and service proposals to your specific interests.</li>
-            </ul>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">5. Disclosure and Confidentiality</h3>
-            <p>Attributics does not sell, lease, or distribute your personal information to third parties unless we have your explicit permission or are required by law to do so. We may disclose Personal Information to law enforcement agencies, government bodies, or courts in India where legally mandated.</p>
-            <p>Our website may contain links to external partner platforms or technology vendors. We are not responsible for the privacy of data collected by websites not owned or managed by Attributics. You should exercise caution and look at the privacy statements applicable to those specific websites.</p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">6. Security</h3>
-            <p>We are committed to ensuring that your data is secure. To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial procedures to safeguard and secure the information we collect online.</p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">7. How We Use Cookies</h3>
-            <p>A cookie is a small file placed on your computer's hard drive that helps analyze web traffic. We use traffic log cookies to identify which pages are being used. This helps us analyze data about webpage traffic and improve our website to tailor it to customer needs. A cookie in no way gives us access to your computer or any personal information, other than the data you choose to share with us. You can choose to accept or decline cookies through your browser settings.</p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">8. Making a Complaint & Grievance Redressal</h3>
-            <p>In accordance with Indian law, if you have any concerns or discrepancies regarding the processing of your personal data, you may contact our Grievance Officer.</p>
-            <p>We will review your complaint, investigate the matter, and respond to you appropriately. We aim to complete this investigation within 15 working days of receiving your complaint.</p>
-            <p className="mt-4">
-              <strong>Grievance Contact:</strong><br/>
-              Email: <a href="mailto:hello@attributics.com" className="text-[#FF5A36] hover:underline">hello@attributics.com</a><br/>
-              Address: Pune, Maharashtra, India
-            </p>
-  
-            <h3 className="text-xl font-bold text-slate-900 mt-10 mb-4">9. Access and Correction</h3>
-            <p>You have the right to request details of the personal information we hold about you, or to request the deletion or correction of your data at any time. To do so, please email us at <a href="mailto:hello@attributics.com" className="text-[#FF5A36] hover:underline">hello@attributics.com</a>.</p>
-          </div>
-        </div>
-      </div>
+        <Block xpad="larger" topMargin="small">
+            <div className="min-h-screen">
+        
+                {/* Header */}
+                <div className="mb-4 pb-0 border-b border-slate-200">
+                    <span className=" section-eyebrow text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 block">
+                    Legal
+                    </span>
+                    <h1 className="section-title text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2">
+                    Privacy Policy
+                    </h1>
+                </div>
+        
+                {/* Intro */}
+                <p className="section-description  text-slate-600 leading-relaxed mb-16 text-base">
+                    At <span className="font-semibold text-slate-900">Attributics</span>  (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.
+                    <br />
+                    <br />
+                    This policy is governed by the laws of India, including the Information Technology Act, 2000, and the Digital Personal Data Protection (DPDP) Act, 2023.
+                    <br />
+                </p>
+        
+                {/* Sections */}
+                <div className="space-y-12">
+                    {sections.map((section) => (
+                    <div key={section.number} className="flex gap-8 group">
+                        {/* Number */}
+                        <div className="shrink-0 w-10 text-right">
+                            <span className="section-eyebrow text-xs font-bold text-slate-300 tracking-widest">
+                                {section.number}
+                            </span>
+                        </div>
+        
+                        {/* Divider */}
+                        <div className="shrink-0 bg-slate-200 group-first:bg-[#FF5A36]" />
+        
+                        {/* Content */}
+                        <div className="pb-12 flex-1">
+                        <h2 className="section-title !text-lg font-bold text-slate-900 mb-3">
+                            {section.title}
+                        </h2>
+                        <p className="section-description !text-slate-500 leading-relaxed text-sm mb-4">
+                            {section.content}
+                        </p>
+                        {section.list && (
+                            <ul className="space-y-2 mt-3">
+                            {section.list.map((item, i) => (
+                                <li key={i} className="section-description flex items-start gap-3 !text-lg !text-slate-500">
+                                <span className="mt-1.5 w-1 h-1 rounded-full bg-[#FF5A36] shrink-0" />
+                                {item}
+                                </li>
+                            ))}
+                            </ul>
+                        )}
+                        {section.contact && (
+                            <div className="section-description mt-4 p-4 bg-white rounded-xl border border-slate-100 !text-lg  space-y-1">
+                                <p>
+                                    <span className="font-semibold text-slate-700">Email: </span>
+                                    <a href="mailto:hello@attributics.com" className="!text-slate-500 hover:underline">
+                                        hello@attributics.com
+                                    </a>
+                                </p>
+                                <p>
+                                    <span className="font-semibold text-slate-700">Address: </span>
+                                    <a href="#google-map-address-link" className="!text-slate-500 hover:underline">
+                                        Pune, Maharashtra, India
+                                    </a>
+                                </p>
+                            </div>
+                        )}
+                        </div>
+                    </div>
+                    ))}
+                </div>
+            </div>
+        </Block>
     );
   };
-
+  
   export default Policies;

@@ -8,7 +8,7 @@ import {
 
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
-const HeroTwo = () => {
+const Hero = () => {
     const [index, setIndex] = useState(0);
     const phrases = [
       "predict customer behavior",
@@ -124,16 +124,9 @@ const HeroTwo = () => {
             <button className="group relative px-8 py-4 bg-slate-900 text-white rounded-4xl font-semibold overflow-hidden transition-all hover:pr-12">
               <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
                 <SparklesIcon size={18} className="text-brand" />
-                See how it works
+                Run a Free Audit
               </p>
               <ArrowRightIcon className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={20} />
-            </button>
-            
-            <button className="flex items-center gap-2 px-8 py-4 text-slate-900 font-semibold hover:text-brand transition-colors">
-              <p className="section-description relative z-10 flex items-center gap-2">
-                Calculate your ROI
-                <ChevronRightIcon size={20} />
-              </p>
             </button>
           </motion.div>
   
@@ -189,4 +182,4 @@ const LogoMarqueeRow = (row) => (
 );
 
   
-export default HeroTwo;
+export default Hero;

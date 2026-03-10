@@ -5,6 +5,8 @@ import Block from "../../components/layout/Block";
 
 const heroTitleSize = "clamp(2.6rem, 1.4rem + 6vw, 5.5rem)";
 const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
+const infoDescSize = "clamp(1.1rem, 0.95rem + 0.8vw, 1.1rem)";
+const infoEyebrowSize = "clamp(1rem, 0.95rem + 0.8vw, 1rem)";
 const serviceTitleSize = "clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem)";
 const modalTitleSize = "clamp(1.6rem, 1.1rem + 2vw, 2.3rem)";
 
@@ -113,16 +115,16 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-display font-bold text-slate-900 tracking-tight"
+              className="section-title font-display font-bold text-slate-900 tracking-tight"
               style={{ fontSize: heroTitleSize }}
             >
-              Our <span className="text-[#FF5A36]">Services</span>
+              Our <span className="highlight">Services</span>
             </motion.h1>
           </div>
         </section>
   
         {/* Content Area with Grid Background */}
-        <div className="bg-[#FAFAFA] relative pb-32 border-t border-slate-100">
+        <div className="bg-[#FAFAFA] relative pb-22 border-t border-slate-100">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
           
           {/* Overlapping Info Cards */}
@@ -142,12 +144,12 @@ const Hero = () => {
                     <div key={card.id} className={spacingClass}>
                       <div className="flex items-center gap-2 mb-4">
                         <div className="w-2 h-2 rounded-full bg-[#FF5A36]" />
-                        <span className="text-sm font-bold text-slate-400">{card.eyebrow}</span>
+                        <span className="text-sm font-bold text-slate-400 section-eyebrow text-center !my-0">{card.eyebrow}</span>
                       </div>
-                      <h3 className="font-bold text-slate-900 mb-3" style={{ fontSize: infoTitleSize }}>
+                      <h3 className="font-bold text-slate-900 mb-3 section-title" style={{ fontSize: infoTitleSize }}>
                         {card.title}
                       </h3>
-                      <p className="text-slate-500 leading-relaxed">{card.description}</p>
+                      <p className="!text-slate-500 leading-relaxed section-description" style={{ fontSize: infoDescSize }}>{card.description}</p>
                     </div>
                   );
                 })}
@@ -167,19 +169,19 @@ const Hero = () => {
                   onMouseEnter={() => setHoveredIndex(idx)}
                 >
                   <div className="px-8 md:px-16 py-10 md:py-14 flex flex-col md:flex-row gap-6 md:gap-24">
-                    <div className="text-slate-400 font-mono text-sm md:pt-2">
+                    <div className="text-slate-400 font-mono text-sm md:pt-2 section-eyebrow">
                       0{idx + 1}
                     </div>
                     <div className="flex-1">
                       <h2
-                        className="font-display font-medium text-slate-900 mb-3"
+                        className="section-title font-display font-medium text-slate-900 mb-3"
                         style={{ fontSize: serviceTitleSize }}
                       >
                         {service.title}
                       </h2>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
                         {service.capabilities.slice(0, 4).map((cap, i) => (
-                          <div key={i} className="flex items-center gap-3">
+                        <div key={i} className="flex items-center gap-3" style={{ fontSize: infoEyebrowSize }}>
                             <span>{cap}</span>
                             {i < 3 && <span className="w-1 h-1 rounded-full bg-slate-300" />}
                           </div>
@@ -196,7 +198,7 @@ const Hero = () => {
                             className="overflow-hidden"
                           >
                             <div className="pt-8">
-                              <p className="text-slate-600 leading-relaxed max-w-3xl mb-8">
+                              <p style={{ fontSize: infoDescSize }} className="section-description text-slate-600 leading-relaxed max-w-3xl mb-8">
                                 {service.description}
                               </p>
                               <button 
@@ -278,7 +280,6 @@ const Hero = () => {
       </div>
       </Block>
 
-      {/* <LogoCloud /> */}
       </>
     );
 };

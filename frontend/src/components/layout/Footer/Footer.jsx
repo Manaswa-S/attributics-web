@@ -19,8 +19,8 @@ const Footer = () => {
               <p className="text-slate-400 font-mono text-sm tracking-widest uppercase mb-12">
                 AI-POWERED REVENUE INTELLIGENCE
               </p>
-              <a href="#" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" className="w-6 h-6 grayscale opacity-70" />
+              <a href="https://www.linkedin.com/company/attributicslab/" className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" className="w-6 h-6 grayscale-100 opacity-70" />
                 <span className="text-lg">LinkedIn</span>
               </a>
             </div>

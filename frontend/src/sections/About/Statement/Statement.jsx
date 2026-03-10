@@ -33,16 +33,6 @@ const Statement = () => {
                         and scaled through{" "}
                         <span className="highlight">Lifecycle Intelligence</span>.
                     </motion.h3>
-
-                    <motion.div
-                    className='h-[30vh] w-full flex'
-                        initial={{ opacity: 0, scale: 0.97 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                        <FlowChart />
-                    </motion.div>
                 </div>
 
                 <Metrics />

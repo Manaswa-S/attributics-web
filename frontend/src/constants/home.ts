@@ -175,7 +175,6 @@ export const partners = {
         OptimizelyLogo,
         TealiumLogo,
         AWSLogo,
-        AzureLogo,
     ]
 }
 

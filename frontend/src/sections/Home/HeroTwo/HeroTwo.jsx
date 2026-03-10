@@ -149,16 +149,16 @@ const HeroTwo = () => {
       </section>
       </Block>
       <Block xpad="small">
-      <div className="w-full py-8 flex flex-col items-center gap-6 overflow-hidden">
-            <p className="section-eyebrow">
-                {logoCloud.eyebrow}
-            </p>
+        <div className="w-full py-8 flex flex-col items-center gap-6 overflow-hidden">
+              <p className="section-eyebrow">
+                  {logoCloud.eyebrow}
+              </p>
 
-            <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '20px', backgroundColor: '' }}
-            >
-                {LogoMarqueeRow(logoCloud.clients)}
-            </div>
-        </div>
+              <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '20px', backgroundColor: '' }}
+              >
+                  {LogoMarqueeRow(logoCloud.clients)}
+              </div>
+          </div>
         </Block>
       </>
     );

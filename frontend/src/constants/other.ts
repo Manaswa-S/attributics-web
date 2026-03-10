@@ -11,6 +11,7 @@ export const brand = {
 export const nav = {
     links: [
         { label: 'Home', href: '/' },
+        { label: 'Services', href: '/services' },
         { label: 'About', href: '/about' },
         {
             label: 'Resources',
@@ -57,6 +58,10 @@ export const footer = {
                 {
                     label: 'Resources',
                     href: '/resources',
+                },
+                {
+                    label: 'Privacy',
+                    href: '/privacy',
                 }
             ]
         }

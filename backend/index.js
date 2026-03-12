@@ -9,15 +9,26 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: "2mb" }));
 
+// ─── Shared Helpers ───────────────────────────────────────────────────────────
+
+function slugify(title) {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+// ─── Blogs ────────────────────────────────────────────────────────────────────
+
 const BLOG_DIR = path.join(__dirname, "content", "blogs");
 
-// ─── In-memory preview store ──────────────────────────────────────────────────
-
 const previewStore = {
-  content: null,   // parsed HTML
-  meta: null,      // frontmatter data
-  slug: null,      // auto-generated slug
-  storedAt: null,  // timestamp
+  content: null,  // parsed HTML
+  meta: null,     // frontmatter data
+  slug: null,     // auto-generated slug
+  storedAt: null, // timestamp
 };
 
 const PREVIEW_TTL_MS = 30 * 60 * 1000; // 30 minutes
@@ -33,17 +44,6 @@ function clearPreview() {
   previewStore.meta = null;
   previewStore.slug = null;
   previewStore.storedAt = null;
-}
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function slugify(title) {
-  return title
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
 }
 
 function buildSlugMap() {
@@ -86,8 +86,6 @@ function getBlogs() {
     };
   });
 }
-
-// ─── Blog routes ──────────────────────────────────────────────────────────────
 
 // GET /api/blogs — list all blogs
 app.get("/api/blogs", (req, res) => {
@@ -241,6 +239,152 @@ app.get("/api/preview", (req, res) => {
 app.delete("/api/preview", (req, res) => {
   clearPreview();
   res.json({ message: "Preview cleared" });
+});
+
+// ─── Case Studies ─────────────────────────────────────────────────────────────
+
+const CASE_STUDY_DIR = path.join(__dirname, "content", "caseStudies");
+
+/**
+ * caseStudyCache maps slug → { data, mtime }
+ *   data  — the full parsed CaseStudy object with slug injected
+ *   mtime — last-modified time of the source file (ms), used for invalidation
+ */
+const caseStudyCache = new Map();
+
+/**
+ * Reads and parses a single .json file.
+ * Returns { slug, data } or throws on malformed JSON / missing title.
+ */
+function parseCaseStudyFile(filename) {
+  const filePath = path.join(CASE_STUDY_DIR, filename);
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const data = JSON.parse(raw);
+
+  if (!data.title) {
+    throw new Error(`Case study file "${filename}" is missing a required "title" field.`);
+  }
+
+  const slug = slugify(data.title);
+  return { slug, data: { ...data, slug } };
+}
+
+/**
+ * Builds a fresh slug → { data, mtime } map from all .json files in the dir.
+ * Called on first request and whenever a change is detected.
+ */
+function buildCaseStudyCache() {
+  caseStudyCache.clear();
+
+  const files = fs.readdirSync(CASE_STUDY_DIR).filter((f) => f.endsWith(".json"));
+
+  for (const filename of files) {
+    const filePath = path.join(CASE_STUDY_DIR, filename);
+
+    try {
+      const { mtime } = fs.statSync(filePath);
+      const { slug, data } = parseCaseStudyFile(filename);
+      caseStudyCache.set(slug, { data, mtime: mtime.getTime() });
+    } catch (err) {
+      console.error(`[case-studies] Skipping "${filename}": ${err.message}`);
+    }
+  }
+}
+
+/**
+ * Checks every cached file's mtime against disk.
+ * Also detects new files (present on disk but not in cache) and
+ * deleted files (in cache but no longer on disk).
+ * Returns true if anything changed.
+ */
+function isCaseStudyCacheStale() {
+  let diskFiles;
+  try {
+    diskFiles = fs.readdirSync(CASE_STUDY_DIR).filter((f) => f.endsWith(".json"));
+  } catch {
+    return false; // directory gone — don't crash, just serve stale
+  }
+
+  const diskSet = new Set();
+
+  for (const filename of diskFiles) {
+    const filePath = path.join(CASE_STUDY_DIR, filename);
+
+    try {
+      const { mtime } = fs.statSync(filePath);
+      const raw = fs.readFileSync(filePath, "utf-8");
+      const data = JSON.parse(raw);
+      if (!data.title) continue;
+
+      const slug = slugify(data.title);
+      diskSet.add(slug);
+
+      const cached = caseStudyCache.get(slug);
+      if (!cached || cached.mtime !== mtime.getTime()) return true;
+    } catch {
+      return true; // unreadable / malformed — treat as changed
+    }
+  }
+
+  // Check for deleted files
+  for (const slug of caseStudyCache.keys()) {
+    if (!diskSet.has(slug)) return true;
+  }
+
+  return false;
+}
+
+/**
+ * Ensures the cache is fresh before serving any request.
+ * Rebuilds if empty or stale.
+ */
+function ensureFreshCaseStudyCache() {
+  if (caseStudyCache.size === 0 || isCaseStudyCacheStale()) {
+    buildCaseStudyCache();
+  }
+}
+
+// GET /api/case-studies — list all case studies (summary fields only)
+app.get("/api/case-studies", (req, res) => {
+  try {
+    ensureFreshCaseStudyCache();
+
+    const list = Array.from(caseStudyCache.values()).map(({ data }) => ({
+      slug: data.slug,
+      title: data.title,
+      subtitle: data.subtitle,
+      client: data.client,
+      industry: data.industry,
+      timeline: data.timeline,
+      platform: data.platform,
+      heroImage: data.heroImage,
+      role: data.role,
+    }));
+
+    res.json(list);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to load case studies" });
+  }
+});
+
+// GET /api/case-studies/:slug — full case study detail
+app.get("/api/case-studies/:slug", (req, res) => {
+  try {
+    ensureFreshCaseStudyCache();
+
+    const { slug } = req.params;
+    const entry = caseStudyCache.get(slug);
+
+    if (!entry) {
+      return res.status(404).json({ error: "Case study not found" });
+    }
+
+    res.json(entry.data);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch case study" });
+  }
 });
 
 // ─── Start ────────────────────────────────────────────────────────────────────

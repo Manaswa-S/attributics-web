@@ -76,7 +76,6 @@ const Hero = () => {
       <div className="min-h-screen pt-10">
         {/* Hero Section */}
         <section className="relative pt-32 pb-48 bg-slate-50 overflow-hidden">
-          {/* Subtle Ribbon Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
             <svg className="absolute w-full h-full min-w-[1440px]" preserveAspectRatio="none" viewBox="0 0 1440 400">
               <defs>
@@ -91,7 +90,6 @@ const Hero = () => {
                   <stop offset="100%" stopColor="#FF5A36" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
-              {/* Ribbon 1 */}
               <motion.path 
                 fill="url(#ribbon1)"
                 animate={{
@@ -103,7 +101,6 @@ const Hero = () => {
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Ribbon 2 */}
               <motion.path 
                 fill="url(#ribbon2)"
                 animate={{
@@ -115,7 +112,6 @@ const Hero = () => {
                 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Ribbon Edge Lines for definition */}
               <motion.path 
                 fill="none"
                 stroke="rgba(255, 90, 54, 0.2)"
@@ -158,11 +154,9 @@ const Hero = () => {
           </div>
         </section>
   
-        {/* Content Area with Grid Background */}
         <div className="bg-[#FAFAFA] relative pb-22 border-t border-slate-100">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
           
-          {/* Overlapping Info Cards */}
           <section className="relative z-20 -mt-32 mb-12">
           <div className="container mx-auto px-6 max-w-7xl">
             <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-slate-100 p-8 md:p-12">
@@ -193,7 +187,6 @@ const Hero = () => {
           </div>
         </section>
   
-        {/* Expandable Service Modules */}
         <section className="py-12 relative z-10">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden">
@@ -209,24 +202,36 @@ const Hero = () => {
                     if (!isMobile) setHoveredIndex(idx);
                   }}
                 >
-                  <div className="px-6 md:px-16 py-10 md:py-14 flex flex-col md:flex-row gap-6 md:gap-24">
+                  <div className="px-6 md:px-16 py-8 md:py-14 flex flex-col md:flex-row gap-4 md:gap-24">
                     <div className="text-slate-400 font-mono text-sm md:pt-2 section-eyebrow">
                       0{idx + 1}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h2
                         className="section-title font-display font-medium text-slate-900 mb-3"
                         style={{ fontSize: serviceTitleSize }}
                       >
                         {service.title}
                       </h2>
-                      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
-                        {service.capabilities.slice(0, 4).map((cap, i) => (
-                        <div key={i} className="flex items-center gap-3" style={{ fontSize: infoEyebrowSize }}>
+
+                      {/* Desktop: wrapping list with dot separators */}
+                      <div className="hidden md:flex flex-wrap items-center gap-3 text-sm text-slate-500">
+                        {service.capabilities.map((cap, i) => (
+                          <div key={i} className="flex items-center gap-3" style={{ fontSize: infoEyebrowSize }}>
                             <span>{cap}</span>
-                            {i < 3 && <span className="w-1 h-1 rounded-full bg-slate-300" />}
+                            {i < service.capabilities.length - 1 && (
+                              <span className="w-1 h-1 rounded-full bg-slate-300" />
+                            )}
                           </div>
                         ))}
+                      </div>
+
+                      {/* Mobile: first capability only */}
+                      <div className="flex md:hidden">
+                        <span className="text-xs font-medium text-slate-500 bg-slate-90 rounded-full">
+                          {service.capabilities[0]}
+                        </span>
+                       
                       </div>
                       
                       <AnimatePresence>
@@ -261,7 +266,6 @@ const Hero = () => {
         </section>
         </div>
   
-        {/* Contact Modal */}
         <AnimatePresence>
           {isModalOpen && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
@@ -320,12 +324,8 @@ const Hero = () => {
         </AnimatePresence>
       </div>
       </Block>
-
       </>
     );
 };
 
-
-
 export default Hero;
-  

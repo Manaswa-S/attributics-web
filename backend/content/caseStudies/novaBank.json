@@ -1,0 +1,35 @@
+{
+    "title": "Redesigning the Future of Personal Finance",
+    "subtitle": "A complete overhaul of a legacy banking app to improve user engagement and simplify complex financial data.",
+    "client": "Nova Bank",
+    "role": "Lead Product Designer",
+    "timeline": "6 Months",
+    "platform": "iOS & Android",
+    "industry": "FinTech",
+    "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    "challenge": "Nova Bank's existing mobile application was outdated, cluttered, and suffered from a high drop-off rate during the onboarding process. Users found it difficult to track their spending and understand their financial health.",
+    "solution": "We introduced a minimalist, intuitive interface that prioritizes essential information. By implementing a new dashboard with clear data visualizations and a streamlined onboarding flow, we made financial management accessible and engaging.",
+    "process": [
+      {
+        "title": "Research & Discovery",
+        "description": "Conducted user interviews and analyzed existing app analytics to identify key pain points and user behaviors."
+      },
+      {
+        "title": "Wireframing & Prototyping",
+        "description": "Created low-fidelity wireframes to establish the new information architecture, followed by interactive high-fidelity prototypes."
+      },
+      {
+        "title": "User Testing",
+        "description": "Iterated on the designs based on feedback from 50+ beta testers, refining the navigation and data visualization components."
+      }
+    ],
+    "results": [
+      { "metric": "Increase in Daily Active Users", "value": "45%" },
+      { "metric": "Reduction in Onboarding Time", "value": "60%" },
+      { "metric": "App Store Rating Improvement", "value": "4.8" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+    ]
+}

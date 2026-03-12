@@ -49,7 +49,7 @@ const Hero = () => {
   return (
     <>
     <Block xpad="none" topMargin="none">
-    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden">
+    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center md:justify-center pt-[20vh] md:pt-20 overflow-hidden">
 
       {/* Static base layers */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 grid-pattern z-0" />
@@ -204,7 +204,7 @@ const Hero = () => {
           className="mb-4 section-title" style={typography.title.XXL}
         >
           <h1>Autonomous AI Agents that</h1>
-          <div className="h-[5.2rem] relative overflow-hidden flex justify-center">
+          <div className="h-[6.2rem] md:h-[5.2rem] relative overflow-hidden flex justify-center">
             <AnimatePresence mode="wait">
               <motion.span
                 key={index}

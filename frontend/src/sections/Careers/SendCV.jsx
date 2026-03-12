@@ -273,7 +273,7 @@ const SendCV = () => {
                                     className="group flex flex-row relative px-6 sm:px-10 py-3 sm:py-4 text-sm sm:text-base bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:pr-12 sm:hover:pr-14 disabled:opacity-60 disabled:cursor-not-allowed"
                                 >
                                     <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
-                                        <Signature size={18} className="text-brand" />
+                                        {/* <Signature size={18} className="text-brand" /> */}
                                         {status === "submitting" ? "Sending..." : "Send CV"}
                                     </p>
                                     {status !== "submitting" && (

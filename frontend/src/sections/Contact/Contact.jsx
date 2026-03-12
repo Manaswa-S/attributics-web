@@ -1,11 +1,10 @@
-import Block from '../../../components/layout/Block/Block';
-import { audit } from '../../../constants/contact';
+import Block from '../../components/layout/Block/Block';
+import { audit } from '../../constants/contact';
 import { motion } from 'motion/react';
-import Calendar from '../../../components/Calendar/Calendar';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import CalCom from '../../../components/CalCom/CalCom';
+import CalCom from '../../components/CalCom/CalCom';
 
-const AuditForm = () => {
+const ContactForm = () => {
     return (
         <Block xpad='medium' topMargin='small'>
             <section className="min-h-[80vh] justify-center  flex flex-col lg:justify-between grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-6">
@@ -102,4 +101,4 @@ const AuditForm = () => {
     );
 };
 
-export default AuditForm;
+export default ContactForm;

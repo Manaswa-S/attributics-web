@@ -64,7 +64,7 @@ export default function CaseStudyDetail({ slug }) {
   }
 
   return (
-    <Block xpad='large' topMargin='small'>
+    <Block xpad='large' topMargin='medium'>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

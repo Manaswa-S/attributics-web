@@ -49,7 +49,7 @@ const Hero = () => {
   return (
     <>
     <Block xpad="none" topMargin="none">
-    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center md:justify-center pt-[20vh] md:pt-20 overflow-hidden">
+    <section ref={containerRef} className="relative min-h-screen flex flex-col items-center md:justify-center pt-[20vh] md:pt-2 overflow-hidden">
 
       {/* Static base layers */}
       <motion.div style={{ y: y1 }} className="absolute inset-0 grid-pattern z-0" />

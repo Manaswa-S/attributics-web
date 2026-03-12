@@ -53,7 +53,7 @@ const BlogSection = ({ slug }) => {
     <>
       {blog._preview && <PreviewBanner />}
 
-      <Block xpad="larger" topMargin="small">
+      <Block xpad="larger" topMargin="medium">
         <div className="blog-container">
 
           {/* META + TITLE — centered */}

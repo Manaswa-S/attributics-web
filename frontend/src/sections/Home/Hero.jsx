@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 import { logoCloud } from '../../constants/home';
 import Block from "../../components/layout/Block";
+import AuditModal from "../../sections/Other/FreeAuditModal";
 
 const renderLogoRow = (row) =>
   row.map((logo, index) => (
@@ -45,6 +46,8 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 1000], [0, -200]);
   const y3 = useTransform(scrollY, [0, 1000], [0, -150]);
   const y4 = useTransform(scrollY, [0, 1000], [0, -300]);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
@@ -239,7 +242,7 @@ const Hero = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+        <Link onClick={() => setIsOpen(true)}>
             <Button size="lg" className="group relative overflow-hidden transition-all hover:pr-12">
               <p className="section-description relative z-10 flex items-center gap-2" style={{color: 'white'}}>
                 <Sparkles size={18} className="text-brand" />
@@ -252,6 +255,9 @@ const Hero = () => {
       </div>
 
     </section>
+
+    <AuditModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+
     </Block>
 
     <Block xpad="small">

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, ChevronDown, Upload, CheckCircle, Signature } from "lucide-react";
 import Block from "../../components/layout/Block";
-import { formLinks } from "../../constants/contact";
+import { formEndpoints } from "../../constants/contact";
 import { typography } from "../../constants/global";
 
-const FORMSPREE_ENDPOINT = formLinks.career;
+const API_URL = import.meta.env.VITE_API_URL;
 
-const headlineSize = "clamp(2rem, 1.4rem + 2.6vw, 3.4rem)";
 const successTitleSize = "clamp(1.4rem, 1.1rem + 1.2vw, 2rem)";
 const bodyTextSize = "clamp(0.95rem, 0.85rem + 0.4vw, 1.05rem)";
 
@@ -71,13 +70,13 @@ const SendCV = () => {
         data.append("role", form.role);
         data.append("location", form.location);
         data.append("workType", form.workType);
-        data.append("cv", form.cv);
+        data.append("cv", form.cv, form.cv.name);
 
         try {
-            const res = await fetch(FORMSPREE_ENDPOINT, {
+            const res = await fetch(`${API_URL}/api/forms/${formEndpoints.career}`, {
                 method: "POST",
-                body: data,
                 headers: { Accept: "application/json" },
+                body: data,
             });
 
             if (res.ok) {

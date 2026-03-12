@@ -4,6 +4,8 @@ import { hero } from "../../constants/services";
 import Block from "../../components/layout/Block";
 import { typography } from "../../constants/global";
 
+import AuditModal from "../../sections/Other/FreeAuditModal";
+
 const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
 const infoDescSize = "clamp(1.1rem, 0.95rem + 0.8vw, 1.1rem)";
 const infoEyebrowSize = "clamp(1rem, 0.95rem + 0.8vw, 1rem)";
@@ -16,6 +18,8 @@ const Hero = () => {
     const [isMobile, setIsMobile] = useState(false);
     const cardRefs = useRef([]);
     const visibilityRef = useRef(new Map());
+
+    const [isOpen, setIsOpen] = useState(false);
   
     const bgColors = [
       "bg-orange-50",
@@ -247,8 +251,10 @@ const Hero = () => {
                               <p style={{ fontSize: infoDescSize }} className="section-description text-slate-600 leading-relaxed max-w-3xl mb-8">
                                 {service.description}
                               </p>
+
+
                               <button 
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => setIsOpen(true)}
                                 className="border border-slate-900 text-slate-900 px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-slate-900 hover:text-white transition-colors"
                               >
                                 Discuss Project
@@ -265,67 +271,13 @@ const Hero = () => {
           </div>
         </section>
         </div>
-  
-        <AnimatePresence>
-          {isModalOpen && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsModalOpen(false)}
-                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-              />
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="bg-white rounded-[2rem] p-8 md:p-12 w-full max-w-xl relative z-10 shadow-2xl"
-              >
-                <button 
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors"
-                >
-                  ✕
-                </button>
-                <h3
-                  className="font-display font-bold text-slate-900 mb-2"
-                  style={{ fontSize: modalTitleSize }}
-                >
-                  Audit Your Stack
-                </h3>
-                <p className="text-slate-500 mb-8">Leave your details below and our MarTech architects will reach out to schedule your comprehensive audit.</p>
-                
-                <form className="flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); }}>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
-                    <input type="text" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all" placeholder="John Doe" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Work Email</label>
-                    <input type="email" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all" placeholder="john@company.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Company Size</label>
-                    <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer">
-                      <option>1-50 Employees</option>
-                      <option>51-200 Employees</option>
-                      <option>201-1000 Employees</option>
-                      <option>1000+ Employees</option>
-                    </select>
-                  </div>
-                  <button type="submit" className="mt-4 bg-[#FF5A36] hover:bg-[#E04825] text-white px-8 py-4 rounded-xl font-bold transition-colors w-full">
-                    Request Audit
-                  </button>
-                </form>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
       </div>
+      <AuditModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </Block>
       </>
     );
 };
+
+
 
 export default Hero;

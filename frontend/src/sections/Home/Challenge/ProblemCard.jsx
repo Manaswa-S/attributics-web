@@ -51,12 +51,18 @@ const ProblemCard = ({ data, isActive }) => {
   return (
     <motion.div
       key={data.id}
-      initial={reduceMotion ? false : { opacity: 0, y: 40, scale: 0.97 }}
+      // initial={reduceMotion ? false : { opacity: 0, y: 40, scale: 0.97 }}
+      // animate={
+      //   isActive
+      //     ? { opacity: 1, y: 0, scale: 1 }
+      //     : { opacity: 0, y: -28, scale: 0.97 }
+      // }
       animate={
         isActive
-          ? { opacity: 1, y: 0, scale: 1 }
-          : { opacity: 0, y: -28, scale: 0.97 }
+          ? { opacity: 1, scale: 1 }
+          : { opacity: 0.5, scale: 0.98 }
       }
+
       transition={
         isActive
           ? { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
@@ -79,8 +85,8 @@ const ProblemCard = ({ data, isActive }) => {
       <motion.h3
         className="section-title mb-3 sm:mb-4 lg:mb-6"
         style={{ fontSize: cardTitleSize, fontWeight: 600, lineHeight: 1.25 }}
-        initial="hidden"
-        animate={isActive ? "visible" : "hidden"}
+        // initial="hidden"
+        // animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
         custom={0.08}
       >
@@ -91,8 +97,8 @@ const ProblemCard = ({ data, isActive }) => {
       <motion.p
         className="content-description mb-5 sm:mb-7 lg:mb-10"
         style={{ fontSize: cardBodySize, lineHeight: 1.4, color: "#666666" }}
-        initial="hidden"
-        animate={isActive ? "visible" : "hidden"}
+        // initial="hidden"
+        // animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
         custom={0.16}
       >
@@ -108,8 +114,8 @@ const ProblemCard = ({ data, isActive }) => {
           p-4 sm:p-6 lg:p-7
           border border-[#FF5A36]/20
         "
-        initial="hidden"
-        animate={isActive ? "visible" : "hidden"}
+        // initial="hidden"
+        // animate={isActive ? "visible" : "hidden"}
         variants={fadeUp}
         custom={0.24}
       >

@@ -54,8 +54,9 @@ export const metricCards = [
 // TEAM MEMBERS
 import VishalA from '../assets/team/VishalA.png';
 import ShreyaM from '../assets/team/ShreyaM.png';
-import VakeshS from '../assets/team/VakeshS.png';
 import ShashankK from '../assets/team/ShashankK.png';
+import VakeshS from '../assets/team/VakeshS.png';
+import PrasadP from '../assets/team/PrasadP.png';
 import MudarB from '../assets/team/MudarB.png';
 import NeelS from '../assets/team/NeelS.png';
 import MadhuriK from '../assets/team/MadhuriK.png';
@@ -63,6 +64,10 @@ import SaumyaS from '../assets/team/SaumyaS.png';
 import AniketP from '../assets/team/AniketP.png';
 import PoonamA from '../assets/team/PoonamA.png';
 import PrathamS from '../assets/team/PrathamS.png';
+import AniyaK from '../assets/team/AniyaK.png';
+import SaiR from '../assets/team/SaiR.png';
+import VaishnaviR from '../assets/team/VaishnaviR.png';
+import GauravB from '../assets/team/GauravB.png';
 
 import PlaceHolder from '../assets/team/placeholder.png';
 
@@ -73,105 +78,129 @@ export const team = {
     members: [
         {
             id: 1,
-            name: 'Vishal Agarwal',
+            fname: 'Vishal',
+            lname: 'Agarwal',
             role: 'Growth',
             img: VishalA,
         },
         {
             id: 2,
-            name: 'Shreya Mehta',
+            fname: 'Shreya',
+            lname: 'Mehta',
             role: 'Operations',
             img: ShreyaM,
         },
         {
             id: 3,
-            name: 'Shashank Kumar',
+            fname: 'Shashank',
+            lname: 'Kumar',
             role: 'Strategy',
             img: ShashankK,
         },
         {
             id: 4,
-            name: 'Vakesh Singh',
+            fname: 'Vakesh',
+            lname: 'Singh',
             role: 'Delivery',
             img: VakeshS,
         },
         {
             id: 5,
-            name: 'Prasad Parvatkar',
+            fname: 'Prasad',
+            lname: 'Parvatkar',
             role: 'Technology',
-            img: PlaceHolder,
+            img: PrasadP,
         },
         {
             id: 6,
-            name: 'Mudar Bharmal',
+            fname: 'Mudar',
+            lname: 'Bharmal',
             role: 'Growth',
             img: MudarB,
         },
         {
             id: 7,
-            name: 'Neel Shah',
+            fname: 'Neel',
+            lname: 'Shah',
             role: 'Operations',
             img: NeelS,
         },
         {
             id: 8,
-            name: 'Madhuri Kurhade',
+            fname: 'Madhuri',
+            lname: 'Kurhade',
             role: 'Strategy',
             img: MadhuriK,
         },
         {
             id: 9,
-            name: 'Saumya Sharma',
+            fname: 'Saumya',
+            lname: 'Sharma',
             role: 'Marketing',
             img: SaumyaS,
         },
         {
             id: 10,
-            name: 'Aniket Pholane',
+            fname: 'Aniket',
+            lname: 'Pholane',
             role: 'Operations',
             img: AniketP,
         },
         {
             id: 11,
-            name: 'Poonam Adak',
+            fname: 'Poonam',
+            lname: 'Adak',
             role: 'Operations',
             img: PoonamA,
         },
         {
             id: 12,
-            name: 'Akash Sahu',
+            fname: 'Akash',
+            lname: 'Sahu',
             role: 'Technology',
             img: PlaceHolder,
         },
         {
             id: 13,
-            name: 'Pratham Sharma',
+            fname: 'Pratham',
+            lname: 'Sharma',
             role: 'Technology',
             img: PrathamS,
         },
         {
             id: 14,
-            name: 'Aniya Kulkarni',
+            fname: 'Aniya',
+            lname: 'Kulkarni',
             role: 'Operations',
-            img: PlaceHolder,
+            img: AniyaK,
         },
         {
             id: 15,
-            name: 'Sai Reddy',
+            fname: 'Sai',
+            lname: 'Reddy',
             role: 'Operations',
-            img: PlaceHolder,
+            img: SaiR,
         },
         {
             id: 16,
-            name: 'Kaniska Deshmukh',
+            fname: 'Kaniska',
+            lname: 'Deshmukh',
             role: 'Operations',
             img: PlaceHolder,
         },
         {
             id: 17,
-            name: 'Vaishnavi Raut',
+            fname: 'Vaishnavi',
+            lname: 'Raut',
             role: 'Operations',
-            img: PlaceHolder,
+            img: VaishnaviR,
+        },
+        {
+            id: 18,
+            fname: 'Gaurav',
+            lname: 'Bajaj',
+            role: 'Operations',
+            img: GauravB,
         },
     ],
 }

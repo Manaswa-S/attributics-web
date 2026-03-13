@@ -87,12 +87,13 @@ const CTA = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="w-full"
+                    className="w-full relative"
                 >
                     {/* <Calendar /> */}
+                    {/* <div style={{ position: "absolute", top: -8, right: -8, width: 80, height: 80, borderTop: "3px solid #FF5A36", borderRight: "3px solid #FF5A36", borderRadius: "0 20px 0 0", pointerEvents: "none" }} /> */}
+                    {/* <div style={{ position: "absolute", bottom: -8, left: -8, width: 80, height: 80, borderBottom: "3px solid #FF5A36", borderLeft: "3px solid #FF5A36", borderRadius: "0 0 0 20px", pointerEvents: "none" }} /> */}
                     <CalCom />
                 </motion.div>
-
             </section>
         </Block>
     );

@@ -116,14 +116,15 @@ function LeadershipTeam({ teamMembers }) {
                         >
                             <div className="flex justify-between items-start z-10 relative">
                                 <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
-                                    {member.name}
+                                    {member.fname}<br/>
+                                    {member.lname}
                                 </h3>
                                 <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
                                     {member.role}
                                 </span>
                             </div>
 
-                            <div className="absolute inset-x-0 bottom-0 top-20">
+                            <div className="absolute inset-x-0 bottom-0 top-22">
                             <img 
                                 src={member.img} 
                                 alt={member.name}

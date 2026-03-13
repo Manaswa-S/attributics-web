@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 // ─── StepIndicator2 — Style 1 ─────────────────────────────────────────────────
 // A shared sliding background pill (layoutId) that glides between badges.
@@ -61,92 +61,6 @@ export const StepIndicator2Style1 = ({ problems, activeIndex }) => (
             />
           )}
         </div>
-      );
-    })}
-  </div>
-);
-
-
-// ─── StepIndicator2 — Style 2 ─────────────────────────────────────────────────
-// Minimal dots only — no text at all. A larger glowing dot slides between
-// positions via layoutId. Pairs of dots connected by a filling line.
-export const StepIndicator2Style2 = ({ problems, activeIndex }) => (
-  <div className="mt-10 flex items-center gap-0">
-    {problems.map((_, i) => {
-      const isActive = i === activeIndex;
-      const isPast = i < activeIndex;
-
-      return (
-        <div key={i} className="flex items-center">
-          {/* Dot */}
-          <div className="relative flex items-center justify-center w-5 h-5">
-            {/* Glow ring on active */}
-            <AnimatePresence>
-              {isActive && (
-                <motion.div
-                  key="ring"
-                  initial={{ scale: 0.4, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 1.4, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="absolute inset-0 rounded-full"
-                  style={{ backgroundColor: "rgba(255,90,54,0.15)" }}
-                />
-              )}
-            </AnimatePresence>
-
-            {/* The dot itself */}
-            <motion.div
-              animate={{
-                width: isActive ? 10 : 6,
-                height: isActive ? 10 : 6,
-                backgroundColor: isActive ? "#FF5A36" : isPast ? "#FF5A36" : "#CBD5E1",
-                opacity: isPast ? 0.4 : 1,
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 28 }}
-              className="rounded-full"
-            />
-          </div>
-
-          {/* Filling line between dots */}
-          {i < problems.length - 1 && (
-            <div className="relative w-10 h-px bg-slate-200 mx-0.5">
-              <motion.div
-                className="absolute left-0 top-0 h-full rounded-full bg-[#FF5A36]"
-                animate={{ width: isPast ? "100%" : "0%" }}
-                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              />
-            </div>
-          )}
-        </div>
-      );
-    })}
-  </div>
-);
-
-
-// ─── StepIndicator2 — Style 3 ─────────────────────────────────────────────────
-// Stacked vertical pills — each step is a short vertical bar. The active
-// one stretches tall and brightens; past ones are medium; future ones are short
-// and dim. Purely abstract, visually distinctive.
-export const StepIndicator2Style3 = ({ problems, activeIndex }) => (
-  <div className="mt-10 flex items-end gap-1.5">
-    {problems.map((_, i) => {
-      const isActive = i === activeIndex;
-      const isPast = i < activeIndex;
-
-      return (
-        <motion.div
-          key={i}
-          animate={{
-            height: isActive ? 32 : isPast ? 16 : 10,
-            backgroundColor: isActive ? "#FF5A36" : isPast ? "#FF5A36" : "#E2E8F0",
-            opacity: isActive ? 1 : isPast ? 0.4 : 0.6,
-            borderRadius: 99,
-          }}
-          transition={{ type: "spring", stiffness: 280, damping: 26 }}
-          style={{ width: 4, borderRadius: 99 }}
-        />
       );
     })}
   </div>

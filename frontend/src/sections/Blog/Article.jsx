@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Block from "../../../components/layout/Block/Block";
+import Block from "../../components/layout/Block/Block";
+import { motion } from 'motion/react';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -52,44 +53,12 @@ const BlogSection = ({ slug }) => {
     <>
       {blog._preview && <PreviewBanner />}
 
-      <Block xpad="large" topMargin="small">
+      <Block xpad="larger" topMargin="medium">
         <div className="blog-container">
 
-          <div className="w-full mx-auto flex flex-col items-center">
-
-            {/* HERO IMAGE */}
-            {blog.heroImage && (
-              <img
-                src={blog.heroImage}
-                alt={blog.title}
-                className="w-full max-h-[26rem] object-cover rounded-[25px] mb-8"
-              />
-            )}
-
-            {/* CATEGORY */}
-            {blog.category && blog.category !== "General" && (
-              <span className="section-eyebrow mb-3 px-3 py-1 border border-current rounded-full">
-                {blog.category}
-              </span>
-            )}
-
-            {/* TITLE */}
-            <h1 className="section-title mb-3 text-center" style={{fontSize: '2.6rem'}}>
-              {blog.title}
-            </h1>
-
-            {/* SUBTITLE */}
-            {blog.subtitle && (
-              <p className="section-description mb-6 text-center max-w-2xl">
-                {blog.subtitle}
-              </p>
-            )}
-
-            {/* DIVIDER */}
-            <div className="w-8 h-px bg-current opacity-20 mb-6" />
-
-            {/* META */}
-            <div className="flex items-center gap-3 mb-10 flex-wrap justify-center">
+          {/* META + TITLE — centered */}
+          <div className="flex flex-col items-center text-center mb-12">
+            <div className="flex items-center gap-3 mb-4 flex-wrap justify-center">
               {blog.author?.avatar && (
                 <img
                   src={blog.author.avatar}
@@ -118,7 +87,30 @@ const BlogSection = ({ slug }) => {
               )}
             </div>
 
+            <h1 className="section-title text-center" style={{ fontSize: "2.6rem" }}>
+              {blog.title}
+            </h1>
           </div>
+
+          {/* HERO IMAGE — full width, sits in normal block flow */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="w-full mb-20"
+          >
+            <div className="w-full overflow-hidden rounded-2xl">
+              <img
+                src={blog.heroImage}
+                alt={blog.title}
+                className="w-full h-auto block"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </motion.div>
+
+          {/* DIVIDER */}
+          <div className="w-8 h-px bg-current opacity-20 mb-6 mx-auto" />
 
           {/* BODY */}
           <div
@@ -136,27 +128,10 @@ const BlogSection = ({ slug }) => {
 
 const BlogSkeleton = () => (
   <Block xpad="large" topMargin="small">
-    <div className="w-full mx-auto flex flex-col items-center animate-pulse">
-
-      {/* HERO IMAGE */}
-      <div className="w-full h-[26rem] bg-gray-200 rounded-[25px] mb-8" />
-
-      {/* CATEGORY */}
-      <div className="h-5 w-20 bg-gray-200 rounded-full mb-3" />
-
-      {/* TITLE */}
-      <div className="h-10 w-3/4 bg-gray-200 rounded-lg mb-3" />
-      <div className="h-10 w-1/2 bg-gray-200 rounded-lg mb-3" />
-
-      {/* SUBTITLE */}
-      <div className="h-5 w-2/3 bg-gray-200 rounded mb-2" />
-      <div className="h-5 w-1/2 bg-gray-200 rounded mb-6" />
-
-      {/* DIVIDER */}
-      <div className="w-8 h-px bg-gray-300 mb-6" />
+    <div className="w-full mx-auto animate-pulse">
 
       {/* META */}
-      <div className="flex items-center gap-3 mb-10">
+      <div className="flex items-center justify-center gap-3 mb-4">
         <div className="w-7 h-7 rounded-full bg-gray-200" />
         <div className="h-4 w-24 bg-gray-200 rounded" />
         <div className="h-4 w-4 bg-gray-200 rounded" />
@@ -165,14 +140,22 @@ const BlogSkeleton = () => (
         <div className="h-4 w-16 bg-gray-200 rounded" />
       </div>
 
+      {/* TITLE */}
+      <div className="flex flex-col items-center mb-12 gap-3">
+        <div className="h-10 w-3/4 bg-gray-200 rounded-lg" />
+        <div className="h-10 w-1/2 bg-gray-200 rounded-lg" />
+      </div>
+
+      {/* HERO IMAGE */}
+      <div className="w-full aspect-[16/9] bg-gray-200 rounded-2xl mb-20" />
+
+      {/* DIVIDER */}
+      <div className="w-8 h-px bg-gray-300 mb-6 mx-auto" />
+
       {/* BODY LINES */}
       <div className="w-full space-y-3">
         {[100, 97, 91, 100, 95, 63, 100, 89, 76, 100, 83, 58].map((w, i) => (
-          <div
-            key={i}
-            className="h-4 bg-gray-200 rounded"
-            style={{ width: `${w}%` }}
-          />
+          <div key={i} className="h-4 bg-gray-200 rounded" style={{ width: `${w}%` }} />
         ))}
       </div>
 

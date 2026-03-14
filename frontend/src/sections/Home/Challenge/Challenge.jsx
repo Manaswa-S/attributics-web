@@ -8,8 +8,8 @@ import ProblemCard from "./ProblemCard";
 import { typography } from "../../../constants/global";
 
 gsap.registerPlugin(ScrollTrigger);
+const ActiveIndicator = StepIndicator2Style1
 
-const featuresTitleSize = "clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)";
 
 // ─── Breakpoint hook ──────────────────────────────────────────────────────────
 const useIsDesktop = () => {
@@ -68,7 +68,7 @@ const DesktopLayout = ({ problems }) => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const SLACK = 0.3;
+      const SLACK = 0.4;
       const totalScreens = SLACK + (N - 1) + SLACK;
 
       const tl = gsap.timeline({
@@ -135,7 +135,7 @@ const DesktopLayout = ({ problems }) => {
                 {features.description}
               </p>
 
-              <StepIndicator2Style1
+              <ActiveIndicator
                 problems={problems}
                 activeIndex={activeIndex}
               />
@@ -145,14 +145,15 @@ const DesktopLayout = ({ problems }) => {
             <div
               className="w-full z-10 flex justify-end"
               style={{
-                height: "75vh",
+                height: "100vh",
                 padding: "clamp(1rem, 2vw, 2.5rem)",
                 maskImage:
-                  "linear-gradient(to bottom, transparent 0%, black 18%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
                 WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0%, black 18%, black 80%, transparent 100%)",
+                  "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
                 overflow: "hidden",
               }}
+              // ── RIGHT: sliding card strip ──
             >
               <div
                 ref={panelWrapRef}

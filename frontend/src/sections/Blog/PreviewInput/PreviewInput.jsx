@@ -83,7 +83,7 @@ export default function BlogPreviewInput() {
 
   // Opens the blog as it would render in your actual frontend
   function handleOpenBlogPreview() {
-    window.open(`/resources/${previewMeta.previewSlug}`, "_blank");
+    window.open(`/resources/article/${previewMeta.previewSlug}`, "_blank");
   }
 
   // Opens the raw JSON response

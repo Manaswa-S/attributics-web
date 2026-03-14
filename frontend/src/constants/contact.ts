@@ -1,8 +1,7 @@
 // FORM LINKS
-export const formLinks = {
-    general: 'https://formspree.io/f/YOUR_FORM_ID',
-    audit: 'https://formspree.io/f/YOUR_FORM_ID',
-    career: 'https://formspree.io/f/YOUR_FORM_ID',
+export const formEndpoints = {
+    freeAudit: 'audit',
+    career: 'career',
 }
 
 export const general = {

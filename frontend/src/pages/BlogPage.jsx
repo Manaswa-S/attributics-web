@@ -1,26 +1,50 @@
-import { Suspense, lazy } from 'react';
-import { useParams } from 'react-router-dom';
-import GlobalLoader from '../components/ui/Loader/GlobalLoader';
-import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
+import { Suspense, lazy } from "react";
+import { useMatch, useParams, useNavigate } from "react-router-dom";
+import GlobalLoader from "../components/ui/Loader/GlobalLoader";
+import WhiteSpace from "../components/layout/WhiteSpace/WhiteSpace";
+import Block from "../components/layout/Block/Block";
+import { ArrowLeft } from "lucide-react";
 
-const Hero = lazy(() => import('../sections/Blog/Hero/Hero'));
-const Preview = lazy(() => import('../sections/Blog/PreviewInput/PreviewInput'));
-
-const reducedWhiteSpaceHeight = '10vh';
-const moreWhiteSpaceHeight = '20vh';
-const whiteSpaceHeight = '15vh';
+const Article = lazy(() => import("../sections/Blog/Article"));
+const CaseStudy = lazy(() => import("../sections/Blog/CaseStudy"));
+const Preview = lazy(() => import("../sections/Blog/PreviewInput/PreviewInput"));
 
 const BlogPage = () => {
   const { slug } = useParams();
-  const isPreview = slug === '_preview';
+  const navigate = useNavigate();
+  const articleMatch = useMatch("/resources/article/:slug");
+  const caseStudyMatch = useMatch("/resources/case-study/:slug");
+  const isPreview = articleMatch && slug === "_preview";
 
   return (
-    <main style={{ overflow: 'hidden' }}>
-      <Suspense fallback={<GlobalLoader />}>
-        {isPreview ? <Preview /> : <Hero slug={slug} />}
-      </Suspense>
-      <WhiteSpace height={reducedWhiteSpaceHeight} />
-    </main>
+    <>
+      <header className="fixed left-0 right-0 top-0 z-50 flex justify-center">
+        <Block xpad="none">
+          <div className="px-6 bg-white/100 backdrop-blur-xl flex items-center w-full h-16">
+            <button
+              onClick={() => navigate("/resources")}
+              className="group flex items-center gap-2 font-mono text-[14px] uppercase text-[#131212] hover:text-[#FF5A36] transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+              Back to Resources
+            </button>
+          </div>
+        </Block>
+      </header>
+
+      <main style={{ overflow: "hidden" }}>
+        <Suspense fallback={<GlobalLoader />}>
+          {isPreview ? (
+            <Preview />
+          ) : caseStudyMatch ? (
+            <CaseStudy slug={slug} />
+          ) : (
+            <Article slug={slug} />
+          )}
+        </Suspense>
+        <WhiteSpace height="10vh" />
+      </main>
+    </>
   );
 };
 

@@ -5,10 +5,10 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import WheelGestures from 'embla-carousel-wheel-gestures';
 import { typography } from '../../constants/global';
+import { useEffect, useState } from 'react';
 
-const teamTitleSize = 'clamp(2.4rem, 1.25rem + 3vw, 3.2rem)';
 const teamMemberNameSize = 'clamp(1.2rem, 1.06rem + 0.6vw, 1.5rem)';
-const teamMemberRoleSize = 'clamp(0.75rem, 0.69rem + 0.22vw, 0.8rem)';
+const teamMemberRoleSize = 'clamp(1rem, 0.69rem + 0.22vw, 1rem)';
 
 const Team = () => {
     return (
@@ -58,7 +58,7 @@ const Team = () => {
 };
 
 function LeadershipTeam({ teamMembers }) {
-    const [emblaRef] = useEmblaCarousel(
+    const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             align: 'start',
             loop: false,
@@ -70,39 +70,74 @@ function LeadershipTeam({ teamMembers }) {
         ]
     );
 
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const mq = window.matchMedia('(max-width: 767px)');
+        const update = () => setIsMobile(mq.matches);
+        update();
+        if (mq.addEventListener) {
+            mq.addEventListener('change', update);
+            return () => mq.removeEventListener('change', update);
+        }
+        mq.addListener(update);
+        return () => mq.removeListener(update);
+    }, []);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        const update = () => setActiveIndex(emblaApi.selectedScrollSnap());
+        update();
+        emblaApi.on('select', update);
+        emblaApi.on('reInit', update);
+        return () => {
+            emblaApi.off('select', update);
+            emblaApi.off('reInit', update);
+        };
+    }, [emblaApi]);
+
     return (
         <div className="overflow-hidden w-full  mask-fade-x" ref={emblaRef}  style={{"--fade": "10px"}}>
             {/* lt-cards */}
             <div className="flex flex-row gap-4 pb-[32px] pt-[32px]">
-                {teamMembers.map((member, idx) => (
-                    // lt-card
-                    <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5, delay: idx * 0.1 }}
-                        className="min-w-[280px] md:min-w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
-                    >
-                        <div className="flex justify-between items-start z-10 relative">
-                            <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
-                                {member.name}
-                            </h3>
-                            <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
-                                {member.role}
-                            </span>
-                        </div>
+                {teamMembers.map((member, idx) => {
+                    const isActive = !isMobile || idx === activeIndex;
+                    return (
+                        // lt-card
+                        <motion.div 
+                            key={idx}
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            className="min-w-[280px] md:min-w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
+                        >
+                            <div className="flex justify-between items-start z-10 relative">
+                                <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
+                                    {member.fname}<br/>
+                                    {member.lname}
+                                </h3>
+                                <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
+                                    {member.role}
+                                </span>
+                            </div>
 
-                        <div className="absolute inset-x-0 bottom-0 top-20">
-                        <img 
-                            src={member.img} 
-                            alt={member.name} 
-                            className="w-full h-full object-cover object-top mix-blend-multiply grayscale group-hover:grayscale-0 transition-all duration-500"
-                            referrerPolicy="no-referrer"
-                        />
-                        </div>
-                    </motion.div>
-                ))}
+                            <div className="absolute inset-x-0 bottom-0 top-22">
+                            <img 
+                                src={member.img} 
+                                alt={member.name}
+                                loading='eager'
+                                className={`w-full h-full object-cover object-top mix-blend-multiply transition-all duration-500 ${
+                                    isMobile ? (isActive ? 'grayscale-0' : 'grayscale') : 'grayscale group-hover:grayscale-0'
+                                }`}
+                                referrerPolicy="no-referrer"
+                            />
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </div>
     );

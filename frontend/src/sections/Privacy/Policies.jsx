@@ -1,4 +1,5 @@
 import Block from "../../components/layout/Block";
+import { typography } from "../../constants/global";
 
 const sections = [
     {
@@ -66,29 +67,29 @@ const sections = [
       content: (
         <>
           You have the right to request details of the personal information we hold about you, or to request the deletion or correction of your data at any time. To do so, please email us at{" "}
-          <a href="mailto:hello@attributics.com" className="text-[#FF5A36] hover:underline">
+          <a href="mailto:hello@attributics.com" className="hover:underline">
             hello@attributics.com
           </a>
           .
         </>
       ),
     },
-  ];
+];
   
   const Policies = () => {
     return (
-        <Block xpad="larger" topMargin="large">
+        <Block xpad="larger" topMargin="medium">
             <div className="min-h-screen">
         
                 {/* Header */}
                 <div className="mb-4 pb-0 border-b border-slate-200">
-                    <h1 className="section-title text-4xl md:text-5xl font-display !font-bold text-slate-900 mb-2">
+                    <h1 className="section-title mb-2" style={typography.title.XXL}>
                         Privacy Policy For Attributics
                     </h1>
                 </div>
         
                 {/* Intro */}
-                <p className="section-description text-slate-600 leading-relaxed mb-16 text-base">
+                <p className="section-description mb-16" style={typography.desc.Small}>
                     At <span className="font-semibold text-slate-900">Attributics</span> (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.
                     <br />
                     <br />
@@ -102,7 +103,7 @@ const sections = [
                     <div key={section.number} className="flex gap-8 group">
                         {/* Number */}
                         <div className="shrink-0 w-10 text-right">
-                            <span className="section-eyebrow text-xs font-bold text-slate-300 tracking-widest">
+                            <span className="section-eyebrow">
                                 {section.number}
                             </span>
                         </div>
@@ -112,16 +113,16 @@ const sections = [
         
                         {/* Content */}
                         <div className="pb-12 flex-1">
-                            <h2 className="section-title !text-lg font-bold text-slate-900 mb-3">
+                            <h2 className="section-title mb-3" style={typography.title.SM}>
                                 {section.title}
                             </h2>
-                            <p className="section-description !text-slate-500 leading-relaxed text-sm mb-4">
+                            <p className="section-description0 mb-4" style={typography.desc.Small}>
                                 {section.content}
                             </p>
                             {section.list && (
                                 <ul className="space-y-2 mt-3">
                                 {section.list.map((item, i) => (
-                                    <li key={i} className="section-description flex items-start gap-3 !text-lg !text-slate-500">
+                                    <li key={i} className="section-description flex items-start gap-3" style={typography.desc.Small}>
                                         <span className="mt-1.5 w-1 h-1 rounded-full bg-[#FF5A36] shrink-0" />
                                         {item}
                                     </li>

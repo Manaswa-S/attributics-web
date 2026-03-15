@@ -4,7 +4,7 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 
 // Lazy load about sections
 const Featured = lazy(() => import('../sections/Resources/Featured'));
-const Blogs = lazy(() => import('../sections/Resources/Blogs'));
+const Stories = lazy(() => import('../sections/Resources/Stories'));
 const Recents = lazy(() => import('../sections/Resources/Recents'));
 
 const reducedWhiteSpaceHeight = '10vh';
@@ -17,7 +17,7 @@ const ResourcesPage = () => {
         <Featured />
         <WhiteSpace height={whiteSpaceHeight} />
 
-        <Blogs />
+        <Stories />
         <WhiteSpace height={reducedWhiteSpaceHeight} />
 
         <Recents />

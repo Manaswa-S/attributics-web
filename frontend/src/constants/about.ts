@@ -53,11 +53,23 @@ export const metricCards = [
 
 // TEAM MEMBERS
 import VishalA from '../assets/team/VishalA.png';
-import VakeshS from '../assets/team/VakeshS.png';
-import ShashankK from '../assets/team/ShashankK.png';
 import ShreyaM from '../assets/team/ShreyaM.png';
+import ShashankK from '../assets/team/ShashankK.png';
+import VakeshS from '../assets/team/VakeshS.png';
+import PrasadP from '../assets/team/PrasadP.png';
 import MudarB from '../assets/team/MudarB.png';
+import NeelS from '../assets/team/NeelS.png';
 import MadhuriK from '../assets/team/MadhuriK.png';
+import SaumyaS from '../assets/team/SaumyaS.png';
+import AniketP from '../assets/team/AniketP.png';
+import PoonamA from '../assets/team/PoonamA.png';
+import PrathamS from '../assets/team/PrathamS.png';
+import AniyaK from '../assets/team/AniyaK.png';
+import SaiR from '../assets/team/SaiR.png';
+import VaishnaviR from '../assets/team/VaishnaviR.png';
+import GauravB from '../assets/team/GauravB.png';
+
+import PlaceHolder from '../assets/team/placeholder.png';
 
 export const team = {
     eyebrow: 'Our Team',
@@ -66,59 +78,129 @@ export const team = {
     members: [
         {
             id: 1,
-            name: 'Vishal Agarwal',
-            role: 'Founder',
-            bio: 'With over 10 years of experience in AI and marketing technology, leading innovation.',
+            fname: 'Vishal',
+            lname: 'Agarwal',
+            role: 'Growth',
             img: VishalA,
         },
         {
             id: 2,
-            name: 'Vakesh Singh',
-            role: 'CTO',
-            bio: 'Expert in machine learning and data science, driving technical excellence.',
-            img: VakeshS,
+            fname: 'Shreya',
+            lname: 'Mehta',
+            role: 'Operations',
+            img: ShreyaM,
         },
         {
             id: 3,
-            name: 'Shashank Kumar',
-            role: 'CFO',
-            bio: 'Marketing strategist with a passion for customer success and growth.',
+            fname: 'Shashank',
+            lname: 'Kumar',
+            role: 'Strategy',
             img: ShashankK,
         },
         {
             id: 4,
-            name: 'Shreya Mehta',
-            role: 'Founder',
-            bio: 'Business development leader focused on strategic partnerships.',
-            img: ShreyaM,
+            fname: 'Vakesh',
+            lname: 'Singh',
+            role: 'Delivery',
+            img: VakeshS,
         },
         {
             id: 5,
-            name: 'Mudar Bharmal',
-            role: 'Founder',
-            bio: 'Product visionary dedicated to solving complex marketing challenges.',
-            img: MudarB,
+            fname: 'Prasad',
+            lname: 'Parvatkar',
+            role: 'Technology',
+            img: PrasadP,
         },
         {
             id: 6,
-            name: 'Madhuri Kurhade',
-            role: 'Founder',
-            bio: 'Operations expert ensuring seamless execution and growth.',
-            img: MadhuriK,
+            fname: 'Mudar',
+            lname: 'Bharmal',
+            role: 'Growth',
+            img: MudarB,
         },
         {
             id: 7,
-            name: 'Vishal Agarwal',
-            role: 'Founder',
-            bio: 'With over 10 years of experience in AI and marketing technology, leading innovation.',
-            img: VishalA,
+            fname: 'Neel',
+            lname: 'Shah',
+            role: 'Operations',
+            img: NeelS,
         },
         {
             id: 8,
-            name: 'Vakesh Singh',
-            role: 'CTO',
-            bio: 'Expert in machine learning and data science, driving technical excellence.',
-            img: VakeshS,
+            fname: 'Madhuri',
+            lname: 'Kurhade',
+            role: 'Strategy',
+            img: MadhuriK,
+        },
+        {
+            id: 9,
+            fname: 'Saumya',
+            lname: 'Sharma',
+            role: 'Marketing',
+            img: SaumyaS,
+        },
+        {
+            id: 10,
+            fname: 'Aniket',
+            lname: 'Pholane',
+            role: 'Operations',
+            img: AniketP,
+        },
+        {
+            id: 11,
+            fname: 'Poonam',
+            lname: 'Adak',
+            role: 'Operations',
+            img: PoonamA,
+        },
+        {
+            id: 12,
+            fname: 'Akash',
+            lname: 'Sahu',
+            role: 'Technology',
+            img: PlaceHolder,
+        },
+        {
+            id: 13,
+            fname: 'Pratham',
+            lname: 'Sharma',
+            role: 'Technology',
+            img: PrathamS,
+        },
+        {
+            id: 14,
+            fname: 'Aniya',
+            lname: 'Kulkarni',
+            role: 'Operations',
+            img: AniyaK,
+        },
+        {
+            id: 15,
+            fname: 'Sai',
+            lname: 'Reddy',
+            role: 'Operations',
+            img: SaiR,
+        },
+        {
+            id: 16,
+            fname: 'Kaniska',
+            lname: 'Deshmukh',
+            role: 'Operations',
+            img: PlaceHolder,
+        },
+        {
+            id: 17,
+            fname: 'Vaishnavi',
+            lname: 'Raut',
+            role: 'Operations',
+            img: VaishnaviR,
+        },
+        {
+            id: 18,
+            fname: 'Gaurav',
+            lname: 'Bajaj',
+            role: 'Operations',
+            img: GauravB,
         },
     ],
 }

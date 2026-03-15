@@ -4,18 +4,20 @@ import { hero } from "../../constants/services";
 import Block from "../../components/layout/Block";
 import { typography } from "../../constants/global";
 
+import AuditModal from "../../sections/Other/FreeAuditModal";
+
 const infoTitleSize = "clamp(1.15rem, 0.95rem + 0.8vw, 1.4rem)";
 const infoDescSize = "clamp(1.1rem, 0.95rem + 0.8vw, 1.1rem)";
 const infoEyebrowSize = "clamp(1rem, 0.95rem + 0.8vw, 1rem)";
 const serviceTitleSize = "clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem)";
-const modalTitleSize = "clamp(1.6rem, 1.1rem + 2vw, 2.3rem)";
 
 const Hero = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const cardRefs = useRef([]);
     const visibilityRef = useRef(new Map());
+
+    const [isOpen, setIsOpen] = useState(false);
   
     const bgColors = [
       "bg-orange-50",
@@ -76,7 +78,6 @@ const Hero = () => {
       <div className="min-h-screen pt-10">
         {/* Hero Section */}
         <section className="relative pt-32 pb-48 bg-slate-50 overflow-hidden">
-          {/* Subtle Ribbon Background */}
           <div className="absolute inset-0 pointer-events-none overflow-hidden flex items-center justify-center">
             <svg className="absolute w-full h-full min-w-[1440px]" preserveAspectRatio="none" viewBox="0 0 1440 400">
               <defs>
@@ -91,7 +92,6 @@ const Hero = () => {
                   <stop offset="100%" stopColor="#FF5A36" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
-              {/* Ribbon 1 */}
               <motion.path 
                 fill="url(#ribbon1)"
                 animate={{
@@ -103,7 +103,6 @@ const Hero = () => {
                 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Ribbon 2 */}
               <motion.path 
                 fill="url(#ribbon2)"
                 animate={{
@@ -115,7 +114,6 @@ const Hero = () => {
                 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Ribbon Edge Lines for definition */}
               <motion.path 
                 fill="none"
                 stroke="rgba(255, 90, 54, 0.2)"
@@ -158,11 +156,9 @@ const Hero = () => {
           </div>
         </section>
   
-        {/* Content Area with Grid Background */}
         <div className="bg-[#FAFAFA] relative pb-22 border-t border-slate-100">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
           
-          {/* Overlapping Info Cards */}
           <section className="relative z-20 -mt-32 mb-12">
           <div className="container mx-auto px-6 max-w-7xl">
             <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-slate-100 p-8 md:p-12">
@@ -193,7 +189,6 @@ const Hero = () => {
           </div>
         </section>
   
-        {/* Expandable Service Modules */}
         <section className="py-12 relative z-10">
           <div className="container mx-auto px-4 max-w-6xl">
             <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 overflow-hidden">
@@ -209,24 +204,36 @@ const Hero = () => {
                     if (!isMobile) setHoveredIndex(idx);
                   }}
                 >
-                  <div className="px-6 md:px-16 py-10 md:py-14 flex flex-col md:flex-row gap-6 md:gap-24">
+                  <div className="px-6 md:px-16 py-8 md:py-14 flex flex-col md:flex-row gap-4 md:gap-24">
                     <div className="text-slate-400 font-mono text-sm md:pt-2 section-eyebrow">
                       0{idx + 1}
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h2
                         className="section-title font-display font-medium text-slate-900 mb-3"
                         style={{ fontSize: serviceTitleSize }}
                       >
                         {service.title}
                       </h2>
-                      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-500">
-                        {service.capabilities.slice(0, 4).map((cap, i) => (
-                        <div key={i} className="flex items-center gap-3" style={{ fontSize: infoEyebrowSize }}>
+
+                      {/* Desktop: wrapping list with dot separators */}
+                      <div className="hidden md:flex flex-wrap items-center gap-3 text-sm text-slate-500">
+                        {service.capabilities.map((cap, i) => (
+                          <div key={i} className="flex items-center gap-3" style={{ fontSize: infoEyebrowSize }}>
                             <span>{cap}</span>
-                            {i < 3 && <span className="w-1 h-1 rounded-full bg-slate-300" />}
+                            {i < service.capabilities.length - 1 && (
+                              <span className="w-1 h-1 rounded-full bg-slate-300" />
+                            )}
                           </div>
                         ))}
+                      </div>
+
+                      {/* Mobile: first capability only */}
+                      <div className="flex md:hidden">
+                        <span className="text-xs font-medium text-slate-500 bg-slate-90 rounded-full">
+                          {service.capabilities[0]}
+                        </span>
+                       
                       </div>
                       
                       <AnimatePresence>
@@ -242,8 +249,10 @@ const Hero = () => {
                               <p style={{ fontSize: infoDescSize }} className="section-description text-slate-600 leading-relaxed max-w-3xl mb-8">
                                 {service.description}
                               </p>
+
+
                               <button 
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => setIsOpen(true)}
                                 className="border border-slate-900 text-slate-900 px-6 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase hover:bg-slate-900 hover:text-white transition-colors"
                               >
                                 Discuss Project
@@ -260,67 +269,9 @@ const Hero = () => {
           </div>
         </section>
         </div>
-  
-        {/* Contact Modal */}
-        <AnimatePresence>
-          {isModalOpen && (
-            <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                onClick={() => setIsModalOpen(false)}
-                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
-              />
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="bg-white rounded-[2rem] p-8 md:p-12 w-full max-w-xl relative z-10 shadow-2xl"
-              >
-                <button 
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors"
-                >
-                  ✕
-                </button>
-                <h3
-                  className="font-display font-bold text-slate-900 mb-2"
-                  style={{ fontSize: modalTitleSize }}
-                >
-                  Audit Your Stack
-                </h3>
-                <p className="text-slate-500 mb-8">Leave your details below and our MarTech architects will reach out to schedule your comprehensive audit.</p>
-                
-                <form className="flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); }}>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
-                    <input type="text" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all" placeholder="John Doe" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Work Email</label>
-                    <input type="email" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all" placeholder="john@company.com" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">Company Size</label>
-                    <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#FF5A36]/20 focus:border-[#FF5A36] transition-all appearance-none cursor-pointer">
-                      <option>1-50 Employees</option>
-                      <option>51-200 Employees</option>
-                      <option>201-1000 Employees</option>
-                      <option>1000+ Employees</option>
-                    </select>
-                  </div>
-                  <button type="submit" className="mt-4 bg-[#FF5A36] hover:bg-[#E04825] text-white px-8 py-4 rounded-xl font-bold transition-colors w-full">
-                    Request Audit
-                  </button>
-                </form>
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
       </div>
+      <AuditModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
       </Block>
-
       </>
     );
 };
@@ -328,4 +279,3 @@ const Hero = () => {
 
 
 export default Hero;
-  

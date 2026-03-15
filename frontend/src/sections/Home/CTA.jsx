@@ -1,9 +1,11 @@
 import Block from '../../components/layout/Block/Block';
 import Calendar from '../../components/Calendar/Calendar';
-import { CheckCircle2 } from '../../components/Icons/Icons';
 import { motion } from 'motion/react';
 import { cta } from '../../constants/home';
 import { typography } from '../../constants/global';
+
+import { CheckCircle2 } from 'lucide-react';
+import CalCom from '../../components/CalCom/CalCom';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -14,14 +16,10 @@ const fadeUp = {
     }),
 };
 
-const ctaTitleSize = 'clamp(2.4rem, 1.2rem + 3.8vw, 4.2rem)';
-const ctaChecklistHeadlineSize = 'clamp(0.95rem, 0.84rem + 0.45vw, 1.2rem)';
-const ctaChecklistItemSize = 'clamp(0.92rem, 0.84rem + 0.35vw, 1rem)';
-
 const CTA = () => {
     return (
         <Block xpad='large'>
-            <section className="grid grid-cols-1 lg:grid-cols-[6fr_8fr] gap-10 sm:gap-12 lg:gap-16 items-center">
+            <section className="grid grid-cols-1 lg:grid-cols-[6fr_10fr] gap-10 sm:gap-12 lg:gap-8 flex items-center">
 
                 {/* Left: Text */}
                 <div className="flex flex-col">
@@ -68,7 +66,7 @@ const CTA = () => {
                         {cta.checklist.items.map((item, i) => (
                             <motion.span
                                 key={i}
-                                className="section-description flex flex-row gap-2 items-start"
+                                className="section-description flex flex-row gap-2 items-center"
                                 style={typography.desc.Normal}
                                 variants={fadeUp}
                                 custom={0.3 + i * 0.07}
@@ -76,7 +74,7 @@ const CTA = () => {
                                 whileInView="visible"
                                 viewport={{ once: true }}
                             >
-                                <CheckCircle2 className="shrink-0 mt-0.5" />
+                                <CheckCircle2  className="text-brand shrink-0" />
                                 {item}
                             </motion.span>
                         ))}
@@ -89,11 +87,13 @@ const CTA = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="w-full"
+                    className="w-full relative"
                 >
-                    <Calendar />
+                    {/* <Calendar /> */}
+                    {/* <div style={{ position: "absolute", top: -8, right: -8, width: 80, height: 80, borderTop: "3px solid #FF5A36", borderRight: "3px solid #FF5A36", borderRadius: "0 20px 0 0", pointerEvents: "none" }} /> */}
+                    {/* <div style={{ position: "absolute", bottom: -8, left: -8, width: 80, height: 80, borderBottom: "3px solid #FF5A36", borderLeft: "3px solid #FF5A36", borderRadius: "0 0 0 20px", pointerEvents: "none" }} /> */}
+                    <CalCom />
                 </motion.div>
-
             </section>
         </Block>
     );

@@ -1,6 +1,10 @@
 export const typography = {
     title: {
-        SM: "clamp(2.4rem, 1.35rem + 2.4vw, 3.4rem)",
+        SM: {
+            fontSize: "clamp(1.2rem, 1.4rem + 2.4vw, 1.6rem)",
+            fontWeight: 600,
+            lineHeight: 1.1
+        },
         MD: {
             fontSize: "clamp(2.0rem, 1.35rem + 2.4vw, 2.4rem)",
             fontWeight: 600,

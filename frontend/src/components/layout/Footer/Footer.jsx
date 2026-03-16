@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
                 {footer.socials.map((item, index) => {
                   return (
-                    <a id={index} href={item.href} className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
+                    <a id={index} key={index} href={item.href} className="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
                       <img src={item.logo} alt={item.name} className="w-6 h-6 grayscale-100 opacity-70" />
                       {/* <span className="text-md">{item.name}</span> */}
                     </a>

@@ -200,13 +200,13 @@ const Hero = () => {
           <p className="section-title uppercase" style={{color: 'var(--color-brand)', fontSize: '1rem'}}>Lifetime Value With Our AI Agent</p>
         </motion.div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mb-4 section-title" style={typography.title.XXL}
         >
-          <h1>Autonomous AI Agents that</h1>
+          <h1 >Autonomous AI Agents that</h1>
           <div className="h-[6.2rem] md:h-[5.2rem] relative overflow-hidden flex justify-center">
             <AnimatePresence mode="wait">
               <motion.span
@@ -221,20 +221,20 @@ const Hero = () => {
               </motion.span>
             </AnimatePresence>
           </div>
-        </motion.h1>
+        </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="lg:max-w-[90%] mx-auto mb-12 leading-relaxed"
+          className="lg:max-w-[90%] mx-auto mb-12 leading-relaxed section-description" style={typography.desc.Normal}
         >
-          <p className="section-description" style={typography.desc.Normal}>
+          <p>
             Improve retention and LTV with real-time decisioning at scale.
             <br />
             The next generation of martech is agentic.
           </p>
-        </motion.p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

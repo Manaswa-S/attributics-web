@@ -61,7 +61,7 @@ function LeadershipTeam({ teamMembers }) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
             align: 'start',
-            loop: false,
+            loop: true,
             dragFree: false,
         },
         [

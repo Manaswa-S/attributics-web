@@ -46,12 +46,14 @@ const Intro = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="items-center justify-center flex relative rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl h-full min-h-[240px]"
+                    
+                    className="items-center self-center justify-center flex relative rounded-[1.25rem] sm:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-2xl"
+                    style={{height:"min-content"}}
                 >
                     <img 
                         src={vision.whoAreWe.image}
                         alt="Attributics Team" 
-                        className="w-full h-full object-contain"
+                        className="w-full h-auto object-contain"
                         referrerPolicy="no-referrer"
                     />
                 </motion.div>

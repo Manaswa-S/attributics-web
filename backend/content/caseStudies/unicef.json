@@ -1,0 +1,120 @@
+{
+	"featured": true,
+	"publishedAt": "",
+	"title": "UNICEF Donor First MarTech Enablement",
+	"subtitle": "Designing a unified donor-centric MarTech ecosystem for personalized global engagement",
+	"client": "UNICEF",
+	"role": "MarTech Strategy, Solution Architecture, Data & Lifecycle Design",
+	"timeline": "",
+	"platform": "Salesforce Ecosystem + CDP + GCP + Optimizely",
+	"industry": "Nonprofit / Fundraising & Donor Engagement",
+	"heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+	"overview": [
+		"To enhance the Global Growth Programme (GGP) at UNICEF, a comprehensive discovery was conducted to design an ideal donor experience. By identifying technology gaps and proposing a unified MarTech stack, the project aimed to improve Life-Time Value (LTV) and reduce Customer Acquisition Cost (CAC) through data-driven personalization and automated donor journeys."
+	],
+	"challenge": [
+		{
+			"subtitle": "Data Silos",
+			"description": "Donor data was scattered across disparate platforms like Stripe, CRM, and various campaign tools, preventing a unified 'Single View' of the donor."
+		},
+		{
+			"subtitle": "Suboptimal UX",
+			"description": "The checkout process and overall UI/UX required a rehaul to support personalized journeys."
+		},
+		{
+			"subtitle": "Lack of Omnichannel Activation",
+			"description": "There was a critical need for custom audience activation across digital, Email, WhatsApp, and Push channels."
+		},
+		{
+			"subtitle": "Global Complexity",
+			"description": "Managing payment integrations across multiple countries required a more sophisticated payment orchestration strategy."
+		}
+	],
+	"solution": [
+		{
+			"subtitle": "Customer Data Platform (CDP)",
+			"description": "A CDP was proposed to unify known and unknown donor data into a 'Donor 360' or 'Golden Record'. This enables deep segmentation and real-time activation based on donor behavior."
+		},
+		{
+			"subtitle": "Advertising Studio (AdStudio)",
+			"description": "Integrating Salesforce AdStudio allows UNICEF to use CRM data to power advertising at scale on platforms like Facebook and Google. This minimizes manual data transfers and connects advertising directly to the donor journey."
+		},
+		{
+			"subtitle": "Conversion Rate Optimization (CRO)",
+			"description": "Using tools like Optimizely, the plan includes multivariate testing for landing pages and sign-up flows. For example, testing different CTAs or pre-filled donation amounts (e.g., $60) to maximize funds without reducing conversion."
+		},
+		{
+			"subtitle": "Machine Learning (ML) Models",
+			"description": "Custom ML models on GCP were recommended to provide: • Lookalike Models: To find new donors similar to existing high-value supporters. • Propensity Scores: To predict the likelihood of a donor converting from a one-time 'Cash' gift to a recurring 'Pledge'. • Churn Models: To identify and re-engage dormant donors."
+		}
+	],
+	"process": [
+		{
+			"title": "Acquisition (Getting Started)",
+			"description": "Using real-time web behavior to personalize landing pages for 'unknown' prospects."
+		},
+		{
+			"title": "Retention (Build the Foundation)",
+			"description": "Implementing 'Next Best Action' journeys to transition cash donors into long-term pledge supporters via personalized email and social retargeting."
+		},
+		{
+			"title": "Loyalty (Engaged)",
+			"description": "Creating cause-specific affinity segments to deliver relevant content and emergency-driven appeals."
+		}
+	],
+	"results": [
+		{
+			"metric": "Unified donor profiles across Stripe, CRM, and campaign platforms",
+			"value": "Single View of Donor Achieved"
+		},
+		{
+			"metric": "Improved donor engagement through personalized, lifecycle-based journeys",
+			"value": "Higher LTV Potential"
+		},
+		{
+			"metric": "Reduced manual effort in audience activation and campaign execution",
+			"value": "Operational Efficiency Improved"
+		},
+		{
+			"metric": "Enhanced targeting using ML-driven propensity, churn, and lookalike models",
+			"value": "Smarter Acquisition & Retention"
+		},
+		{
+			"metric": "Optimized conversion flows via CRO experimentation (landing pages, CTAs, donation flows)",
+			"value": "Improved Conversion Potential"
+		}
+	],
+	"techStack": [
+		{
+			"title": "Customer Data Platform (CDP)",
+			"description": "Unified donor data layer enabling Donor 360 / Golden Record"
+		},
+		{
+			"title": "CRM & Marketing Cloud",
+			"description": "Salesforce CRM + Salesforce AdStudio for audience activation"
+		},
+		{
+			"title": "Experimentation & CRO",
+			"description": "Optimizely for A/B and multivariate testing"
+		},
+		{
+			"title": "Machine Learning",
+			"description": "Google Cloud Platform (GCP) for propensity, churn, and lookalike models"
+		},
+		{
+			"title": "Payment Systems",
+			"description": "Stripe and multi-country payment orchestration"
+		},
+		{
+			"title": "Channels",
+			"description": "Email, WhatsApp, Push Notifications, Digital Advertising"
+		}
+	],
+	"conclusion": [
+		"The UNICEF Discovery project established a roadmap for a connected, automated engagement ecosystem. By bridging the gap between current tech capabilities and a 'Donor First' vision, UNICEF is positioned to deliver symmetrical, personalized messaging that maximizes impact for children globally."
+	],
+	"images": [
+		"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+		"https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+	]
+}

@@ -1,20 +1,145 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { caseStudies as localCaseStudies } from '../../constants/resources';
 import Block from '../../components/layout/Block';
+import { typography } from '../../constants/global';
+import { Dot, ChevronRight, CircleChevronRight } from 'lucide-react';
 
 const API_URL = import.meta.env.VITE_API_URL;
+
+// ── Shared: numbered section heading ──────────────────────────────────────────
+function SectionHeading({ index, label, dark = false }) {
+  return (
+    <h2 className="section-title mb-10 flex items-center gap-4" style={typography.title.BoldMD}>
+      <span
+        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm text-white ${
+          dark ? 'bg-black' : 'bg-brand'
+        }`}
+      >
+        {String(index).padStart(2, '0')}
+      </span>
+      {label}
+    </h2>
+  );
+}
+
+// ── Shared: bulleted point list ───────────────────────────────────────────────
+// Each point: { subtitle?, description }
+function PointList({ points }) {
+  return (
+    <ul className="flex flex-col gap-8 pl-6 text-justify w-full">
+      {points.map((point, i) => (
+        <li key={i} className="flex gap-8">
+          <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
+
+          <div>
+            {point.subtitle && (
+              <p className="section-title mb-2" style={typography.title.SM}>{point.subtitle}</p>
+            )}
+            <p className="section-description w-full text-justify" style={typography.desc.Small}>{point.description}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// ── Shared: numbered list ─────────────────────────────────────────────────────
+// Each item: { title?, description }
+function NumberedList({ items }) {
+  return (
+    <div className="flex flex-col gap-8">
+      {items.map((item, index) => (
+        <div key={index} className="flex gap-8">
+          <div className="text-brand font-mono text-sm pt-1 shrink-0 w-6">
+            {String(index + 1).padStart(2, '0')}
+          </div>
+          <div>
+            {item.title && (
+              <h3 className="section-title mb-2" style={typography.title.SM}>{item.title}</h3>
+            )}
+            <p className="section-description w-full text-justify" style={typography.desc.Small}>{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function NumberedFlowList({items}) {
+  return (
+    <div className="flex flex-col pl-6 text-justify w-full">
+      {items.map((step, index) => (
+        <div key={index} className="flex gap-8">
+          <div className="flex flex-col items-center shrink-0">
+            <div className="w-6 h-6 rounded-full bg-brand text-white text-[11px] font-medium flex items-center justify-center shrink-0">
+              {String(index + 1).padStart(2, '0')}
+            </div>
+            {index !== items.length - 1 && (
+              <div className="w-px flex-1 mt-1.5" style={{ borderLeft: '2px dashed #f9731660' }} />
+            )}
+          </div>
+          <div className={index !== items.length - 1 ? 'pb-8' : ''}>
+            {step.title && (
+              <h3 className="section-title mb-2" style={typography.title.SM}>{step.title}</h3>
+            )}
+            <p className="section-description w-full text-justify" style={typography.desc.Small}>{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function PointsFlowList({items}) {
+  return(
+    <div className="flex flex-col pl-6 text-justify w-full">
+      {items.map((step, index) => (
+        <div key={index} className="flex gap-8">
+          <div className="flex flex-col items-center shrink-0 w-6">
+            <div className="w-2.5 h-2.5 rounded-full bg-brand shrink-0 mt-1.5" />
+            {index !== items.length - 1 && (
+              <div className="w-[2px] flex-1 bg-brand mt-1" />
+            )}
+          </div>
+          <div className={`${index !== items.length - 1 ? 'pb-8' : ''}`}>
+            <div className="text-brand font-mono text-md mb-1">{String(index + 1).padStart(2, '0')}</div>
+            {step.title && (
+              <h3 className="section-title mb-2" style={typography.title.SM}>{step.title}</h3>
+            )}
+            <p className="section-description w-full text-justify" style={typography.desc.Small}>{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ── Image block ───────────────────────────────────────────────────────────────
+function ImageBlock({ src, alt, aspect = 'aspect-[16/9]', className = '' }) {
+  return (
+    <div className={`${className}`}>
+      <div className={`${aspect} w-full overflow-hidden rounded-2xl bg-zinc-100`}>
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function CaseStudyDetail({ slug }) {
   const navigate = useNavigate();
   const [caseStudy, setCaseStudy] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useEffect(() => { window.scrollTo(0, 0); }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -29,31 +154,21 @@ export default function CaseStudyDetail({ slug }) {
       } catch (err) {
         console.error(err);
       }
-
       const fallback = localCaseStudies.find(
         (study) => study.id === slug || study.slug === slug
       );
-      if (isMounted) setCaseStudy(fallback || null);
-      setLoading(false);
+      if (isMounted) {
+        setCaseStudy(fallback || null);
+        setLoading(false);
+      }
     };
-
     fetchCaseStudy();
-    return () => {
-      isMounted = false;
-    };
+    return () => { isMounted = false; };
   }, [slug]);
 
-  useEffect(() => {
-    if (caseStudy) setLoading(false);
-  }, [caseStudy]);
+  useEffect(() => { if (caseStudy) setLoading(false); }, [caseStudy]);
 
-  const onBack = () => navigate('/resources');
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-white text-zinc-900 font-sans pb-24" />
-    );
-  }
+  if (loading) return <div className="min-h-screen bg-white text-zinc-900 font-sans pb-24" />;
 
   if (!caseStudy) {
     return (
@@ -63,180 +178,225 @@ export default function CaseStudyDetail({ slug }) {
     );
   }
 
+  // ── Derived helpers ──────────────────────────────────────────────────────
+  const metaFields = [
+    { label: 'Client',   value: caseStudy.client },
+    { label: 'Role',     value: caseStudy.role },
+    { label: 'Timeline', value: caseStudy.timeline },
+    { label: 'Platform', value: caseStudy.platform },
+    { label: 'Industry', value: caseStudy.industry }
+  ].filter((f) => f.value);
+
+  const images      = (caseStudy.images || []).filter(Boolean);
+  const overview  = Array.isArray(caseStudy.overview)  && caseStudy.overview.length  > 0 ? caseStudy.overview  : null;
+  const challenges  = Array.isArray(caseStudy.challenge)  && caseStudy.challenge.length  > 0 ? caseStudy.challenge  : null;
+  const objectives  = Array.isArray(caseStudy.objectives) && caseStudy.objectives.length > 0 ? caseStudy.objectives : null;
+  const solutions   = Array.isArray(caseStudy.solution)   && caseStudy.solution.length   > 0 ? caseStudy.solution   : null;
+  const hasProcess  = Array.isArray(caseStudy.process)    && caseStudy.process.length    > 0;
+  const hasResults  = Array.isArray(caseStudy.results)    && caseStudy.results.length    > 0;
+  const techStack   = Array.isArray(caseStudy.techStack)  && caseStudy.techStack.length  > 0 ? caseStudy.techStack  : null;
+  const conclusion  = Array.isArray(caseStudy.conclusion) && caseStudy.conclusion.length > 0 ? caseStudy.conclusion : null;
+
+  // Running counter for section numbers
+  let sectionIdx = 0;
+  const nextIdx = () => ++sectionIdx;
+
   return (
-    <Block xpad='large' topMargin='medium'>
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="min-h-screen bg-white text-zinc-900 font-sans pb-0"
-    >
-      {/* Hero Section */}
-      <header className="pt-0 pb-20 px-6 max-w-6xl mx-auto">
-        <div className="max-w-4xl">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.6 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8"
-          >
-            {caseStudy.title}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-xl md:text-2xl text-zinc-500 leading-relaxed max-w-3xl"
-          >
-            {caseStudy.subtitle}
-          </motion.p>
-        </div>
-
-        {/* Meta Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-zinc-200"
-        >
-          <div>
-            <div className="text-xs font-bold tracking-widest uppercase text-zinc-400 mb-2">Client</div>
-            <div className="font-medium">{caseStudy.client}</div>
-          </div>
-          <div>
-            <div className="text-xs font-bold tracking-widest uppercase text-zinc-400 mb-2">Role</div>
-            <div className="font-medium">{caseStudy.role}</div>
-          </div>
-          <div>
-            <div className="text-xs font-bold tracking-widest uppercase text-zinc-400 mb-2">Timeline</div>
-            <div className="font-medium">{caseStudy.timeline}</div>
-          </div>
-          <div>
-            <div className="text-xs font-bold tracking-widest uppercase text-zinc-400 mb-2">Platform</div>
-            <div className="font-medium">{caseStudy.platform}</div>
-          </div>
-        </motion.div>
-      </header>
-
-      {/* Hero Image */}
+    <Block xpad="stories" topMargin="medium">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-        className="max-w-7xl mx-auto px-6 mb-32"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="min-h-screen pb-0"
       >
-        <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
-          <img
-            src={caseStudy.heroImage}
-            alt={caseStudy.title}
-            className="w-full h-auto object-cover"
-            referrerPolicy="no-referrer"
-          />
+        {/* ── Hero ──────────────────────────────────────────────────────────── */}
+        <header className="px-12">
+          <div className="w-full">
+            {caseStudy.title && (
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="section-title"
+                style={typography.title.BoldXXL}
+              >
+                {caseStudy.title}
+              </motion.h1>
+            )}
+            {caseStudy.subtitle && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="section-description max-w-3xl mt-4 px-2"
+                style={typography.desc.Normal}
+              >
+                {caseStudy.subtitle}
+              </motion.p>
+            )}
+          </div>
+
+          {metaFields.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="flex flex-wrap justify-center gap-x-12 gap-y-8 mt-12 pt-4 border-t border-zinc-200"
+            >
+              {metaFields.map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="flex-1 min-w-[200px] text-center"
+                >
+                  <div className="section-eyebrow mb-2">
+                    {label}
+                  </div>
+                  <div className="section-description " style={typography.desc.SmallerBlack}>{value}</div>
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </header>
+
+        {/* ── Hero image ────────────────────────────────────────────────────── */}
+        <div className='mt-22'>
+          {caseStudy.heroImage && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className=""
+            >
+              <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
+                <img
+                  src={caseStudy.heroImage}
+                  alt={caseStudy.title || 'Case study hero'}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </motion.div>
+        )}
         </div>
+
+        {/* ── Body ──────────────────────────────────────────────────────────── */}
+        <main className="mt-22 px-12">
+
+          {/* Overview */}
+          {overview && (
+            <div className="">
+              <SectionHeading index={nextIdx()} label="Overview" />
+              <div className="flex flex-col gap-6 w-full text-justify">
+                {overview.map((para, index) => (
+                  <p key={index} className="section-description" style={typography.desc.Small}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Challenge */}
+          {challenges && (
+            <div className="mt-12">
+              <SectionHeading index={nextIdx()} label="The Challenge" />
+              <PointList points={challenges} />
+            </div>
+          )}
+
+          {/* Objectives */}
+          {objectives && (
+            <div className="mt-12">
+              <SectionHeading index={nextIdx()} label="Objectives" dark />
+              <PointList points={objectives} />
+            </div>
+          )}
+
+          {/* Solution */}
+          {solutions && (
+            <div className="mt-12">
+              <SectionHeading index={nextIdx()} label="The Solution" />
+              <PointList points={solutions} />
+            </div>
+          )}
+
+          {/* First extra image */}
+          {images[0] && <ImageBlock className='mt-12' src={images[0]} alt="Project detail" />}
+
+          {/* Process */}
+          {hasProcess && (
+            <div className="mt-12">
+              <SectionHeading index={nextIdx()} label="The Process" />
+              <PointsFlowList items={caseStudy.process} />
+            </div>
+          )}
+
+          {/* Second extra image */}
+          {images[1] && <ImageBlock className='mt-12' src={images[1]} alt="Project detail" aspect="aspect-[4/3] md:aspect-[16/9]" />}
+
+          {/* Any remaining images */}
+          {images.slice(2).map((src, i) => (
+            <ImageBlock className='mt-12' key={i} src={src} alt={`Project detail ${i + 3}`} />
+          ))}
+
+          {/* Impact metrics */}
+          {hasResults && (
+            <div className="bg-gray-100 rounded-3xl p-12 md:p-16 mt-12">
+              <h2 className="section-title mb-12 text-center" style={typography.title.BoldMD}>The Impact</h2>
+              <div
+                className="grid gap-12"
+                style={{
+                  gridTemplateColumns: `repeat(${Math.min(caseStudy.results.length, 3)}, minmax(0, 1fr))`,
+                }}
+              >
+                {caseStudy.results.map((result, index) => (
+                  <div key={index} className="text-center px-4">
+                    <div className="text-5xl md:text-6xl font-bold text-brand mb-4">
+                      {result.value}
+                    </div>
+                    <div className="section-eyebrow" style={{color: "black"}}>
+                      {result.metric}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tech Stack */}
+          {techStack && (
+            <div className="mt-12 w-full">
+              <SectionHeading index={nextIdx()} label="Tech Stack" />
+              <div className="flex flex-col divide-y divide-zinc-100">
+                {techStack.map((item, index) => (
+                  <div key={index} className="flex items-baseline gap-12 py-2">
+                    <span className="section-eyebrow w-50 shrink-0">
+                      {item.title}
+                    </span>
+                    <span className="section-description" style={typography.desc.SmallerBlack}>{item.description}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Conclusion */}
+          {conclusion && (
+            <div className="border-t border-zinc-200 pt-8 mt-12">
+              <SectionHeading index={nextIdx()} label="Conclusion" />
+              <div className="flex flex-col gap-6 w-full text-justify">
+                {conclusion.map((para, index) => (
+                  <p key={index} className="section-description" style={typography.desc.Small}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </main>
       </motion.div>
-
-      {/* Content Sections */}
-      <main className="max-w-6xl mx-auto px-6">
-        {/* Challenge & Solution */}
-        <div className="grid md:grid-cols-12 gap-16 mb-32">
-          <div className="md:col-span-5">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-4">
-              <span className="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center text-sm">01</span>
-              The Challenge
-            </h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              {caseStudy.challenge}
-            </p>
-          </div>
-          <div className="md:col-span-1 hidden md:block"></div>
-          <div className="md:col-span-6">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-4">
-              <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center text-sm">02</span>
-              The Solution
-            </h2>
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              {caseStudy.solution}
-            </p>
-          </div>
-        </div>
-
-        {/* Full Width Image */}
-        {caseStudy.images[0] && (
-          <div className="mb-32">
-            <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
-              <img
-                src={caseStudy.images[0]}
-                alt="Project detail"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Process */}
-        <div className="mb-32">
-          <h2 className="text-3xl font-bold mb-12">The Process</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            {caseStudy.process.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-orange-500 font-mono text-sm mb-4">0{index + 1}</div>
-                <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                <p className="text-zinc-600 leading-relaxed">{step.description}</p>
-                {/* Decorative line */}
-                {index !== caseStudy.process.length - 1 && (
-                  <div className="hidden md:block absolute top-2 left-8 w-full h-[1px] bg-zinc-200 -z-10"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Secondary Image */}
-        {caseStudy.images[1] && (
-          <div className="mb-32">
-            <div className="aspect-[4/3] md:aspect-[16/9] w-full overflow-hidden rounded-2xl bg-zinc-100">
-              <img
-                src={caseStudy.images[1]}
-                alt="Project detail"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* Results */}
-        <div className="bg-zinc-50 rounded-3xl p-12 md:p-20 mb-0">
-          <h2 className="text-3xl font-bold mb-12 text-center">The Impact</h2>
-          <div className="grid md:grid-cols-3 gap-12 text-center">
-            {caseStudy.results.map((result, index) => (
-              <div key={index}>
-                <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-4">
-                  {result.value}
-                </div>
-                <div className="text-zinc-600 font-medium uppercase tracking-wider text-sm">
-                  {result.metric}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Next Project CTA */}
-        {/* <div className="text-center border-t border-zinc-200 pt-32">
-          <p className="text-sm font-bold tracking-widest uppercase text-zinc-400 mb-6">Next Project</p>
-          <button
-            onClick={onBack}
-            className="group inline-flex items-center gap-4 text-4xl md:text-6xl font-bold hover:text-orange-500 transition-colors"
-          >
-            View More Work
-            <ArrowUpRight className="w-10 h-10 md:w-12 md:h-12 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
-          </button>
-        </div> */}
-      </main>
-    </motion.div>
     </Block>
   );
 }

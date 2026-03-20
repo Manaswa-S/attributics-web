@@ -19,7 +19,7 @@ const fadeUp = {
 const CTA = () => {
     return (
         <Block xpad='large'>
-            <section className="grid grid-cols-1 lg:grid-cols-[6fr_10fr] gap-10 sm:gap-12 lg:gap-8 flex items-center">
+            <section className="grid grid-cols-1  lg:grid-cols-[6fr_10fr] gap-10 sm:gap-12 lg:gap-8 items-stretch">
 
                 {/* Left: Text */}
                 <div className="flex flex-col">
@@ -87,13 +87,13 @@ const CTA = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-                    className="w-full relative"
+                    className="w-full flex flex-col"
                 >
-                    {/* <Calendar /> */}
-                    {/* <div style={{ position: "absolute", top: -8, right: -8, width: 80, height: 80, borderTop: "3px solid #FF5A36", borderRight: "3px solid #FF5A36", borderRadius: "0 20px 0 0", pointerEvents: "none" }} /> */}
-                    {/* <div style={{ position: "absolute", bottom: -8, left: -8, width: 80, height: 80, borderBottom: "3px solid #FF5A36", borderLeft: "3px solid #FF5A36", borderRadius: "0 0 0 20px", pointerEvents: "none" }} /> */}
-                    <CalCom />
+                    <div className="flex-1">
+                        <CalCom />
+                    </div>
                 </motion.div>
+                
             </section>
         </Block>
     );

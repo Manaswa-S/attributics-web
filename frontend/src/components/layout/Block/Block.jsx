@@ -5,6 +5,7 @@ const xPaddingMap = {
   'large':   'px-3 sm:px-8 md:px-16 lg:px-50 xl:px-50',
   'larger':  'px-3 sm:px-10 md:px-20 lg:px-80 xl:px-96',
   'largest': 'px-3 sm:px-12 md:px-24 lg:px-120 xl:px-140',
+  'stories': 'px-3 sm:px-10 md:px-20 lg:px-60 xl:px-70',
 };
 
 const topMarginMap = {

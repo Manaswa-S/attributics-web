@@ -35,7 +35,7 @@ const CTA = () => {
                     </motion.p>
 
                     <motion.h1
-                        className="section-title mb-5 sm:mb-6"
+                        className="section-title"
                         style={typography.title.XXL}
                         variants={fadeUp}
                         custom={0.1}
@@ -44,7 +44,16 @@ const CTA = () => {
                         viewport={{ once: true }}
                     >
                         {cta.headline}
-                        <br />
+                    </motion.h1>
+                    <motion.h1
+                        className="section-title mb-5 sm:mb-6"
+                        style={typography.title.XXL}
+                        variants={fadeUp}
+                        custom={0.1}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         <span className="highlight">{cta.highlighted}</span>
                     </motion.h1>
 

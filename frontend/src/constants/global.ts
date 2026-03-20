@@ -57,6 +57,11 @@ export const typography = {
             fontWeight: 400,
             lineHeight: 1.4
         },
+        Smaller: {
+            fontSize: "clamp(1.1rem, 1.1rem + 2.4vw, 1.1rem)",
+            fontWeight: 400,
+            lineHeight: 1.4
+        },
         SmallerBlack: {
             fontSize: "clamp(1.1rem, 1.1rem + 2.4vw, 1.1rem)",
             fontWeight: 500,

@@ -18,7 +18,7 @@ export default function CalCom() {
   }, []);
 
   return (
-    <div style={{ margin: "0 -16px", overflow: "hidden", height: "100%" }}>
+    <div style={{ overflow: "hidden", height: "100%", paddingBottom: "0" }}>
       <Cal
         namespace="30min"
         calLink="manaswa-sangamnere-w9lwkm/30min"

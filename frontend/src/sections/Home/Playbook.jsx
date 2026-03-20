@@ -3,7 +3,7 @@ import { ArrowRight, Workflow, Database, Users, BarChart3, Zap } from "lucide-re
 import Block from "../../components/layout/Block";
 import { useRef } from "react";
 import { playbook } from "../../constants/home";
-
+import { useNavigate } from "react-router-dom";
 import ScrollFade from "../../components/ScrollFade/ScrollFade";
 import { typography } from "../../constants/global";
 
@@ -15,7 +15,6 @@ const ICONS = {
   zap: Zap,
 };
 
-const playbookTitleSize = "clamp(2.4rem, 1.2rem + 3.8vw, 4.0rem)";
 const playbookCardTitleSize = "clamp(1.25rem, 1.05rem + 0.9vw, 1.6rem)";
 const playbookCardDescriptionSize = "clamp(0.92rem, 0.84rem + 0.35vw, 1rem)";
 const playbookCardBadgeSize = "clamp(0.75rem, 0.69rem + 0.22vw, 0.8rem)";
@@ -66,6 +65,7 @@ const Playbook = () => {
 
 const PlaybookCard = ({ item, idx }) => {
   const Icon = ICONS[item.icon] || Zap;
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -73,8 +73,9 @@ const PlaybookCard = ({ item, idx }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: idx * 0.1 }}
+      onClick={() => item.readMoreLink && navigate(item.readMoreLink)}
       className={`
-        w-[75vw] sm:w-60 md:w-70 lg:w-85
+        w-[75vw] sm:w-90 md:w-90 lg:w-90
         shrink-0 snap-center
         relative group cursor-pointer
         bg-white rounded-[2rem] p-7
@@ -86,7 +87,6 @@ const PlaybookCard = ({ item, idx }) => {
         overflow-hidden
         ${item.borderColor}
       `}
-      // No fixed height — card grows with content
     >
       {/* Background number watermark */}
       <div className="absolute -right-4 -top-4 lg:text-[8rem] text-[7rem] font-display font-black text-slate-100/70 group-hover:text-slate-100/100 transition-colors duration-500 pointer-events-none z-0 select-none leading-none">
@@ -96,7 +96,7 @@ const PlaybookCard = ({ item, idx }) => {
       {/* Bottom accent line on hover */}
       <div className={`absolute bottom-0 left-0 h-1.5 w-0 ${item.lineColor} group-hover:w-full transition-all duration-700 ease-out z-20`} />
 
-      <div className="relative z-10 flex flex-col h-full gap-6">
+      <div className="relative z-10 flex flex-col h-full gap-8">
         {/* Top row: icon + category badge */}
         <div className="flex items-start justify-between">
           <div className={`w-12 h-12 rounded-2xl ${item.bgColor} flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3 shadow-sm shrink-0`}>
@@ -108,27 +108,24 @@ const PlaybookCard = ({ item, idx }) => {
         </div>
 
         {/* Text content — grows naturally */}
-        <div className="flex flex-col gap-3 flex-1">
-          <h3 className="section-title" style={{ fontSize: playbookCardTitleSize }}>
+        <div className="flex flex-col gap-6 flex-1">
+          <h3 className="section-title" style={typography.title.SM}>
             {item.title}
           </h3>
-          <p className="content-description" style={{ fontSize: playbookCardDescriptionSize, color: "#666666" }}>
+          <p className="section-description" style={typography.desc.Smaller}>
             {item.description}
           </p>
         </div>
 
         {/* CTA — always pinned to bottom */}
         <div className="pt-2 border-t border-slate-100">
-          <a href={item.readMore}>
-            <div className={`inline-flex items-center gap-2 font-bold text-sm ${item.color}`}>
-              <p>Read More</p>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </a>
+          <div className={`inline-flex items-center gap-2 section-description ${item.color}`} style={typography.desc.Bold}>
+            <p>Read More</p>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
         </div>
       </div>
     </motion.div>
   );
 };
-
 export default Playbook;

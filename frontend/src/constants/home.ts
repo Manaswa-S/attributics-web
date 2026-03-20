@@ -195,15 +195,15 @@ export const cta = {
     checklist: {
         headline: "Here's what we'll cover:",
         items: [
-            'Your current lifecycle and retention challenges',
-            'Where data silos are limiting performance',
-            'How to turn automation into intelligent personalization',
-            'Practical steps toward measurable growth',
-            'What meaningful progress would look like for your team',
+            'Your lifecycle and retention challenges',
+            'Data silos impacting performance',
+            'Turning automation into personalization',
+            'Steps toward measurable growth',
+            'What success looks like for your team',
         ],
     },
-
 }
+
 
 // PLAYBOOK
 export const playbook = {
@@ -218,7 +218,7 @@ export const playbook = {
             description:
                 "A leading automobile manufacturer partnered with us to establish a Customer 360 view, streamline touchpoints, and enhance digital sales.",
             icon: "workflow",
-            color: "text-indigo-600",
+            color: "!text-indigo-600",
             bgColor: "bg-indigo-50",
             lineColor: "bg-indigo-500",
             borderColor: "hover:border-indigo-200",
@@ -231,7 +231,7 @@ export const playbook = {
             description:
                 "A major manufacturer transitioned to a cloud-based CDP, improving scalability, reducing costs, and enabling developer-level personalization.",
             icon: "database",
-            color: "text-cyan-600",
+            color: "!text-cyan-600",
             bgColor: "bg-cyan-50",
             lineColor: "bg-cyan-500",
             borderColor: "hover:border-cyan-200",
@@ -244,7 +244,7 @@ export const playbook = {
             description:
                 "A large life insurance provider used AI-powered lead scoring and CRM workflows to reduce duplication and unlock new revenue streams.",
             icon: "users",
-            color: "text-emerald-600",
+            color: "!text-emerald-600",
             bgColor: "bg-emerald-50",
             lineColor: "bg-emerald-500",
             borderColor: "hover:border-emerald-200",
@@ -257,11 +257,11 @@ export const playbook = {
             description:
                 "A large retailer revolutionized their data strategy to improve customer engagement and maximize revenue across all digital touchpoints.",
             icon: "barChart3",
-            color: "text-purple-600",
+            color: "!text-purple-600",
             bgColor: "bg-purple-50",
             lineColor: "bg-purple-500",
             borderColor: "hover:border-purple-200",
-            readMoreLink: ""
+            readMoreLink: "/reer"
         },
     ],
 };

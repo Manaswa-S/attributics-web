@@ -119,10 +119,12 @@ const PlaybookCard = ({ item, idx }) => {
 
         {/* CTA — always pinned to bottom */}
         <div className="pt-2 border-t border-slate-100">
-          <div className={`inline-flex items-center gap-2 font-bold text-sm ${item.color}`}>
-            Read case study
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </div>
+          <a href={item.readMore}>
+            <div className={`inline-flex items-center gap-2 font-bold text-sm ${item.color}`}>
+              <p>Read More</p>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </a>
         </div>
       </div>
     </motion.div>

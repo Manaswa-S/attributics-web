@@ -8,7 +8,7 @@ author:
   role: ""
   avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
 heroImage: https://static.wixstatic.com/media/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg
-featured: true
+featured: false
 category: 'AI'
 meta: 'blog'
 ---

@@ -41,6 +41,7 @@ const Featured = () => {
                         slug: b.slug,
                         type: "ARTICLE",
                         title: b.title,
+                        heroImage: b.heroImage || null,
                         action: "Read Article",
                     })),
                     ...caseStudies.map((c) => ({
@@ -48,6 +49,7 @@ const Featured = () => {
                         slug: c.slug,
                         type: "CASE STUDY",
                         title: c.title,
+                        heroImage: c.heroImage || null,
                         action: "See the Case Study",
                     })),
                 ];
@@ -116,37 +118,60 @@ const Featured = () => {
                                                     : `/resources/article/${resource.slug}`
                                             )
                                         }
-                                        className="w-[300px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer bg-[#FFF6F4] border border-[#FFE8E2] hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col"
+                                        className="w-[300px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col relative"
                                     >
-                                        {/* Top: type tag */}
-                                        <div className="px-8 pt-8 pb-4">
-                                            <span className="section-eyebrow text-[10px] font-bold tracking-[0.2em] uppercase text-[#FF5A36]">
-                                                {resource.type}
-                                            </span>
-                                        </div>
-
-                                        {/* Middle: title — grows to fill space */}
-                                        <div className="px-8 pb-8">
-                                            <h3
-                                                className="section-title font-display font-bold text-slate-900 leading-snug"
+                                        {/* Blurred hero image background */}
+                                        {/* {resource.heroImage ? (
+                                            <>
+                                            <div
+                                                className="absolute inset-0 scale-110"
                                                 style={{
-                                                    fontSize: "clamp(1.3rem, 1rem + 1vw, 1.75rem)",
-                                                    display: "-webkit-box",
-                                                    WebkitLineClamp: 4,
-                                                    WebkitBoxOrient: "vertical",
-                                                    overflow: "hidden",
+                                                    backgroundImage: `url(${resource.heroImage})`,
+                                                    backgroundSize: 'cover',
+                                                    backgroundPosition: 'center',
+                                                    filter: 'blur(18px)',
                                                 }}
-                                            >
-                                                {resource.title}
-                                            </h3>
-                                        </div>
+                                            />
+                                            <div className="absolute inset-0 bg-white/50" />
+                                            </>
+                                        ) : (
+                                            <div className="absolute inset-0 bg-[#FFF6F4]" />
+                                        )} */}
 
-                                        {/* Bottom: action button — always flush to bottom */}
-                                        <div className="px-8 pb-8 pt-0 border-t border-[#FFE8E2] mt-auto" style={{marginTop: "auto"}}>
-                                            <button className="mt-6 bg-white text-slate-900 px-5 py-2.5 rounded-full font-bold text-sm shadow-sm border border-[#FFE8E2] group-hover:border-[#FF5A36] group-hover:text-[#FF5A36] transition-all duration-300 flex items-center gap-2">
-                                                {resource.action}
-                                                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
-                                            </button>
+                                        <div className="absolute inset-0 bg-[#FFF6F4]" />
+
+                                        {/* Card content — sits above bg layers */}
+                                        <div className="relative z-10 flex flex-col flex-1 border border-[#FFE8E2] rounded-[2rem]">
+                                            {/* Top: type tag */}
+                                            <div className="px-8 pt-8 pb-4">
+                                                <span className="section-eyebrow text-[10px] font-bold tracking-[0.2em] uppercase text-[#FF5A36]">
+                                                    {resource.type}
+                                                </span>
+                                            </div>
+
+                                            {/* Middle: title */}
+                                            <div className="px-8 pb-8">
+                                                <h3
+                                                    className="section-title font-display font-bold text-slate-900 leading-snug"
+                                                    style={{
+                                                        fontSize: "clamp(1.3rem, 1rem + 1vw, 1.75rem)",
+                                                        display: "-webkit-box",
+                                                        WebkitLineClamp: 4,
+                                                        WebkitBoxOrient: "vertical",
+                                                        overflow: "hidden",
+                                                    }}
+                                                >
+                                                    {resource.title}
+                                                </h3>
+                                            </div>
+
+                                            {/* Bottom: action button */}
+                                            <div className="px-8 pb-8 pt-0 border-t border-[#FFE8E2] mt-auto" style={{marginTop: "auto"}}>
+                                                <button className="cursor-pointer mt-6 bg-white text-slate-900 px-5 py-2.5 rounded-full font-bold text-sm shadow-sm border border-[#FFE8E2] group-hover:border-[#FF5A36] group-hover:text-[#FF5A36] transition-all duration-300 flex items-center gap-2">
+                                                    {resource.action}
+                                                    <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-1" />
+                                                </button>
+                                            </div>
                                         </div>
                                     </motion.div>
                                 ))}

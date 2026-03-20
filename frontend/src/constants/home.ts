@@ -222,6 +222,7 @@ export const playbook = {
             bgColor: "bg-indigo-50",
             lineColor: "bg-indigo-500",
             borderColor: "hover:border-indigo-200",
+            readMoreLink: ""
         },
         {
             id: "cdp",
@@ -234,6 +235,7 @@ export const playbook = {
             bgColor: "bg-cyan-50",
             lineColor: "bg-cyan-500",
             borderColor: "hover:border-cyan-200",
+            readMoreLink: ""
         },
         {
             id: "crm",
@@ -246,6 +248,7 @@ export const playbook = {
             bgColor: "bg-emerald-50",
             lineColor: "bg-emerald-500",
             borderColor: "hover:border-emerald-200",
+            readMoreLink: ""
         },
         {
             id: "data",
@@ -258,42 +261,7 @@ export const playbook = {
             bgColor: "bg-purple-50",
             lineColor: "bg-purple-500",
             borderColor: "hover:border-purple-200",
-        },
-        {
-            id: "engagement",
-            category: "Fintech",
-            title: "Accelerating User Engagement",
-            description:
-                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-            icon: "zap",
-            color: "text-[#FF5A36]",
-            bgColor: "bg-[#FF5A36]/10",
-            lineColor: "bg-[#FF5A36]",
-            borderColor: "hover:border-[#FF5A36]/30",
-        },
-        {
-            id: "engagement2",
-            category: "Fintech",
-            title: "Accelerating User Engagement",
-            description:
-                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-            icon: "zap",
-            color: "text-[#FF5A36]",
-            bgColor: "bg-[#FF5A36]/10",
-            lineColor: "bg-[#FF5A36]",
-            borderColor: "hover:border-[#FF5A36]/30",
-        },
-        {
-            id: "engagement3",
-            category: "Fintech",
-            title: "Accelerating User Engagement",
-            description:
-                "A leading Fintech platform integrated real-time personalization to deliver hyper-relevant offers, increasing overall user engagement by over 40%.",
-            icon: "zap",
-            color: "text-[#FF5A36]",
-            bgColor: "bg-[#FF5A36]/10",
-            lineColor: "bg-[#FF5A36]",
-            borderColor: "hover:border-[#FF5A36]/30",
+            readMoreLink: ""
         },
     ],
 };

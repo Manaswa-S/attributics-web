@@ -88,10 +88,6 @@
 			"description": "CleverTap"
 		},
 		{
-			"title": "Email Marketing",
-			"description": "Salesforce Marketing Cloud (SFMC)"
-		},
-		{
 			"title": "Data Warehouse",
 			"description": "EDW (Enterprise Data Warehouse)"
 		},

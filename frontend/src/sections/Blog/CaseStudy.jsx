@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
-import { caseStudies as localCaseStudies } from '../../constants/resources';
 import Block from '../../components/layout/Block';
 import { typography } from '../../constants/global';
 import { Dot, ChevronRight, CircleChevronRight } from 'lucide-react';
@@ -154,11 +153,7 @@ export default function CaseStudyDetail({ slug }) {
       } catch (err) {
         console.error(err);
       }
-      const fallback = localCaseStudies.find(
-        (study) => study.id === slug || study.slug === slug
-      );
       if (isMounted) {
-        setCaseStudy(fallback || null);
         setLoading(false);
       }
     };
@@ -168,7 +163,11 @@ export default function CaseStudyDetail({ slug }) {
 
   useEffect(() => { if (caseStudy) setLoading(false); }, [caseStudy]);
 
-  if (loading) return <div className="min-h-screen bg-white text-zinc-900 font-sans pb-24" />;
+  if (loading) return (
+    <Block xpad="stories" topMargin="medium">
+      <CaseStudyDetailSkeleton />
+    </Block>
+  );
 
   if (!caseStudy) {
     return (
@@ -398,5 +397,163 @@ export default function CaseStudyDetail({ slug }) {
         </main>
       </motion.div>
     </Block>
+  );
+}
+
+
+function CaseStudyDetailSkeleton() {
+  return (
+    <div className="min-h-screen pb-0 animate-pulse">
+
+      {/* ── Hero ── */}
+      <header className="px-12">
+        {/* Title */}
+        <div className="h-10 bg-zinc-200 rounded-xl w-3/4 mb-4" />
+        <div className="h-10 bg-zinc-200 rounded-xl w-1/2 mb-4" />
+        {/* Subtitle */}
+        <div className="h-5 bg-zinc-100 rounded-lg w-full max-w-2xl mt-4" />
+        <div className="h-5 bg-zinc-100 rounded-lg w-5/6 max-w-2xl mt-2" />
+
+        {/* Meta fields */}
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 mt-12 pt-4 border-t border-zinc-200">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="flex-1 min-w-[200px] flex flex-col items-center gap-2">
+              <div className="h-3 w-16 bg-zinc-200 rounded-full" />
+              <div className="h-4 w-24 bg-zinc-100 rounded-full" />
+            </div>
+          ))}
+        </div>
+      </header>
+
+      {/* ── Hero image ── */}
+      <div className="mt-22">
+        <div className="aspect-[16/9] md:aspect-[21/9] w-full rounded-2xl bg-zinc-100" />
+      </div>
+
+      {/* ── Body ── */}
+      <main className="mt-22 px-12">
+
+        {/* Section: Overview */}
+        <SkeletonSection />
+        <div className="flex flex-col gap-3 mt-6">
+          <div className="h-4 bg-zinc-100 rounded-lg w-full" />
+          <div className="h-4 bg-zinc-100 rounded-lg w-11/12" />
+          <div className="h-4 bg-zinc-100 rounded-lg w-4/5" />
+          <div className="h-4 bg-zinc-100 rounded-lg w-full mt-2" />
+          <div className="h-4 bg-zinc-100 rounded-lg w-2/3" />
+        </div>
+
+        {/* Section: Challenge */}
+        <div className="mt-12">
+          <SkeletonSection />
+          <SkeletonPointList rows={3} />
+        </div>
+
+        {/* Section: Solution */}
+        <div className="mt-12">
+          <SkeletonSection />
+          <SkeletonPointList rows={2} />
+        </div>
+
+        {/* Extra image */}
+        <div className="aspect-[16/9] w-full rounded-2xl bg-zinc-100 mt-12" />
+
+        {/* Section: Process */}
+        <div className="mt-12">
+          <SkeletonSection />
+          <SkeletonFlowList rows={4} />
+        </div>
+
+        {/* Impact metrics */}
+        <div className="bg-zinc-100 rounded-3xl p-12 md:p-16 mt-12">
+          <div className="h-7 bg-zinc-200 rounded-xl w-40 mx-auto mb-12" />
+          <div className="grid grid-cols-3 gap-12">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="flex flex-col items-center gap-3">
+                <div className="h-14 w-28 bg-zinc-200 rounded-xl" />
+                <div className="h-3 w-20 bg-zinc-300 rounded-full" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tech stack */}
+        <div className="mt-12">
+          <SkeletonSection />
+          <div className="flex flex-col divide-y divide-zinc-100">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="flex items-center gap-12 py-3">
+                <div className="h-3 w-28 bg-zinc-200 rounded-full shrink-0" />
+                <div className="h-3 bg-zinc-100 rounded-full flex-1" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Conclusion */}
+        <div className="border-t border-zinc-200 pt-8 mt-12">
+          <SkeletonSection />
+          <div className="flex flex-col gap-3 mt-6">
+            <div className="h-4 bg-zinc-100 rounded-lg w-full" />
+            <div className="h-4 bg-zinc-100 rounded-lg w-5/6" />
+            <div className="h-4 bg-zinc-100 rounded-lg w-full" />
+            <div className="h-4 bg-zinc-100 rounded-lg w-3/4" />
+          </div>
+        </div>
+
+      </main>
+    </div>
+  );
+}
+
+// ── Skeleton sub-components ───────────────────────────────────────────────────
+
+// Section heading row: numbered circle + label bar
+function SkeletonSection() {
+  return (
+    <div className="flex items-center gap-4 mb-10">
+      <div className="w-8 h-8 rounded-full bg-zinc-200 shrink-0" />
+      <div className="h-5 bg-zinc-200 rounded-lg w-40" />
+    </div>
+  );
+}
+
+// Chevron + two lines per row (matches PointList)
+function SkeletonPointList({ rows = 3 }) {
+  return (
+    <ul className="flex flex-col gap-8 pl-6">
+      {Array.from({ length: rows }).map((_, i) => (
+        <li key={i} className="flex gap-8">
+          <div className="w-4 h-4 bg-zinc-200 rounded shrink-0 mt-1" />
+          <div className="flex flex-col gap-2 flex-1">
+            <div className="h-4 bg-zinc-200 rounded-lg w-1/3" />
+            <div className="h-3 bg-zinc-100 rounded-lg w-full" />
+            <div className="h-3 bg-zinc-100 rounded-lg w-4/5" />
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+// Dot + dashed line connector (matches PointsFlowList)
+function SkeletonFlowList({ rows = 4 }) {
+  return (
+    <div className="flex flex-col pl-6">
+      {Array.from({ length: rows }).map((_, i) => (
+        <div key={i} className="flex gap-8">
+          <div className="flex flex-col items-center shrink-0 w-6">
+            <div className="w-2.5 h-2.5 rounded-full bg-zinc-300 mt-1.5 shrink-0" />
+            {i !== rows - 1 && <div className="w-[2px] flex-1 bg-zinc-200 mt-1" />}
+          </div>
+          <div className={`flex flex-col gap-2 flex-1 ${i !== rows - 1 ? 'pb-8' : ''}`}>
+            <div className="h-3 w-6 bg-zinc-200 rounded-full" />
+            <div className="h-4 bg-zinc-200 rounded-lg w-1/3" />
+            <div className="h-3 bg-zinc-100 rounded-lg w-full" />
+            <div className="h-3 bg-zinc-100 rounded-lg w-3/4" />
+          </div>
+        </div>
+      ))}
+    </div>
   );
 }

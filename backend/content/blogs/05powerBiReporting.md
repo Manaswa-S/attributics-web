@@ -1,15 +1,14 @@
 ---
 title: "A Simplified Way To PowerBi Reporting Using Parameterised Queries : A QSR Use Case"
-subtitle: ""
-publishedAt: "2025-07-23"
-readTime: "3 min read"
+subtitle: "Using parameterized queries in Power BI to build faster, dynamic dashboards on large-scale data"
+publishedAt: "2025-05-26"
+readTime: "4 min read"
 author:
-  name: "Vakesh Singh"
-  role: ""
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  name: "Aniket Pholane"
+  avatar: AniketP.png
 heroImage: https://static.wixstatic.com/media/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg
 featured: false
-category: 'AI'
+category: 'Data Analytics'
 meta: 'blog'
 ---
 

@@ -1,14 +1,14 @@
 ---
 title: "The Role of Agentic AI in Email Marketing: Your New Marketing Sidekick (That Never Takes a Coffee Break)"
-subtitle: ""
-publishedAt: "2025-07-23"
-readTime: "3 min read"
+subtitle: "How Agentic AI automates, personalizes, and optimizes email campaigns end-to-end"
+publishedAt: "2025-05-28"
+readTime: "4 min read"
 author:
-  name: "Vakesh Singh"
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  name: "Saumya Sharma"
+  avatar: "SaumyaS.png"
 heroImage: https://static.wixstatic.com/media/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg
 featured: false
-category: 'AI'
+category: 'Agentic AI'
 meta: 'blog'
 ---
 

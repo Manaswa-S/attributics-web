@@ -68,8 +68,10 @@ const Featured = () => {
 
     return (
         <>
-            <Block xpad="medium" topMargin="large">
-                <section className="container mb-16">
+            <Block xpad="medium" topMargin="medium">
+                {/* <div className="xl:h-screen"> */}
+
+                <section className="mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -85,7 +87,7 @@ const Featured = () => {
                     </motion.div>
                 </section>
 
-                <section className="container relative">
+                <section className="relative">
                     {loading && (
                         <div className="flex justify-center py-24">
                             <div className="w-6 h-6 rounded-full border-2 border-[#FF5A36] border-t-transparent animate-spin" />
@@ -121,7 +123,7 @@ const Featured = () => {
                                         className="w-[300px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col relative"
                                     >
                                         {/* Blurred hero image background */}
-                                        {/* {resource.heroImage ? (
+                                        {resource.heroImage ? (
                                             <>
                                             <div
                                                 className="absolute inset-0 scale-110"
@@ -136,9 +138,9 @@ const Featured = () => {
                                             </>
                                         ) : (
                                             <div className="absolute inset-0 bg-[#FFF6F4]" />
-                                        )} */}
+                                        )}
 
-                                        <div className="absolute inset-0 bg-[#FFF6F4]" />
+                                        {/* <div className="absolute inset-0 bg-[#FFF6F4]" /> */}
 
                                         {/* Card content — sits above bg layers */}
                                         <div className="relative z-10 flex flex-col flex-1 border border-[#FFE8E2] rounded-[2rem]">
@@ -179,6 +181,7 @@ const Featured = () => {
                         </>
                     )}
                 </section>
+                {/* </div> */}
             </Block>
         </>
     );

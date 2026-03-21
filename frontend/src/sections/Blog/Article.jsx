@@ -61,7 +61,7 @@ const BlogSection = ({ slug }) => {
             <div className="flex items-center gap-3 mb-4 flex-wrap justify-center">
               {blog.author?.avatar && (
                 <img
-                  src={blog.author.avatar}
+                  src={`/src/assets/team/${blog.author.avatar}`}
                   alt={blog.author.name}
                   className="w-7 h-7 rounded-full object-cover"
                 />

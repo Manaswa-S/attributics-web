@@ -1,14 +1,14 @@
 ---
 title: "The Natural Selection — CDP Stack."
-subtitle: ""
-publishedAt: "2025-07-23"
-readTime: "3 min read"
+subtitle: "How composable CDPs are replacing traditional platforms with modular, warehouse-first data architectures"
+publishedAt: "2025-05-02"
+readTime: "6 min read"
 author:
-  name: "Vakesh Singh"
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  name: "Vishal Agarwal"
+  avatar: VishalA.png
 heroImage: https://static.wixstatic.com/media/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png
 featured: false
-category: 'AI'
+category: 'Data Engineering'
 meta: 'blog'
 ---
 

@@ -1,11 +1,11 @@
 ---
 title: "The Role of Agentic AI in WhatsApp Marketing: From Broadcasts to Brilliant Conversations"
-subtitle: "Why disciplined, lean event tracking beats bloated schemas"
-publishedAt: "2025-07-23"
-readTime: "3 min read"
+subtitle: "How Agentic AI transforms WhatsApp marketing into personalized, real-time conversations that drive conversions"
+publishedAt: "2025-06-24"
+readTime: "4 min read"
 author:
-  name: "Vakesh Singh"
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  name: "Aniya Kulkarni"
+  avatar: "AniyaK.png"
 heroImage: https://static.wixstatic.com/media/9e275a_8a26f7a5e3e34003a0728e52a1710aa7~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_8a26f7a5e3e34003a0728e52a1710aa7~mv2.png
 featured: false
 category: 'Agentic AI'

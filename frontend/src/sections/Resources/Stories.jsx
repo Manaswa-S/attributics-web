@@ -97,7 +97,7 @@ const Stories = () => {
                                             </div>
                                             <div className="p-8 flex flex-col flex-grow">
                                                 <div className="flex items-center justify-between mb-4">
-                                                    <span className="text-[10px] font-bold tracking-widest uppercase text-[#FF5A36] bg-[#FF5A36]/10 px-3 py-1 rounded-full">
+                                                    <span className="text-[10px] font-bold tracking-widest uppercase text-brand bg-brand/10 px-3 py-1 rounded-full">
                                                         {study.industry}
                                                     </span>
                                                 </div>

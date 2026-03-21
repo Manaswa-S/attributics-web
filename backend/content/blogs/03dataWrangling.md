@@ -1,14 +1,14 @@
 ---
-title: "Data isn’t just growing — it’s exploding. But wrangling it shouldn’t feel like rocket science. That’s where the Modern Data Stack comes in."
-subtitle: "But wrangling it shouldn’t feel like rocket science. That’s where the Modern Data Stack comes in."
-publishedAt: "2025-07-23"
-readTime: "3 min read"
+title: "Modern Data Stack Explained: From Ingestion to Insights"
+subtitle: "A beginner-friendly breakdown of the Modern Data Stack and how its layers power reliable data pipelines"
+publishedAt: "2025-06-06"
+readTime: "5 min read"
 author:
-  name: "Vakesh Singh"
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  name: "Shreya Mehta"
+  avatar: "ShreyaM.png"
 heroImage: https://static.wixstatic.com/media/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg
 featured: true
-category: 'AI'
+category: 'Data Engineering'
 meta: 'blog'
 ---
 

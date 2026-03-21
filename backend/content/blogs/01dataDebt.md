@@ -1,14 +1,14 @@
 ---
 title: "Data Debt in D2C Brands: Why Clean Tracking Wins"
-subtitle: "Why disciplined, lean event tracking beats bloated schemas"
-publishedAt: "2025-07-23"
+subtitle: "How poor event schema design quietly breaks personalization, analytics, and growth"
+publishedAt: "2025-07-21"
 readTime: "3 min read"
 author:
   name: "Vakesh Singh"
-  avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Salmanrampwalk.png/250px-Salmanrampwalk.png
+  avatar: "VakeshS.png"
 heroImage: https://static.wixstatic.com/media/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png
 featured: true
-category: 'AI'
+category: 'Data Engineering'
 meta: 'blog'
 ---
 

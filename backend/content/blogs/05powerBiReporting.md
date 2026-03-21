@@ -5,7 +5,7 @@ publishedAt: "2025-05-26"
 readTime: "4 min read"
 author:
   name: "Aniket Pholane"
-  avatar: AniketP.png
+  avatar: "AniketP"
 heroImage: https://static.wixstatic.com/media/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg
 featured: false
 category: 'Data Analytics'

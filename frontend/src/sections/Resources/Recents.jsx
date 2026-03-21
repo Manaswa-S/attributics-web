@@ -4,6 +4,7 @@ import { Clock, Calendar } from "lucide-react";
 import Block from "../../components/layout/Block";
 import { typography } from "../../constants/global";
 import { useNavigate } from "react-router-dom";
+import { authorAvatars } from "../../constants/resources";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -130,7 +131,7 @@ const Recents = () => {
                                     {/* Author row */}
                                     <div className="flex items-center gap-3 pt-4 border-t border-slate-100 mt-0">
                                         <img
-                                            src={`/src/assets/team/${article.author?.avatar}`}
+                                            src={authorAvatars[article.author.avatar]}
                                             alt={article.author?.name}
                                             className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover flex-shrink-0"
                                         />

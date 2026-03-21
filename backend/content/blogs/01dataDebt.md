@@ -5,7 +5,7 @@ publishedAt: "2025-07-21"
 readTime: "3 min read"
 author:
   name: "Vakesh Singh"
-  avatar: "VakeshS.png"
+  avatar: "VakeshS"
 heroImage: https://static.wixstatic.com/media/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png
 featured: true
 category: 'Data Engineering'

@@ -5,7 +5,7 @@ publishedAt: "2025-05-02"
 readTime: "6 min read"
 author:
   name: "Vishal Agarwal"
-  avatar: VishalA.png
+  avatar: "VishalA"
 heroImage: https://static.wixstatic.com/media/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png
 featured: false
 category: 'Data Engineering'

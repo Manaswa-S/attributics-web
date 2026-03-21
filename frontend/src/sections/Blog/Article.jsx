@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Block from "../../components/layout/Block/Block";
 import { motion } from 'motion/react';
+import { authorAvatars } from "../../constants/resources";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -61,7 +62,7 @@ const BlogSection = ({ slug }) => {
             <div className="flex items-center gap-3 mb-4 flex-wrap justify-center">
               {blog.author?.avatar && (
                 <img
-                  src={`/src/assets/team/${blog.author.avatar}`}
+                  src={authorAvatars[blog.author.avatar]}
                   alt={blog.author.name}
                   className="w-7 h-7 rounded-full object-cover"
                 />

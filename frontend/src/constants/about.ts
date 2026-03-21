@@ -68,6 +68,8 @@ import AniyaK from '../assets/team/AniyaK.png';
 import SaiR from '../assets/team/SaiR.png';
 import VaishnaviR from '../assets/team/VaishnaviR.png';
 import GauravB from '../assets/team/GauravB.png';
+import AkashS from '../assets/team/AkashS.png';
+import KanishkaD from '../assets/team/KanishkaD.png';
 
 import PlaceHolder from '../assets/team/placeholder.png';
 
@@ -158,7 +160,7 @@ export const team = {
             fname: 'Akash',
             lname: 'Sahu',
             role: 'Technology',
-            img: PlaceHolder,
+            img: AkashS,
         },
         {
             id: 13,
@@ -186,7 +188,7 @@ export const team = {
             fname: 'Kaniska',
             lname: 'Deshmukh',
             role: 'Operations',
-            img: PlaceHolder,
+            img: KanishkaD,
         },
         {
             id: 17,

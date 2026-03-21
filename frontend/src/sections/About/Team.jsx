@@ -50,7 +50,7 @@ const Team = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                 >
-                    <LeadershipTeam teamMembers={team.members} />
+                    <LeadershipTeam2 teamMembers={team.members} />
                 </motion.div>
             </section>
         </Block>
@@ -60,7 +60,7 @@ const Team = () => {
 function LeadershipTeam({ teamMembers }) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
-            align: 'start',
+            align: 'center',
             loop: true,
             dragFree: false,
         },
@@ -101,18 +101,17 @@ function LeadershipTeam({ teamMembers }) {
     return (
         <div className="overflow-hidden w-full  mask-fade-x" ref={emblaRef}  style={{"--fade": "10px"}}>
             {/* lt-cards */}
-            <div className="flex flex-row gap-4 pb-[32px] pt-[32px]">
+            <div className="flex flex-row pb-[32px] pt-[32px]" >
                 {teamMembers.map((member, idx) => {
                     const isActive = !isMobile || idx === activeIndex;
                     return (
                         // lt-card
                         <motion.div 
                             key={idx}
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0.9, x: 3 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            className="min-w-[280px] md:min-w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
+                            transition={{ duration: 0.5}}
+                            className="mr-4 w-[280px] md:w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
                         >
                             <div className="flex justify-between items-start z-10 relative">
                                 <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
@@ -142,5 +141,56 @@ function LeadershipTeam({ teamMembers }) {
         </div>
     );
 }
+function LeadershipTeam2({ teamMembers }) {
+    const [emblaRef, emblaApi] = useEmblaCarousel(
+        { align: 'start', loop: true, dragFree: true },
+        [Autoplay({ delay: 2000, stopOnMouseEnter: true, stopOnInteraction: false }),WheelGestures({ forceWheelAxis: 'x', wheelSpeed: 1 })]
+    );
 
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        if (!emblaApi) return;
+        const update = () => setActiveIndex(emblaApi.selectedScrollSnap());
+        emblaApi.on('select', update);
+        return () => emblaApi.off('select', update);
+    }, [emblaApi]);
+
+    return (
+        <div className="overflow-hidden w-full mask-fade-x" ref={emblaRef} style={{ '--fade': '10px' }}>
+            <div className="flex pb-[32px] pt-[32px]">
+                {teamMembers.map((member, idx) => (
+                    <div
+                        key={idx}
+                        className="mr-4 w-[280px] md:w-[320px] h-[420px] shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
+                    >
+                        <div className="flex justify-between items-start z-10 relative">
+                            <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
+                                {member.fname}<br />
+                                {member.lname}
+                            </h3>
+                            <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
+                                {member.role}
+                            </span>
+                        </div>
+
+                        <div className="absolute inset-x-0 bottom-0 top-22">
+                            <img
+                                src={member.img}
+                                alt={member.name}
+                                loading="eager"
+                                className={`w-full h-full object-cover object-top mix-blend-multiply transition-all duration-500
+                                    grayscale group-hover:grayscale-0
+                                    md:grayscale md:group-hover:grayscale-0
+                                    ${idx === activeIndex ? 'grayscale-0' : 'grayscale'}
+                                `}
+                                referrerPolicy="no-referrer"
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
 export default Team;

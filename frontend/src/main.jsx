@@ -1,3 +1,8 @@
+if (import.meta.env.PROD) {
+  console.warn = () => {};
+  console.clear();
+}
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles/index.css';

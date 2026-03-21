@@ -3,6 +3,7 @@ import { audit } from '../../constants/contact';
 import { motion } from 'motion/react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import CalCom from '../../components/CalCom/CalCom';
+import { typography } from '../../constants/global';
 
 const ContactForm = () => {
     return (
@@ -30,6 +31,7 @@ const ContactForm = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
+                        style={typography.title.XXL}
                     >
                         {audit.headline}{' '}
                         <span className='highlight'>{audit.highlighted}</span>
@@ -40,6 +42,7 @@ const ContactForm = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
+                        style={typography.desc.Small}
                     >
                         {audit.description}
                     </motion.p>
@@ -63,7 +66,7 @@ const ContactForm = () => {
                                 transition={{ duration: 0.4, delay: 0.5 + (index * 0.1) }}
                             >
                                 <item.Icon size={18} className='text-brand' />
-                                <p className='section-description'>{item.text}</p>
+                                <p className='section-description' style={typography.desc.Small}>{item.text}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -82,10 +85,10 @@ const ContactForm = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.4, delay: 0.9 + (index * 0.1) }}
                             >
-                                <p className='section-title' style={{fontSize: '2.5rem'}}>
+                                <p className='section-title' style={typography.title.LG}>
                                     <span className=''>{metric.value}{metric.unit}</span>
                                 </p>
-                                <p className='section-description'>
+                                <p className='section-description' style={typography.desc.Small}>
                                     {metric.tagline}
                                 </p>
                             </motion.div>

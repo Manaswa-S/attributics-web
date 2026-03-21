@@ -98,9 +98,7 @@ const CTA = () => {
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                     className="w-full flex flex-col"
                 >
-                    <div className="flex-1">
-                        <CalCom />
-                    </div>
+                    <CalCom />
                 </motion.div>
                 
             </section>

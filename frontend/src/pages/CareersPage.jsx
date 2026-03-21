@@ -16,13 +16,13 @@ const HomePage = () => {
         <main>
         <Suspense fallback={<GlobalLoader />}>
             <SendCV />
-            <WhiteSpace height={reducedWhiteSpaceHeight} />
+            <WhiteSpace height={whiteSpaceHeight} />
 
             <Culture />
             <WhiteSpace height={whiteSpaceHeight} />
 
             <LogoCloud />
-            <WhiteSpace height={whiteSpaceHeight} />
+            <WhiteSpace height={reducedWhiteSpaceHeight} />
 
             <ReachOut />
             <WhiteSpace height={reducedWhiteSpaceHeight} />

@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown, Upload, CheckCircle, Signature } from "lucide-
 import Block from "../../components/layout/Block";
 import { formEndpoints } from "../../constants/contact";
 import { typography } from "../../constants/global";
+import { sendCV } from "../../constants/careers";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -124,18 +125,18 @@ const SendCV = () => {
         <>
             <Block xpad="small" topMargin="medium">
                 {/* Jobs Section */}
-                <section className="container mx-auto px-1 max-w-4xl mb-24 sm:mb-32">
+                <section className="mx-auto px-1 max-w-4xl">
                     <div className="text-center mb-6">
-                        <span className="section-eyebrow mb-4 block">What are you waiting for?</span>
+                        <span className="section-eyebrow mb-4 block">{sendCV.eyebrow}</span>
                         <h2
                             className="section-title"
                             style={typography.title.XXL}
                         >
-                            Interested in Joining <span className="highlight">Us?</span>
+                            {sendCV.title}{' '}<span className="highlight">{sendCV.highlighted}</span>
                         </h2>
                     </div>
 
-                    <div className="bg-white p-4 sm:p-4 md:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+                    <div className="bg-[#f7f7f7] p-4 sm:p-4 md:p-10 rounded-[1.5rem] sm:rounded-[2rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
                         <div className="flex flex-col gap-5 sm:gap-6">
 
                             {/* Role Field */}

@@ -31,7 +31,7 @@ const LogoCloud = () => {
                         {logoCloud.eyebrow}
                     </p>
 
-                    <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '20px', backgroundColor: '' }}
+                    <div className="w-full overflow-hidden mask-fade-x" style={{ '--fade': '10px', backgroundColor: '' }}
                     >
                         {LogoMarqueeRow(logoCloud.clients)}
                     </div>

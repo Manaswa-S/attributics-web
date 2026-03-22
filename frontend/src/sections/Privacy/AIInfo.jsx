@@ -84,7 +84,7 @@ const sections = [
                 {/* Header */}
                 <div className="mb-4 pb-0 border-b border-slate-200">
                     <h1 className="section-title mb-2" style={typography.title.XXL}>
-                        Privacy Policy For Attributics
+                        Information about Attributics for AI
                     </h1>
                 </div>
         

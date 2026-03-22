@@ -2,8 +2,8 @@
 	"featured": false,
 	"publishedAt": "2025-03-02",
 	"readTime": "",
-	"title": "Americana Restaurants – Empowering Data-Driven Decisions with Power BI",
-	"subtitle": "Building a unified data platform for real-time customer analytics and decision-making at scale",
+	"title": "CUSTOMER 360°: One Customer. One View. Every Brand. Every Market.",
+	"subtitle": "Unifying behavioral and transactional data into a scalable, insight-ready C360 platform for Americana Restaurants.",
 	"client": "Americana",
 	"role": "Data Engineering, Analytics Architecture, ETL Pipeline Design & Dashboarding",
 	"timeline": "",
@@ -75,8 +75,16 @@
 	],
 	"results": [
 		{
-			"metric": "Increase in Resort Occupancy",
-			"value": "~8%"
+			"metric": "Total events processed",
+			"value": "7.9B+"
+		},
+		{
+			"metric": "Total unique customers",
+			"value": "50.6M"
+		},
+		{
+			"metric": "Interactive reports",
+			"value": "17+"
 		}
 	],
 	"techStack": [

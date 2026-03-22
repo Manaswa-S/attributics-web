@@ -765,8 +765,169 @@ app.post(
   }
 );
 
+
+// ─── Assets ────────────────────────────────────────────────────────────────────
+
+const ASSETS_ROOT = path.join(__dirname, "content", "assets");
+
+// Known collection folders under /assets — extend as needed
+const COLLECTION_MAP = {
+  "case-studies": "caseStudies",
+  "casestudies":  "caseStudies",
+  "blogs":        "blogs",
+  "articles":     "blogs",
+};
+
+// ── Client/slug folder matching ───────────────────────────────────────────────
+
+/**
+ * Normalises a string for comparison:
+ * lower-case, strip non-alphanumeric, collapse whitespace/hyphens to single space.
+ */
+function normalise(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Levenshtein distance between two strings.
+ */
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, (_, i) =>
+    Array.from({ length: n + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0))
+  );
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1]
+        : 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+    }
+  }
+  return dp[m][n];
+}
+
+/**
+ * Finds the best-matching subfolder name inside `parentDir` for a given query.
+ *
+ * Strategy (in order of preference):
+ *   1. Exact match (case-insensitive)
+ *   2. Normalised exact match (strips punctuation/hyphens)
+ *   3. Fuzzy match via Levenshtein — accepted only if distance ≤ threshold
+ *
+ * Returns the matched folder name, or null if no acceptable match found.
+ *
+ * @param {string} parentDir  - Absolute path of the directory to search in
+ * @param {string} query      - The slug/name from the request URL
+ * @param {number} threshold  - Max Levenshtein distance to accept a fuzzy match
+ */
+function resolveSubfolder(parentDir, query, threshold = 3) {
+  let entries;
+  try {
+    entries = fs.readdirSync(parentDir, { withFileTypes: true })
+      .filter(e => e.isDirectory())
+      .map(e => e.name);
+  } catch {
+    return null;
+  }
+
+  // 1. Case-insensitive exact
+  const lower = query.toLowerCase();
+  const exactCI = entries.find(e => e.toLowerCase() === lower);
+  if (exactCI) return exactCI;
+
+  // 2. Normalised exact (strips hyphens, underscores, extra spaces)
+  const normQuery = normalise(query);
+  const exactNorm = entries.find(e => normalise(e) === normQuery);
+  if (exactNorm) return exactNorm;
+
+  // 3. Fuzzy — pick lowest distance within threshold
+  let best = null, bestDist = Infinity;
+  for (const entry of entries) {
+    const dist = levenshtein(normQuery, normalise(entry));
+    if (dist < bestDist) { bestDist = dist; best = entry; }
+  }
+
+  if (best && bestDist <= threshold) return best;
+  return null;
+}
+
+// ── Security: path traversal guard ───────────────────────────────────────────
+
+/**
+ * Ensures `resolvedPath` is strictly inside `root`.
+ * Prevents directory traversal via ../../ etc.
+ */
+function isUnderRoot(root, resolvedPath) {
+  const rel = path.relative(root, resolvedPath);
+  return !rel.startsWith("..") && !path.isAbsolute(rel);
+}
+
+// ── Route ─────────────────────────────────────────────────────────────────────
+
+/**
+ * GET /assets/:collection/:clientSlug/:filename
+ *
+ * Examples:
+ *   /assets/case-studies/americana/0.png
+ *   /assets/blogs/how-we-built-x/hero.jpg
+ *
+ * - :collection   maps to a known folder via COLLECTION_MAP
+ * - :clientSlug   is matched fuzzy+case-insensitive against subfolders
+ * - :filename     can include subdirectory segments (Express wildcard)
+ */
+app.get("/assets/:collection/:clientSlug/*path", (req, res) => {
+  const { collection, clientSlug } = req.params;
+  // Express puts the wildcard remainder in req.params[0]
+  const filename = req.params.path[0];
+
+  // 1. Resolve collection folder
+  const collectionFolder = COLLECTION_MAP[collection.toLowerCase()];
+  if (!collectionFolder) {
+    console.error(`[assets] unknown collection requested → "${collection}"`);
+    return res.status(404).json({ error: "Unknown asset collection." });
+  }
+
+  const collectionDir = path.join(ASSETS_ROOT, collectionFolder);
+
+  // 2. Resolve client/slug subfolder (fuzzy)
+  const matchedFolder = resolveSubfolder(collectionDir, clientSlug);
+  if (!matchedFolder) {
+    console.error(`[assets] no matching subfolder for "${clientSlug}" in "${collectionFolder}"`);
+    return res.status(404).json({ error: "Asset folder not found." });
+  }
+
+  // 3. Build and sanitise final path
+  console.log(filename);
+  const resolvedPath = path.join(collectionDir, matchedFolder, filename);
+
+  if (!isUnderRoot(ASSETS_ROOT, resolvedPath)) {
+    console.error(`[assets] path traversal attempt blocked → "${resolvedPath}"`);
+    return res.status(403).json({ error: "Forbidden." });
+  }
+
+  // 4. Check file exists
+  if (!fs.existsSync(resolvedPath) || fs.statSync(resolvedPath).isDirectory()) {
+    console.error(`[assets] file not found → "${resolvedPath}"`);
+    return res.status(404).json({ error: "Asset not found." });
+  }
+
+  // 5. Serve — Express sets Content-Type from extension automatically
+  res.sendFile(resolvedPath, (err) => {
+    if (err) {
+      console.error(`[assets] failed to send file → "${resolvedPath}"`, err);
+      if (!res.headersSent) res.status(500).json({ error: "Failed to serve asset." });
+    }
+  });
+});
+
 // ─── Start ────────────────────────────────────────────────────────────────────
 const port = Number(process.env.PORT) || 3000;
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
+
+

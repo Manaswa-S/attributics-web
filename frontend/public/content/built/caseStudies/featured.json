@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "gynoveda-marketing-journey-migration",
+    "featured": true,
+    "publishedAt": "",
+    "readTime": null,
+    "title": "Gynoveda — Marketing Journey Migration",
+    "subtitle": "Migrating and rebuilding multi-channel lifecycle journeys with zero disruption and full compliance",
+    "client": "Gynoveda",
+    "role": "Lifecycle Marketing Engineering, Journey Migration, QA & Automation",
+    "timeline": "",
+    "platform": "Growlytics → MoEngage Migration",
+    "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  },
+  {
+    "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
+    "featured": true,
+    "publishedAt": "",
+    "readTime": null,
+    "title": "Truva – From Fragmented CRM Data to Unified Customer Engagement through Zoho–Netcore Integration",
+    "subtitle": "Building a scalable, event-driven data pipeline to unify CRM and marketing automation systems",
+    "client": "Truva",
+    "role": "Zoho CRM & Netcore Cloud Unified Data Synchronization",
+    "timeline": "",
+    "platform": "Zoho CRM + Netcore Cloud + AWS",
+    "industry": "Real Estate",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  }
+]

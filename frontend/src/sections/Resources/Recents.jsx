@@ -23,9 +23,10 @@ const Recents = () => {
     useEffect(() => {
         const fetchRecent = async () => {
             try {
-                const res = await fetch(`${API_URL}/api/blogs/recent`);
+                const res = await fetch("/content/built/blogs/recent.json");
                 if (!res.ok) throw new Error(`Failed to fetch recent blogs (${res.status})`);
                 const data = await res.json();
+                console.log(data);
                 setArticles(data);
             } catch (err) {
                 console.error(err);
@@ -34,7 +35,7 @@ const Recents = () => {
                 setLoading(false);
             }
         };
-
+    
         fetchRecent();
     }, []);
 

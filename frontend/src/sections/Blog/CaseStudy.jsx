@@ -144,7 +144,7 @@ export default function CaseStudyDetail({ slug }) {
     let isMounted = true;
     const fetchCaseStudy = async () => {
       try {
-        const res = await fetch(`${API_URL}/api/case-studies/${slug}`);
+        const res = await fetch(`/content/built/caseStudies/slugs/${slug}.json`);
         if (res.ok) {
           const data = await res.json();
           if (isMounted) setCaseStudy(data);

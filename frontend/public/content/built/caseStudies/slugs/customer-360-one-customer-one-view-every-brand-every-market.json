@@ -1,0 +1,124 @@
+{
+  "featured": false,
+  "publishedAt": "2025-03-02",
+  "readTime": "",
+  "title": "CUSTOMER 360°: One Customer. One View. Every Brand. Every Market.",
+  "subtitle": "Unifying behavioral and transactional data into a scalable, insight-ready C360 platform for Americana Restaurants.",
+  "client": "Americana",
+  "role": "Data Engineering, Analytics Architecture, ETL Pipeline Design & Dashboarding",
+  "timeline": "",
+  "platform": "Azure Data Platform + Databricks + Power BI",
+  "industry": "FoodTech / QSR",
+  "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+  "overview": [
+    "Americana Restaurants is the largest restaurant operator in the MENA region and Kazakhstan, managing a vast network of restaurants. With customer data streaming from various channels, including in-store POS systems and mobile/web applications, Americana faced significant challenges in converting this data into actionable insights. The data was fragmented across different platforms, making it difficult to get a comprehensive view of customer behavior and drive effective decision-making.",
+    "Attributics partnered with Americana to build a unified, scalable analytics platform, transforming data into insights that empower all teams to make faster, data-driven decisions. The solution leveraged a combination of Azure Blob Storage, Databricks, Power BI, and other modern data tools to create an efficient, end-to-end analytics solution.",
+    "The primary goal of the project was to gain a deeper understanding of customer behavior across brand markets and shift the conversation from sales to customer-centric insights. Americana aimed to leverage these insights to improve marketing effectiveness, increase profitability, and enhance customer engagement."
+  ],
+  "challenge": [
+    {
+      "subtitle": "Data Silos",
+      "description": "Valuable customer transaction and behavioral data was spread across multiple platforms (CleverTap, in-store systems), limiting the ability to perform a holistic analysis of customer journeys."
+    },
+    {
+      "subtitle": "Lack of Descriptive Dashboards",
+      "description": "There were no intuitive visualizations of customer patterns or behaviors that could support data-driven marketing decisions."
+    },
+    {
+      "subtitle": "Need for Advanced Analysis",
+      "description": "Americana needed a solution that could handle complex customer segmentation by factors like purchase frequency, channel preferences, and reactivation rates."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "Unified Data Lake Architecture",
+      "description": "Designed a scalable data pipeline using Azure Blob Storage, Databricks, and Delta Tables to centralize and process data from multiple sources into a single analytics platform."
+    },
+    {
+      "subtitle": "End-to-End ETL Pipeline",
+      "description": "Implemented ETL processes in Databricks to cleanse, transform, and enrich raw data, making it analytics-ready and consistent across all sources."
+    },
+    {
+      "subtitle": "Power BI Analytics Layer",
+      "description": "Built dynamic dashboards in Power BI using DirectQuery and Import modes to enable both real-time and historical reporting."
+    },
+    {
+      "subtitle": "Advanced Customer Analytics",
+      "description": "Enabled cohort analysis, retention tracking, cross-channel behavior insights, and segmentation based on frequency, reactivation, and engagement patterns."
+    },
+    {
+      "subtitle": "Self-Service Business Intelligence",
+      "description": "Empowered business and marketing teams with interactive dashboards, reducing dependency on manual reporting and enabling faster, data-driven decisions."
+    }
+  ],
+  "process": [
+    {
+      "title": "Data Ingestion (Bronze Layer)",
+      "description": "Ingested raw data from CleverTap and POS systems (SDM) into Azure Blob Storage in CSV format, establishing a centralized raw data repository."
+    },
+    {
+      "title": "Data Processing & Transformation (Silver Layer)",
+      "description": "Used Databricks to perform ETL operations, cleaning, transforming, and enriching data. Stored processed data in Delta Tables for optimized querying and scalability."
+    },
+    {
+      "title": "Data Modeling & Storage",
+      "description": "Structured data into Delta Lake format to enable ACID transactions, time travel, and efficient large-scale analytics."
+    },
+    {
+      "title": "Analytics & Visualization (Gold Layer)",
+      "description": "Connected Power BI to Databricks using DirectQuery for real-time insights and Import mode for historical analysis. Built dashboards for cross-channel, cross-brand, retention, and engagement metrics."
+    },
+    {
+      "title": "Business Enablement",
+      "description": "Delivered self-service dashboards enabling teams to analyze customer behavior, track KPIs, and make faster, data-driven decisions without manual intervention."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Total events processed",
+      "value": "7.9B+"
+    },
+    {
+      "metric": "Total unique customers",
+      "value": "50.6M"
+    },
+    {
+      "metric": "Interactive reports",
+      "value": "17+"
+    }
+  ],
+  "techStack": [
+    {
+      "title": "Data Storage",
+      "description": "Azure Blob Storage (CSV ingestion, Bronze layer)"
+    },
+    {
+      "title": "Data Processing & ETL",
+      "description": "Databricks (ETL pipelines, data transformation)"
+    },
+    {
+      "title": "Data Lakehouse",
+      "description": "Delta Tables (ACID transactions, time travel, scalable analytics)"
+    },
+    {
+      "title": "Data Format",
+      "description": "Parquet (columnar storage for performance and efficiency)"
+    },
+    {
+      "title": "Analytics & Visualization",
+      "description": "Power BI (DirectQuery for real-time, Import mode for historical reporting)"
+    },
+    {
+      "title": "Data Sources",
+      "description": "CleverTap, POS Systems (SDM), Mobile & Web Applications"
+    }
+  ],
+  "conclusion": [
+    "This project enabled Americana Restaurants to unlock the potential of its data, transforming it into valuable insights that drive customer-centric strategies. By integrating and processing data in a unified analytics platform, Americana was able to shift from siloed reporting to a more holistic view of customer behavior, ultimately empowering teams to make data-driven decisions that improved marketing effectiveness and business profitability."
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+  ],
+  "slug": "customer-360-one-customer-one-view-every-brand-every-market"
+}

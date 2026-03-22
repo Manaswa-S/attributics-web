@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node src/scripts/buildBlogs.js && node src/scripts/buildCaseStudies.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -18,8 +18,10 @@
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "embla-carousel-wheel-gestures": "^8.1.0",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.14.2",
     "lucide-react": "^0.575.0",
+    "marked": "^17.0.5",
     "motion": "^12.34.3",
     "react": "^19.2.0",
     "react-countup": "^6.5.3",

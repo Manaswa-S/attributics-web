@@ -7,7 +7,6 @@ import { ArrowLeft } from "lucide-react";
 
 const Article = lazy(() => import("../sections/Blog/Article"));
 const CaseStudy = lazy(() => import("../sections/Blog/CaseStudy"));
-const Preview = lazy(() => import("../sections/Blog/PreviewInput/PreviewInput"));
 
 const BlogPage = () => {
   const { slug } = useParams();
@@ -35,7 +34,7 @@ const BlogPage = () => {
       <main style={{ overflow: "hidden" }}>
         <Suspense fallback={<GlobalLoader />}>
           {isPreview ? (
-            <Preview />
+            <></>
           ) : caseStudyMatch ? (
             <CaseStudy slug={slug} />
           ) : (

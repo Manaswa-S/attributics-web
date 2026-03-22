@@ -1,0 +1,107 @@
+[
+  {
+    "slug": "data-debt-in-d2c-brands-why-clean-tracking-wins",
+    "title": "Data Debt in D2C Brands: Why Clean Tracking Wins",
+    "subtitle": "How poor event schema design quietly breaks personalization, analytics, and growth",
+    "author": {
+      "name": "Vakesh Singh",
+      "avatar": "VakeshS"
+    },
+    "publishedAt": "2025-07-21",
+    "readTime": "3 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png",
+    "featured": true,
+    "category": "Data Engineering",
+    "meta": "blog"
+  },
+  {
+    "slug": "the-role-of-agentic-ai-in-whatsapp-marketing-from-broadcasts-to-brilliant-conversations",
+    "title": "The Role of Agentic AI in WhatsApp Marketing: From Broadcasts to Brilliant Conversations",
+    "subtitle": "How Agentic AI transforms WhatsApp marketing into personalized, real-time conversations that drive conversions",
+    "author": {
+      "name": "Aniya Kulkarni",
+      "avatar": "AniyaK"
+    },
+    "publishedAt": "2025-06-24",
+    "readTime": "4 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_8a26f7a5e3e34003a0728e52a1710aa7~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_8a26f7a5e3e34003a0728e52a1710aa7~mv2.png",
+    "featured": false,
+    "category": "Agentic AI",
+    "meta": "blog"
+  },
+  {
+    "slug": "modern-data-stack-explained-from-ingestion-to-insights",
+    "title": "Modern Data Stack Explained: From Ingestion to Insights",
+    "subtitle": "A beginner-friendly breakdown of the Modern Data Stack and how its layers power reliable data pipelines",
+    "author": {
+      "name": "Shreya Mehta",
+      "avatar": "ShreyaM"
+    },
+    "publishedAt": "2025-06-06",
+    "readTime": "5 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg",
+    "featured": true,
+    "category": "Data Engineering",
+    "meta": "blog"
+  },
+  {
+    "slug": "the-role-of-agentic-ai-in-email-marketing-your-new-marketing-sidekick-that-never-takes-a-coffee-break",
+    "title": "The Role of Agentic AI in Email Marketing: Your New Marketing Sidekick (That Never Takes a Coffee Break)",
+    "subtitle": "How Agentic AI automates, personalizes, and optimizes email campaigns end-to-end",
+    "author": {
+      "name": "Saumya Sharma",
+      "avatar": "SaumyaS"
+    },
+    "publishedAt": "2025-05-28",
+    "readTime": "4 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg",
+    "featured": false,
+    "category": "Agentic AI",
+    "meta": "blog"
+  },
+  {
+    "slug": "a-simplified-way-to-powerbi-reporting-using-parameterised-queries-a-qsr-use-case",
+    "title": "A Simplified Way To PowerBi Reporting Using Parameterised Queries : A QSR Use Case",
+    "subtitle": "Using parameterized queries in Power BI to build faster, dynamic dashboards on large-scale data",
+    "author": {
+      "name": "Aniket Pholane",
+      "avatar": "AniketP"
+    },
+    "publishedAt": "2025-05-26",
+    "readTime": "4 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg",
+    "featured": false,
+    "category": "Data Analytics",
+    "meta": "blog"
+  },
+  {
+    "slug": "the-natural-selection-cdp-stack",
+    "title": "The Natural Selection — CDP Stack.",
+    "subtitle": "How composable CDPs are replacing traditional platforms with modular, warehouse-first data architectures",
+    "author": {
+      "name": "Vishal Agarwal",
+      "avatar": "VishalA"
+    },
+    "publishedAt": "2025-05-02",
+    "readTime": "6 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png",
+    "featured": false,
+    "category": "Data Engineering",
+    "meta": "blog"
+  },
+  {
+    "slug": "full-feature-markdown-example",
+    "title": "Full Feature Markdown Example",
+    "subtitle": "Demonstrating all common elements",
+    "author": {
+      "name": "Vishal",
+      "avatar": "https://i.pravatar.cc/150?img=3"
+    },
+    "publishedAt": "2023-07-21",
+    "readTime": "7 min read",
+    "heroImage": "https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg",
+    "featured": false,
+    "category": "Sample",
+    "meta": "case"
+  }
+]

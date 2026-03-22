@@ -21,7 +21,7 @@ const Stories = () => {
     useEffect(() => {
         const fetchCaseStudies = async () => {
             try {
-                const res = await fetch(`${API_URL}/api/case-studies`);
+                const res = await fetch("/content/built/caseStudies/meta.json");
                 if (!res.ok) throw new Error(`Failed to fetch case studies (${res.status})`);
                 const data = await res.json();
                 setCaseStudies(data);
@@ -32,7 +32,7 @@ const Stories = () => {
                 setLoading(false);
             }
         };
-
+    
         fetchCaseStudies();
     }, []);
 

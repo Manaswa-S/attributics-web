@@ -1,0 +1,16 @@
+{
+  "slug": "full-feature-markdown-example",
+  "title": "Full Feature Markdown Example",
+  "subtitle": "Demonstrating all common elements",
+  "author": {
+    "name": "Vishal",
+    "avatar": "https://i.pravatar.cc/150?img=3"
+  },
+  "publishedAt": "2023-07-21",
+  "readTime": "7 min read",
+  "heroImage": "https://www.bigfootdigital.co.uk/wp-content/uploads/2020/07/image-optimisation-scaled.jpg",
+  "featured": false,
+  "category": "Sample",
+  "meta": "case",
+  "content": "<h1>Introduction</h1>\n<p>This is a full-featured markdown example to test <strong>all types of content</strong>.</p>\n<p>Here is some inline code: <code>console.log(&quot;Hello, mns!&quot;);</code>.</p>\n<hr>\n<h2>Blockquote Example</h2>\n<blockquote>\n<p>“Clean architecture scales. Hacks don’t.”<br>– Anonymous</p>\n</blockquote>\n<hr>\n<h2>Links</h2>\n<p>Check out <a href=\"https://www.attributics.com\">Attributics</a> for more examples.<br>Or visit <a href=\"https://www.google.com\">Google</a> to search anything.</p>\n<hr>\n<h2>Images</h2>\n<p>Here’s an image example:</p>\n<p><img src=\"https://images.unsplash.com/photo-1593642634315-48f5414c3ad9\" alt=\"Sample Image\"></p>\n<hr>\n<h2>Code Blocks</h2>\n<p>JavaScript example:</p>\n<pre><code class=\"language-javascript\">function greet(name) {\n  console.log(`Hello, ${name}!`);\n}\n\ngreet(&quot;mns&quot;);\n</code></pre>\n<hr>\n<h2>Table</h2>\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Role</th>\n<th>Location</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>Vishal</td>\n<td>Developer</td>\n<td>India</td>\n</tr>\n<tr>\n<td>Alice</td>\n<td>Designer</td>\n<td>USA</td>\n</tr>\n<tr>\n<td>Bob</td>\n<td>PM</td>\n<td>UK</td>\n</tr>\n</tbody></table>\n"
+}

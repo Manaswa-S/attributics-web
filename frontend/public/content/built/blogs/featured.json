@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "data-debt-in-d2c-brands-why-clean-tracking-wins",
+    "title": "Data Debt in D2C Brands: Why Clean Tracking Wins",
+    "subtitle": "How poor event schema design quietly breaks personalization, analytics, and growth",
+    "author": {
+      "name": "Vakesh Singh",
+      "avatar": "VakeshS"
+    },
+    "publishedAt": "2025-07-21",
+    "readTime": "3 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png",
+    "featured": true,
+    "category": "Data Engineering",
+    "meta": "blog"
+  },
+  {
+    "slug": "modern-data-stack-explained-from-ingestion-to-insights",
+    "title": "Modern Data Stack Explained: From Ingestion to Insights",
+    "subtitle": "A beginner-friendly breakdown of the Modern Data Stack and how its layers power reliable data pipelines",
+    "author": {
+      "name": "Shreya Mehta",
+      "avatar": "ShreyaM"
+    },
+    "publishedAt": "2025-06-06",
+    "readTime": "5 min read",
+    "heroImage": "https://static.wixstatic.com/media/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg",
+    "featured": true,
+    "category": "Data Engineering",
+    "meta": "blog"
+  }
+]

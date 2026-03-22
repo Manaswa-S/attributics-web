@@ -5,27 +5,6 @@ import { authorAvatars } from "../../constants/resources";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// ─── Preview banner ───────────────────────────────────────────────────────────
-
-const PreviewBanner = () => (
-  <div style={{
-    background: "#fefce8",
-    borderBottom: "1px solid #fde68a",
-    padding: "10px 24px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "8px",
-    fontSize: "12px",
-    color: "#92400e",
-    letterSpacing: "0.04em",
-    fontFamily: "monospace",
-  }}>
-    <span style={{ fontSize: "10px" }}>◆</span>
-    PREVIEW MODE — this post is not published
-  </div>
-);
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
 const BlogSection = ({ slug }) => {
@@ -34,15 +13,16 @@ const BlogSection = ({ slug }) => {
 
   useEffect(() => {
     async function fetchBlog() {
-      try {
-        const res = await fetch(`${API_URL}/api/blogs/${slug}`);
-        const data = await res.json();
-        setBlog(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
+        try {
+            const res = await fetch(`/content/built/blogs/slugs/${slug}.json`);
+            if (!res.ok) throw new Error(`Failed to fetch blogs (${res.status})`);
+            const blog = await res.json();
+            setBlog(blog || null);
+        } catch (err) {
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
     }
     fetchBlog();
   }, [slug]);

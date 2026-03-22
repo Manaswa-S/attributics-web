@@ -28,32 +28,32 @@ const Featured = () => {
         const fetchAll = async () => {
             try {
                 const [blogsRes, caseStudiesRes] = await Promise.all([
-                    fetch(`${API_URL}/api/blogs/featured`),
-                    fetch(`${API_URL}/api/case-studies/featured`),
+                    fetch("/content/built/blogs/featured.json"),
+                    fetch("/content/built/caseStudies/featured.json"),
                 ]);
-
-                const blogs = blogsRes.ok ? await blogsRes.json() : [];
-                const caseStudies = caseStudiesRes.ok ? await caseStudiesRes.json() : [];
-
+    
+                const blogs       = blogsRes.ok       ? await blogsRes.json()       : [];
+                const caseStudies = caseStudiesRes.ok  ? await caseStudiesRes.json() : [];
+    
                 const normalized = [
                     ...blogs.map((b) => ({
-                        id: `blog-${b.slug}`,
-                        slug: b.slug,
-                        type: "ARTICLE",
-                        title: b.title,
+                        id:        `blog-${b.slug}`,
+                        slug:      b.slug,
+                        type:      "ARTICLE",
+                        title:     b.title,
                         heroImage: b.heroImage || null,
-                        action: "Read Article",
+                        action:    "Read Article",
                     })),
                     ...caseStudies.map((c) => ({
-                        id: `case-${c.slug}`,
-                        slug: c.slug,
-                        type: "CASE STUDY",
-                        title: c.title,
+                        id:        `case-${c.slug}`,
+                        slug:      c.slug,
+                        type:      "CASE STUDY",
+                        title:     c.title,
                         heroImage: c.heroImage || null,
-                        action: "See the Case Study",
+                        action:    "See the Case Study",
                     })),
                 ];
-
+    
                 setItems(shuffleArray(normalized));
             } catch (err) {
                 console.error(err);
@@ -62,10 +62,9 @@ const Featured = () => {
                 setLoading(false);
             }
         };
-
+    
         fetchAll();
     }, []);
-
     return (
         <>
             <Block xpad="medium" topMargin="medium">

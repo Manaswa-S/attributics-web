@@ -1,0 +1,140 @@
+{
+  "featured": true,
+  "publishedAt": "",
+  "title": "Truva – From Fragmented CRM Data to Unified Customer Engagement through Zoho–Netcore Integration",
+  "subtitle": "Building a scalable, event-driven data pipeline to unify CRM and marketing automation systems",
+  "client": "Truva",
+  "role": "Zoho CRM & Netcore Cloud Unified Data Synchronization",
+  "timeline": "",
+  "platform": "Zoho CRM + Netcore Cloud + AWS",
+  "industry": "Real Estate",
+  "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+  "overview": [
+    "Truva, a growing real-estate platform, manages an extensive ecosystem of buyers, sellers, and channel partners. Each stakeholder interacts with the business through different touchpoints- leads, property listings, and partner onboarding workflows — creating rich yet fragmented data streams across multiple Zoho CRM modules, including Leads, Sellers, Properties, and Channel Partners.",
+    "These isolated modules posed a significant challenge: data lived in silos within Zoho CRM, making it difficult to activate, synchronize, or personalize engagement across the three key Netcore Cloud panels — Buyer, Seller, and Channel Partner.",
+    "Attributics partnered with Truva to design and implement a robust data synchronization and automation framework, enabling real-time, one-way communication between Zoho CRM and Netcore Cloud using a fully event-driven architecture on AWS. This end-to-end integration automated lead syncing, event triggers, and cross-platform updates, empowering Truva's marketing and CRM teams to act on live customer signals, streamline workflows, and improve overall engagement efficiency."
+  ],
+  "challenge": [
+    {
+      "subtitle": "Multi-Panel Synchronization Complexity",
+      "description": "Each Netcore Cloud panel (Buyer, Seller, and Channel Partner) had unique schema and data mapping needs, demanding a flexible and automated synchronization logic."
+    },
+    {
+      "subtitle": "Workflow & Event Dependencies",
+      "description": "Multiple events in Zoho CRM — such as property updates and acquisition status changes — required corresponding event triggers in Netcore Cloud, which had to be automated and reliable."
+    },
+    {
+      "subtitle": "Scalability & Reliability",
+      "description": "The integration needed to handle increasing lead volumes while maintaining high uptime, ensuring no data duplication or failure under heavy API usage."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "Retention",
+      "description": "PCOS, Jeehv, TULA, SOMHA, Haridrakhand (Hindi), Medohar, Iron Folic Acid, Calcium-VitaminD3, Menopause"
+    },
+    {
+      "subtitle": "Win-back",
+      "description": "PCOS win-back at 30–45, 46–60, 61–75, and 76–90 day intervals (English + Hindi)"
+    },
+    {
+      "subtitle": "Transactional",
+      "description": "Order Confirmation SMS, Order Placed WhatsApp, Clinic Post-Consultation Drip, Doctor Adherence Call"
+    },
+    {
+      "subtitle": "NPS & Surveys",
+      "description": "Product-specific NPS nudges and Repeat Purchase Survey across 8 SKUs"
+    },
+    {
+      "subtitle": "Acquisition",
+      "description": "Abandon Cart, COS Communication, Jeehv JoinCOS, Cross-sell PCOS–Medohar"
+    }
+  ],
+  "process": [
+    {
+      "title": "Architecture & Data Flow Design",
+      "description": "Designed a scalable, event-driven architecture to enable real-time, one-way synchronization between Zoho CRM and Netcore Cloud. Defined end-to-end data flow from Zoho workflows → Deluge functions → AWS API Gateway → SQS → Lambda → Netcore panels."
+    },
+    {
+      "title": "Data Orchestration & Queuing",
+      "description": "Implemented AWS API Gateway to capture Zoho CRM webhooks and route data to SQS queues. Configured asynchronous message handling with retries, Dead Letter Queues (DLQ), and 14-day retention to ensure reliability under high traffic."
+    },
+    {
+      "title": "Data Transformation & Validation",
+      "description": "Built AWS Lambda (Node.js) functions to transform Zoho CRM data into Netcore-compatible schema. Supported Buyer, Seller, and Channel Partner panels using dynamic userType mapping and enforced strict validation using Zod."
+    },
+    {
+      "title": "Workflow Automation in Zoho CRM",
+      "description": "Developed multiple Deluge functions attached to Zoho workflows to trigger real-time data syncs on key events such as property updates, acquisition stages, and lead qualification."
+    },
+    {
+      "title": "Monitoring, Backup & Error Handling",
+      "description": "Implemented Amazon S3 for JSON payload backups, CloudWatch for monitoring API and Lambda performance, and Sentry for real-time error tracking and debugging."
+    }
+  ],
+  "results": [
+    {
+      "metric": "All Zoho CRM modules (Leads, Sellers, Properties, Channel Partners) integrated with Netcore panels",
+      "value": "Unified Data Flow Achieved"
+    },
+    {
+      "metric": "Fully automated data synchronization framework eliminating manual processes",
+      "value": "Enhanced Operational Efficiency"
+    },
+    {
+      "metric": "Reliable system with SQS retries and DLQ ensuring no data loss during failures",
+      "value": "High Reliability"
+    },
+    {
+      "metric": "Real-time campaign activation based on CRM updates across Buyer, Seller, and Partner panels",
+      "value": "Improved Marketing Responsiveness"
+    },
+    {
+      "metric": "AWS-based serverless pipeline scaling automatically with increasing lead volume",
+      "value": "Scalable Cloud-Native Architecture"
+    }
+  ],
+  "techStack": [
+    {
+      "title": "CRM Platform",
+      "description": "Zoho CRM (Leads, Sellers, Properties, Channel Partners modules)"
+    },
+    {
+      "title": "Marketing Automation",
+      "description": "Netcore Cloud (Buyer, Seller, Channel Partner panels)"
+    },
+    {
+      "title": "Backend & Compute",
+      "description": "AWS Lambda (Node.js)"
+    },
+    {
+      "title": "API Layer",
+      "description": "AWS API Gateway"
+    },
+    {
+      "title": "Message Queue",
+      "description": "Amazon SQS (with retries, DLQ, retention policies)"
+    },
+    {
+      "title": "Storage & Backup",
+      "description": "Amazon S3 (JSON payload backups)"
+    },
+    {
+      "title": "Monitoring & Observability",
+      "description": "Amazon CloudWatch, Sentry"
+    },
+    {
+      "title": "Validation & Middleware",
+      "description": "Zod (schema validation), Zoho Deluge Functions"
+    }
+  ],
+  "conclusion": [
+    "The Zoho CRM–Netcore integration project represents a major step in Truva's data modernization journey. By partnering with Attributics, Truva successfully bridged the gap between Zoho CRM and Netcore Cloud, establishing a unified, event-driven data pipeline that drives customer engagement and operational excellence.",
+    "This transformation empowered Truva's teams to move beyond fragmented CRM processes toward a connected, automated, and intelligent engagement ecosystem — setting a strong foundation for future analytics, personalization, and growth initiatives."
+  ],
+  "images": [
+    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+  ],
+  "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration"
+}

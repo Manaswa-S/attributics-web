@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "customer-360-one-customer-one-view-every-brand-every-market",
+    "featured": false,
+    "publishedAt": "2025-03-02",
+    "readTime": "",
+    "title": "CUSTOMER 360°: One Customer. One View. Every Brand. Every Market.",
+    "subtitle": "Unifying behavioral and transactional data into a scalable, insight-ready C360 platform for Americana Restaurants.",
+    "client": "Americana",
+    "role": "Data Engineering, Analytics Architecture, ETL Pipeline Design & Dashboarding",
+    "timeline": "",
+    "platform": "Azure Data Platform + Databricks + Power BI",
+    "industry": "FoodTech / QSR",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  },
+  {
+    "slug": "gynoveda-marketing-journey-migration",
+    "featured": true,
+    "publishedAt": "",
+    "readTime": null,
+    "title": "Gynoveda — Marketing Journey Migration",
+    "subtitle": "Migrating and rebuilding multi-channel lifecycle journeys with zero disruption and full compliance",
+    "client": "Gynoveda",
+    "role": "Lifecycle Marketing Engineering, Journey Migration, QA & Automation",
+    "timeline": "",
+    "platform": "Growlytics → MoEngage Migration",
+    "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  },
+  {
+    "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
+    "featured": true,
+    "publishedAt": "",
+    "readTime": null,
+    "title": "Truva – From Fragmented CRM Data to Unified Customer Engagement through Zoho–Netcore Integration",
+    "subtitle": "Building a scalable, event-driven data pipeline to unify CRM and marketing automation systems",
+    "client": "Truva",
+    "role": "Zoho CRM & Netcore Cloud Unified Data Synchronization",
+    "timeline": "",
+    "platform": "Zoho CRM + Netcore Cloud + AWS",
+    "industry": "Real Estate",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  },
+  {
+    "slug": "clm-20-scaling-lifecycle-marketing-with-governance-real-time-segmentation",
+    "featured": false,
+    "publishedAt": "",
+    "readTime": "",
+    "title": "CLM 2.0 — Scaling Lifecycle Marketing with Governance & Real-Time Segmentation",
+    "subtitle": "Establishing a centralized governance and real-time segmentation framework for scalable lifecycle marketing",
+    "client": "Club Mahindra",
+    "role": "MarTech Strategy, Lifecycle Architecture, Data Governance & Segmentation Design",
+    "timeline": "",
+    "platform": "CleverTap",
+    "industry": "Hospitality & Memberships",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  },
+  {
+    "slug": "unicef-donor-first-martech-enablement",
+    "featured": false,
+    "publishedAt": "",
+    "readTime": null,
+    "title": "UNICEF Donor First MarTech Enablement",
+    "subtitle": "Designing a unified donor-centric MarTech ecosystem for personalized global engagement",
+    "client": "UNICEF",
+    "role": "MarTech Strategy, Solution Architecture, Data & Lifecycle Design",
+    "timeline": "",
+    "platform": "Salesforce Ecosystem + CDP + GCP + Optimizely",
+    "industry": "Nonprofit / Fundraising & Donor Engagement",
+    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+  }
+]

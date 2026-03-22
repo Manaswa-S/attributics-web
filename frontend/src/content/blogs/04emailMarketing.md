@@ -6,7 +6,7 @@ readTime: "4 min read"
 author:
   name: "Saumya Sharma"
   avatar: "SaumyaS"
-heroImage: https://static.wixstatic.com/media/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_d4e69b856161427abac19fead1e1edf7~mv2.jpg
+heroImage: "/content/assets/blogs/email/01.png"
 featured: false
 category: 'Agentic AI'
 meta: 'blog'

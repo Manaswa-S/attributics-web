@@ -6,7 +6,7 @@ readTime: "3 min read"
 author:
   name: "Vakesh Singh"
   avatar: "VakeshS"
-heroImage: https://static.wixstatic.com/media/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_cf1aaff52aa84fd59ca8fca56086fe6c~mv2.png
+heroImage: "/content/assets/blogs/dataDebt/01.png"
 featured: true
 category: 'Data Engineering'
 meta: 'blog'
@@ -68,7 +68,7 @@ Once implemented, document the schema centrally and maintain it like product inf
 
 Here’s what a sample schema might look like: concise, efficient, and applicable across a typical D2C funnel.
 
-![Scalable Event Structure](https://static.wixstatic.com/media/9e275a_2748324f18684aeeadc516633ab34dde~mv2.jpg/v1/fill/w_814,h_975,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_2748324f18684aeeadc516633ab34dde~mv2.jpg)
+![Scalable Event Structure](/content/assets/blogs/dataDebt/02.png)
 
 This structure is lean enough to manage, powerful enough to scale, and flexible enough to adapt.
 

@@ -8,7 +8,7 @@
   "timeline": "",
   "platform": "Growlytics → MoEngage Migration",
   "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
-  "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+  "heroImage": "/content/assets/caseStudies/gynoveda/01.png",
   "overview": [
     "Gynoveda, an Ayurvedic women's health brand, was running 45 active lifecycle marketing journeys on Growlytics. As the business scaled, they moved to MoEngage for better automation and cross-channel capabilities. Attributics led the full migration — auditing journeys, rebuilding them in MoEngage, managing WhatsApp approvals via Gupshup, and running QA before go-live."
   ],
@@ -123,8 +123,8 @@
     "The introduction of DND-aware queuing, corrected content assets, and centralized journey management created a more reliable and scalable lifecycle marketing setup. With all channels unified under MoEngage, Gynoveda is now equipped to run consistent, compliant, and high-quality engagement campaigns across the entire customer lifecycle."
   ],
   "images": [
-    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+    "/content/assets/caseStudies/gynoveda/02.png",
+    "/content/assets/caseStudies/gynoveda/03.png"
   ],
   "slug": "gynoveda-marketing-journey-migration"
 }

@@ -11,7 +11,7 @@
     "timeline": "",
     "platform": "Growlytics → MoEngage Migration",
     "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/gynoveda/01.png"
   },
   {
     "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
@@ -25,6 +25,6 @@
     "timeline": "",
     "platform": "Zoho CRM + Netcore Cloud + AWS",
     "industry": "Real Estate",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/truva/01.png"
   }
 ]

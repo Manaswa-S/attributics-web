@@ -9,7 +9,7 @@
 	"timeline": "",
 	"platform": "Azure Data Platform + Databricks + Power BI",
 	"industry": "FoodTech / QSR",
-	"heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+	"heroImage": "/content/assets/caseStudies/americana/01.png",
 	"overview": [
 		"Americana Restaurants is the largest restaurant operator in the MENA region and Kazakhstan, managing a vast network of restaurants. With customer data streaming from various channels, including in-store POS systems and mobile/web applications, Americana faced significant challenges in converting this data into actionable insights. The data was fragmented across different platforms, making it difficult to get a comprehensive view of customer behavior and drive effective decision-making.",
 		"Attributics partnered with Americana to build a unified, scalable analytics platform, transforming data into insights that empower all teams to make faster, data-driven decisions. The solution leveraged a combination of Azure Blob Storage, Databricks, Power BI, and other modern data tools to create an efficient, end-to-end analytics solution.",
@@ -117,7 +117,7 @@
 		"This project enabled Americana Restaurants to unlock the potential of its data, transforming it into valuable insights that drive customer-centric strategies. By integrating and processing data in a unified analytics platform, Americana was able to shift from siloed reporting to a more holistic view of customer behavior, ultimately empowering teams to make data-driven decisions that improved marketing effectiveness and business profitability."
 	],
 	"images": [
-		"https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-		"https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+		"/content/assets/caseStudies/americana/02.png",
+		"/content/assets/caseStudies/americana/03.png"
 	]
 }

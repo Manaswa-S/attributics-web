@@ -6,7 +6,7 @@ readTime: "6 min read"
 author:
   name: "Vishal Agarwal"
   avatar: "VishalA"
-heroImage: https://static.wixstatic.com/media/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png/v1/fill/w_454,h_341,fp_0.50_0.50,q_95,enc_avif,quality_auto/9e275a_c706995df85848ffb3b043130fe71de1~mv2.png
+heroImage: "/content/assets/blogs/natural/01.png"
 featured: false
 category: 'Data Engineering'
 meta: 'blog'
@@ -39,7 +39,7 @@ As per gartner a CDP platform at minimum has following components:-
 
 ## Traditional CDP Architecture
 
-![Traditional CDP Architecture](https://static.wixstatic.com/media/9e275a_dfb895a8505a4b7cb9018e06c06d5ec3~mv2.png/v1/fill/w_814,h_406,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_dfb895a8505a4b7cb9018e06c06d5ec3~mv2.png)
+![Traditional CDP Architecture](/content/assets/blogs/natural/02.png)
 
 Above is the high level architecture diagram for a Traditional CDP integarated with MarTech architecture. In the above scenario customer data may be duplicated in both the Enterprise Data Warehouse (EDW) and the CDP infrastructure.
 
@@ -51,7 +51,7 @@ The functions of CDP such as customer identity / unifying data can be built usin
 
 The Real Time CDP with Materialize and Census
 
-![Real Time Composable CDP](https://static.wixstatic.com/media/9e275a_a2d4f1beba7e4f2aae886bfcbb20bc52~mv2.png/v1/fill/w_814,h_237,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_a2d4f1beba7e4f2aae886bfcbb20bc52~mv2.png)
+![Real Time Composable CDP](/content/assets/blogs/natural/03.png)
 
 Materialize + Census = Real-Time Composable CDP
 
@@ -66,12 +66,12 @@ Once available to large enterprises, data warehouses today are accessible to dat
 
 With a traditional (bundled) CDP there is a need to sync data between warehouse and CDP storage which creates a misaligned source of truth. As mentioned by Tejas Manohar Founder Hightouch in his blog “Friends Don’t Let Friends Buy a CDP” “Marketing’s CDP-based “truth” became increasingly incomplete and misaligned with the truth as defined by analysts in the data warehouse”
 
-![“Friends Don’t Let Friends Buy a CDP](https://static.wixstatic.com/media/9e275a_c06262c7461649d0833a9648f1a9ffff~mv2.png/v1/fill/w_814,h_466,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_c06262c7461649d0833a9648f1a9ffff~mv2.png)
+![“Friends Don’t Let Friends Buy a CDP](/content/assets/blogs/natural/04.png)
 
 
 ## Differentiation Of Composable And Bundled (Traditional) CDP
 
-![Composable And Bundled (Traditional) CDP](https://static.wixstatic.com/media/9e275a_1f504e9842b7455dbe337c0d690208db~mv2.png/v1/fill/w_784,h_1080,al_c,q_90,enc_avif,quality_auto/9e275a_1f504e9842b7455dbe337c0d690208db~mv2.png)
+![Composable And Bundled (Traditional) CDP](/content/assets/blogs/natural/05.png)
 
 
 ## Challenges Till Date With Traditional CDP Programs

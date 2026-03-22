@@ -6,7 +6,7 @@ readTime: "5 min read"
 author:
   name: "Shreya Mehta"
   avatar: "ShreyaM"
-heroImage: https://static.wixstatic.com/media/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_48cdd45b2edc4fea81e97afbbf0dc030~mv2.jpg
+heroImage: "/content/assets/blogs/wrangling/01.png"
 featured: true
 category: 'Data Engineering'
 meta: 'blog'

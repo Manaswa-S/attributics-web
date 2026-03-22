@@ -8,7 +8,7 @@
   "timeline": "",
   "platform": "Salesforce Ecosystem + CDP + GCP + Optimizely",
   "industry": "Nonprofit / Fundraising & Donor Engagement",
-  "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+  "heroImage": "/content/assets/caseStudies/unicef/01.png",
   "overview": [
     "To enhance the Global Growth Programme (GGP) at UNICEF, a comprehensive discovery was conducted to design an ideal donor experience. By identifying technology gaps and proposing a unified MarTech stack, the project aimed to improve Life-Time Value (LTV) and reduce Customer Acquisition Cost (CAC) through data-driven personalization and automated donor journeys."
   ],
@@ -114,8 +114,8 @@
     "The UNICEF Discovery project established a roadmap for a connected, automated engagement ecosystem. By bridging the gap between current tech capabilities and a 'Donor First' vision, UNICEF is positioned to deliver symmetrical, personalized messaging that maximizes impact for children globally."
   ],
   "images": [
-    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+    "/content/assets/caseStudies/unicef/02.png",
+    "/content/assets/caseStudies/unicef/03.png"
   ],
   "slug": "unicef-donor-first-martech-enablement"
 }

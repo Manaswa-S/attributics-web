@@ -11,7 +11,7 @@
     "timeline": "",
     "platform": "Azure Data Platform + Databricks + Power BI",
     "industry": "FoodTech / QSR",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/americana/01.png"
   },
   {
     "slug": "gynoveda-marketing-journey-migration",
@@ -25,7 +25,7 @@
     "timeline": "",
     "platform": "Growlytics → MoEngage Migration",
     "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/gynoveda/01.png"
   },
   {
     "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
@@ -39,7 +39,7 @@
     "timeline": "",
     "platform": "Zoho CRM + Netcore Cloud + AWS",
     "industry": "Real Estate",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/truva/01.png"
   },
   {
     "slug": "clm-20-scaling-lifecycle-marketing-with-governance-real-time-segmentation",
@@ -53,7 +53,7 @@
     "timeline": "",
     "platform": "CleverTap",
     "industry": "Hospitality & Memberships",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/clubM/01.png"
   },
   {
     "slug": "unicef-donor-first-martech-enablement",
@@ -67,6 +67,6 @@
     "timeline": "",
     "platform": "Salesforce Ecosystem + CDP + GCP + Optimizely",
     "industry": "Nonprofit / Fundraising & Donor Engagement",
-    "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+    "heroImage": "/content/assets/caseStudies/unicef/01.png"
   }
 ]

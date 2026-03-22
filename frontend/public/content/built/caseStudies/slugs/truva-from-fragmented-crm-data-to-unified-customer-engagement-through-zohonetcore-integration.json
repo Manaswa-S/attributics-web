@@ -8,7 +8,7 @@
   "timeline": "",
   "platform": "Zoho CRM + Netcore Cloud + AWS",
   "industry": "Real Estate",
-  "heroImage": "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
+  "heroImage": "/content/assets/caseStudies/truva/01.png",
   "overview": [
     "Truva, a growing real-estate platform, manages an extensive ecosystem of buyers, sellers, and channel partners. Each stakeholder interacts with the business through different touchpoints- leads, property listings, and partner onboarding workflows — creating rich yet fragmented data streams across multiple Zoho CRM modules, including Leads, Sellers, Properties, and Channel Partners.",
     "These isolated modules posed a significant challenge: data lived in silos within Zoho CRM, making it difficult to activate, synchronize, or personalize engagement across the three key Netcore Cloud panels — Buyer, Seller, and Channel Partner.",
@@ -133,8 +133,8 @@
     "This transformation empowered Truva's teams to move beyond fragmented CRM processes toward a connected, automated, and intelligent engagement ecosystem — setting a strong foundation for future analytics, personalization, and growth initiatives."
   ],
   "images": [
-    "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1616077168079-7e09a677fb2c?q=80&w=1470&auto=format&fit=crop"
+    "/content/assets/caseStudies/truva/02.png",
+    "/content/assets/caseStudies/truva/03.png"
   ],
   "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration"
 }

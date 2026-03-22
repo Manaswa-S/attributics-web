@@ -6,7 +6,7 @@ readTime: "4 min read"
 author:
   name: "Aniket Pholane"
   avatar: "AniketP"
-heroImage: https://static.wixstatic.com/media/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90,enc_avif,quality_auto/9e275a_3aed98829d844af98ef44a87b7ac2973~mv2.jpg
+heroImage: "/content/assets/blogs/powerBi/01.png"
 featured: false
 category: 'Data Analytics'
 meta: 'blog'
@@ -58,7 +58,7 @@ Creating a parameter is the first step toward making your Power BI reports dynam
 
 **Step 2**: Navigate to Manage Parameters At the top ribbon, click on Manage Parameters → New Parameter.
 
-![Step 2 Img](https://static.wixstatic.com/media/9e275a_a139cd556f154483b11e0e3350aebd89~mv2.png/v1/fill/w_814,h_463,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_a139cd556f154483b11e0e3350aebd89~mv2.png)
+![Step 2 Img](/content/assets/blogs/powerBi/02.png)
 
 **Step 3**: Define the Parameter 
 A dialog box will appear. Here’s what you need to fill :
@@ -72,7 +72,7 @@ A dialog box will appear. Here’s what you need to fill :
   - List of Values (you define a few options)
   - Query (connect it to an existing list/table in your model)
 
-![Step 3 Img](https://static.wixstatic.com/media/9e275a_5af33444e2454fdea6e7d0b6328d7311~mv2.png/v1/fill/w_512,h_548,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9e275a_5af33444e2454fdea6e7d0b6328d7311~mv2.png)
+![Step 3 Img](/content/assets/blogs/powerBi/03.png)
 
 **Step 4**: Set a Default and Current Value If needed, assign a default value (what should show first) and a current value (what's currently selected).
 

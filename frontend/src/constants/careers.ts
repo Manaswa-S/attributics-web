@@ -1,11 +1,3 @@
-import WhoAreWe from '../assets/team/careers/whoAreWe.webp';
-import VisionMission from '../assets/team/careers/visionMission.webp';
-import Team1 from '../assets/team/careers/team1.jpeg';
-import Team2 from '../assets/team/careers/team2.jpeg';
-
-
-//
-
 export const sendCV = {
     eyebrow: "What are you waiting for ?",
     title: "Interested in Joining",
@@ -14,6 +6,11 @@ export const sendCV = {
 
 }
 
+import _01 from '../assets/team/careers/01.jpeg';
+import _02 from '../assets/team/careers/02.jpg';
+import _03 from '../assets/team/careers/03.jpg';
+import _04 from '../assets/team/careers/04.jpg';
+import _05 from '../assets/team/careers/05.jpeg';
 
 export const culture = {
     eyebrow: "",
@@ -22,18 +19,11 @@ export const culture = {
     description: "Discover the people behind the product. We foster a culture of innovation, collaboration, and continuous learning.",
 
     carouselImgs: [
-        WhoAreWe,
-        VisionMission,
-        Team1,
-        Team2,
-        WhoAreWe,
-        VisionMission,
-        Team1,
-        Team2,
-        WhoAreWe,
-        VisionMission,
-        Team1,
-        Team2,
+        _03,
+        _01,
+        _02,
+        _04,
+        _05,
     ]
 }
 

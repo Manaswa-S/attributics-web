@@ -141,6 +141,7 @@ function LeadershipTeam({ teamMembers }) {
         </div>
     );
 }
+
 function LeadershipTeam2({ teamMembers }) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { align: 'start', loop: true, dragFree: true },
@@ -193,4 +194,5 @@ function LeadershipTeam2({ teamMembers }) {
         </div>
     );
 }
+
 export default Team;

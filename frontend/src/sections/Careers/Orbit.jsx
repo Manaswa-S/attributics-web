@@ -2,15 +2,15 @@
 import { useState, useRef } from "react";
 import { createPortal } from "react-dom";
 
-const W = 800, H = W*0.9, cx = W*0.5, cy = H * 0.72;
+const W = 800, H = W*0.95, cx = W*0.5, cy = H * 0.72;
 
 const satellites = [
-    { a: 185, r: 225, sz: 260 },
+    { a: 185, r: 205, sz: 310 },
     { a: 235, r: 430, sz: 340 },
-    { a: 247, r: 245, sz: 265 },
-    { a: 275, r: 365, sz: 320 },
-    { a: 310, r: 190, sz: 220 },
-    { a: 345, r: 260, sz: 325 },
+    { a: 247, r: 245, sz: 275 },
+    { a: 275, r: 365, sz: 310 },
+    { a: 310, r: 170, sz: 220 },
+    { a: 345, r: 260, sz: 365 },
 ];
 
 function deg2rad(d) { return d * Math.PI / 180; }
@@ -100,8 +100,8 @@ function SatelliteImage({ src, size, left, top, borderWidth = 3, centerStyle = {
                     transition: "transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     ...centerStyle,
                 }}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
+                // onMouseEnter={() => setHovered(true)}
+                // onMouseLeave={() => setHovered(false)}
             >
                 <img src={src} alt="culture" className="w-full h-full object-cover" />
             </div>
@@ -150,7 +150,7 @@ function Orbit({ imgs }) {
             {/* center */}
             <SatelliteImage
                 src={imgs[0]}
-                size={300}
+                size={310}
                 left={`${(cx / W) * 100}%`}
                 top={`${(cy / H) * 100}%`}
                 borderWidth={4}

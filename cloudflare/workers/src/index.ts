@@ -8,11 +8,12 @@ const app = new Hono<{ Bindings: Bindings }>();
 app.use(
   "*",
   cors({
-    origin: [
-      "http://localhost:5173", // Vite
-      "http://localhost:4173", // Vite
-      "https://attributics-web.pages.dev/", // prod
-    ],
+    // origin: [
+    //   "http://localhost:5173", // Vite
+    //   "http://localhost:4173", // Vite
+    //   "https://attributics-web.pages.dev/", // prod
+    // ],
+    origin: "*",
     allowMethods: ["GET", "POST", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
   })

@@ -4,7 +4,7 @@ import { X, ArrowRight, ChevronDown } from "lucide-react";
 import { typography } from "../../constants/global";
 import { formEndpoints } from "../../constants/contact";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const WORKER_AUDIT_FORMS_URL = import.meta.env.VITE_WORKER_AUDIT_FORMS_URL;
 
 // ─── Field components ─────────────────────────────────────────────────────────
 
@@ -52,10 +52,16 @@ const AuditModal = ({ isOpen, onClose }) => {
 
     setStatus("submitting");
     try {
-      const res = await fetch(`${API_URL}/api/forms/${formEndpoints.freeAudit}`, {
+      const formData = new FormData(e.currentTarget);
+      if (form.size) {
+        formData.set("companySize", form.size);
+        formData.delete("size");
+      }
+
+      const res = await fetch(`${WORKER_AUDIT_FORMS_URL}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: form.name, email: form.email, companySize: form.size }),
+        headers: { Accept: "application/json" },
+        body: formData,
       });
       setStatus(res.ok ? "success" : "error");
     } catch {
@@ -153,7 +159,7 @@ const AuditModal = ({ isOpen, onClose }) => {
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  <form onSubmit={handleSubmit} encType="multipart/form-data" className="flex flex-col gap-5">
                     <Field label="Full Name" error={errors.name}>
                       <input
                         name="name"

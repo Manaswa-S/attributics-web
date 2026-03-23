@@ -14,7 +14,7 @@
 	"r2_buckets": [
 		{
 			"binding": "FORMS_BUCKET",
-			"bucket_name": "forms-submissions"
+			"bucket_name": "attributics-r2-01"
 		}
 	],
 	"observability": {
@@ -22,7 +22,7 @@
 	},
 	"compatibility_flags": [
 		"nodejs_compat"
-	]
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -40,7 +40,12 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	// "vars": {  "MY_VARIABLE": "production_value" }
+	"vars": {  
+		"FORMS_RECIPIENT_CAREER": "career@gmail.com",
+		"FORMS_RECIPIENT_AUDIT": "audit@gmail.com",
+		"RESEND_FROM": "",
+		"FORMS_R2_PUBLIC_BASE_URL": "",
+	}
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings

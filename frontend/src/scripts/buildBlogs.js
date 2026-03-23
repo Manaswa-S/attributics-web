@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
 
-const BLOG_DIR = path.join(process.cwd(), "src", "content", "blogs");
+const BLOG_DIR = path.join(process.cwd(), "public", "content", "raw", "blogs");
 const OUT_DIR  = path.join(process.cwd(), "public", "content", "built", "blogs");
 
 const OUT_SLUGS = path.join(OUT_DIR, "slugs"); // individual slug files go here

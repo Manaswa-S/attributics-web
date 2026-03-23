@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-const CASE_STUDY_DIR = path.join(process.cwd(), "src", "content", "caseStudies");
+const CASE_STUDY_DIR = path.join(process.cwd(), "public", "content", "raw", "caseStudies");
 const OUT_DIR        = path.join(process.cwd(), "public", "content", "built", "caseStudies");
 const OUT_META       = path.join(OUT_DIR, "meta.json");
 const OUT_FEATURED   = path.join(OUT_DIR, "featured.json");

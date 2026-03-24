@@ -5,7 +5,7 @@ import { formEndpoints } from "../../constants/contact";
 import { typography } from "../../constants/global";
 import { sendCV } from "../../constants/careers";
 
-const API_URL = import.meta.env.VITE_API_URL;
+const WORKER_CAREER_FORMS_URL = import.meta.env.VITE_WORKER_CAREER_FORMS_URL;
 
 const successTitleSize = "clamp(1.4rem, 1.1rem + 1.2vw, 2rem)";
 const bodyTextSize = "clamp(0.95rem, 0.85rem + 0.4vw, 1.05rem)";
@@ -74,9 +74,8 @@ const SendCV = () => {
         data.append("cv", form.cv, form.cv.name);
 
         try {
-            const res = await fetch(`${API_URL}/api/forms/${formEndpoints.career}`, {
+            const res = await fetch(`${WORKER_CAREER_FORMS_URL}`, {
                 method: "POST",
-                headers: { Accept: "application/json" },
                 body: data,
             });
 

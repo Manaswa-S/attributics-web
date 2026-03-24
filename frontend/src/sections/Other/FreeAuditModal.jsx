@@ -64,6 +64,10 @@ const AuditModal = ({ isOpen, onClose }) => {
         body: formData,
       });
       setStatus(res.ok ? "success" : "error");
+      if (!res.ok) {
+        console.log(res.status);
+        console.log(res.body);
+      }
     } catch {
       setStatus("error");
     }

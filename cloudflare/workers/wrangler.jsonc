@@ -40,11 +40,18 @@
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
-	"vars": {  
-		"FORMS_RECIPIENT_CAREER": "career@gmail.com",
-		"FORMS_RECIPIENT_AUDIT": "audit@gmail.com",
-		"RESEND_FROM": "",
-		"FORMS_R2_PUBLIC_BASE_URL": "",
+	"vars": {
+		"FORMS_RECIPIENT_CAREER": "manaswa.sangamnere@attributics.com",
+		"FORMS_RECIPIENT_AUDIT": "manaswa.sangamnere@attributics.com",
+		// RESEND
+		"RESEND_FROM": "na",
+		// GMAIL SMTP
+		"GMAIL_SMTP_USER": "manaswa.sangamnere@attributics.com",
+		"GMAIL_SMTP_FROM": "manaswa.sangamnere@attributics.com",
+		// MAILGUN
+		"MAILGUN_DOMAIN": "sandboxa542db4e887f4ba58523ba246d9c0f5d.mailgun.org",
+		"MAILGUN_FROM": "Mailgun Sandbox <postmaster@sandboxa542db4e887f4ba58523ba246d9c0f5d.mailgun.org>",
+		"MAILGUN_BASE_URL": "https://api.mailgun.net"
 	}
 	/**
 	 * Service Bindings (communicate between multiple Workers)

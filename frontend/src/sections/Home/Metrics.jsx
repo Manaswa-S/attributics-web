@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Block from '../../components/layout/Block';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { metrics } from '../../constants/home';
 import { motion } from 'motion/react';
 import { typography } from '../../constants/global';
 
@@ -15,6 +14,11 @@ const fadeUp = (delay = 0) => ({
 
 const metricStatSize = 'clamp(2rem, 1.25rem + 2.8vw, 3.5rem)';
 const metricCardTitleSize = 'clamp(1rem, 0.8rem + 1.1vw, 1.5rem)';
+
+const metricsCopy = {
+    headline: 'Trusted Worldwide for ',
+    highlightedText: 'Revenue Growth',
+};
 
 const MetricCard = ({
         study,
@@ -38,7 +42,7 @@ const MetricCard = ({
         <div
           className="relative rounded-sm overflow-hidden shrink-0 transition-[width] duration-700 ease-in-out"
           style={{
-            width: isMobile ? '100px' : isExpanded ? '35%' : '100%'
+            width: isMobile ? '100px' : isExpanded ? '30%' : '100%'
           }}
         >
           <img
@@ -50,11 +54,11 @@ const MetricCard = ({
           {/* Overlay (desktop collapsed only) */}
           {!isMobile && (
             <div
-              className={`absolute top-0 right-0 bottom-0 left-3/8 bg-white/80 backdrop-blur-md p-3 flex flex-col transition-opacity duration-500`}
+              className={`absolute top-0 right-0 bottom-0 left-3/9 bg-white/80 backdrop-blur-md p-3 flex flex-col transition-opacity duration-500`}
               style={{ opacity: isExpanded ? 0 : 1 }}
             >
               <h3 className="section-title"><span className=''>{study.stat}</span></h3>
-              <h3 className="section-description mt-1" style={{color: 'black'}}>{study.title}</h3>
+              <h3 className="section-description mt-1 !uppercase" style={{color: 'black'}}>{study.title}</h3>
             </div>
           )}
         </div>
@@ -69,11 +73,15 @@ const MetricCard = ({
         >
           <div className="flex flex-col h-full">
             <div>
+            <p className="section-eyebrow mt-2 !mb-0">
+                {study.client}
+              </p>
+
               <h2 className="section-title" style={{ fontSize: metricStatSize }}>
                 <span className="highlight">{study.stat}</span>
               </h2>
 
-              <h2 className="section-title" style={{ fontSize: metricCardTitleSize }}>
+              <h2 className="section-title !uppercase" style={{ fontSize: metricCardTitleSize }}>
                 {study.title}
               </h2>
 
@@ -81,12 +89,13 @@ const MetricCard = ({
                 {study.description}
               </p>
             </div>
-
-            <a className="mt-4" href={study.readMoreLink}>
-              <p className="content-title" style={{ color: 'black' }}>
-                Read more →
-              </p>
-            </a>
+            {study.readMoreLink && (
+              <a className="mt-4" href={study.readMoreLink}>
+                <p className="content-title" style={{ color: 'black' }}>
+                  Read more →
+                </p>
+              </a>
+            )}
           </div>
         </div>
         </div>
@@ -95,6 +104,35 @@ const MetricCard = ({
   
 const Metrics = () => {
     const [expandedCard, setExpandedCard] = useState(0);
+    const [cards, setCards] = useState([]);
+
+    useEffect(() => {
+        let isMounted = true;
+
+        fetch('/content/built/caseStudies/brandedMetrics.json')
+            .then(res => res.json())
+            .then(data => {
+                if (!isMounted) return;
+                const mapped = Array.isArray(data)
+                    ? data.map(metric => ({
+                        image: metric.image ?? null,
+                        stat: metric.value ?? '',
+                        title: metric.title ?? '',
+                        description: metric.description ?? '',
+                        readMoreLink: metric.readMoreLink ?? (metric.slug ? `/resources/case-study/${metric.slug}?from=home` : null),
+                        client: metric.client ?? null,
+                    }))
+                    : [];
+                setCards(mapped);
+            })
+            .catch(err => {
+                console.error('Failed to load branded metrics', err);
+            });
+
+        return () => {
+            isMounted = false;
+        };
+    }, []);
 
     const [emblaRef] = useEmblaCarousel(
         { 
@@ -116,21 +154,21 @@ const Metrics = () => {
 
           {/* Headline */}
           <motion.div
-            className="flex-[4] text-center flex justify-center items-center lg:max-w-[60%] mx-auto mb-8"
+            className="text-center flex justify-center items-center lg:max-w-[60%] mx-auto mb-8"
             {...fadeUp(0)}
           >
             <h2 className='section-title' style={typography.title.XXL}>
-              {metrics.headline}{' '}
-              <span className="highlight">{metrics.highlightedText}</span>
+              {metricsCopy.headline}{' '}
+              <span className="highlight">{metricsCopy.highlightedText}</span>
             </h2>
           </motion.div>
 
-          <div className="flex-[6] w-full flex relative flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] lg:items-center lg:justify-center pt-12" style={{ '--fade': '15px'}}>
+          <div className="w-full flex relative flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] lg:items-center lg:justify-center pt-12" style={{ '--fade': '15px'}}>
 
               {/* Mobile carousel */}
-              <div ref={emblaRef} className="overflow-hidden lg:hidden">
+              <div ref={emblaRef} className="overflow-hidden xl:hidden">
                   <div className="flex gap-4">
-                      {metrics.cards.map((study, index) => (
+                      {cards.map((study, index) => (
                       <div key={index} className="flex-[0_0_90%]">
                           <MetricCard study={study} isMobile />
                       </div>
@@ -140,13 +178,13 @@ const Metrics = () => {
 
               {/* Desktop layout */}
               <motion.div
-                className="hidden lg:flex justify-center gap-5"
+                className="hidden xl:flex justify-center gap-5"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                  {metrics.cards.map((study, index) => (
+                  {cards.map((study, index) => (
                       <MetricCard
                         key={index}
                         study={study}

@@ -10,6 +10,12 @@
   "platform": "CleverTap",
   "industry": "Hospitality & Memberships",
   "heroImage": "/content/assets/caseStudies/clubM/01.png",
+  "isBrandedMetric": {
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing",
+    "image": "/content/assets/metrics/clubM.webp"
+  },
   "overview": [
     "Club Mahindra set out to scale its Customer Lifecycle Marketing as memberships, resorts, and lines of business grew in complexity. Strong transactional and engagement data existed across EDW, CleverTap, SFMC, and booking systems — but CLM execution faced challenges due to fragmented governance, static segmentation, and delayed performance insights.",
     "Phase II focused on moving from execution-heavy CRM to a governed, data-led lifecycle marketing model. Attributics was engaged to redesign the CLM operating framework — establishing governance controls, rebuilding segmentation strategy, and creating unified visibility across campaigns and channels."

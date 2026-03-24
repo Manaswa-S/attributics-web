@@ -9,6 +9,12 @@
   "platform": "Growlytics → MoEngage Migration",
   "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
   "heroImage": "/content/assets/caseStudies/gynoveda/01.png",
+  "isBrandedMetric": {
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing",
+    "image": "/content/assets/metrics/gynoveda.webp"
+  },
   "overview": [
     "Gynoveda, an Ayurvedic women's health brand, was running 45 active lifecycle marketing journeys on Growlytics. As the business scaled, they moved to MoEngage for better automation and cross-channel capabilities. Attributics led the full migration — auditing journeys, rebuilding them in MoEngage, managing WhatsApp approvals via Gupshup, and running QA before go-live."
   ],

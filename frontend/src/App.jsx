@@ -12,6 +12,7 @@ import BlogPage from './pages/BlogPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ServicesPage from './pages/ServicesPage';
 import PrivacyPage from './pages/PrivacyPage';
+import ScrollRestoration from './components/ScrollRestoration';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
+        <ScrollRestoration />
         <div className="min-h-screen bg-white flex flex-col">
           <HeaderTwo />
           <main className="grow">

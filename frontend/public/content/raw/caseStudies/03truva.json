@@ -9,6 +9,12 @@
 	"platform": "Zoho CRM + Netcore Cloud + AWS",
 	"industry": "Real Estate",
 	"heroImage": "/content/assets/caseStudies/truva/01.png",
+	"isBrandedMetric": {
+		"value": "7.9B+",
+		"title": "Total Events Processed",
+		"description": "Club Mahindra set out to scale its Customer Lifecycle Marketing",
+		"image": "/content/assets/metrics/truva.webp"
+	},
 	"overview": [
 		"Truva, a growing real-estate platform, manages an extensive ecosystem of buyers, sellers, and channel partners. Each stakeholder interacts with the business through different touchpoints- leads, property listings, and partner onboarding workflows — creating rich yet fragmented data streams across multiple Zoho CRM modules, including Leads, Sellers, Properties, and Channel Partners.",
 		"These isolated modules posed a significant challenge: data lived in silos within Zoho CRM, making it difficult to activate, synchronize, or personalize engagement across the three key Netcore Cloud panels — Buyer, Seller, and Channel Partner.",

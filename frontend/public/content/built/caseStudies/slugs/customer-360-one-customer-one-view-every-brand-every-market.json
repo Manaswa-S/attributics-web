@@ -10,6 +10,12 @@
   "platform": "Azure Data Platform + Databricks + Power BI",
   "industry": "FoodTech / QSR",
   "heroImage": "/content/assets/caseStudies/americana/01.png",
+  "isBrandedMetric": {
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing",
+    "image": "/content/assets/metrics/americana.webp"
+  },
   "overview": [
     "Americana Restaurants is the largest restaurant operator in the MENA region and Kazakhstan, managing a vast network of restaurants. With customer data streaming from various channels, including in-store POS systems and mobile/web applications, Americana faced significant challenges in converting this data into actionable insights. The data was fragmented across different platforms, making it difficult to get a comprehensive view of customer behavior and drive effective decision-making.",
     "Attributics partnered with Americana to build a unified, scalable analytics platform, transforming data into insights that empower all teams to make faster, data-driven decisions. The solution leveraged a combination of Azure Blob Storage, Databricks, Power BI, and other modern data tools to create an efficient, end-to-end analytics solution.",

@@ -1,0 +1,34 @@
+[
+  {
+    "client": "Americana",
+    "slug": "customer-360-one-customer-one-view-every-brand-every-market",
+    "image": "/content/assets/metrics/americana.webp",
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+  },
+  {
+    "client": "Gynoveda",
+    "slug": "gynoveda-marketing-journey-migration",
+    "image": "/content/assets/metrics/gynoveda.webp",
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+  },
+  {
+    "client": "Truva",
+    "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
+    "image": "/content/assets/metrics/truva.webp",
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+  },
+  {
+    "client": "Club Mahindra",
+    "slug": "clm-20-scaling-lifecycle-marketing-with-governance-real-time-segmentation",
+    "image": "/content/assets/metrics/clubM.webp",
+    "value": "7.9B+",
+    "title": "Total Events Processed",
+    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+  }
+]

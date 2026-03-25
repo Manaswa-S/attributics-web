@@ -15,7 +15,7 @@ const ResourcesPage = () => {
     <main style={{overflow: 'hidden'}}>
       <Suspense fallback={<GlobalLoader />}>
         <Featured />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={reducedWhiteSpaceHeight} />
 
         <Stories />
         <WhiteSpace height={reducedWhiteSpaceHeight} />

@@ -82,24 +82,24 @@
   ],
   "results": [
     {
-      "metric": "All 45 journeys rebuilt and validated in MoEngage; 37 high-priority journeys live first.",
-      "value": "Full Migration Completed"
+      "metric": "Full Migration Completed",
+      "value": "45M+"
     },
     {
-      "metric": "WhatsApp, Email, and SMS journeys operational across the full lifecycle — onboarding through win-back.",
-      "value": "Multi-Channel Live"
+      "metric": "Multi-Channel Live",
+      "value": "45M+"
     },
     {
-      "metric": "DND queuing ensures compliant delivery; no messages dropped during restricted hours.",
-      "value": "Zero Message Loss"
+      "metric": "Zero Message Loss",
+      "value": "45M+"
     },
     {
-      "metric": "Broken links, wrong UTMs, and outdated form URLs corrected during migration.",
-      "value": "Content Quality Improved"
+      "metric": "Content Quality Improved",
+      "value": "45M+"
     },
     {
-      "metric": "All journeys across products, segments, and channels managed from a single MoEngage workspace.",
-      "value": "Centralised Management"
+      "metric": "Centralised Management",
+      "value": "45M+"
     }
   ],
   "techStack": [

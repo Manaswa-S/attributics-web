@@ -1,177 +1,165 @@
-import { useRef, useLayoutEffect, useState, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { features } from "../../../constants/home";
+import { useRef, useState, useEffect } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 import Block from "../../../components/layout/Block";
-import {StepIndicator2Style1} from "./Indicators";
+import { StepIndicator2Style1 } from "./Indicators";
 import ProblemCard from "./ProblemCard";
+import { features } from "../../../constants/home";
 import { typography } from "../../../constants/global";
 
-gsap.registerPlugin(ScrollTrigger);
-const ActiveIndicator = StepIndicator2Style1
-
+const ActiveIndicator = StepIndicator2Style1;
 
 // ─── Breakpoint hook ──────────────────────────────────────────────────────────
 const useIsDesktop = () => {
   const [isDesktop, setIsDesktop] = useState(
     () => typeof window !== "undefined" && window.innerWidth >= 1024
   );
+
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
     const handler = (e) => setIsDesktop(e.matches);
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
   }, []);
+
   return isDesktop;
 };
 
-// ─── Mobile / tablet layout (no scroll-pin) ──────────────────────────────────
+// ─── Mobile Layout ───────────────────────────────────────────────────────────
 const MobileLayout = ({ problems }) => (
   <section className="py-12 sm:py-16">
     <div className="w-full">
-      {/* Header */}
       <div className="mb-8 sm:mb-12 px-1">
-        <span className="block section-eyebrow mb-4 sm:mb-5">{features.eyebrow}</span>
-        <h2
-          className="section-title"
-          style={typography.title.XXL}
-        >
+        <span className="block section-eyebrow mb-4 sm:mb-5">
+          {features.eyebrow}
+        </span>
+
+        <h2 className="section-title" style={typography.title.XXL}>
           {features.headline}{" "}
           <span className="highlight">{features.highlighted}</span>
         </h2>
-        <p
-          className="mt-4 section-description" style={typography.desc.Normal}
-        >
+
+        <p className="mt-4 section-description" style={typography.desc.Normal}>
           {features.description}
         </p>
       </div>
 
-      {/* Stacked cards */}
       <div className="flex flex-col gap-5 sm:gap-7">
-        {problems.map((item, i) => (
-          <div key={item.id}>
-            <ProblemCard data={item} isActive={true} />
-          </div>
+        {problems.map((item) => (
+          <ProblemCard key={item.id} data={item} isActive />
         ))}
       </div>
     </div>
   </section>
 );
 
-// ─── Desktop layout (scroll-pinned) ──────────────────────────────────────────
+// ─── Desktop Layout (Clean Sticky + Scroll) ──────────────────────────────────
 const DesktopLayout = ({ problems }) => {
   const sectionRef = useRef(null);
-  const panelWrapRef = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(null);
-
   const N = problems.length;
+  const [pinState, setPinState] = useState("start");
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const SLACK = 0.4;
-      const totalScreens = SLACK + (N - 1) + SLACK;
+  // Total scroll distance = N screens.
+  // This gives us 1 screen pinned + (N-1) screens to scroll the cards.
+  const sectionHeight = `${N * 100}vh`;
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          pin: true,
-          scrub: 0,
-          start: "top top",
-          end: () => `+=${window.innerHeight * totalScreens}`,
-          onUpdate: (self) => {
-            const slackFrac = SLACK / totalScreens;
-            const inner = Math.max(
-              0,
-              Math.min(
-                1,
-                (self.progress - slackFrac) / (1 - 2 * slackFrac)
-              )
-            );
-            setActiveIndex(Math.min(N - 1, Math.floor(inner * N)));
-          },
-        },
-      });
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"],
+  });
 
-      tl.clear();
-      tl.set({}, {}, 0)
-        .to(
-          panelWrapRef.current,
-          {
-            yPercent: -((N - 1) / N) * 100,
-            ease: "none",
-            duration: (N - 1) / totalScreens,
-          },
-          SLACK / totalScreens
-        )
-        .set({}, {}, 1);
-    }, sectionRef);
+  // Move the right column from 0 to -(N-1) * 100% across the scroll.
+  const translateY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", `-${(((N - 1) / N) * 100)}%`]
+  );
 
-    return () => ctx.revert();
-  }, [N]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    const unsub = scrollYProgress.on("change", (v) => {
+      setActiveIndex(Math.round(v * (N - 1)));
+    });
+    return () => unsub();
+  }, [scrollYProgress, N]);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v <= 0) setPinState("start");
+    else if (v >= 1) setPinState("end");
+    else setPinState("pinned");
+  });
+
+  const pinStyle =
+    pinState === "pinned"
+      ? { position: "fixed", top: 0, left: 0, width: "100%", height: "100vh" }
+      : pinState === "start"
+        ? { position: "absolute", top: 0, left: 0, width: "100%", height: "100vh" }
+        : { position: "absolute", bottom: 0, left: 0, width: "100%", height: "100vh" };
 
   return (
-    <section ref={sectionRef} className="relative">
-      <div className="relative h-screen flex items-center">
-        <div className="container w-full flex mx-auto ">
+    <section ref={sectionRef} style={{ height: sectionHeight, position: "relative" }}>
+      {/* Pinned viewport (JS fallback if sticky fails) */}
+      <div style={pinStyle} className="px-3 sm:px-8 md:px-16 lg:px-50 xl:px-50">
+        <div className="container mx-auto h-full">
           <div
-            className="grid w-full"
+            className="grid h-full"
             style={{
               gridTemplateColumns: "1fr 1fr",
               gap: "clamp(2rem, 4vw, 5rem)",
               alignItems: "center",
             }}
           >
-            {/* ── LEFT: static ── */}
-            <div className="shrink-0">
+            {/* LEFT: pinned content */}
+            <div className="flex flex-col justify-center h-full">
               <span className="block section-eyebrow mb-5 lg:mb-7">
                 {features.eyebrow}
               </span>
+
               <h2 className="section-title" style={typography.title.XXL}>
-                {features.headline}{" "}
+                {features.headline}
                 <br />
                 <span className="highlight">{features.highlighted}</span>
               </h2>
+
               <p className="mt-5 section-description" style={typography.desc.Normal}>
                 {features.description}
               </p>
 
-              <ActiveIndicator
-                problems={problems}
-                activeIndex={activeIndex}
-              />
+              <ActiveIndicator problems={problems} activeIndex={activeIndex} />
             </div>
 
-            {/* ── RIGHT: sliding card strip ── */}
+            {/* RIGHT: scrolling cards inside a fixed viewport */}
             <div
-              className="w-full z-10 flex justify-end"
+              className="overflow-hidden h-full"
               style={{
-                height: "100vh",
                 padding: "clamp(1rem, 2vw, 2.5rem)",
                 maskImage:
                   "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
                 WebkitMaskImage:
                   "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)",
-                overflow: "hidden",
               }}
-              // ── RIGHT: sliding card strip ──
             >
-              <div
-                ref={panelWrapRef}
-                className="flex flex-col items-end"
-                style={{ height: `${N * 100}%`, width: "100%" }}
+              <motion.div
+                className="flex flex-col"
+                style={{
+                  translateY,
+                  height: `${N * 100}vh`,
+                }}
               >
                 {problems.map((item, i) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-end ml-auto"
-                    style={{ height: `${100 / N}%`, width: "100%" }}
+                    className="flex items-center justify-end"
+                    style={{ height: `100vh` }}
                   >
-                    <div className="ml-auto">
-                      <ProblemCard data={item} isActive={activeIndex === i} />
-                    </div>
+                    <ProblemCard data={item} isActive={activeIndex === i} />
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -180,19 +168,19 @@ const DesktopLayout = ({ problems }) => {
   );
 };
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
+// ─── Main Component ──────────────────────────────────────────────────────────
 const Challenge = () => {
   const isDesktop = useIsDesktop();
   const problems = features.problems;
 
   return (
-    <Block xpad="large">
+    <>
       {isDesktop ? (
         <DesktopLayout problems={problems} />
       ) : (
         <MobileLayout problems={problems} />
       )}
-    </Block>
+    </>
   );
 };
 

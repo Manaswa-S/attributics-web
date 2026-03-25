@@ -70,7 +70,7 @@ const Featured = () => {
             <Block xpad="medium" topMargin="medium">
                 {/* <div className="xl:h-screen"> */}
 
-                <section className="mb-16">
+                <section className="mb-8 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ const Featured = () => {
                                                     : `/resources/article/${resource.slug}`
                                             )
                                         }
-                                        className="w-[300px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col relative"
+                                        className="w-[340px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col relative"
                                     >
                                         {/* Blurred hero image background */}
                                         {resource.heroImage ? (
@@ -153,14 +153,8 @@ const Featured = () => {
                                             {/* Middle: title */}
                                             <div className="px-8 pb-8">
                                                 <h3
-                                                    className="section-title font-display font-bold text-slate-900 leading-snug"
-                                                    style={{
-                                                        fontSize: "clamp(1.3rem, 1rem + 1vw, 1.75rem)",
-                                                        display: "-webkit-box",
-                                                        WebkitLineClamp: 4,
-                                                        WebkitBoxOrient: "vertical",
-                                                        overflow: "hidden",
-                                                    }}
+                                                    className="section-title"
+                                                    style={typography.title.SM}
                                                 >
                                                     {resource.title}
                                                 </h3>

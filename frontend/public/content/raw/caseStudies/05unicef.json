@@ -64,24 +64,24 @@
 	],
 	"results": [
 		{
-			"metric": "Unified donor profiles across Stripe, CRM, and campaign platforms",
-			"value": "Single View of Donor Achieved"
+			"metric": "Single View of Donor Achieved",
+			"value": "11M+"
 		},
 		{
-			"metric": "Improved donor engagement through personalized, lifecycle-based journeys",
-			"value": "Higher LTV Potential"
+			"metric": "Higher LTV Potential",
+			"value": "11M+"
 		},
 		{
-			"metric": "Reduced manual effort in audience activation and campaign execution",
-			"value": "Operational Efficiency Improved"
+			"metric": "Operational Efficiency Improved",
+			"value": "11M+"
 		},
 		{
-			"metric": "Enhanced targeting using ML-driven propensity, churn, and lookalike models",
-			"value": "Smarter Acquisition & Retention"
+			"metric": "Smarter Acquisition & Retention",
+			"value": "11M+"
 		},
 		{
-			"metric": "Optimized conversion flows via CRO experimentation (landing pages, CTAs, donation flows)",
-			"value": "Improved Conversion Potential"
+			"metric": "Improved Conversion Potential",
+			"value": "11M+"
 		}
 	],
 	"techStack": [

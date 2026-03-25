@@ -80,24 +80,16 @@
 	],
 	"results": [
 		{
-			"metric": "All Zoho CRM modules (Leads, Sellers, Properties, Channel Partners) integrated with Netcore panels",
-			"value": "Unified Data Flow Achieved"
+			"metric": "Unified Data Flow Achieved",
+			"value": "45M+"
 		},
 		{
-			"metric": "Fully automated data synchronization framework eliminating manual processes",
-			"value": "Enhanced Operational Efficiency"
+			"metric": "Enhanced Operational Efficiency",
+			"value": "45M+"
 		},
 		{
-			"metric": "Reliable system with SQS retries and DLQ ensuring no data loss during failures",
-			"value": "High Reliability"
-		},
-		{
-			"metric": "Real-time campaign activation based on CRM updates across Buyer, Seller, and Partner panels",
-			"value": "Improved Marketing Responsiveness"
-		},
-		{
-			"metric": "AWS-based serverless pipeline scaling automatically with increasing lead volume",
-			"value": "Scalable Cloud-Native Architecture"
+			"metric": "High Reliability",
+			"value": "45M+"
 		}
 	],
 	"techStack": [

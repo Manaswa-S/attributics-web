@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import Button from '../../ui/Button';
 import { nav } from '../../../constants/other';
@@ -8,6 +9,30 @@ import Block from '../Block/Block';
 const HeaderTwo = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const menuRef = useRef(null);
+    const buttonRef = useRef(null);
+
+    useEffect(() => {
+        if (!isMobileMenuOpen) return;
+
+        const handlePointerDown = (e) => {
+            const menuEl = menuRef.current;
+            const buttonEl = buttonRef.current;
+
+            if (menuEl && menuEl.contains(e.target)) return;
+            if (buttonEl && buttonEl.contains(e.target)) return;
+
+            setIsMobileMenuOpen(false);
+        };
+
+        document.addEventListener('mousedown', handlePointerDown);
+        document.addEventListener('touchstart', handlePointerDown, { passive: true });
+
+        return () => {
+            document.removeEventListener('mousedown', handlePointerDown);
+            document.removeEventListener('touchstart', handlePointerDown);
+        };
+    }, [isMobileMenuOpen]);
 
     const handleNavClick = (e, href) => {
         e.preventDefault();
@@ -26,7 +51,7 @@ const HeaderTwo = () => {
         <header className={`fixed left-0 right-0 z-50 flex justify-center top-0`} >
         <Block xpad='none'>
             <div
-                className="p-2.5 bg-white/50 backdrop-blur-xl flex items-center w-full justify-between h-16"
+                className="relative z-50 p-2.5 bg-white/50 backdrop-blur-xl flex items-center w-full justify-between h-16"
             >
                 <div className={`flex-1 flex justify-start`}>
                     <Link to="/">
@@ -107,9 +132,11 @@ const HeaderTwo = () => {
 
                     {/* Mobile Menu Button - Visible mainly on small screens */}
                     <button
+                        ref={buttonRef}
                         className="lg:hidden p-2 text-gray-600 hover:text-gray-900 mr-1"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle menu"
+                        aria-expanded={isMobileMenuOpen}
                     >
                         <svg
                             className="w-6 h-6"
@@ -137,47 +164,68 @@ const HeaderTwo = () => {
                 </div>
             </div>
 
-            {/* Mobile Menu Dropdown */}
-            {isMobileMenuOpen && (
-                <div className="absolute top-20 left-4 right-4 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 lg:hidden">
-                    <nav className="flex flex-col gap-4">
-                        {nav.links.map((link) => {
-                            const isRoute = link.href === '/' || link.href === '/services' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
-                            const isActive = location.pathname === link.href;
+            {/* Mobile Overlay + Menu */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <>
+                        <motion.div
+                            className="fixed inset-0 bg-black/35 z-40 lg:hidden"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            aria-hidden="true"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.18, ease: 'easeOut' }}
+                        />
 
-                            return isRoute ? (
-                                <Link
-                                    key={link.label}
-                                    to={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className={`font-mono text-[14px] font-normal uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors ${isActive
-                                        ? 'text-[#F5614D] font-semibold'
-                                        : 'text-[#131212] hover:text-gray-900'
-                                        }`}
-                                >
-                                    {link.label}
-                                </Link>
-                            ) : (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                    className="font-mono text-[14px] font-normal text-[#131212] hover:text-gray-900 uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors"
-                                >
-                                    {link.label}
-                                </a>
-                            );
-                        })}
-                        <div className="pt-2 border-t border-gray-100 mt-2">
-                            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Button>
-                                    {nav.cta.contact}
-                                </Button>
-                            </Link>
-                        </div>
-                    </nav>
-                </div>
-            )}
+                        <motion.div
+                            ref={menuRef}
+                            className="absolute top-12 right-6 bg-white rounded-2xl shadow-xl border border-gray-100 p-6 lg:hidden z-50 origin-top-right"
+                            initial={{ opacity: 0, scale: 0.96, y: -8 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.98, y: -6 }}
+                            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                        >
+                            <nav className="flex flex-col gap-4">
+                                {nav.links.map((link) => {
+                                    const isRoute = link.href === '/' || link.href === '/services' || link.href === '/about' || link.href === '/resources' || link.href === '/careers';
+                                    const isActive = location.pathname === link.href;
+
+                                    return isRoute ? (
+                                        <Link
+                                            key={link.label}
+                                            to={link.href}
+                                            onClick={() => setIsMobileMenuOpen(false)}
+                                            className={`font-mono text-[14px] font-normal uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors ${isActive
+                                                ? 'text-[#F5614D] font-semibold'
+                                                : 'text-[#131212] hover:text-gray-900'
+                                                }`}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ) : (
+                                        <a
+                                            key={link.label}
+                                            href={link.href}
+                                            onClick={(e) => handleNavClick(e, link.href)}
+                                            className="font-mono text-[14px] font-normal text-[#131212] hover:text-gray-900 uppercase leading-[100%] tracking-[0%] px-2 py-1 cursor-pointer transition-colors"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    );
+                                })}
+                                <div className="pt-2 border-t border-gray-100 mt-2">
+                                    <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
+                                        <Button>
+                                            {nav.cta.contact}
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </nav>
+                        </motion.div>
+                    </>
+                )}
+            </AnimatePresence>
         </Block>
         </header>
     );

@@ -40,9 +40,9 @@ const Stories = () => {
         <>
             <Block xpad="medium" topMargin="none">
                 <section className="container relative">
-                    <div className="flex flex-col mb-16 items-center text-center">
+                    <div className="flex flex-col mb-8 md:mb-16 items-center text-center">
                         <h2
-                            className="section-title mb-6"
+                            className="section-title mb-2 md:mb-6"
                             style={typography.title.XXL}
                         >
                             <span className="highlight">Success Stories</span>{' '}from Our Clients
@@ -87,7 +87,7 @@ const Stories = () => {
                                             onClick={() => navigate(`/resources/case-study/${study.slug}`)}
                                             className="w-[320px] md:w-[400px] shrink-0 snap-center group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-1 cursor-pointer"
                                         >
-                                            <div className="h-56 overflow-hidden relative">
+                                            <div className="h-46 md:h-56 overflow-hidden relative">
                                                 <div className="absolute inset-0 bg-slate-900/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                                                 <img
                                                     src={study.heroImage}
@@ -95,7 +95,7 @@ const Stories = () => {
                                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                                 />
                                             </div>
-                                            <div className="p-8 flex flex-col flex-grow">
+                                            <div className="p-4 md:p-8 flex flex-col flex-grow">
                                                 <div className="flex items-center justify-between mb-4">
                                                     <span className="text-[10px] font-bold tracking-widest uppercase text-brand bg-brand/10 px-3 py-1 rounded-full">
                                                         {study.industry}
@@ -113,7 +113,7 @@ const Stories = () => {
                                                 >
                                                     {study.subtitle}
                                                 </p>
-                                                <div className="mt-auto pt-6 border-t border-slate-100">
+                                                <div className="mt-auto md:pt-6 border-t border-slate-100">
                                                     <div
                                                         className="inline-flex items-center gap-2 font-bold text-slate-900 group-hover:text-[#FF5A36] transition-colors"
                                                         style={{ fontSize: blogsBodySize }}

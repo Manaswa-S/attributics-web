@@ -10,7 +10,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 // ── Shared: numbered section heading ──────────────────────────────────────────
 function SectionHeading({ index, label, dark = false }) {
   return (
-    <h2 className="section-title mb-10 flex items-center gap-4" style={typography.title.BoldMD}>
+    <h2 className="section-title md:mb-10 mb-4 flex items-center gap-4" style={typography.title.BoldMD}>
       <span
         className={`w-8 h-8 rounded-full flex items-center justify-center text-sm text-white ${
           dark ? 'bg-black' : 'bg-brand'
@@ -27,9 +27,9 @@ function SectionHeading({ index, label, dark = false }) {
 // Each point: { subtitle?, description }
 function PointList({ points }) {
   return (
-    <ul className="flex flex-col gap-8 pl-6 text-justify w-full">
+    <ul className="flex flex-col gap-8 md:pl-6 pl-2 text-justify w-full">
       {points.map((point, i) => (
-        <li key={i} className="flex gap-8">
+        <li key={i} className="flex md:gap-8 gap-2">
           <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
 
           <div>
@@ -44,58 +44,11 @@ function PointList({ points }) {
   );
 }
 
-// ── Shared: numbered list ─────────────────────────────────────────────────────
-// Each item: { title?, description }
-function NumberedList({ items }) {
-  return (
-    <div className="flex flex-col gap-8">
-      {items.map((item, index) => (
-        <div key={index} className="flex gap-8">
-          <div className="text-brand font-mono text-sm pt-1 shrink-0 w-6">
-            {String(index + 1).padStart(2, '0')}
-          </div>
-          <div>
-            {item.title && (
-              <h3 className="section-title mb-2" style={typography.title.SM}>{item.title}</h3>
-            )}
-            <p className="section-description w-full text-justify" style={typography.desc.Small}>{item.description}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function NumberedFlowList({items}) {
-  return (
-    <div className="flex flex-col pl-6 text-justify w-full">
-      {items.map((step, index) => (
-        <div key={index} className="flex gap-8">
-          <div className="flex flex-col items-center shrink-0">
-            <div className="w-6 h-6 rounded-full bg-brand text-white text-[11px] font-medium flex items-center justify-center shrink-0">
-              {String(index + 1).padStart(2, '0')}
-            </div>
-            {index !== items.length - 1 && (
-              <div className="w-px flex-1 mt-1.5" style={{ borderLeft: '2px dashed #f9731660' }} />
-            )}
-          </div>
-          <div className={index !== items.length - 1 ? 'pb-8' : ''}>
-            {step.title && (
-              <h3 className="section-title mb-2" style={typography.title.SM}>{step.title}</h3>
-            )}
-            <p className="section-description w-full text-justify" style={typography.desc.Small}>{step.description}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  )
-}
-
 function PointsFlowList({items}) {
   return(
-    <div className="flex flex-col pl-6 text-justify w-full">
+    <div className="flex flex-col md:pl-6 pl-2 text-justify w-full">
       {items.map((step, index) => (
-        <div key={index} className="flex gap-8">
+        <div key={index} className="flex md:gap-8 gap-2">
           <div className="flex flex-col items-center shrink-0 w-6">
             <div className="w-2.5 h-2.5 rounded-full bg-brand shrink-0 mt-1.5" />
             {index !== items.length - 1 && (
@@ -116,14 +69,14 @@ function PointsFlowList({items}) {
 }
 
 // ── Image block ───────────────────────────────────────────────────────────────
-function ImageBlock({ src, alt, aspect = 'aspect-[16/9]', className = '' }) {
+function ImageBlock({ src, alt, aspect = 'auto', className = '' }) {
   return (
-    <div className={`${className}`}>
+    <div className={`${className} mt-8 md:mt-12`}>
       <div className={`${aspect} w-full overflow-hidden rounded-2xl bg-zinc-100`}>
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -210,7 +163,7 @@ export default function CaseStudyDetail({ slug }) {
         className="min-h-screen pb-0"
       >
         {/* ── Hero ──────────────────────────────────────────────────────────── */}
-        <header className="px-12">
+        <header className="px-2 md:px-12">
           <div className="w-full">
             {caseStudy.title && (
               <motion.h1
@@ -228,7 +181,7 @@ export default function CaseStudyDetail({ slug }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="section-description max-w-3xl mt-4 px-2"
+                className="section-description max-w-3xl mt-4 md:px-2"
                 style={typography.desc.Normal}
               >
                 {caseStudy.subtitle}
@@ -241,25 +194,39 @@ export default function CaseStudyDetail({ slug }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex flex-wrap justify-center gap-x-12 gap-y-8 mt-12 pt-4 border-t border-zinc-200"
+              className="mt-12 pt-4 border-t border-zinc-200"
             >
-              {metaFields.map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="flex-1 min-w-[200px] text-center"
-                >
-                  <div className="section-eyebrow mb-2">
-                    {label}
+              {/* Mobile: horizontal scroll */}
+              <div className="flex md:hidden overflow-x-auto gap-x-8 pb-2 scrollbar-hide snap-x snap-mandatory px-4 -mx-4">
+                {metaFields.map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="flex-none snap-start text-center min-w-[160px]"
+                  >
+                    <div className="section-eyebrow mb-2">{label}</div>
+                    <div className="section-description" style={typography.desc.SmallerBlack}>{value}</div>
                   </div>
-                  <div className="section-description " style={typography.desc.SmallerBlack}>{value}</div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              {/* Desktop: original flex wrap */}
+              <div className="hidden md:flex flex-wrap justify-center gap-x-12 gap-y-8">
+                {metaFields.map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="flex-1 min-w-[200px] text-center"
+                  >
+                    <div className="section-eyebrow mb-2">{label}</div>
+                    <div className="section-description" style={typography.desc.SmallerBlack}>{value}</div>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           )}
         </header>
 
         {/* ── Hero image ────────────────────────────────────────────────────── */}
-        <div className='mt-22'>
+        <div className='mt-8 md:mt-22 px-2'>
           {caseStudy.heroImage && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -280,7 +247,7 @@ export default function CaseStudyDetail({ slug }) {
         </div>
 
         {/* ── Body ──────────────────────────────────────────────────────────── */}
-        <main className="mt-22 px-12">
+        <main className="md:mt-22 md:px-12 mt-8 px-2">
 
           {/* Overview */}
           {overview && (
@@ -298,7 +265,7 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Challenge */}
           {challenges && (
-            <div className="mt-12">
+            <div className="md:mt-12 mt-8">
               <SectionHeading index={nextIdx()} label="The Challenge" />
               <PointList points={challenges} />
             </div>
@@ -306,7 +273,7 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Objectives */}
           {objectives && (
-            <div className="mt-12">
+            <div className="md:mt-12 mt-8">
               <SectionHeading index={nextIdx()} label="Objectives" dark />
               <PointList points={objectives} />
             </div>
@@ -314,14 +281,14 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Solution */}
           {solutions && (
-            <div className="mt-12">
+            <div className="md:mt-12 mt-8">
               <SectionHeading index={nextIdx()} label="The Solution" />
               <PointList points={solutions} />
             </div>
           )}
 
           {/* First extra image */}
-          {images[0] && <ImageBlock className='mt-12' src={images[0]} alt="Project detail" />}
+          {images[0] && <ImageBlock src={images[0]} alt="Project detail" />}
 
           {/* Process */}
           {hasProcess && (
@@ -332,7 +299,7 @@ export default function CaseStudyDetail({ slug }) {
           )}
 
           {/* Second extra image */}
-          {images[1] && <ImageBlock className='mt-12' src={images[1]} alt="Project detail" aspect="aspect-[4/3] md:aspect-[16/9]" />}
+          {images[1] && <ImageBlock src={images[1]} alt="Project detail" />}
 
           {/* Any remaining images */}
           {images.slice(2).map((src, i) => (
@@ -341,20 +308,19 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Impact metrics */}
           {hasResults && (
-            <div className="bg-gray-100 rounded-3xl p-12 md:p-16 mt-12">
+            <div className="bg-gray-100 rounded-3xl p-8 md:p-16 mt-12">
               <h2 className="section-title mb-12 text-center" style={typography.title.BoldMD}>The Impact</h2>
-              <div
-                className="grid gap-12"
-                style={{
-                  gridTemplateColumns: `repeat(${Math.min(caseStudy.results.length, 3)}, minmax(0, 1fr))`,
-                }}
-              >
+              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
                 {caseStudy.results.map((result, index) => (
-                  <div key={index} className="text-center px-4">
-                    <div className="text-5xl md:text-6xl font-bold text-brand mb-4">
+                  <div
+                    key={index}
+                    className="text-center flex flex-col items-center"
+                    style={{ width: "calc(33.333% - 2rem)", minWidth: "160px", maxWidth: "220px" }}
+                  >
+                    <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand mb-4 break-words w-full">
                       {result.value}
                     </div>
-                    <div className="section-eyebrow" style={{color: "black"}}>
+                    <div className="section-eyebrow" style={{ color: "black" }}>
                       {result.metric}
                     </div>
                   </div>
@@ -365,15 +331,17 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Tech Stack */}
           {techStack && (
-            <div className="mt-12 w-full">
+            <div className="md:mt-12 mt-8 w-full">
               <SectionHeading index={nextIdx()} label="Tech Stack" />
               <div className="flex flex-col divide-y divide-zinc-100">
                 {techStack.map((item, index) => (
-                  <div key={index} className="flex items-baseline gap-12 py-2">
-                    <span className="section-eyebrow w-50 shrink-0">
+                  <div key={index} className="flex flex-col md:flex-row md:items-baseline md:gap-12 py-3">
+                    <span className="section-eyebrow md:w-50 md:shrink-0 mb-1 md:mb-0">
                       {item.title}
                     </span>
-                    <span className="section-description" style={typography.desc.SmallerBlack}>{item.description}</span>
+                    <span className="section-description" style={typography.desc.SmallerBlack}>
+                      {item.description}
+                    </span>
                   </div>
                 ))}
               </div>

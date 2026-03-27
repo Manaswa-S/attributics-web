@@ -138,9 +138,9 @@ export default function CaseStudyEmailGate({
               <X size={24} className="text-grey shrink-0" />
             </button>
 
-            <img src={brand.logo} className="flex sm:hidden h-8 w-auto"/>
+            <img src={brand.logo} loading="eager" className="flex sm:hidden h-8 w-auto"/>
 
-            <img src={brand.logoWordmark} className="hidden sm:flex h-8 w-auto"/>
+            <img src={brand.logoWordmark} loading="eager" className="hidden sm:flex h-8 w-auto"/>
 
             <h2 className="section-title mt-6" style={typography.title.MD}>
               Join In for Practical Wisdom

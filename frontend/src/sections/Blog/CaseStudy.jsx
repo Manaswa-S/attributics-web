@@ -267,11 +267,13 @@ export default function CaseStudyDetail({ slug, type }) {
   return (
     <>
     <Block xpad="stories" topMargin="medium">
-      <CaseStudyEmailGate
-        forceOpen={false}
-        resourceName={caseStudy.title}
-        onSuccess={(email) => {}}
-      />
+      {type == "caseStudies" && 
+        <CaseStudyEmailGate
+          forceOpen={false}
+          resourceName={caseStudy.title}
+          onSuccess={(email) => {}}
+        />
+      }
     
       <motion.div
         initial={{ opacity: 0, y: 20 }}

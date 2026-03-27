@@ -124,5 +124,6 @@
     "/content/assets/caseStudies/gynoveda/02.png",
     "/content/assets/caseStudies/gynoveda/03.png"
   ],
-  "slug": "marketing-journey-migration"
+  "slug": "marketing-journey-migration",
+  "slugPath": "/content/built/caseStudies/slugs/marketing-journey-migration.json"
 }

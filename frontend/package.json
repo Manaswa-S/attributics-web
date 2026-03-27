@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node src/scripts/buildBlogs.js && node src/scripts/buildCaseStudies.js && vite",
-    "build": "node src/scripts/buildBlogs.js && node src/scripts/buildCaseStudies.js && vite build",
+    "dev": "node src/scripts/buildBlogs.js && node src/scripts/buildCaseStudies.js && node src/scripts/buildBlinded.js && vite",
+    "build": "node src/scripts/buildBlogs.js && node src/scripts/buildCaseStudies.js && node src/scripts/buildBlinded.js && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

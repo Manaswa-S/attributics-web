@@ -28,25 +28,28 @@ function SectionHeading({ index, label, dark = false }) {
 function PointList({ points }) {
   return (
     <ul className="flex flex-col gap-8 md:pl-6 pl-2 text-justify w-full">
-      {points.map((point, i) => (
-        <li
-          key={i}
-          className={`flex ${point.subtitle ? 'md:gap-8 gap-2' : ''} ${!point.subtitle ? '-ml-2 md:-ml-6' : ''}`}
-        >
-          {point.subtitle && (
+      {points.map((point, i) => {
+        const hasSubtitle = typeof point.subtitle === 'string' && point.subtitle.trim().length > 0;
+        return (
+          <li
+            key={i}
+            className={`flex ${hasSubtitle ? 'md:gap-8 gap-2' : ''} ${!hasSubtitle ? '-ml-2 md:-ml-6' : ''}`}
+          >
+            {hasSubtitle && (
             <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
-          )}
-
-          <div className="flex-1">
-            {point.subtitle && (
-              <p className="section-title mb-2" style={typography.title.SM}>{point.subtitle}</p>
             )}
-            <p className="section-description w-full text-justify" style={typography.desc.Small}>
-              {point.description}
-            </p>
-          </div>
-        </li>
-      ))}
+
+            <div className="flex-1">
+              {hasSubtitle && (
+                <p className="section-title mb-2" style={typography.title.SM}>{point.subtitle}</p>
+              )}
+              <p className="section-description w-full text-justify" style={typography.desc.Small}>
+                {point.description}
+              </p>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 }
@@ -145,23 +148,33 @@ function SolutionList({ items }) {
 function PointsFlowList({items}) {
   return(
     <div className="flex flex-col md:pl-6 pl-2 text-justify w-full">
-      {items.map((step, index) => (
-        <div key={index} className="flex md:gap-8 gap-2">
-          <div className="flex flex-col items-center shrink-0 w-6">
-            <div className="w-2.5 h-2.5 rounded-full bg-brand shrink-0 mt-1.5" />
-            {index !== items.length - 1 && (
-              <div className="w-[2px] flex-1 bg-brand mt-1" />
+      {items.map((step, index) => {
+        const hasTitle = typeof step.title === 'string' && step.title.trim().length > 0;
+        return (
+          <div
+            key={index}
+            className={`flex ${hasTitle ? 'md:gap-8 gap-2' : ''} ${!hasTitle ? '-ml-2 md:-ml-6' : ''}`}
+          >
+            {hasTitle && (
+              <div className="flex flex-col items-center shrink-0 w-6">
+                <div className="w-2.5 h-2.5 rounded-full bg-brand shrink-0 mt-1.5" />
+                {index !== items.length - 1 && (
+                  <div className="w-[2px] flex-1 bg-brand mt-1" />
+                )}
+              </div>
             )}
+            <div className={`${hasTitle && index !== items.length - 1 ? 'pb-8' : ''}`}>
+              {hasTitle && (
+                <>
+                  <div className="text-brand font-mono text-md mb-1">{String(index + 1).padStart(2, '0')}</div>
+                  <h3 className="section-title mb-2" style={typography.title.SM}>{step.title}</h3>
+                </>
+              )}
+              <p className="section-description w-full text-justify" style={typography.desc.Small}>{step.description}</p>
+            </div>
           </div>
-          <div className={`${index !== items.length - 1 ? 'pb-8' : ''}`}>
-            <div className="text-brand font-mono text-md mb-1">{String(index + 1).padStart(2, '0')}</div>
-            {step.title && (
-              <h3 className="section-title mb-2" style={typography.title.SM}>{step.title}</h3>
-            )}
-            <p className="section-description w-full text-justify" style={typography.desc.Small}>{step.description}</p>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   )
 }
@@ -184,8 +197,10 @@ function ImageBlock({ src, alt, aspect = 'auto', className = '' }) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
-export default function CaseStudyDetail({ slug }) {
-  const navigate = useNavigate();
+export default function CaseStudyDetail({ slug, type }) {
+  if (!type) {
+    type = "caseStudies"
+  }
   const [caseStudy, setCaseStudy] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -195,7 +210,7 @@ export default function CaseStudyDetail({ slug }) {
     let isMounted = true;
     const fetchCaseStudy = async () => {
       try {
-        const res = await fetch(`/content/built/caseStudies/slugs/${slug}.json`);
+        const res = await fetch(`/content/built/${type}/slugs/${slug}.json`);
         if (res.ok) {
           const data = await res.json();
           if (isMounted) setCaseStudy(data);
@@ -406,25 +421,48 @@ export default function CaseStudyDetail({ slug }) {
 
           {/* Impact metrics */}
           {hasResults && (
-            <div className="bg-gray-100 rounded-3xl p-8 md:p-16 mt-12">
-              <h2 className="section-title mb-12 text-center" style={typography.title.BoldMD}>The Impact</h2>
-              <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-                {caseStudy.results.map((result, index) => (
-                  <div
-                    key={index}
-                    className="text-center flex flex-col items-center"
-                    style={{ width: "calc(33.333% - 2rem)", minWidth: "160px", maxWidth: "220px" }}
-                  >
-                    <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand mb-4 break-words w-full">
-                      {result.value}
-                    </div>
-                    <div className="section-eyebrow" style={{ color: "black" }}>
-                      {result.metric}
+            (() => {
+              const resultsAreStrings = Array.isArray(caseStudy.results)
+                && caseStudy.results.length > 0
+                && caseStudy.results.every((r) => typeof r === "string");
+
+              if (resultsAreStrings) {
+                return (
+                  <div className="md:mt-12 mt-8">
+                    <SectionHeading index={nextIdx()} label="The Impact" />
+                    <div className="flex flex-col gap-6 w-full text-justify">
+                      {caseStudy.results.map((result, index) => (
+                        <p key={index} className="section-description" style={typography.desc.Small}>
+                          {result}
+                        </p>
+                      ))}
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
+                );
+              }
+
+              return (
+                <div className="bg-gray-100 rounded-3xl p-8 md:p-16 mt-12">
+                  <h2 className="section-title mb-12 text-center" style={typography.title.BoldMD}>The Impact</h2>
+                  <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                    {caseStudy.results.map((result, index) => (
+                      <div
+                        key={index}
+                        className="text-center flex flex-col items-center"
+                        style={{ width: "calc(33.333% - 2rem)", minWidth: "160px", maxWidth: "220px" }}
+                      >
+                        <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand mb-4 break-words w-full">
+                          {result.value}
+                        </div>
+                        <div className="section-eyebrow" style={{ color: "black" }}>
+                          {result.metric}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()
           )}
 
           {/* Tech Stack */}
@@ -432,16 +470,27 @@ export default function CaseStudyDetail({ slug }) {
             <div className="md:mt-12 mt-8 w-full">
               <SectionHeading index={nextIdx()} label="Tech Stack" />
               <div className="flex flex-col divide-y divide-zinc-100">
-                {techStack.map((item, index) => (
-                  <div key={index} className="flex flex-col md:flex-row md:items-baseline md:gap-12 py-3">
-                    <span className="section-eyebrow md:w-50 md:shrink-0 mb-1 md:mb-0">
-                      {item.title}
-                    </span>
-                    <span className="section-description" style={typography.desc.SmallerBlack}>
-                      {item.description}
-                    </span>
-                  </div>
-                ))}
+                {techStack.map((item, index) => {
+                  const hasTitle = typeof item.title === 'string' && item.title.trim().length > 0;
+                  return (
+                    <div key={index} className="flex flex-col md:flex-row md:items-baseline md:gap-12 py-3">
+                      {hasTitle ? (
+                        <>
+                          <span className="section-eyebrow md:w-50 md:shrink-0 mb-1 md:mb-0">
+                            {item.title}
+                          </span>
+                          <span className="section-description" style={typography.desc.SmallerBlack}>
+                            {item.description}
+                          </span>
+                        </>
+                      ) : (
+                        <p className="section-description" style={typography.desc.SmallerBlack}>
+                          {item}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

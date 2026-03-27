@@ -10,6 +10,7 @@ const OUT_SLUGS = path.join(OUT_DIR, "slugs"); // individual slug files go here
 const OUT_RECENT   = path.join(OUT_DIR, "recent.json");
 const OUT_FEATURED = path.join(OUT_DIR, "featured.json");
 const OUT_META     = path.join(OUT_DIR, "meta.json");
+const SLUG_PATH_PREFIX = "/content/built/blogs/slugs";
 
 if (!fs.existsSync(OUT_SLUGS)) {
     fs.mkdirSync(OUT_SLUGS, { recursive: true });
@@ -41,8 +42,10 @@ files.forEach(file => {
         return;
     }
 
+    const slug = slugify(data.title);
     blogs.push({
-        slug:        slugify(data.title),
+        slug,
+        slugPath:    `${SLUG_PATH_PREFIX}/${slug}.json`,
         title:       data.title,
         subtitle:    data.subtitle    || "",
         author:      data.author      || {},

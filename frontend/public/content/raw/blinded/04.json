@@ -1,0 +1,63 @@
+{
+	"featured": false,
+	"publishedAt": "2025-03-02",
+	"readTime": "",
+	"title": "Rebuilding the Data Layer for Smarter Personalization",
+	"subtitle": "Moving from a costly legacy CDP to a more flexible architecture that improved lead scoring and dealer activation.",
+	"client": "Automobile Manufacturer (Indonesia)",
+	"role": "",
+	"timeline": "",
+	"platform": "",
+	"industry": "Automotive",
+	"heroImage": "",
+	"overview": [
+		"A major automobile manufacturer in Indonesia partnered with Attributics to transition from an off-the-shelf CDP to a more flexible, cloud-based composable CDP integrated with MoEngage. The objective was to improve scalability, reduce cost, and enable dealer-level personalization."
+	],
+	"challenge": [
+		{
+			"subtitle": "",
+			"description": "The legacy CDP incurred approximately $200K annually in overage costs and lacked the flexibility required for dealer-level customization and local use cases."
+		}
+	],
+	"solution": [
+		{
+			"subtitle": "",
+			"description": "A new composable CDP was built on Google Cloud using BigQuery, Composer, and Storage, creating a secure and scalable data foundation. Predictive lead scoring was introduced to identify hot leads, strengthen personalization, and help dealers act on higher-quality prospects."
+		}
+	],
+	"process": [
+		{
+			"title": "",
+			"description": "The legacy CDP setup was replaced with a cloud-native architecture, data flows were rebuilt on Google Cloud, and predictive scoring was layered in to support audience activation and dealer enablement."
+		}
+	],
+	"results": [
+		{
+			"metric": "Annual Savings",
+			"value": "$200K"
+		},
+		{
+			"metric": "Hot Leads Generated",
+			"value": "28,000"
+		},
+		{
+			"metric": "Conversion Rate Improvement For Hot Leads",
+			"value": "10X"
+		},
+		{
+			"metric": "Conversion Rate Improvement For Medium Leads",
+			"value": "3X"
+		},
+		{
+			"metric": "Audience Profiles Activated",
+			"value": "1M+"
+		}
+	],
+	"techStack": [
+		"Google Cloud BigQuery, Composer, Storage, MoEngage, predictive lead scoring."
+	],
+	"conclusion": [
+		"The move to a composable CDP created a more scalable and cost-efficient marketing foundation, while improving lead quality, audience activation, and dealer-level personalization."
+	],
+	"images": []
+}

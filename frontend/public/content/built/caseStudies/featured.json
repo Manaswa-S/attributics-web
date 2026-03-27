@@ -1,6 +1,7 @@
 [
   {
     "slug": "marketing-journey-migration",
+    "slugPath": "/content/built/caseStudies/slugs/marketing-journey-migration.json",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
@@ -15,6 +16,7 @@
   },
   {
     "slug": "transforming-fragmented-crm-data-into-unified-customer-engagement",
+    "slugPath": "/content/built/caseStudies/slugs/transforming-fragmented-crm-data-into-unified-customer-engagement.json",
     "featured": true,
     "publishedAt": "",
     "readTime": null,

@@ -17,6 +17,8 @@ const BlogPage = () => {
   const isPreview = articleMatch && slug === "_preview";
 
   const from = new URLSearchParams(location.search).get("from");
+  const type = new URLSearchParams(location.search).get("type");
+
   const backOptions = {
     home: { label: "Back to Home", path: "/" },
     resources: { label: "Back to Resources", path: "/resources" },
@@ -49,7 +51,7 @@ const BlogPage = () => {
           {isPreview ? (
             <></>
           ) : caseStudyMatch ? (
-            <CaseStudy slug={slug} />
+            <CaseStudy slug={slug} type={type} />
           ) : (
             <Article slug={slug} />
           )}

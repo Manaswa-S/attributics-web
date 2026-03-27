@@ -1,0 +1,52 @@
+{
+  "featured": false,
+  "publishedAt": "2025-03-02",
+  "readTime": "",
+  "title": "Understanding What Drives Conversion Across the Ordering Funnel",
+  "subtitle": "Using behavioral analysis to identify drop-offs, refine offer strategy, and improve campaign effectiveness.",
+  "client": "Food Tech Company",
+  "role": "",
+  "timeline": "",
+  "platform": "",
+  "industry": "Food Tech",
+  "heroImage": "",
+  "overview": [
+    "A global internet restaurant company partnered with Attributics to better understand user behavior across the app journey and use analytics to improve conversion performance, pricing strategy, and campaign ROI."
+  ],
+  "challenge": [
+    {
+      "subtitle": "",
+      "description": "There was limited visibility into conversion-driving channels, user drop-off points, and the impact of pricing, coupons, and payment choices on average order value and payment success."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "The full funnel from homepage visit to final order was mapped, Amplitude cohorts were synced with MoEngage for retargeting, and customer behavior was analyzed across pricing, coupon usage, and payment preferences.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The full funnel from homepage visit to final order was mapped, Amplitude cohorts were synced with MoEngage for retargeting, and customer behavior was analyzed across pricing, coupon usage, and payment preferences."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "",
+      "description": "User journeys were instrumented across the funnel, behavior-based cohorts were created, and findings were applied to optimize offer strategy, campaign targeting, and conversion interventions."
+    }
+  ],
+  "results": [
+    "The business reduced drop-offs, optimized offers to improve average order value, and significantly strengthened campaign ROI by focusing on the most effective channels."
+  ],
+  "techStack": [
+    "Amplitude, MoEngage, behavioral analytics, cohort retargeting."
+  ],
+  "conclusion": [
+    "The analytics-led approach gave the business a clearer understanding of how users moved through the funnel, enabling more effective campaign decisions and stronger commercial outcomes."
+  ],
+  "images": [],
+  "slug": "understanding-what-drives-conversion-across-the-ordering-funnel",
+  "slugPath": "/content/built/blinded/slugs/understanding-what-drives-conversion-across-the-ordering-funnel.json"
+}

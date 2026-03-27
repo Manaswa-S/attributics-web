@@ -1,0 +1,71 @@
+{
+  "featured": false,
+  "publishedAt": "2025-03-02",
+  "readTime": "",
+  "title": "Life Insurance Provider: Improving Lead Quality and Conversion Efficiency",
+  "subtitle": "Using real-time ingestion, AI-led scoring, and personalized journeys to help teams focus on higher-intent prospects.",
+  "client": "",
+  "role": "",
+  "timeline": "",
+  "platform": "",
+  "industry": "Insurance",
+  "heroImage": "",
+  "overview": [
+    "A leading life insurance provider worked with Attributics to improve lead management and conversion by reducing duplication, prioritizing high-intent prospects, and building a more effective CRM and engagement model."
+  ],
+  "challenge": [
+    {
+      "subtitle": "",
+      "description": "Leads entered the system from multiple online and offline sources, making it difficult to identify intent and prioritize follow-up. Duplicate records also reduced agent efficiency and weakened conversion performance."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "A real-time ingestion framework was established across digital and offline touchpoints, supported by AI-driven lead scoring and cross-channel journeys across SMS, email, and in-app. Personalized offers and optimized landing experiences were also introduced to improve lead handling and conversion outcomes.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A real-time ingestion framework was established across digital and offline touchpoints, supported by AI-driven lead scoring and cross-channel journeys across SMS, email, and in-app. Personalized offers and optimized landing experiences were also introduced to improve lead handling and conversion outcomes."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "",
+      "description": "Lead data from multiple sources was centralized, scoring logic was applied to prioritize prospects, and personalized journeys were activated to improve engagement and reduce wasted effort."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Lead handling capacity increased",
+      "value": "35%"
+    },
+    {
+      "metric": "Leads contacted increased",
+      "value": "40%"
+    },
+    {
+      "metric": "Overall conversions improved",
+      "value": "30%"
+    },
+    {
+      "metric": "Revenue from dormant leads grew",
+      "value": "15%"
+    },
+    {
+      "metric": "Conversion time dropped",
+      "value": "20%"
+    }
+  ],
+  "techStack": [
+    "AI-driven lead scoring, CRM workflows, SMS, email, in-app engagement."
+  ],
+  "conclusion": [
+    "The solution helped turn fragmented lead intake into a more intelligent and conversion-oriented engagement engine, improving both operational efficiency and revenue outcomes."
+  ],
+  "images": [],
+  "slug": "life-insurance-provider-improving-lead-quality-and-conversion-efficiency",
+  "slugPath": "/content/built/blinded/slugs/life-insurance-provider-improving-lead-quality-and-conversion-efficiency.json"
+}

@@ -1,0 +1,52 @@
+{
+  "featured": false,
+  "publishedAt": "2025-03-02",
+  "readTime": "",
+  "title": "Making Customer and Campaign Data More Actionable",
+  "subtitle": "Bringing together behavior, engagement, and merchant outcomes to support better targeting and clearer growth decisions.",
+  "client": "BNPL Platform",
+  "role": "",
+  "timeline": "",
+  "platform": "",
+  "industry": "FinTech",
+  "heroImage": "",
+  "overview": [
+    "A fast-growing BNPL platform partnered with Attributics to move beyond vanity metrics and build a clearer link between user behavior, campaign engagement, and merchant conversions. The objective was to understand web and app behavior more deeply and use that insight to drive real business growth."
+  ],
+  "challenge": [
+    {
+      "subtitle": "",
+      "description": "Data was fragmented, campaign impact was difficult to measure, and there was no reliable way to connect marketing activity directly to actual sales outcomes."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "Amplitude was used for behavioral segmentation, and cohorts were synced to MoEngage for activation. Funnels, retention views, and custom dashboards were set up to show which campaigns and touchpoints were influencing conversions.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Amplitude was used for behavioral segmentation, and cohorts were synced to MoEngage for activation. Funnels, retention views, and custom dashboards were set up to show which campaigns and touchpoints were influencing conversions."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "",
+      "description": "Behavioral analytics was connected with activation workflows, user cohorts were operationalized for engagement, and reporting views were built to connect customer behavior to merchant outcomes."
+    }
+  ],
+  "results": [
+    "Lead handling capacity increased by 35%, leads contacted increased by 40%, overall conversions improved by 30%, revenue from dormant leads grew by 15%, and conversion time dropped by 20%."
+  ],
+  "techStack": [
+    "Amplitude, MoEngage, Behavioral Cohorts, Custom Dashboards."
+  ],
+  "conclusion": [
+    "The engagement helped shift marketing from activity-based reporting to conversion-led decision-making, giving the team clearer visibility into what truly drove growth."
+  ],
+  "images": [],
+  "slug": "making-customer-and-campaign-data-more-actionable",
+  "slugPath": "/content/built/blinded/slugs/making-customer-and-campaign-data-more-actionable.json"
+}

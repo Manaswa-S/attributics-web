@@ -1,0 +1,44 @@
+{
+	"featured": false,
+	"publishedAt": "2025-03-02",
+	"readTime": "",
+	"title": "Automating Compliance Across Customer Communication",
+	"subtitle": "Creating a more reliable and scalable way to keep customer communication compliant.",
+	"client": "D2C Brand",
+	"role": "",
+	"timeline": "",
+	"platform": "",
+	"industry": "D2C",
+	"heroImage": "",
+	"overview": [
+		"A global D2C tech accessory brand partnered with Attributics to automate compliance with FTC regulations. The objective was to create a secure, scalable, and accurate system for updating customer communication preferences in Braze."
+	],
+	"challenge": [
+		{
+			"subtitle": "",
+			"description": "Manual updates created compliance risk, left room for error, and were not sustainable as the business scaled."
+		}
+	],
+	"solution": [
+		{
+			"subtitle": "",
+			"description": "A secure automated pipeline was built using AWS and Databricks to fetch FTC DNC lists daily, process and validate the data, and update Braze through APIs without manual intervention."
+		}
+	],
+	"process": [
+		{
+			"title": "",
+			"description": "The system was designed to retrieve source data daily, clean and validate it, and push updates downstream to Braze through an automated compliance workflow."
+		}
+	],
+	"results": [
+		"The brand achieved 100% automated compliance, significantly reduced legal risk, and established a scalable process that runs without manual effort."
+	],
+	"techStack": [
+		"AWS S3, EC2, Secrets Manager, Databricks, Braze APIs."
+	],
+	"conclusion": [
+		"The automation framework embedded compliance directly into operational workflows, reducing risk while creating a more scalable and reliable communications process."
+	],
+	"images": []
+}

@@ -1,0 +1,79 @@
+{
+  "featured": false,
+  "publishedAt": "2025-03-02",
+  "readTime": "",
+  "title": "Improving Digital Engagement Across the Purchase Journey",
+  "subtitle": "Connecting customer data and lifecycle journeys to drive stronger lead quality, test drive intent, and conversion.",
+  "client": "Automobile Manufacturer (India)",
+  "role": "",
+  "timeline": "",
+  "platform": "",
+  "industry": "Automotive",
+  "heroImage": "",
+  "overview": [
+    "A leading automobile manufacturer in India partnered with Attributics to strengthen digital sales and customer engagement by building a Customer 360 view and activating CDP and MarTech capabilities across the journey. The objective was to improve personalized customer experiences while driving more sales through digital channels."
+  ],
+  "challenge": [
+    {
+      "subtitle": "",
+      "description": "Customer data was fragmented across cookies, call centers, web leads, and other sources, limiting visibility and activation. At the same time, inefficient media planning and tighter budgets made it necessary to improve the entire funnel from site visits to signed contracts."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "An audience-first journey framework was established by integrating CRM and loyalty segments into a CDP and activating triggered campaigns across email, web, and display. This included cart abandonment journeys, personalized site experiences, and re-engagement campaigns for cold leads.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "An audience-first journey framework was established by integrating CRM and loyalty segments into a CDP and activating triggered campaigns across email, web, and display. This included cart abandonment journeys, personalized site experiences, and re-engagement campaigns for cold leads."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "",
+      "description": "Customer data sources were unified, audience segments were defined, and key journey interventions were mapped across the digital funnel to improve conversion at multiple stages."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Paid campaigns powered by the CDP",
+      "value": "24%"
+    },
+    {
+      "metric": "Website visitors increased",
+      "value": "18%"
+    },
+    {
+      "metric": "Organic leads grew",
+      "value": "11%"
+    },
+    {
+      "metric": "Test drive bookings increased",
+      "value": "10%"
+    },
+    {
+      "metric": "Qualified leads grew",
+      "value": "15%"
+    },
+    {
+      "metric": "Contracts rose",
+      "value": "2%"
+    },
+    {
+      "metric": "ROI delivered",
+      "value": "5X"
+    }
+  ],
+  "techStack": [
+    "Azure Data Factory (ADF)"
+  ],
+  "conclusion": [
+    "The program helped create a more connected customer engagement model, improving digital funnel performance and delivering measurable gains across traffic, leads, and conversions."
+  ],
+  "images": [],
+  "slug": "improving-digital-engagement-across-the-purchase-journey",
+  "slugPath": "/content/built/blinded/slugs/improving-digital-engagement-across-the-purchase-journey.json"
+}

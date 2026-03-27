@@ -1,5 +1,6 @@
 {
   "slug": "modern-data-stack-explained-from-ingestion-to-insights",
+  "slugPath": "/content/built/blogs/slugs/modern-data-stack-explained-from-ingestion-to-insights.json",
   "title": "Modern Data Stack Explained: From Ingestion to Insights",
   "subtitle": "A beginner-friendly breakdown of the Modern Data Stack and how its layers power reliable data pipelines",
   "author": {

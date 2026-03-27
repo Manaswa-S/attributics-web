@@ -1,6 +1,7 @@
 [
   {
     "slug": "data-debt-in-d2c-brands-why-clean-tracking-wins",
+    "slugPath": "/content/built/blogs/slugs/data-debt-in-d2c-brands-why-clean-tracking-wins.json",
     "title": "Data Debt in D2C Brands: Why Clean Tracking Wins",
     "subtitle": "How poor event schema design quietly breaks personalization, analytics, and growth",
     "author": {
@@ -16,6 +17,7 @@
   },
   {
     "slug": "the-role-of-agentic-ai-in-whatsapp-marketing-from-broadcasts-to-brilliant-conversations",
+    "slugPath": "/content/built/blogs/slugs/the-role-of-agentic-ai-in-whatsapp-marketing-from-broadcasts-to-brilliant-conversations.json",
     "title": "The Role of Agentic AI in WhatsApp Marketing: From Broadcasts to Brilliant Conversations",
     "subtitle": "How Agentic AI transforms WhatsApp marketing into personalized, real-time conversations that drive conversions",
     "author": {
@@ -31,6 +33,7 @@
   },
   {
     "slug": "modern-data-stack-explained-from-ingestion-to-insights",
+    "slugPath": "/content/built/blogs/slugs/modern-data-stack-explained-from-ingestion-to-insights.json",
     "title": "Modern Data Stack Explained: From Ingestion to Insights",
     "subtitle": "A beginner-friendly breakdown of the Modern Data Stack and how its layers power reliable data pipelines",
     "author": {
@@ -46,6 +49,7 @@
   },
   {
     "slug": "the-role-of-agentic-ai-in-email-marketing-your-new-marketing-sidekick-that-never-takes-a-coffee-break",
+    "slugPath": "/content/built/blogs/slugs/the-role-of-agentic-ai-in-email-marketing-your-new-marketing-sidekick-that-never-takes-a-coffee-break.json",
     "title": "The Role of Agentic AI in Email Marketing: Your New Marketing Sidekick (That Never Takes a Coffee Break)",
     "subtitle": "How Agentic AI automates, personalizes, and optimizes email campaigns end-to-end",
     "author": {
@@ -61,6 +65,7 @@
   },
   {
     "slug": "a-simplified-way-to-powerbi-reporting-using-parameterised-queries-a-qsr-use-case",
+    "slugPath": "/content/built/blogs/slugs/a-simplified-way-to-powerbi-reporting-using-parameterised-queries-a-qsr-use-case.json",
     "title": "A Simplified Way To PowerBi Reporting Using Parameterised Queries : A QSR Use Case",
     "subtitle": "Using parameterized queries in Power BI to build faster, dynamic dashboards on large-scale data",
     "author": {
@@ -76,6 +81,7 @@
   },
   {
     "slug": "the-natural-selection-cdp-stack",
+    "slugPath": "/content/built/blogs/slugs/the-natural-selection-cdp-stack.json",
     "title": "The Natural Selection — CDP Stack.",
     "subtitle": "How composable CDPs are replacing traditional platforms with modular, warehouse-first data architectures",
     "author": {
@@ -91,6 +97,7 @@
   },
   {
     "slug": "full-feature-markdown-example",
+    "slugPath": "/content/built/blogs/slugs/full-feature-markdown-example.json",
     "title": "Full Feature Markdown Example",
     "subtitle": "Demonstrating all common elements",
     "author": {

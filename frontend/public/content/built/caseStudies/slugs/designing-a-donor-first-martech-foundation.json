@@ -152,5 +152,6 @@
     "/content/assets/caseStudies/unicef/02.png",
     "/content/assets/caseStudies/unicef/03.png"
   ],
-  "slug": "designing-a-donor-first-martech-foundation"
+  "slug": "designing-a-donor-first-martech-foundation",
+  "slugPath": "/content/built/caseStudies/slugs/designing-a-donor-first-martech-foundation.json"
 }

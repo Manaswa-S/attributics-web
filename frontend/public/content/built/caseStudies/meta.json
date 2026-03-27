@@ -1,6 +1,7 @@
 [
   {
     "slug": "customer-360-one-customer-one-view-every-brand-every-market",
+    "slugPath": "/content/built/caseStudies/slugs/customer-360-one-customer-one-view-every-brand-every-market.json",
     "featured": false,
     "publishedAt": "2025-03-02",
     "readTime": "",
@@ -15,6 +16,7 @@
   },
   {
     "slug": "marketing-journey-migration",
+    "slugPath": "/content/built/caseStudies/slugs/marketing-journey-migration.json",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
@@ -29,6 +31,7 @@
   },
   {
     "slug": "transforming-fragmented-crm-data-into-unified-customer-engagement",
+    "slugPath": "/content/built/caseStudies/slugs/transforming-fragmented-crm-data-into-unified-customer-engagement.json",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
@@ -43,6 +46,7 @@
   },
   {
     "slug": "building-a-smarter-clm-engine-for-member-engagement",
+    "slugPath": "/content/built/caseStudies/slugs/building-a-smarter-clm-engine-for-member-engagement.json",
     "featured": false,
     "publishedAt": "",
     "readTime": "",
@@ -57,6 +61,7 @@
   },
   {
     "slug": "designing-a-donor-first-martech-foundation",
+    "slugPath": "/content/built/caseStudies/slugs/designing-a-donor-first-martech-foundation.json",
     "featured": false,
     "publishedAt": "",
     "readTime": null,

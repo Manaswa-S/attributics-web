@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { motion } from 'motion/react';
 import { typography } from '../../constants/global';
+import { metrics } from '../../constants/home';
 
 const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: 22 },
@@ -14,11 +15,6 @@ const fadeUp = (delay = 0) => ({
 
 const metricStatSize = 'clamp(2rem, 1.25rem + 2.8vw, 3.5rem)';
 const metricCardTitleSize = 'clamp(1rem, 0.8rem + 1.1vw, 1.5rem)';
-
-const metricsCopy = {
-    headline: 'Trusted Worldwide for ',
-    highlightedText: 'Revenue Growth',
-};
 
 const MetricCard = ({
         study,
@@ -160,8 +156,8 @@ const Metrics = () => {
             {...fadeUp(0)}
           >
             <h2 className='section-title' style={typography.title.XXL}>
-              {metricsCopy.headline}{' '}
-              <span className="highlight">{metricsCopy.highlightedText}</span>
+              {metrics.headline}{' '}
+              <span className="highlight">{metrics.highlightedText}</span>
             </h2>
           </motion.div>
 

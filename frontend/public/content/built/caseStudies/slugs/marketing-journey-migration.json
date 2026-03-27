@@ -70,7 +70,7 @@
   "process": [
     {
       "title": "Audit & Prioritise",
-      "description": "We conducted a comprehensive audit of all journeys in Growlytics, mapping triggers, channels, delays, and entry logic to understand the existing lifecycle setup in detail. This helped surface broken links, outdated assets, and structural gaps, allowing us to identify 37 high-priority journeys for immediate migration."
+      "description": "We conducted a comprehensive audit of all journeys in legacy CEP platform, mapping triggers, channels, delays, and entry logic to understand the existing lifecycle setup in detail. This helped surface broken links, outdated assets, and structural gaps, allowing us to identify 37 high-priority journeys for immediate migration."
     },
     {
       "title": "Template Setup",
@@ -92,7 +92,15 @@
     },
     {
       "metric": "Customer Touchpoints Rebuilt",
-      "value": "100+"
+      "value": "250+"
+    },
+    {
+      "metric": "Business Disruption During Migration",
+      "value": "Zero"
+    },
+    {
+      "metric": "Journey Logic & Trigger Integrity Maintained",
+      "value": "100%"
     }
   ],
   "techStack": [
@@ -118,7 +126,11 @@
     }
   ],
   "conclusion": [
-    "The migration from Growlytics to MoEngage marked a critical step in strengthening Gynoveda’s lifecycle marketing foundation. By successfully transitioning 50+ journeys, streamlining cross-channel execution, and resolving key operational dependencies, Attributics enabled a more scalable, reliable, and future-ready engagement framework for the brand."
+    "The migration from legacy CEP platform to MoEngage marked a critical step in strengthening Gynoveda’s lifecycle marketing foundation. By successfully transitioning 50+ journeys, streamlining cross-channel execution, and resolving key operational dependencies, Attributics enabled a more scalable, reliable, and future-ready engagement framework for the brand.",
+    "The migration was completed with zero downtime while maintaining full journey integrity, ensuring uninterrupted customer engagement throughout the transition."
+  ],
+  "disclaimer": [
+    "This case study is presented by Attributics to showcase our project capabilities and approach. The content is not intended as an official representation on behalf of the client or its affiliated entities. To protect confidentiality, certain names, data, and business-sensitive details may have been anonymized or generalized. The case study will be updated or removed upon client request."
   ],
   "images": [
     "/content/assets/caseStudies/gynoveda/02.png",

@@ -1,8 +1,8 @@
 {
 	"featured": true,
 	"publishedAt": "",
-	"title": "Transforming Fragmented CRM Data into Unified Customer Engagement",
-	"subtitle": "Building a real-time, event-driven data synchronization framework to connect CRM activity with scalable cross-platform engagement.",
+	"title": "Unifying CRM Data into Real-Time Customer Engagement Infrastructure",
+	"subtitle": "Translating CRM events into real-time customer signals to power lifecycle engagement at scale",
 	"client": "Truva",
 	"role": "Customer Data Synchronization Across Core Business Platforms",
 	"timeline": "",
@@ -16,8 +16,8 @@
 		"image": "/content/assets/metrics/truva.webp"
 	},
 	"overview": [
-		"Truva, a fast-scaling real estate platform, operates across a complex ecosystem of buyers, sellers, and channel partners, with critical customer and operational data distributed across multiple CRM modules including Leads, Sellers, Properties, and Channel Partners. This fragmented setup limited the business’s ability to build a connected view of stakeholder interactions and activate data effectively across engagement channels.",
-		"Attributics partnered with Truva to build a dependable and scalable data synchronization framework between the CRM and Netcore Cloud through a real-time, event-driven architecture on AWS. The objective was to enable seamless movement of live customer and partner data across systems while preserving business context across Buyer, Seller, and Channel Partner journeys. Beyond integration, the broader goal was to create a unified engagement foundation that improved workflow efficiency, supported consistent communication, and enabled future scale without adding operational complexity for internal teams."
+		"Truva, a fast-scaling real estate platform, operates across a complex ecosystem of buyers, sellers, and channel partners, with critical customer and operational data distributed across multiple CRM modules including Leads, Sellers, Properties, and Channel Partners. This set up prevented the business from creating a unified customer view and triggering timely, context-driven engagement.",
+		"Attributics partnered with Truva to build a scalable, reliable data synchronization framework between the CRM and Netcore Cloud using a real-time, event-driven architecture on AWS. The objective was to enable seamless, real-time movement of customer and partner data across systems while preserving business context across Buyer, Seller, and Channel Partner journeys. Beyond integration, the broader goal was to establish a unified engagement foundation that improved workflow efficiency, enabled consistent communication, and supported future scale without increasing operational complexity for internal teams."
 	],
 	"challenge": [
 		{
@@ -71,16 +71,20 @@
 	],
 	"results": [
 		{
-			"metric": "Core CRM Modules Integrated",
+			"metric": "Core CRM Modules Unified into 1 Real-Time Data Layer",
 			"value": "4"
 		},
 		{
-			"metric": "Engagement Panels Synchronized",
-			"value": ""
+			"metric": "Real-Time Data Synchronization Across Engagement Systems",
+			"value": "100%"
 		},
 		{
-			"metric": "Read-Time AWS Data Pipeline Established",
-			"value": ""
+			"metric": "Data Loss Achieved with Event-Driven Architecture",
+			"value": "0"
+		},
+		{
+			"metric": "Automation of Business-Critical Workflow Triggers",
+			"value": "100%"
 		}
 	],
 	"techStack": [
@@ -126,8 +130,11 @@
 		}
 	],
 	"conclusion": [
-		"This integration marked an important step in Truva’s data modernization journey, helping transform disconnected systems into a more unified and responsive engagement foundation.",
-		"By connecting CRM and engagement platforms through a real-time, event-driven framework, Truva strengthened operational efficiency, improved data activation, and created a more connected ecosystem for future growth."
+		"This integration marked a critical step in Truva’s data modernization journey, transforming fragmented systems into a unified, real-time engagement foundation.",
+		"By connecting CRM and engagement platforms through an event-driven architecture, Truva enabled reliable data flow, automated lifecycle triggers, and improved speed of execution, creating a scalable ecosystem for future growth."
+	],
+	"disclaimer": [
+		"This case study is presented by Attributics to showcase our project capabilities and approach. The content is not intended as an official representation on behalf of the client or its affiliated entities. To protect confidentiality, certain names, data, and business-sensitive details may have been anonymized or generalized. The case study will be updated or removed upon client request."
 	],
 	"images": [
 		"/content/assets/caseStudies/truva/02.png",

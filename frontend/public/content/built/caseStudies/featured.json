@@ -15,13 +15,13 @@
     "heroImage": "/content/assets/caseStudies/gynoveda/01.png"
   },
   {
-    "slug": "transforming-fragmented-crm-data-into-unified-customer-engagement",
-    "slugPath": "/content/built/caseStudies/slugs/transforming-fragmented-crm-data-into-unified-customer-engagement.json",
+    "slug": "unifying-crm-data-into-real-time-customer-engagement-infrastructure",
+    "slugPath": "/content/built/caseStudies/slugs/unifying-crm-data-into-real-time-customer-engagement-infrastructure.json",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
-    "title": "Transforming Fragmented CRM Data into Unified Customer Engagement",
-    "subtitle": "Building a real-time, event-driven data synchronization framework to connect CRM activity with scalable cross-platform engagement.",
+    "title": "Unifying CRM Data into Real-Time Customer Engagement Infrastructure",
+    "subtitle": "Translating CRM events into real-time customer signals to power lifecycle engagement at scale",
     "client": "Truva",
     "role": "Customer Data Synchronization Across Core Business Platforms",
     "timeline": "",

@@ -221,5 +221,5 @@ export const getstarted = {
         'Conversion'
     ],
     description: "Connect with our team to explore how Attributics can accelerate your customer lifecycle growth and help you make smarter, data-driven decisions.",
-    ctaText: 'Schedule A Call',
+    ctaText: 'Schedule a Call',
 }

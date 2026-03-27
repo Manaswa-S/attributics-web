@@ -259,6 +259,7 @@ export default function CaseStudyDetail({ slug, type }) {
   const hasResults  = Array.isArray(caseStudy.results)    && caseStudy.results.length    > 0;
   const techStack   = Array.isArray(caseStudy.techStack)  && caseStudy.techStack.length  > 0 ? caseStudy.techStack  : null;
   const conclusion  = Array.isArray(caseStudy.conclusion) && caseStudy.conclusion.length > 0 ? caseStudy.conclusion : null;
+  const disclaimer  = Array.isArray(caseStudy.disclaimer) && caseStudy.disclaimer.length > 0 ? caseStudy.disclaimer : null;
 
   // Running counter for section numbers
   let sectionIdx = 0;
@@ -508,6 +509,19 @@ export default function CaseStudyDetail({ slug, type }) {
               <SectionHeading index={nextIdx()} label="Conclusion" />
               <div className="flex flex-col gap-6 w-full text-justify">
                 {conclusion.map((para, index) => (
+                  <p key={index} className="section-description" style={typography.desc.Small}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {disclaimer && (
+            <div className="border-t border-zinc-200 pt-8 mt-12">
+              <SectionHeading index={nextIdx()} label="Disclaimer" />
+              <div className="flex flex-col gap-6 w-full text-justify">
+                {disclaimer.map((para, index) => (
                   <p key={index} className="section-description" style={typography.desc.Small}>
                     {para}
                   </p>

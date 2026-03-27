@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { useNavigate } from 'react-router-dom';
 import Block from '../../components/layout/Block';
 import { typography } from '../../constants/global';
-import { Dot, ChevronRight, CircleChevronRight } from 'lucide-react';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { Dot, ChevronRight } from 'lucide-react';
+import CaseStudyEmailGate from '../Other/CaseStudyEmailGate';
 
 // ── Shared: numbered section heading ──────────────────────────────────────────
 function SectionHeading({ index, label, dark = false }) {
@@ -204,7 +202,7 @@ export default function CaseStudyDetail({ slug, type }) {
   const [caseStudy, setCaseStudy] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  // useEffect(() => { window.scrollTo(0, 0); }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -267,7 +265,14 @@ export default function CaseStudyDetail({ slug, type }) {
   const nextIdx = () => ++sectionIdx;
 
   return (
+    <>
     <Block xpad="stories" topMargin="medium">
+      <CaseStudyEmailGate
+        forceOpen={false}
+        resourceName={caseStudy.title}
+        onSuccess={(email) => {}}
+      />
+    
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -512,6 +517,9 @@ export default function CaseStudyDetail({ slug, type }) {
         </main>
       </motion.div>
     </Block>
+
+    
+    </>
   );
 }
 

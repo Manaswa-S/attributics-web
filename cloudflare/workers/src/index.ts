@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { forms } from "./forms";
+import { caseStudy } from "./caseStudy";
 import type { Bindings } from "./types";
 import { cors } from "hono/cors";
 
@@ -20,6 +21,7 @@ app.use(
 );
 
 app.route("/forms", forms);
+app.route("/case-study", caseStudy);
 
 app.get("/message", (c) => {
   return c.text("Hello Hono!");

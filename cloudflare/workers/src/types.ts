@@ -1,5 +1,6 @@
 export type Bindings = Cloudflare.Env & {
   FORMS_BUCKET: R2Bucket;
+  CASE_STUDY_EMAIL_GATE: R2Bucket;
   FORMS_RECIPIENT_CAREER: string;
   FORMS_RECIPIENT_AUDIT: string;
   RESEND_API_KEY: string;

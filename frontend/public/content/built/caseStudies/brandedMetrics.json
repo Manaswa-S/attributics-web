@@ -5,7 +5,7 @@
     "image": "/content/assets/metrics/americana.webp",
     "value": "360°",
     "title": "Customer View Enabled",
-    "description": ""
+    "description": "Unified fragmented data to deliver a scalable, enterprise-wide customer 360° platform."
   },
   {
     "client": "Gynoveda",
@@ -13,7 +13,7 @@
     "image": "/content/assets/metrics/gynoveda.webp",
     "value": "50+",
     "title": "Journeys Migrated",
-    "description": ""
+    "description": "Seamlessly migrated 50+ lifecycle journeys for stronger, scalable cross-channel engagement."
   },
   {
     "client": "Truva",
@@ -21,7 +21,7 @@
     "image": "/content/assets/metrics/truva.webp",
     "value": "4",
     "title": "CORE CRM MODULES INTEGRATED",
-    "description": ""
+    "description": "Enabled unified customer engagement by synchronizing core CRM modules in real time."
   },
   {
     "client": "Club Mahindra",
@@ -29,6 +29,6 @@
     "image": "/content/assets/metrics/clubM.webp",
     "value": "~15%",
     "title": "CUSTOMER LTV IMPROVEMENT",
-    "description": ""
+    "description": "Strengthened CLM governance, segmentation, and omnichannel execution for deeper member engagement."
   }
 ]

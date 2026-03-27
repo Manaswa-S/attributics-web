@@ -13,6 +13,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ServicesPage from './pages/ServicesPage';
 import PrivacyPage from './pages/PrivacyPage';
 import ScrollRestoration from './components/ScrollRestoration';
+import ResetLocalStorage from './sections/Other/ResetLocalStorage';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ const App = () => {
               {/* 404 Catch-all route */}
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
+              <Route path="/reset" element={<ResetLocalStorage />} />
             </Routes>
           </main>
           <Footer />

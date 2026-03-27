@@ -13,7 +13,7 @@
 }
 .header-link.active {
     font-weight: 600;
-    color: #ff6658;
+    color: #FF5C35;
 }
 .header-link:hover {
     color: rgb(128, 128, 128) !important;
@@ -121,7 +121,7 @@
     color: rgb(0, 0, 0);
 }
 .section-title .highlight {
-    color: #ff6658;
+    color: #FF5C35;
 }
 
 .section-description {
@@ -198,7 +198,7 @@
 
 /* group-hover:text-[#F5614D] */
 .group:hover .resources-title {
-    color: #F5614D;
+    color: #FF5C35;
 }
 
 .resources-description {

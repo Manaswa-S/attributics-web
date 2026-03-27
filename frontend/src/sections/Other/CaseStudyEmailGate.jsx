@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { typography } from "../../constants/global";
 import { motion, AnimatePresence } from "motion/react";
+import { brand } from "../../constants/other";
 
 const VITE_WORKER_CASESTUDY_EMAILGATE_URL = import.meta.env.VITE_WORKER_CASESTUDY_EMAILGATE_URL;
 
@@ -137,11 +138,11 @@ export default function CaseStudyEmailGate({
               <X size={24} className="text-grey shrink-0" />
             </button>
 
-            <span className="inline-block py-1 px-3 rounded-full section-eyebrow bg-brand/15 !text-brand">
-              {resourceName}
-            </span>
+            <img src={brand.logo} className="flex sm:hidden h-8 w-auto"/>
 
-            <h2 className="section-title mt-2" style={typography.title.MD}>
+            <img src={brand.logoWordmark} className="hidden sm:flex h-8 w-auto"/>
+
+            <h2 className="section-title mt-6" style={typography.title.MD}>
               Join In for Practical Wisdom
             </h2>
 

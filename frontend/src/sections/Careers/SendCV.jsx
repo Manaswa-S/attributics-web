@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowRight, ChevronDown, Upload, CheckCircle, Signature } from "lucide-react";
 import Block from "../../components/layout/Block";
-import { formEndpoints } from "../../constants/contact";
 import { typography } from "../../constants/global";
 import { sendCV } from "../../constants/careers";
 

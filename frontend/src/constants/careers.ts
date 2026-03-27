@@ -13,6 +13,9 @@ import _04 from '../assets/team/careers/04.jpg';
 import _05 from '../assets/team/careers/05.jpeg';
 import _06 from '../assets/team/careers/06.jpeg';
 import _07 from '../assets/team/careers/07.jpeg';
+import _08 from '../assets/team/careers/08.jpeg';
+import _09 from '../assets/team/careers/09.jpeg';
+import _10 from '../assets/team/careers/10.jpeg';
 
 export const culture = {
     eyebrow: "",
@@ -22,8 +25,8 @@ export const culture = {
 
     carouselImgs: [
         _07,
-        _03,
-        _05,
+        _08,
+        _09,
         _01,
         _06,
         _02,

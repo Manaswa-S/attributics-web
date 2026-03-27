@@ -107,16 +107,16 @@
   ],
   "results": [
     {
-      "metric": "Strategic Capability Pillars Defined",
-      "value": "4"
+      "metric": "Automation of CRM Event-to-Engagement Trigger Workflows",
+      "value": "100%"
     },
     {
-      "metric": "Donor-First Engagement Blueprint Defined",
-      "value": ""
+      "metric": "Duplicate User Creation with Idempotent Sync Architecture",
+      "value": "0"
     },
     {
-      "metric": "Unified Data Foundation Envisioned",
-      "value": ""
+      "metric": "Critical Business Events Activated for Real-Time Lifecycle Journeys",
+      "value": "10+"
     }
   ],
   "techStack": [
@@ -147,6 +147,9 @@
   ],
   "conclusion": [
     "The UNICEF discovery engagement delivered a strategic blueprint for building a more integrated, data-led, and scalable donor engagement ecosystem. By identifying gaps in the current environment and defining a future-state donor-first architecture, Attributics helped establish a clearer path toward stronger personalization, better cross-channel activation, and more effective supporter journeys."
+  ],
+  "disclaimer": [
+    "This case study is presented by Attributics to showcase our project capabilities and approach. The content is not intended as an official representation on behalf of the client or its affiliated entities. To protect confidentiality, certain names, data, and business-sensitive details may have been anonymized or generalized. The case study will be updated or removed upon client request."
   ],
   "images": [
     "/content/assets/caseStudies/unicef/02.png"

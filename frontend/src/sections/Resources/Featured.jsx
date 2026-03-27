@@ -123,7 +123,7 @@ const Featured = () => {
                                         className="w-[340px] md:w-[420px] shrink-0 snap-center rounded-[2rem] overflow-hidden group cursor-pointer hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col relative"
                                     >
                                         {/* Blurred hero image background */}
-                                        {resource.heroImage ? (
+                                        {/* {resource.heroImage ? (
                                             <>
                                             <div
                                                 className="absolute inset-0 scale-110"
@@ -136,9 +136,9 @@ const Featured = () => {
                                             />
                                             <div className="absolute inset-0 bg-white/50" />
                                             </>
-                                        ) : (
+                                        ) : ( */}
                                             <div className="absolute inset-0 bg-[#FFF6F4]" />
-                                        )}
+                                        {/* )} */}
 
                                         {/* <div className="absolute inset-0 bg-[#FFF6F4]" /> */}
 

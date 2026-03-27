@@ -9,6 +9,12 @@
 	"platform": "",
 	"industry": "Nonprofit / Fundraising & Donor Engagement",
 	"heroImage": "/content/assets/caseStudies/unicef/01.png",
+	"isBrandedMetric": {
+		"value": "100%",
+		"title": "Automation of CRM Event-to-Engagement Trigger Workflows",
+		"description": "Enabled unified customer engagement by synchronizing core CRM modules in real time.",
+		"image": "/content/assets/metrics/unicef.webp"
+	},
 	"overview": [
 		"To strengthen the Global Growth Programme (GGP) at UNICEF, a comprehensive discovery was undertaken to design a more connected and scalable donor experience. The engagement focused on identifying technology gaps, assessing the current donor engagement ecosystem, and defining a future-state MarTech architecture that could support stronger personalization, better journey orchestration, and more effective donor growth.",
 		"The broader objective was to improve donor Life-Time Value (LTV) and reduce Customer Acquisition Cost (CAC) by creating a more unified, data-led engagement foundation across acquisition, retention, and loyalty journeys."

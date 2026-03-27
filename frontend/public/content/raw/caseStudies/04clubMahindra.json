@@ -10,12 +10,6 @@
 	"platform": "",
 	"industry": "Hospitality & Memberships",
 	"heroImage": "/content/assets/caseStudies/clubM/01.png",
-	"isBrandedMetric": {
-		"value": "~15%",
-		"title": "CUSTOMER LTV IMPROVEMENT",
-		"description": "Strengthened CLM governance, segmentation, and omnichannel execution for deeper member engagement.",
-		"image": "/content/assets/metrics/clubM.webp"
-	},
 	"overview": [
 		"As Club Mahindra’s memberships, resorts, and lines of business grew in complexity, the need for a more scalable Customer Lifecycle Marketing model became increasingly critical. While strong transactional and engagement data existed across EDW, CleverTap, SFMC, and booking systems, execution was constrained by fragmented governance, static segmentation, and delayed performance visibility.",
 		"Attributics was engaged to help shift the business from an execution-led CRM model to a more governed, data-driven lifecycle marketing framework by strengthening governance, redesigning segmentation strategy, and establishing unified visibility across campaigns and channels."

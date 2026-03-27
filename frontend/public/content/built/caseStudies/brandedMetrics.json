@@ -24,11 +24,11 @@
     "description": "Enabled unified customer engagement by synchronizing core CRM modules in real time."
   },
   {
-    "client": "Club Mahindra",
-    "slug": "building-a-smarter-clm-engine-for-member-engagement",
-    "image": "/content/assets/metrics/clubM.webp",
-    "value": "~15%",
-    "title": "CUSTOMER LTV IMPROVEMENT",
-    "description": "Strengthened CLM governance, segmentation, and omnichannel execution for deeper member engagement."
+    "client": "UNICEF",
+    "slug": "designing-a-donor-first-martech-foundation",
+    "image": "/content/assets/metrics/unicef.webp",
+    "value": "100%",
+    "title": "Automation of CRM Event-to-Engagement Trigger Workflows",
+    "description": "Enabled unified customer engagement by synchronizing core CRM modules in real time."
   }
 ]

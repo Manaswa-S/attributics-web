@@ -28,8 +28,8 @@ const Featured = () => {
         const fetchAll = async () => {
             try {
                 const [blogsRes, caseStudiesRes] = await Promise.all([
-                    fetch("/content/built/blogs/featured.json"),
-                    fetch("/content/built/caseStudies/featured.json"),
+                    fetch("/content/built/blogs/meta.json"),
+                    fetch("/content/built/blinded/meta.json"),
                 ]);
     
                 const blogs       = blogsRes.ok       ? await blogsRes.json()       : [];
@@ -54,7 +54,8 @@ const Featured = () => {
                     })),
                 ];
     
-                setItems(shuffleArray(normalized));
+                // setItems(shuffleArray(normalized));
+                setItems(normalized);
             } catch (err) {
                 console.error(err);
                 setError(err.message);
@@ -115,7 +116,7 @@ const Featured = () => {
                                         onClick={() =>
                                             navigate(
                                                 resource.type === "CASE STUDY"
-                                                    ? `/resources/case-study/${resource.slug}`
+                                                    ? `/resources/case-study/${resource.slug}?type=blinded`
                                                     : `/resources/article/${resource.slug}`
                                             )
                                         }

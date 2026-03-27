@@ -1,29 +1,29 @@
 [
   {
-    "slug": "gynoveda-marketing-journey-migration",
+    "slug": "marketing-journey-migration",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
-    "title": "Gynoveda — Marketing Journey Migration",
-    "subtitle": "Migrating and rebuilding multi-channel lifecycle journeys with zero disruption and full compliance",
+    "title": "Marketing Journey Migration",
+    "subtitle": "A seamless lifecycle journey migration built for scale, continuity, and stronger cross-channel engagement.",
     "client": "Gynoveda",
-    "role": "Lifecycle Marketing Engineering, Journey Migration, QA & Automation",
+    "role": "",
     "timeline": "",
     "platform": "Growlytics → MoEngage Migration",
     "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
     "heroImage": "/content/assets/caseStudies/gynoveda/01.png"
   },
   {
-    "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
+    "slug": "transforming-fragmented-crm-data-into-unified-customer-engagement",
     "featured": true,
     "publishedAt": "",
     "readTime": null,
-    "title": "Truva – From Fragmented CRM Data to Unified Customer Engagement through Zoho–Netcore Integration",
-    "subtitle": "Building a scalable, event-driven data pipeline to unify CRM and marketing automation systems",
+    "title": "Transforming Fragmented CRM Data into Unified Customer Engagement",
+    "subtitle": "Building a real-time, event-driven data synchronization framework to connect CRM activity with scalable cross-platform engagement.",
     "client": "Truva",
-    "role": "Zoho CRM & Netcore Cloud Unified Data Synchronization",
+    "role": "Customer Data Synchronization Across Core Business Platforms",
     "timeline": "",
-    "platform": "Zoho CRM + Netcore Cloud + AWS",
+    "platform": "",
     "industry": "Real Estate",
     "heroImage": "/content/assets/caseStudies/truva/01.png"
   }

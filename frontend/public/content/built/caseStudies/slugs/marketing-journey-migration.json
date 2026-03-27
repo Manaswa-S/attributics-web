@@ -1,0 +1,128 @@
+{
+  "featured": true,
+  "publishedAt": "",
+  "title": "Marketing Journey Migration",
+  "subtitle": "A seamless lifecycle journey migration built for scale, continuity, and stronger cross-channel engagement.",
+  "client": "Gynoveda",
+  "role": "",
+  "timeline": "",
+  "platform": "Growlytics → MoEngage Migration",
+  "industry": "HealthTech / D2C (Ayurvedic Women's Health)",
+  "heroImage": "/content/assets/caseStudies/gynoveda/01.png",
+  "isBrandedMetric": {
+    "value": "50+",
+    "title": "Journeys Migrated",
+    "description": "",
+    "image": "/content/assets/metrics/gynoveda.webp"
+  },
+  "overview": [
+    "Gynoveda, an Ayurvedic women’s health brand, transitioned from Growlytics to MoEngage to support more scalable automation and stronger cross-channel engagement. Attributics led the end-to-end migration of 50+ active lifecycle journeys, spanning audit, rebuild, WhatsApp approval coordination through Gupshup, and QA validation to ensure launch readiness."
+  ],
+  "challenge": [
+    {
+      "subtitle": "Platform Transition at Scale",
+      "description": "Migrating 50+ journeys into MoEngage required a controlled approach that retained existing journey logic and cross-channel sequencing while protecting business continuity."
+    },
+    {
+      "subtitle": "Platform Approval Dependency",
+      "description": "WhatsApp enablement required alignment with Meta’s template approval framework, making pre-approved message creation and verification through Gupshup a critical dependency for campaign launch."
+    },
+    {
+      "subtitle": "Multi-Channel Complexity",
+      "description": "Journeys spanned WhatsApp, Email, and SMS within a single workflow, each with different formats, triggers, and delay structures."
+    },
+    {
+      "subtitle": "Content Readiness Gaps",
+      "description": "QA identified content and tracking inconsistencies across multiple journeys, including broken links, incorrect UTMs, outdated Typeform URLs following migration to Riddle, and invalid page paths that needed resolution before go-live."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": [
+        "Designed, migrated and operationalized 50+ lifecycle journeys across the full customer funnel to improve engagement, retention, and conversion at key customer moments, including:",
+        [
+          "Retention",
+          "Win-back",
+          "Transactional",
+          "NPS & Surveys",
+          "Acquisition"
+        ]
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Designed, migrated and operationalized 50+ lifecycle journeys across the full customer funnel to improve engagement, retention, and conversion at key customer moments, including:"
+        },
+        {
+          "type": "points",
+          "items": [
+            "Retention",
+            "Win-back",
+            "Transactional",
+            "NPS & Surveys",
+            "Acquisition"
+          ]
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Audit & Prioritise",
+      "description": "We conducted a comprehensive audit of all journeys in Growlytics, mapping triggers, channels, delays, and entry logic to understand the existing lifecycle setup in detail. This helped surface broken links, outdated assets, and structural gaps, allowing us to identify 37 high-priority journeys for immediate migration."
+    },
+    {
+      "title": "Template Setup",
+      "description": "Existing email and SMS templates were recreated from Growlytics to ensure continuity, while WhatsApp templates were newly developed, routed through Gupshup, and approved prior to launch."
+    },
+    {
+      "title": "Journey Rebuild",
+      "description": "Each journey was rebuilt in MoEngage with the required operational and logic layers in place including event and segment-based triggers, entry conditions, delay nodes, DND queuing, channel orchestration, and corrected URLs reflecting client-requested updates."
+    },
+    {
+      "title": "QA & Go-Live",
+      "description": "A two-layer quality assurance process was followed prior to activation. Attributics validated journey logic, template mapping, and segmentation accuracy, while Gynoveda completed final review and approval. Every journey was signed off before being taken live."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Journeys Migrated",
+      "value": "50+"
+    },
+    {
+      "metric": "Customer Touchpoints Rebuilt",
+      "value": "100+"
+    }
+  ],
+  "techStack": [
+    {
+      "title": "Marketing Automation",
+      "description": "MoEngage"
+    },
+    {
+      "title": "Legacy Platform",
+      "description": "Growlytics"
+    },
+    {
+      "title": "WhatsApp Integration",
+      "description": "Gupshup"
+    },
+    {
+      "title": "Survey & Forms",
+      "description": "Riddle (migrated from TypeForm)"
+    },
+    {
+      "title": "Channels",
+      "description": "WhatsApp, Email, SMS"
+    }
+  ],
+  "conclusion": [
+    "The migration from Growlytics to MoEngage marked a critical step in strengthening Gynoveda’s lifecycle marketing foundation. By successfully transitioning 50+ journeys, streamlining cross-channel execution, and resolving key operational dependencies, Attributics enabled a more scalable, reliable, and future-ready engagement framework for the brand."
+  ],
+  "images": [
+    "/content/assets/caseStudies/gynoveda/02.png",
+    "/content/assets/caseStudies/gynoveda/03.png"
+  ],
+  "slug": "marketing-journey-migration"
+}

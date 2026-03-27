@@ -82,14 +82,14 @@ const sections = [
             <div className="min-h-screen">
         
                 {/* Header */}
-                <div className="mb-4 pb-0 border-b border-slate-200">
+                <div className="mb-4 pb-2 border-b border-slate-200">
                     <h1 className="section-title mb-2" style={typography.title.XXL}>
                         Privacy Policy For Attributics
                     </h1>
                 </div>
         
                 {/* Intro */}
-                <p className="section-description mb-16" style={typography.desc.Small}>
+                <p className="section-description mb-10 sm:mb-14 lg:mb-16" style={typography.desc.Small}>
                     At <span className="font-semibold text-slate-900">Attributics</span> (www.attributics.com), we are committed to ensuring that your privacy is protected. This Privacy Policy outlines how we collect, use, disclose, and safeguard your Personal Information when you visit our website or engage with our MarTech, data engineering, and digital strategy services.
                     <br />
                     <br />
@@ -98,25 +98,25 @@ const sections = [
                 </p>
         
                 {/* Sections */}
-                <div className="space-y-12">
+                <div className="space-y-10 sm:space-y-12">
                     {sections.map((section) => (
-                    <div key={section.number} className="flex gap-8 group">
+                    <div key={section.number} className="flex flex-col sm:flex-row gap-4 sm:gap-8 group">
                         {/* Number */}
-                        <div className="shrink-0 w-10 text-right">
+                        <div className="text-left sm:text-right sm:w-16 shrink-0">
                             <span className="section-eyebrow">
                                 {section.number}
                             </span>
                         </div>
         
                         {/* Divider */}
-                        <div className="shrink-0 bg-slate-200 group-first:bg-[#FF5A36]" />
+                        <div className="shrink-0 bg-brand h-px w-full sm:w-px sm:h-auto" />
         
                         {/* Content */}
-                        <div className="pb-12 flex-1">
+                        <div className="pb-8 sm:pb-10 lg:pb-12 flex-1">
                             <h2 className="section-title mb-3" style={typography.title.SM}>
                                 {section.title}
                             </h2>
-                            <p className="section-description0 mb-4" style={typography.desc.Small}>
+                            <p className="section-description mb-4" style={typography.desc.Small}>
                                 {section.content}
                             </p>
                             {section.list && (
@@ -130,7 +130,7 @@ const sections = [
                                 </ul>
                             )}
                             {section.contact && (
-                                <div className="section-description mt-4 p-4 bg-white rounded-xl border border-slate-100 !text-lg space-y-1">
+                                <div className="section-description mt-4 p-4 sm:p-5 bg-white rounded-xl border border-slate-100 !text-base sm:!text-lg space-y-1">
                                     <p>
                                         <span className="font-semibold text-slate-700">Email: </span>
                                         <a href="mailto:hello@attributics.com" className="!text-slate-500 hover:underline">

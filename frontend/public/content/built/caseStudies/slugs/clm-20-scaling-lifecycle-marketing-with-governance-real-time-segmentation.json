@@ -45,19 +45,43 @@
   "solution": [
     {
       "subtitle": "Lifecycle Governance & Control",
-      "description": "Establish centralized governance for messaging frequency, lifecycle priority, suppressions, and channel conflicts across all LOBs."
+      "description": "Establish centralized governance for messaging frequency, lifecycle priority, suppressions, and channel conflicts across all LOBs.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Establish centralized governance for messaging frequency, lifecycle priority, suppressions, and channel conflicts across all LOBs."
+        }
+      ]
     },
     {
       "subtitle": "Advanced Segmentation Strategy",
-      "description": "Replace static, manual segments with dynamic, behaviour- and intent-led segmentation across the CLM lifecycle."
+      "description": "Replace static, manual segments with dynamic, behaviour- and intent-led segmentation across the CLM lifecycle.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Replace static, manual segments with dynamic, behaviour- and intent-led segmentation across the CLM lifecycle."
+        }
+      ]
     },
     {
       "subtitle": "Reporting & Visibility",
-      "description": "Improve campaign performance monitoring with unified dashboards and faster access to insights."
+      "description": "Improve campaign performance monitoring with unified dashboards and faster access to insights.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Improve campaign performance monitoring with unified dashboards and faster access to insights."
+        }
+      ]
     },
     {
       "subtitle": "CLM Scalability",
-      "description": "Create a structured, scalable foundation to support future lifecycle orchestration and personalisation growth."
+      "description": "Create a structured, scalable foundation to support future lifecycle orchestration and personalisation growth.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Create a structured, scalable foundation to support future lifecycle orchestration and personalisation growth."
+        }
+      ]
     }
   ],
   "process": [

@@ -33,19 +33,43 @@
   "solution": [
     {
       "subtitle": "Customer Data Platform (CDP)",
-      "description": "A CDP was proposed to unify known and unknown donor data into a 'Donor 360' or 'Golden Record'. This enables deep segmentation and real-time activation based on donor behavior."
+      "description": "A CDP was proposed to unify known and unknown donor data into a 'Donor 360' or 'Golden Record'. This enables deep segmentation and real-time activation based on donor behavior.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A CDP was proposed to unify known and unknown donor data into a 'Donor 360' or 'Golden Record'. This enables deep segmentation and real-time activation based on donor behavior."
+        }
+      ]
     },
     {
       "subtitle": "Advertising Studio (AdStudio)",
-      "description": "Integrating Salesforce AdStudio allows UNICEF to use CRM data to power advertising at scale on platforms like Facebook and Google. This minimizes manual data transfers and connects advertising directly to the donor journey."
+      "description": "Integrating Salesforce AdStudio allows UNICEF to use CRM data to power advertising at scale on platforms like Facebook and Google. This minimizes manual data transfers and connects advertising directly to the donor journey.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Integrating Salesforce AdStudio allows UNICEF to use CRM data to power advertising at scale on platforms like Facebook and Google. This minimizes manual data transfers and connects advertising directly to the donor journey."
+        }
+      ]
     },
     {
       "subtitle": "Conversion Rate Optimization (CRO)",
-      "description": "Using tools like Optimizely, the plan includes multivariate testing for landing pages and sign-up flows. For example, testing different CTAs or pre-filled donation amounts (e.g., $60) to maximize funds without reducing conversion."
+      "description": "Using tools like Optimizely, the plan includes multivariate testing for landing pages and sign-up flows. For example, testing different CTAs or pre-filled donation amounts (e.g., $60) to maximize funds without reducing conversion.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Using tools like Optimizely, the plan includes multivariate testing for landing pages and sign-up flows. For example, testing different CTAs or pre-filled donation amounts (e.g., $60) to maximize funds without reducing conversion."
+        }
+      ]
     },
     {
       "subtitle": "Machine Learning (ML) Models",
-      "description": "Custom ML models on GCP were recommended to provide: • Lookalike Models: To find new donors similar to existing high-value supporters. • Propensity Scores: To predict the likelihood of a donor converting from a one-time 'Cash' gift to a recurring 'Pledge'. • Churn Models: To identify and re-engage dormant donors."
+      "description": "Custom ML models on GCP were recommended to provide: • Lookalike Models: To find new donors similar to existing high-value supporters. • Propensity Scores: To predict the likelihood of a donor converting from a one-time 'Cash' gift to a recurring 'Pledge'. • Churn Models: To identify and re-engage dormant donors.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Custom ML models on GCP were recommended to provide: • Lookalike Models: To find new donors similar to existing high-value supporters. • Propensity Scores: To predict the likelihood of a donor converting from a one-time 'Cash' gift to a recurring 'Pledge'. • Churn Models: To identify and re-engage dormant donors."
+        }
+      ]
     }
   ],
   "process": [

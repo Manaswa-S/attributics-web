@@ -18,11 +18,12 @@ const fadeUp = {
 
 const CTA = () => {
     return (
-        <Block xpad='large'>
-            <section className="grid grid-cols-1  lg:grid-cols-[6fr_10fr] gap-10 sm:gap-12 lg:gap-8 items-stretch">
+        <Block xpad='medium'>
+            
+            <section className="items-center justify-center grid grid-cols-1  lg:grid-cols-[6fr_10fr] gap-10 sm:gap-12 lg:gap-8 items-stretch">
 
                 {/* Left: Text */}
-                <div className="flex flex-col">
+                <div className="w-full h-full justify-center flex flex-col">
                     <motion.p
                         className="section-eyebrow mb-3 sm:mb-4"
                         variants={fadeUp}

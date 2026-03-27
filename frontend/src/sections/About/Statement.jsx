@@ -1,8 +1,6 @@
 import Block from '../../components/layout/Block';
 import { motion } from 'motion/react';
 
-const statementTitleSize = 'clamp(2.2rem, 1.05rem + 1.5vw, 2.2rem)';
-
 const Statement = () => {
     return (
         <Block xpad='large'>
@@ -45,7 +43,6 @@ import { typography } from '../../constants/global';
 
 const metricValueSize = 'clamp(2rem, 1.25rem + 2.2vw, 3rem)';
 const metricUnitSize = 'clamp(1.15rem, 0.95rem + 1vw, 1.8rem)';
-const metricLabelSize = 'clamp(1rem, 0.84rem + 0.35vw, 1rem)';
 const metricArrowSize = 'clamp(1rem, 0.85rem + 0.55vw, 1.4rem)';
 
 const Metrics = () => {

@@ -13,8 +13,8 @@ const Footer = () => {
               <div className="flex flex-col items-center md:items-start gap-8">
                 <div className="flex flex-col items-center md:items-start gap-4">
                     <Link to="/" className='flex flex-row'>
-                        <img src={brand.logo} alt="Logo" className="w-auto h-8" />
-                        <img src={brand.wordmark} alt={brand.name} className="w-auto h-8 invert" />
+                        <img src={brand.logoWordmarkWhite} alt="Logo" className="w-auto h-8" />
+                        {/* <img src={brand.wordmark} alt={brand.name} className="w-auto h-8 invert" /> */}
                     </Link>
                     <p className="section-eyebrow">
                       {brand.tagline}

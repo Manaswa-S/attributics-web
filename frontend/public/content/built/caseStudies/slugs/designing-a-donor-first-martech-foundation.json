@@ -1,0 +1,156 @@
+{
+  "featured": false,
+  "publishedAt": "",
+  "title": "Designing a Donor-First MarTech Foundation",
+  "subtitle": "Defining a future-state engagement architecture to unify donor data, improve personalization, and support long-term growth.",
+  "client": "UNICEF",
+  "role": "Global Growth Programme (GGP) Discovery",
+  "timeline": "",
+  "platform": "",
+  "industry": "Nonprofit / Fundraising & Donor Engagement",
+  "heroImage": "/content/assets/caseStudies/unicef/01.png",
+  "overview": [
+    "To strengthen the Global Growth Programme (GGP) at UNICEF, a comprehensive discovery was undertaken to design a more connected and scalable donor experience. The engagement focused on identifying technology gaps, assessing the current donor engagement ecosystem, and defining a future-state MarTech architecture that could support stronger personalization, better journey orchestration, and more effective donor growth.",
+    "The broader objective was to improve donor Life-Time Value (LTV) and reduce Customer Acquisition Cost (CAC) by creating a more unified, data-led engagement foundation across acquisition, retention, and loyalty journeys."
+  ],
+  "challenge": [
+    {
+      "subtitle": "Fragmented Donor Data",
+      "description": "Donor information was distributed across multiple systems including Stripe, CRM platforms, and campaign tools, limiting UNICEF’s ability to create a unified donor view and activate audiences consistently across channels."
+    },
+    {
+      "subtitle": "Experience Design Limitations",
+      "description": "The checkout flow and wider donor journey required redesign to reduce friction, strengthen personalization, and improve overall journey performance."
+    },
+    {
+      "subtitle": "Limited Omnichannel Activation",
+      "description": "Audience activation was not fully integrated across key channels, creating gaps in how donor engagement could be coordinated across digital, Email, WhatsApp, and Push."
+    },
+    {
+      "subtitle": "Global Payment Complexity",
+      "description": "Supporting donor transactions across multiple countries introduced payment orchestration challenges and added operational complexity to the donor experience."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "Attributics proposed a future-state, event-driven donor engagement architecture designed to unify donor intelligence, improve activation, and support more measurable growth across UNICEF’s donor lifecycle.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Attributics proposed a future-state, event-driven donor engagement architecture designed to unify donor intelligence, improve activation, and support more measurable growth across UNICEF’s donor lifecycle."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "At the core of the solution was a Customer Data Platform (CDP) that would act as the unification layer for known and anonymous donor data, creating a single donor view or Golden Record. This would strengthen identity resolution, improve segmentation accuracy, and enable real-time activation based on donor behaviour and engagement signals.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At the core of the solution was a Customer Data Platform (CDP) that would act as the unification layer for known and anonymous donor data, creating a single donor view or Golden Record. This would strengthen identity resolution, improve segmentation accuracy, and enable real-time activation based on donor behaviour and engagement signals."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "To improve audience activation, Salesforce AdStudio was identified as a strategic enabler for using CRM data more directly across paid media platforms such as Facebook and Google. This would reduce manual audience handling and create a tighter connection between media execution and the broader donor journey.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To improve audience activation, Salesforce AdStudio was identified as a strategic enabler for using CRM data more directly across paid media platforms such as Facebook and Google. This would reduce manual audience handling and create a tighter connection between media execution and the broader donor journey."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "To improve conversion performance, a structured Conversion Rate Optimization (CRO) capability supported by tools such as Optimizely was recommended. This would allow UNICEF to continuously test and optimize donation flows, landing page elements, call-to-action design, and suggested donation values while protecting donor experience.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To improve conversion performance, a structured Conversion Rate Optimization (CRO) capability supported by tools such as Optimizely was recommended. This would allow UNICEF to continuously test and optimize donation flows, landing page elements, call-to-action design, and suggested donation values while protecting donor experience."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "To support smarter donor acquisition, conversion, and retention, custom Machine Learning models on GCP were proposed. These included lookalike models for prospecting, propensity models for recurring donation conversion, and churn models to identify disengagement risk and support reactivation strategies.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To support smarter donor acquisition, conversion, and retention, custom Machine Learning models on GCP were proposed. These included lookalike models for prospecting, propensity models for recurring donation conversion, and churn models to identify disengagement risk and support reactivation strategies."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Discovery",
+      "description": "A detailed review of UNICEF’s existing donor ecosystem was conducted to understand current systems, engagement flows, and structural pain points across the donor journey."
+    },
+    {
+      "title": "Assessment",
+      "description": "Senior stakeholders across Paid Media, Data & Analytics, and Campaign Strategy were consulted to assess the operating environment, identify technology and process gaps, and define strategic priorities."
+    },
+    {
+      "title": "Future-State Architecture Drafting",
+      "description": "The current As-Is ecosystem was documented and used as the foundation for designing a more integrated To-Be donor engagement model with stronger data connectivity and activation capabilities."
+    },
+    {
+      "title": "Strategic Recommendation Development",
+      "description": "The future-state model was shaped around four key capability pillars — CDP, advertising enablement, CRO, and machine learning — to support better donor intelligence, activation, and performance."
+    },
+    {
+      "title": "Final Deliverable",
+      "description": "The engagement concluded with a transformation roadmap outlining the recommended technology direction, donor journey opportunities, and strategic use cases across acquisition, retention, and loyalty."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Strategic Capability Pillars Defined",
+      "value": "4"
+    },
+    {
+      "metric": "Donor-First Engagement Blueprint Defined",
+      "value": ""
+    },
+    {
+      "metric": "Unified Data Foundation Envisioned",
+      "value": ""
+    }
+  ],
+  "techStack": [
+    {
+      "title": "Proposed Customer Data Layer",
+      "description": "Customer Data Platform (CDP)"
+    },
+    {
+      "title": "Advertising Enablement",
+      "description": "Salesforce AdStudio"
+    },
+    {
+      "title": "Conversion Rate Optimization",
+      "description": "Optimizely"
+    },
+    {
+      "title": "Machine Learning Environment",
+      "description": "Google Cloud Platform (GCP)"
+    },
+    {
+      "title": "Payments / Donor Data Inputs",
+      "description": "Stripe, CRM systems, campaign tools"
+    },
+    {
+      "title": "Channels",
+      "description": "Digital, Email, WhatsApp, Push"
+    }
+  ],
+  "conclusion": [
+    "The UNICEF discovery engagement delivered a strategic blueprint for building a more integrated, data-led, and scalable donor engagement ecosystem. By identifying gaps in the current environment and defining a future-state donor-first architecture, Attributics helped establish a clearer path toward stronger personalization, better cross-channel activation, and more effective supporter journeys."
+  ],
+  "images": [
+    "/content/assets/caseStudies/unicef/02.png",
+    "/content/assets/caseStudies/unicef/03.png"
+  ],
+  "slug": "designing-a-donor-first-martech-foundation"
+}

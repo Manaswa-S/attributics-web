@@ -1,0 +1,151 @@
+{
+  "featured": false,
+  "publishedAt": "",
+  "readTime": "",
+  "title": "Building a Smarter CLM Engine for Member Engagement",
+  "subtitle": "Strengthening governance, audience strategy, and omnichannel execution to build a more connected and effective CLM foundation.",
+  "client": "Club Mahindra",
+  "role": "Customer Lifecycle Marketing (CLM)",
+  "timeline": "",
+  "platform": "",
+  "industry": "Hospitality & Memberships",
+  "heroImage": "/content/assets/caseStudies/clubM/01.png",
+  "isBrandedMetric": {
+    "value": "~15%",
+    "title": "CUSTOMER LTV IMPROVEMENT",
+    "description": "",
+    "image": "/content/assets/metrics/clubM.webp"
+  },
+  "overview": [
+    "As Club Mahindra’s memberships, resorts, and lines of business grew in complexity, the need for a more scalable Customer Lifecycle Marketing model became increasingly critical. While strong transactional and engagement data existed across EDW, CleverTap, SFMC, and booking systems, execution was constrained by fragmented governance, static segmentation, and delayed performance visibility.",
+    "Attributics was engaged to help shift the business from an execution-led CRM model to a more governed, data-driven lifecycle marketing framework by strengthening governance, redesigning segmentation strategy, and establishing unified visibility across campaigns and channels."
+  ],
+  "challenge": [
+    {
+      "subtitle": "Fragmented Governance",
+      "description": "With multiple lines of business, channels, and campaign teams operating independently, Club Mahindra lacked a central governance framework to manage message prioritisation, frequency, and channel coordination. This created overlap across campaigns and led to inconsistent member experiences."
+    },
+    {
+      "subtitle": "Static Segmentation",
+      "description": "Audience definitions were largely manual and updated infrequently, limiting their ability to reflect real member behaviour. As a result, campaigns were often delivered to broad segments rather than members at the most relevant lifecycle stage."
+    },
+    {
+      "subtitle": "Delayed Performance Insights",
+      "description": "Campaign reporting was fragmented across platforms and dependent on manual consolidation, reducing the team’s ability to monitor performance in real time and optimize quickly."
+    },
+    {
+      "subtitle": "Identity and Data Integrity Issues",
+      "description": "Implementation exposed profile unification challenges, with multiple identifiers such as mobile number, email ID, and device ID creating duplicate member records. In addition, identity mapping issues affected event-to-profile accuracy, weakening segmentation precision and targeting reliability."
+    },
+    {
+      "subtitle": "Platform Scalability Constraints",
+      "description": "Platform limits around journey volume and split-node complexity introduced design constraints that needed to be actively managed as lifecycle marketing scaled."
+    }
+  ],
+  "solution": [
+    {
+      "subtitle": "",
+      "description": "Attributics designed and implemented a structured CLM optimization model across four interconnected workstreams to improve control, sharpen targeting, and build a more scalable lifecycle marketing foundation.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Attributics designed and implemented a structured CLM optimization model across four interconnected workstreams to improve control, sharpen targeting, and build a more scalable lifecycle marketing foundation."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "A centralized governance framework was established to align lifecycle stages, messaging priorities, frequency controls, suppressions, and cross-channel coordination across lines of business. This created a shared operating model for lifecycle execution and reduced campaign overlap across teams.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A centralized governance framework was established to align lifecycle stages, messaging priorities, frequency controls, suppressions, and cross-channel coordination across lines of business. This created a shared operating model for lifecycle execution and reduced campaign overlap across teams."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "The segmentation strategy was reworked from static audience selection to a more dynamic, signal-led model driven by transactional, behavioural, and engagement data. Taxonomy and data inputs were standardized across platforms to improve audience consistency, targeting precision, and lifecycle relevance.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The segmentation strategy was reworked from static audience selection to a more dynamic, signal-led model driven by transactional, behavioural, and engagement data. Taxonomy and data inputs were standardized across platforms to improve audience consistency, targeting precision, and lifecycle relevance."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "The channel foundation was also expanded into a more integrated omnichannel structure across six communication channels, allowing both tactical campaigns and always-on lifecycle journeys to operate within a more coordinated engagement architecture.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The channel foundation was also expanded into a more integrated omnichannel structure across six communication channels, allowing both tactical campaigns and always-on lifecycle journeys to operate within a more coordinated engagement architecture."
+        }
+      ]
+    },
+    {
+      "subtitle": "",
+      "description": "To improve visibility and decision-making, a centralized reporting layer was introduced through unified dashboards, enabling teams to track campaign performance, customer movement across lifecycle stages, and deeper analytical views such as cohort performance and predictive audience trends.",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "To improve visibility and decision-making, a centralized reporting layer was introduced through unified dashboards, enabling teams to track campaign performance, customer movement across lifecycle stages, and deeper analytical views such as cohort performance and predictive audience trends."
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Governance Framework Design",
+      "description": "Lifecycle stages, member states, and messaging guardrails were defined to establish a shared operating model across teams and lines of business. This included frequency controls, channel prioritisation, and suppression logic."
+    },
+    {
+      "title": "Segmentation Restructuring",
+      "description": "Audience strategy was redesigned using behavioural, transactional, and engagement signals to move from manually refreshed segments to a more dynamic lifecycle-based model. Supporting taxonomy and data inputs were standardized across platforms."
+    },
+    {
+      "title": "Channel & Campaign Enablement",
+      "description": "Lifecycle communication was restructured across six channels to support a more integrated omnichannel approach. This allowed ad hoc campaigns and automated journeys to work together within a broader lifecycle framework."
+    },
+    {
+      "title": "Reporting & Visibility Layer",
+      "description": "A centralized reporting framework was developed to unify performance visibility across campaigns, lifecycle stages, and lines of business. This gave teams faster access to insights and a more connected view of CLM performance."
+    }
+  ],
+  "results": [
+    {
+      "metric": "Resort Occupancy Growth",
+      "value": "~8%"
+    },
+    {
+      "metric": "Customer LTV Improvement",
+      "value": "~15%"
+    }
+  ],
+  "techStack": [
+    {
+      "title": "Marketing Automation & Journey Orchestration",
+      "description": "CleverTap"
+    },
+    {
+      "title": "Email Marketing",
+      "description": "Salesforce Marketing Cloud (SFMC)"
+    },
+    {
+      "title": "Data Warehouse",
+      "description": "EDW (Enterprise Data Warehouse)"
+    },
+    {
+      "title": "Channels",
+      "description": "SMS, WhatsApp, Email, RCS, In-App, Webhook"
+    }
+  ],
+  "conclusion": [
+    "Through a structured, data-led transformation, Attributics enabled Club Mahindra to elevate its customer lifecycle marketing from a campaign-led function to a more governed, insight-driven growth engine. By establishing a centralized governance model, redesigning the segmentation approach, and creating unified visibility across performance, Club Mahindra gained stronger control over member communications. This led to reduced message fatigue, improved relevance across touchpoints, and a more scalable foundation for long-term lifecycle marketing effectiveness."
+  ],
+  "images": [
+    "/content/assets/caseStudies/clubM/02.png",
+    "/content/assets/caseStudies/clubM/03.png"
+  ],
+  "slug": "building-a-smarter-clm-engine-for-member-engagement"
+}

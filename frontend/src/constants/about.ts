@@ -220,6 +220,6 @@ export const getstarted = {
         'Engagement',
         'Conversion'
     ],
-    description: "Book a personalized demo with our experts and see how Attributics can revolutionize your customer lifecycle marketing.",
-    ctaText: 'Schedule Your Demo',
+    description: "Connect with our team to explore how Attributics can accelerate your customer lifecycle growth and help you make smarter, data-driven decisions.",
+    ctaText: 'Schedule A Call',
 }

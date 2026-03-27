@@ -55,7 +55,7 @@ const HeaderTwo = () => {
             >
                 <div className={`flex-1 flex justify-start`}>
                     <Link to="/">
-                        <img src={brand.wordmark} alt="Attributics Logo" className="w-auto h-8" />
+                        <img src={brand.logoWordmark} alt="Attributics Logo" className="w-auto h-7 md:h-8" />
                     </Link>
                 </div>
 

@@ -29,18 +29,116 @@ function PointList({ points }) {
   return (
     <ul className="flex flex-col gap-8 md:pl-6 pl-2 text-justify w-full">
       {points.map((point, i) => (
-        <li key={i} className="flex md:gap-8 gap-2">
-          <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
+        <li
+          key={i}
+          className={`flex ${point.subtitle ? 'md:gap-8 gap-2' : ''} ${!point.subtitle ? '-ml-2 md:-ml-6' : ''}`}
+        >
+          {point.subtitle && (
+            <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
+          )}
 
-          <div>
+          <div className="flex-1">
             {point.subtitle && (
               <p className="section-title mb-2" style={typography.title.SM}>{point.subtitle}</p>
             )}
-            <p className="section-description w-full text-justify" style={typography.desc.Small}>{point.description}</p>
+            <p className="section-description w-full text-justify" style={typography.desc.Small}>
+              {point.description}
+            </p>
           </div>
         </li>
       ))}
     </ul>
+  );
+}
+
+function getSolutionBlocks(item) {
+  if (Array.isArray(item?.blocks) && item.blocks.length > 0) {
+    return item.blocks;
+  }
+
+  const blocks = [];
+  const pushText = (text) => {
+    if (typeof text === 'string' && text.trim()) {
+      blocks.push({ type: 'text', text: text.trim() });
+    }
+  };
+  const pushPoints = (points) => {
+    if (!Array.isArray(points)) return;
+    const cleaned = points
+      .filter(point => typeof point === 'string' && point.trim())
+      .map(point => point.trim());
+    if (cleaned.length > 0) {
+      blocks.push({ type: 'points', items: cleaned });
+    }
+  };
+
+  const description = item?.description;
+  if (Array.isArray(description)) {
+    description.forEach(part => {
+      if (Array.isArray(part)) {
+        pushPoints(part);
+      } else {
+        pushText(part);
+      }
+    });
+  } else {
+    pushText(description);
+  }
+
+  if (Array.isArray(item?.points)) {
+    pushPoints(item.points);
+  }
+
+  return blocks;
+}
+
+function SolutionList({ items }) {
+  return (
+    <div className="flex flex-col gap-8 md:pl-6 pl-2 text-justify w-full">
+      {items.map((item, i) => {
+        const hasSubtitle = typeof item.subtitle === 'string' && item.subtitle.trim().length > 0;
+        const blocks = getSolutionBlocks(item);
+        return (
+          <div
+            key={i}
+            className={`flex ${hasSubtitle ? 'md:gap-8 gap-2' : ''} ${!hasSubtitle ? '-ml-2 md:-ml-6' : ''}`}
+          >
+            {hasSubtitle && (
+              <ChevronRight size={18} className="text-brand shrink-0 mt-1" />
+            )}
+
+            <div className="flex-1">
+              {hasSubtitle && (
+                <p className="section-title mb-2" style={typography.title.SM}>{item.subtitle}</p>
+              )}
+
+              <div className="flex flex-col gap-4">
+                {blocks.map((block, index) => {
+                  if (block.type === 'points') {
+                    return (
+                      <ul key={index} className="flex flex-col gap-2">
+                        {block.items.map((point, pIndex) => (
+                          <li key={pIndex} className="section-description flex items-start gap-3" style={typography.desc.Small}>
+                            <Dot size={24} className="text-brand shrink-0 ml-4"/>
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
+
+                  return (
+                    <p key={index} className="section-description w-full text-justify" style={typography.desc.Small}>
+                      {block.text}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -283,7 +381,7 @@ export default function CaseStudyDetail({ slug }) {
           {solutions && (
             <div className="md:mt-12 mt-8">
               <SectionHeading index={nextIdx()} label="The Solution" />
-              <PointList points={solutions} />
+              <SolutionList items={solutions} />
             </div>
           )}
 

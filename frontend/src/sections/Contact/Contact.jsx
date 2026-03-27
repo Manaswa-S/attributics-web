@@ -56,7 +56,6 @@ const ContactForm = () => {
                         {[
                             { Icon: Phone, text: audit.details.phone },
                             { Icon: Mail, text: audit.details.email },
-                            { Icon: MapPin, text: audit.details.location }
                         ].map((item, index) => (
                             <motion.div 
                                 key={index}

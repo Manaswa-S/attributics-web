@@ -57,95 +57,12 @@ const Team = () => {
     );
 };
 
-function LeadershipTeam({ teamMembers }) {
-    const [emblaRef, emblaApi] = useEmblaCarousel(
-        {
-            align: 'center',
-            loop: true,
-            dragFree: false,
-        },
-        [
-            Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true }),
-            WheelGestures({ forceWheelAxis: 'x', wheelSpeed: 1 }),
-        ]
-    );
-
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        if (typeof window === 'undefined') return;
-        const mq = window.matchMedia('(max-width: 767px)');
-        const update = () => setIsMobile(mq.matches);
-        update();
-        if (mq.addEventListener) {
-            mq.addEventListener('change', update);
-            return () => mq.removeEventListener('change', update);
-        }
-        mq.addListener(update);
-        return () => mq.removeListener(update);
-    }, []);
-
-    useEffect(() => {
-        if (!emblaApi) return;
-        const update = () => setActiveIndex(emblaApi.selectedScrollSnap());
-        update();
-        emblaApi.on('select', update);
-        emblaApi.on('reInit', update);
-        return () => {
-            emblaApi.off('select', update);
-            emblaApi.off('reInit', update);
-        };
-    }, [emblaApi]);
-
-    return (
-        <div className="overflow-hidden w-full  mask-fade-x" ref={emblaRef}  style={{"--fade": "10px"}}>
-            {/* lt-cards */}
-            <div className="flex flex-row pb-[32px] pt-[32px]" >
-                {teamMembers.map((member, idx) => {
-                    const isActive = !isMobile || idx === activeIndex;
-                    return (
-                        // lt-card
-                        <motion.div 
-                            key={idx}
-                            initial={{ opacity: 0.9, x: 3 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5}}
-                            className="mr-4 w-[280px] md:w-[320px] h-[420px] snap-center shrink-0 bg-[#F5F2EB] rounded-[2rem] p-8 flex flex-col relative overflow-hidden group"
-                        >
-                            <div className="flex justify-between items-start z-10 relative">
-                                <h3 className="section-title text-slate-900 w-1/2 leading-tight" style={{ fontSize: teamMemberNameSize, fontWeight: 600 }}>
-                                    {member.fname}<br/>
-                                    {member.lname}
-                                </h3>
-                                <span className="section-eyebrow text-slate-500" style={{ fontSize: teamMemberRoleSize, fontWeight: 600 }}>
-                                    {member.role}
-                                </span>
-                            </div>
-
-                            <div className="absolute inset-x-0 bottom-0 top-22">
-                            <img 
-                                src={member.img} 
-                                alt={member.name}
-                                loading='eager'
-                                className={`w-full h-full object-cover object-top mix-blend-multiply transition-all duration-500 ${
-                                    isMobile ? (isActive ? 'grayscale-0' : 'grayscale') : 'grayscale group-hover:grayscale-0'
-                                }`}
-                                referrerPolicy="no-referrer"
-                            />
-                            </div>
-                        </motion.div>
-                    );
-                })}
-            </div>
-        </div>
-    );
-}
-
 function LeadershipTeam2({ teamMembers }) {
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { align: 'start', loop: true, dragFree: true },
-        [Autoplay({ delay: 2000, stopOnMouseEnter: true, stopOnInteraction: false }),WheelGestures({ forceWheelAxis: 'x', wheelSpeed: 1 })]
+        [
+            Autoplay({ delay: 1500, stopOnMouseEnter: true, stopOnInteraction: false }),
+            WheelGestures({ forceWheelAxis: 'x', wheelSpeed: 1 })]
     );
 
     const [activeIndex, setActiveIndex] = useState(0);

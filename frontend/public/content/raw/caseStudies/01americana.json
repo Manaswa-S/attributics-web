@@ -3,124 +3,143 @@
 	"publishedAt": "2025-03-02",
 	"readTime": "",
 	"title": "CUSTOMER 360°: One Customer. One View. Every Brand. Every Market.",
-	"subtitle": "Unifying behavioral and transactional data into a scalable, insight-ready C360 platform for Americana Restaurants.",
-	"client": "Americana",
-	"role": "Data Engineering, Analytics Architecture, ETL Pipeline Design & Dashboarding",
+	"subtitle": "Enabling richer behavioral analysis, self-serve reporting, and more precise decision-making through a scalable Azure-based analytics platform.",
+	"client": "Americana Restaurants",
+	"role": "360-Degree Analytics & Visualization Platform",
 	"timeline": "",
-	"platform": "Azure Data Platform + Databricks + Power BI",
+	"platform": "",
 	"industry": "FoodTech / QSR",
 	"heroImage": "/content/assets/caseStudies/americana/01.png",
 	"isBrandedMetric": {
-		"value": "7.9B+",
-		"title": "Total Events Processed",
-		"description": "Club Mahindra set out to scale its Customer Lifecycle Marketing",
+		"value": "360°",
+		"title": "Customer View Enabled",
+		"description": "",
 		"image": "/content/assets/metrics/americana.webp"
 	},
 	"overview": [
-		"Americana Restaurants is the largest restaurant operator in the MENA region and Kazakhstan, managing a vast network of restaurants. With customer data streaming from various channels, including in-store POS systems and mobile/web applications, Americana faced significant challenges in converting this data into actionable insights. The data was fragmented across different platforms, making it difficult to get a comprehensive view of customer behavior and drive effective decision-making.",
-		"Attributics partnered with Americana to build a unified, scalable analytics platform, transforming data into insights that empower all teams to make faster, data-driven decisions. The solution leveraged a combination of Azure Blob Storage, Databricks, Power BI, and other modern data tools to create an efficient, end-to-end analytics solution.",
-		"The primary goal of the project was to gain a deeper understanding of customer behavior across brand markets and shift the conversation from sales to customer-centric insights. Americana aimed to leverage these insights to improve marketing effectiveness, increase profitability, and enhance customer engagement."
+		"Americana Restaurants, the largest restaurant operator in the MENA region and Kazakhstan, manages a large portfolio of brands across multiple markets and customer touchpoints. While the business had access to rich customer and transactional data from CRM platforms, transactional systems, and third-party aggregators, the information remained fragmented across multiple sources and markets, limiting visibility into customer behavior.",
+		"Attributics partnered with Americana Restaurants to architect and implement an end-to-end analytics and visualization platform that transformed siloed raw data into a unified, interactive source of truth. The objective was to help marketing, CRM, and leadership teams move beyond high-level sales reporting toward deeper, customer-centric analysis and faster, data-driven decision-making."
 	],
 	"challenge": [
 		{
-			"subtitle": "Data Silos",
-			"description": "Valuable customer transaction and behavioral data was spread across multiple platforms (CleverTap, in-store systems), limiting the ability to perform a holistic analysis of customer journeys."
+			"subtitle": "Extreme Data Fragmentation",
+			"description": "Each brand operated across multiple markets, and each market had separate CEP instances for behavioral data and separate transactional database instances. This created multiple disconnected silos, making it difficult to establish a unified customer view at the brand, market, and enterprise level."
 		},
 		{
-			"subtitle": "Lack of Descriptive Dashboards",
-			"description": "There were no intuitive visualizations of customer patterns or behaviors that could support data-driven marketing decisions."
+			"subtitle": "Fragmented Customer Journeys",
+			"description": "Behavioral and transactional data existed in separate systems, preventing holistic analysis of the end-to-end customer journey from app install to first transaction and repeat purchase."
 		},
 		{
-			"subtitle": "Need for Advanced Analysis",
-			"description": "Americana needed a solution that could handle complex customer segmentation by factors like purchase frequency, channel preferences, and reactivation rates."
+			"subtitle": "Complex Business Logic Requirements",
+			"description": "The business needed to segment users using contextual definitions that existing tools could not easily support. For example, identifying a customer as “New” depended on the specific brand, market, and channel rather than a single global flag."
+		},
+		{
+			"subtitle": "Lack of Actionable Dashboards",
+			"description": "There was limited ability to visualize advanced behavioral patterns such as dormant user reactivation, purchase frequency distribution, and cohort movement over time. This restricted the business’s ability to derive deeper, actionable insights."
+		},
+		{
+			"subtitle": "Manual and Time-Consuming Reporting",
+			"description": "Without an automated pipeline, reporting was slow and operationally intensive, making it difficult for teams to respond quickly to changing customer and market behavior."
 		}
 	],
 	"solution": [
 		{
-			"subtitle": "Unified Data Lake Architecture",
-			"description": "Designed a scalable data pipeline using Azure Blob Storage, Databricks, and Delta Tables to centralize and process data from multiple sources into a single analytics platform."
+			"subtitle": "",
+			"description": "Attributics designed and implemented a scalable analytics and visualization platform on the Microsoft Azure ecosystem, creating a robust pipeline for data ingestion, transformation, storage, and reporting."
 		},
 		{
-			"subtitle": "End-to-End ETL Pipeline",
-			"description": "Implemented ETL processes in Databricks to cleanse, transform, and enrich raw data, making it analytics-ready and consistent across all sources."
+			"subtitle": "",
+			"description": "At the orchestration layer, Azure Data Factory (ADF) was used to ingest raw data from CEP instances, transactional databases, and other operational sources into Azure Blob Storage. An additional SSIS layer in SSDT (Visual Studio 2022) standardized and combined market-level data before loading it into Blob Storage for downstream processing."
 		},
 		{
-			"subtitle": "Power BI Analytics Layer",
-			"description": "Built dynamic dashboards in Power BI using DirectQuery and Import modes to enable both real-time and historical reporting."
+			"subtitle": "",
+			"description": "The transformation layer was built on Azure Databricks, where complex ETL jobs were used to cleanse, enrich, and unify the data. During this stage, data was converted into Parquet format to improve storage efficiency and query performance."
 		},
 		{
-			"subtitle": "Advanced Customer Analytics",
-			"description": "Enabled cohort analysis, retention tracking, cross-channel behavior insights, and segmentation based on frequency, reactivation, and engagement patterns."
+			"subtitle": "",
+			"description": "The analytics-ready layer was then structured using Delta Tables in Azure Data Lake Storage (ADLS), providing a reliable Gold layer with ACID transactions, schema enforcement, and time-travel capabilities. This served as the single source of truth for reporting and analysis."
 		},
 		{
-			"subtitle": "Self-Service Business Intelligence",
-			"description": "Empowered business and marketing teams with interactive dashboards, reducing dependency on manual reporting and enabling faster, data-driven decisions."
+			"subtitle": "",
+			"description": "For visualization, Power BI was implemented using a hybrid access model. DirectQuery enabled live reporting through Databricks SQL, while Import Mode supported faster dashboard performance for historical and pre-aggregated analysis. Microsoft Entra ID integration ensured secure authentication and controlled access across users."
+		},
+		{
+			"subtitle": "",
+			"description": "This architecture enabled business teams to analyze customer behavior across brands, markets, channels, and cohorts in a much more contextual and actionable way."
 		}
 	],
 	"process": [
 		{
-			"title": "Data Ingestion (Bronze Layer)",
-			"description": "Ingested raw data from CleverTap and POS systems (SDM) into Azure Blob Storage in CSV format, establishing a centralized raw data repository."
+			"title": "Data Landscape Assessment",
+			"description": "The engagement began with a detailed review of Americana’s existing data ecosystem, including CEP instances, transactional databases, market-level systems, and reporting requirements across brands and regions."
 		},
 		{
-			"title": "Data Processing & Transformation (Silver Layer)",
-			"description": "Used Databricks to perform ETL operations, cleaning, transforming, and enriching data. Stored processed data in Delta Tables for optimized querying and scalability."
+			"title": "Architecture Design",
+			"description": "A scalable Azure-based architecture was designed to unify fragmented data sources, support advanced customer analytics, and enable both real-time and historical reporting."
 		},
 		{
-			"title": "Data Modeling & Storage",
-			"description": "Structured data into Delta Lake format to enable ACID transactions, time travel, and efficient large-scale analytics."
+			"title": "Data Ingestion & Transformation Setup",
+			"description": "ADF pipelines, SSIS packages, and Databricks transformation workflows were implemented to ingest, clean, standardize, and unify raw data from multiple operational systems."
 		},
 		{
-			"title": "Analytics & Visualization (Gold Layer)",
-			"description": "Connected Power BI to Databricks using DirectQuery for real-time insights and Import mode for historical analysis. Built dashboards for cross-channel, cross-brand, retention, and engagement metrics."
+			"title": "Gold Layer & Dashboard Enablement",
+			"description": "Analysis-ready data was structured in Delta Tables within ADLS, and Power BI dashboards were built to support descriptive, cohort-based, and behavioral analysis across multiple business dimensions."
 		},
 		{
-			"title": "Business Enablement",
-			"description": "Delivered self-service dashboards enabling teams to analyze customer behavior, track KPIs, and make faster, data-driven decisions without manual intervention."
+			"title": "Business Use Case Activation",
+			"description": "The platform was then used to enable high-value business use cases such as dormant customer reactivation, onboarding funnel optimization, and cross-brand loyalty analysis, allowing teams to connect data directly to decision-making and campaign action."
 		}
 	],
 	"results": [
 		{
-			"metric": "Total events processed",
-			"value": "7.9B+"
+			"metric": "Customer View Enabled",
+			"value": "360°"
 		},
 		{
-			"metric": "Total unique customers",
-			"value": "50.6M"
-		},
-		{
-			"metric": "Interactive reports",
-			"value": "17+"
+			"metric": "Automated Reporting Foundation Created",
+			"value": ""
 		}
 	],
 	"techStack": [
 		{
-			"title": "Data Storage",
-			"description": "Azure Blob Storage (CSV ingestion, Bronze layer)"
+			"title": "Data Orchestration",
+			"description": "Azure Data Factory (ADF)"
 		},
 		{
-			"title": "Data Processing & ETL",
-			"description": "Databricks (ETL pipelines, data transformation)"
+			"title": "Raw Storage",
+			"description": "Azure Blob Storage"
 		},
 		{
-			"title": "Data Lakehouse",
-			"description": "Delta Tables (ACID transactions, time travel, scalable analytics)"
+			"title": "Data Transformation",
+			"description": "Azure Databricks"
+		},
+		{
+			"title": "Analytics Storage",
+			"description": "Azure Data Lake Storage (ADLS), Delta Tables"
 		},
 		{
 			"title": "Data Format",
-			"description": "Parquet (columnar storage for performance and efficiency)"
+			"description": "Parquet"
 		},
 		{
-			"title": "Analytics & Visualization",
-			"description": "Power BI (DirectQuery for real-time, Import mode for historical reporting)"
+			"title": "Visualization & Reporting",
+			"description": "Power BI"
 		},
 		{
-			"title": "Data Sources",
-			"description": "CleverTap, POS Systems (SDM), Mobile & Web Applications"
+			"title": "Query Layer",
+			"description": "Databricks SQL"
+		},
+		{
+			"title": "Identity & Access",
+			"description": "Microsoft Entra ID"
+		},
+		{
+			"title": "Data Integration Layer",
+			"description": "SSIS, SSDT (Visual Studio 2022)"
 		}
 	],
 	"conclusion": [
-		"This project enabled Americana Restaurants to unlock the potential of its data, transforming it into valuable insights that drive customer-centric strategies. By integrating and processing data in a unified analytics platform, Americana was able to shift from siloed reporting to a more holistic view of customer behavior, ultimately empowering teams to make data-driven decisions that improved marketing effectiveness and business profitability."
+		"This engagement enabled Americana Restaurants to move from fragmented reporting environments to a more connected, customer-centric analytics model. By unifying data across brands, markets, and channels, Attributics helped establish a scalable platform that supports faster decisions, stronger marketing effectiveness, and deeper customer insight."
 	],
 	"images": [
 		"/content/assets/caseStudies/americana/02.png",

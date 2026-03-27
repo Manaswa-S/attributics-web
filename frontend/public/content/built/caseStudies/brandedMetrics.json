@@ -1,34 +1,34 @@
 [
   {
-    "client": "Americana",
+    "client": "Americana Restaurants",
     "slug": "customer-360-one-customer-one-view-every-brand-every-market",
     "image": "/content/assets/metrics/americana.webp",
-    "value": "7.9B+",
-    "title": "Total Events Processed",
-    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+    "value": "360°",
+    "title": "Customer View Enabled",
+    "description": ""
   },
   {
     "client": "Gynoveda",
-    "slug": "gynoveda-marketing-journey-migration",
+    "slug": "marketing-journey-migration",
     "image": "/content/assets/metrics/gynoveda.webp",
-    "value": "7.9B+",
-    "title": "Total Events Processed",
-    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+    "value": "50+",
+    "title": "Journeys Migrated",
+    "description": ""
   },
   {
     "client": "Truva",
-    "slug": "truva-from-fragmented-crm-data-to-unified-customer-engagement-through-zohonetcore-integration",
+    "slug": "transforming-fragmented-crm-data-into-unified-customer-engagement",
     "image": "/content/assets/metrics/truva.webp",
-    "value": "7.9B+",
-    "title": "Total Events Processed",
-    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+    "value": "4",
+    "title": "CORE CRM MODULES INTEGRATED",
+    "description": ""
   },
   {
     "client": "Club Mahindra",
-    "slug": "clm-20-scaling-lifecycle-marketing-with-governance-real-time-segmentation",
+    "slug": "building-a-smarter-clm-engine-for-member-engagement",
     "image": "/content/assets/metrics/clubM.webp",
-    "value": "7.9B+",
-    "title": "Total Events Processed",
-    "description": "Club Mahindra set out to scale its Customer Lifecycle Marketing"
+    "value": "~15%",
+    "title": "CUSTOMER LTV IMPROVEMENT",
+    "description": ""
   }
 ]

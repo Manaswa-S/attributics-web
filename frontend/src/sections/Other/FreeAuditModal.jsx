@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { X, ArrowRight, ChevronDown } from "lucide-react";
 import { typography } from "../../constants/global";
-import { formEndpoints } from "../../constants/contact";
 
 const WORKER_AUDIT_FORMS_URL = import.meta.env.VITE_WORKER_AUDIT_FORMS_URL;
 

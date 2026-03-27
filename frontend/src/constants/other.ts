@@ -1,9 +1,13 @@
 import Logo from '../assets/logo/AttributicsLogo.png';
 import Wordmark from '../assets/logo/AttributicsWordmark.png';
+import LogoWordmark from '../assets/logo/AttributicsLogoWordmark.png';
+import LogoWordmarkWhite from '../assets/logo/AttributicsLogoWordmark-White.png';
 
 export const brand = {
     logo: Logo,
     wordmark: Wordmark,
+    logoWordmark: LogoWordmark,
+    logoWordmarkWhite: LogoWordmarkWhite,
     name: 'Attributics Tech Pvt. Ltd.',
     tagline: 'AI-Powered Revenue Intelligence',
 }

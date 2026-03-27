@@ -1,22 +1,3 @@
-// FORM LINKS
-export const formEndpoints = {
-    freeAudit: 'audit',
-    career: 'career',
-}
-
-export const general = {
-    eyebrow: 'schedule a call',
-    headline: 'Get Started With Your',
-    highlighted: 'Journey.',
-    description: "From retention strategy to Agentic AI execution,  we help enterprises drive measurable lifecycle growth.",
-
-    details: {
-        phone: '+9176-5789-9382',
-        email: 'contact@attributics.com',
-        location: 'Pune, India - 411001',
-    }
-}
-
 export const audit = {
     eyebrow: 'schedule a call',
     headline: 'Get Started With Your',
@@ -24,9 +5,8 @@ export const audit = {
     description: "From retention strategy to Agentic AI execution,  we help enterprises drive measurable lifecycle growth.",
 
     details: {
-        phone: '+9176-5789-9382',
-        email: 'contact@attributics.com',
-        location: 'Pune, India - 411001',
+        phone: '+91-83900-00457',
+        email: 'consult@attributics.com',
     },
 
     metrics: [
@@ -41,7 +21,7 @@ export const audit = {
             tagline: 'Retention Uplift',
         },
         {
-            value: '10',
+            value: '30',
             unit: '+',
             tagline: 'Brands Transformed',
         }

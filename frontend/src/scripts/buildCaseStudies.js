@@ -20,6 +20,55 @@ function slugify(title) {
         .replace(/-+/g, "-");
 }
 
+function normalizeSolutionItems(solution) {
+    if (!Array.isArray(solution)) return solution;
+
+    const buildBlocks = (item) => {
+        const blocks = [];
+
+        const pushText = (text) => {
+            if (typeof text === "string" && text.trim()) {
+                blocks.push({ type: "text", text: text.trim() });
+            }
+        };
+
+        const pushPoints = (points) => {
+            if (!Array.isArray(points)) return;
+            const cleaned = points
+                .filter(point => typeof point === "string" && point.trim())
+                .map(point => point.trim());
+            if (cleaned.length > 0) {
+                blocks.push({ type: "points", items: cleaned });
+            }
+        };
+
+        const description = item?.description;
+        if (Array.isArray(description)) {
+            description.forEach(part => {
+                if (Array.isArray(part)) {
+                    pushPoints(part);
+                } else {
+                    pushText(part);
+                }
+            });
+        } else {
+            pushText(description);
+        }
+
+        if (Array.isArray(item?.points)) {
+            pushPoints(item.points);
+        }
+
+        return blocks.length > 0 ? blocks : null;
+    };
+
+    return solution.map((item) => {
+        if (!item || typeof item !== "object") return item;
+        const blocks = buildBlocks(item);
+        return blocks ? { ...item, blocks } : item;
+    });
+}
+
 const META_KEYS = [
     "slug",
     "featured",
@@ -53,7 +102,13 @@ files.forEach(file => {
         return;
     }
 
-    all.push({ ...raw, slug: slugify(raw.title) });
+    const normalized = {
+        ...raw,
+        solution: normalizeSolutionItems(raw.solution),
+        slug: slugify(raw.title),
+    };
+
+    all.push(normalized);
 });
 
 all.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));

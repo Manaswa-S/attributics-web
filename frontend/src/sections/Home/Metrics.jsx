@@ -28,10 +28,12 @@ const MetricCard = ({
         isMobile = false,
     }) => {
         const isExpanded = isMobile || expandedCard === index;
+        const Wrapper = study.readMoreLink ? 'a' : 'div';
   
     return (
-      <div
+      <Wrapper
         onMouseEnter={!isMobile ? () => setExpandedCard(index) : undefined}
+        href={study.readMoreLink || undefined}
         className={`
           relative rounded-md border border-[#747474] bg-white
           overflow-hidden p-2 flex transition-all duration-700 ease-in-out h-70 lg:h-75
@@ -90,15 +92,15 @@ const MetricCard = ({
               </p>
             </div>
             {study.readMoreLink && (
-              <a className="mt-4" href={study.readMoreLink}>
+              <div className="mt-4">
                 <p className="content-title" style={{ color: 'black' }}>
                   Read more →
                 </p>
-              </a>
+              </div>
             )}
           </div>
         </div>
-        </div>
+        </Wrapper>
     );
 };
   

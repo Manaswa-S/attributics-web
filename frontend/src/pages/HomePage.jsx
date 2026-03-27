@@ -32,10 +32,10 @@ const HomePage = () => {
         {/* <WhiteSpace height={whiteSpaceHeight} /> */}
         
         <Partners />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={biggerWhiteSpaceHeight} />
 
         <CTA />
-        <WhiteSpace height={whiteSpaceHeight} />
+        <WhiteSpace height={biggerWhiteSpaceHeight} />
 
         <Playbook />
         <WhiteSpace height={reducedWhiteSpaceHeight} />

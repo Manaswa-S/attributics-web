@@ -37,23 +37,53 @@
   "solution": [
     {
       "subtitle": "Retention",
-      "description": "PCOS, Jeehv, TULA, SOMHA, Haridrakhand (Hindi), Medohar, Iron Folic Acid, Calcium-VitaminD3, Menopause"
+      "description": "PCOS, Jeehv, TULA, SOMHA, Haridrakhand (Hindi), Medohar, Iron Folic Acid, Calcium-VitaminD3, Menopause",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "PCOS, Jeehv, TULA, SOMHA, Haridrakhand (Hindi), Medohar, Iron Folic Acid, Calcium-VitaminD3, Menopause"
+        }
+      ]
     },
     {
       "subtitle": "Win-back",
-      "description": "PCOS win-back at 30–45, 46–60, 61–75, and 76–90 day intervals (English + Hindi)"
+      "description": "PCOS win-back at 30–45, 46–60, 61–75, and 76–90 day intervals (English + Hindi)",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "PCOS win-back at 30–45, 46–60, 61–75, and 76–90 day intervals (English + Hindi)"
+        }
+      ]
     },
     {
       "subtitle": "Transactional",
-      "description": "Order Confirmation SMS, Order Placed WhatsApp, Clinic Post-Consultation Drip, Doctor Adherence Call"
+      "description": "Order Confirmation SMS, Order Placed WhatsApp, Clinic Post-Consultation Drip, Doctor Adherence Call",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Order Confirmation SMS, Order Placed WhatsApp, Clinic Post-Consultation Drip, Doctor Adherence Call"
+        }
+      ]
     },
     {
       "subtitle": "NPS & Surveys",
-      "description": "Product-specific NPS nudges and Repeat Purchase Survey across 8 SKUs"
+      "description": "Product-specific NPS nudges and Repeat Purchase Survey across 8 SKUs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Product-specific NPS nudges and Repeat Purchase Survey across 8 SKUs"
+        }
+      ]
     },
     {
       "subtitle": "Acquisition",
-      "description": "Abandon Cart, COS Communication, Jeehv JoinCOS, Cross-sell PCOS–Medohar"
+      "description": "Abandon Cart, COS Communication, Jeehv JoinCOS, Cross-sell PCOS–Medohar",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Abandon Cart, COS Communication, Jeehv JoinCOS, Cross-sell PCOS–Medohar"
+        }
+      ]
     }
   ],
   "process": [

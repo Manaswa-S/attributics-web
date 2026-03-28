@@ -5,6 +5,7 @@ import WhiteSpace from '../components/layout/WhiteSpace/WhiteSpace';
 // Lazy load about sections
 const Hero = lazy(() => import('../sections/Services/Hero'));
 const LogoCloud = lazy(() => import('../sections/Services/LogoCloud'));
+// const CTA = lazy(() => import('../sections/Home/Agentic'));
 
 const reducedWhiteSpaceHeight = '10vh';
 const whiteSpaceHeight = '15vh';

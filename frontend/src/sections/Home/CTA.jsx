@@ -1,11 +1,10 @@
 import Block from '../../components/layout/Block/Block';
-import Calendar from '../../components/Calendar/Calendar';
 import { motion } from 'motion/react';
 import { cta } from '../../constants/home';
 import { typography } from '../../constants/global';
 
 import { CheckCircle2 } from 'lucide-react';
-import CalCom from '../../components/CalCom/CalCom';
+// import CalCom from '../../components/CalCom/CalCom';
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -99,7 +98,7 @@ const CTA = () => {
                     transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
                     className="w-full flex flex-col"
                 >
-                    <CalCom />
+                    {/* <CalCom /> */}
                 </motion.div>
                 
             </section>

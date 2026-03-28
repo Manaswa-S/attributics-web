@@ -251,7 +251,7 @@ const Hero = () => {
                        
                       </div>
                       
-                      <AnimatePresence>
+                      <AnimatePresence initial={false}>
                         {hoveredIndex === idx && (
                           <motion.div
                             initial={{ height: 0, opacity: 0 }}

@@ -27,8 +27,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <ErrorBoundary>
-        {/* <ScrollToTop /> */}
-        <ScrollRestoration />
+        <ScrollToTop />
+        {/* <ScrollRestoration /> */}
         <div className="min-h-screen bg-white flex flex-col">
           <HeaderTwo />
           <main className="grow">

@@ -45,7 +45,7 @@ const App = () => {
               {/* 404 Catch-all route */}
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/privacy" element={<PrivacyPage />} />
-              <Route path="/reset" element={<ResetLocalStorage />} />
+              <Route path="/reset" element={<ResetLocalStorage clearAll={true} />} />
             </Routes>
           </main>
           <Footer />

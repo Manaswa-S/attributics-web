@@ -1,20 +1,23 @@
 import { useEffect } from "react";
 
-export default function ResetLocalStorage({ clearAll = false }) {
+export default function ResetStorage({ clearAll = true }) {
   useEffect(() => {
     if (clearAll) {
       localStorage.clear();
+      sessionStorage.clear();
     } else {
       const keys = [
         "caseStudyGate",
         // add more keys here as needed
       ];
-      keys.forEach((k) => localStorage.removeItem(k));
+      keys.forEach((k) => {
+        localStorage.removeItem(k);
+        sessionStorage.removeItem(k);
+      });
     }
 
-    // Go back one page immediately
     window.history.back();
   }, [clearAll]);
 
-  return null; // no UI
+  return null;
 }
